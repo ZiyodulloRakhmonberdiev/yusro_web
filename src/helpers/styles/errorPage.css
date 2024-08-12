@@ -1,0 +1,9 @@
+.error-page {
+	padding: 50px;
+	text-align: center;
+}
+
+.error-message {
+	position: fixed;
+	top: 20px;
+}

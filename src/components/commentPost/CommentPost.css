@@ -1,0 +1,61 @@
+.comment-post {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    height: max-content;
+    padding: 20px 0;
+}
+
+.comment-post .title {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comment-post .title h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.comment-post .title p {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--primary-lighter-color);
+}
+
+.comment-post form {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: start;
+}
+
+.comment-post form .form-group {
+    width: 100% !important;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+}
+
+.comment-post form .form-group input, textarea {
+    width: 100% !important;
+    background-color: aliceblue;
+}
+
+.comment-post form .form-group textarea {
+    width: 100%;
+}
+
+.comment-post form button {
+    color: var(--primary-color);
+    background-color: var(--primary-main-color);
+    padding: 10px 35px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+}

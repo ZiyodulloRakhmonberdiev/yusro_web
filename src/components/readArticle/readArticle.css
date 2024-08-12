@@ -1,0 +1,214 @@
+.read-article {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: 100%;
+}
+
+.read-article .container {
+    display: flex;
+    gap: 30px;
+    align-items: start;
+    justify-content: space-between;
+    padding-top: 50px;
+}
+
+.read-article .container .article-info {
+    width: 60%;
+}
+
+
+.read-article .container .item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+}
+
+.read-article .container .article-item {
+    width: 100%;
+    display: flex !important;
+    align-items: start !important;
+    flex-direction: row;
+    justify-content: start;
+    gap: 15px;
+}
+
+.read-article .container .item .header-image {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    border-radius: 8px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.read-article .container .item .header-image span {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px;
+    background-color: var(--primary-main-color);
+    color: var(--primary-color);
+    border-radius: 5px;
+}
+
+.read-article .container .item .header-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.read-article .container .item .header-image iframe {
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.read-article .container .item .play-icon-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    animation: pulse 1.5s infinite;
+}
+
+.play-icon-wrapper i {
+    color: var(--primary-main-color) !important;
+    font-size: 32px !important;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+.read-article .container .item .header-title {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.read-article .container .item .header-title .tags,
+.author,
+.comments,
+.views {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.read-article .container .item .header-title i {
+    color: var(--primary-main-color);
+    font-size: 18px;
+}
+
+.read-article .container .item .header-title span {
+    color: var(--secondary-color);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.read-article .container .item .info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.read-article .container .item .info .title {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.read-article .container .item .info .intro-text {
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    height: max-content;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.read-article .container .item .info .intro-text i {
+    font-size: 32px;
+    color: var(--primary-main-color);
+    cursor: auto;
+}
+
+.read-article .container .item .info .intro-text p {
+    color: var(--secondary-color);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.read-article .container .item .info .intro-text span {
+    color: var(--primary-main-color);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.read-article .container .item .info .description {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-lighter-color);
+    font-weight: 400;
+    line-height: 25px;
+}
+
+.read-article .container .item .extra-info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.read-article .container .item .extra-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.read-article .container .item .extra-info p i {
+    color: var(--primary-main-color);
+    font-size: 20px;
+}
+
+.read-article .container .item .extra-info span {
+    color: var(--secondary-color);
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.read-article .blog-post {
+    display: flex;
+    /* flex-direction: column; */
+}

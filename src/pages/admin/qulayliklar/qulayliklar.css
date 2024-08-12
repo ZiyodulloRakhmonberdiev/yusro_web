@@ -1,0 +1,24 @@
+.qulayliklar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.qulayliklar .main-section {
+    width: 100% !important;
+    height: 100%;
+    flex-grow: 1;
+    flex: 1;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: end;
+}
+
+.qulayliklar .main-section .items {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+}

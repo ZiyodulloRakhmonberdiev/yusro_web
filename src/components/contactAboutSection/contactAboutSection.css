@@ -1,0 +1,82 @@
+.contact-us-about .about {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	max-width: 500px;
+}
+
+.contact-us-about .about .main-title {
+	font-size: 36px;
+	font-weight: 600;
+}
+
+.contact-us-about .about p {
+	color: var(--secondary-color);
+	font-weight: 300;
+	padding: 20px 0;
+}
+
+.contact-us-about .about .we-results .we-result img {
+	width: 50px;
+}
+
+.contact-us-about .about .answers-to-questions img{
+	width: 50px;
+}
+
+.contact-us-about .we-results {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.contact-us-about .we-result {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.contact-us-about .we-result .we-result-about {
+	display: flex;
+	flex-direction: column;
+}
+
+.contact-us-about .we-result .we-result-about p {
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.contact-us-about .answers-to-questions {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.contact-us-about .answers-to-questions .wrapper p{
+	color: var(--secondary-color);
+	font-weight: 400;
+}
+
+.contact-us-about .answers-to-questions .wrapper span {
+	color: #F2A826;
+	font-size: 24px;
+	font-weight: 600;
+}
+
+@media (max-width: 970px) {
+	.contact-us-about {
+		padding: 0 20px;
+	}
+	.contact-us-about .about {
+		max-width: 100%;
+	}
+	.contact-us-about .container {
+		width: 100%;
+	}
+}
+@media (max-width: 640px) {
+	.contact-us-about .about .main-title {
+		font-size: 24px;
+		text-align: start;
+	}
+}

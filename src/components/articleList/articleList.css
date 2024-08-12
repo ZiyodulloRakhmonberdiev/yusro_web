@@ -1,0 +1,128 @@
+.article-lists {
+    display: flex;
+    align-items: start;
+    height: 100%;
+}
+
+.article-lists .items {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    align-items: start;
+}
+
+.article-lists .items .item {
+    width: 100%;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+}
+
+.article-lists .items .item .header-image {
+    width: 100%;
+    border-radius: 8px;
+    position: relative;
+	display: inline-block;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.article-lists .items .item .header-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.article-lists .items .item .header-image iframe {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.article-lists .items .item .play-icon-wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	background-color: var(--primary-color);
+	animation: pulse 1.5s infinite;
+}
+
+.play-icon-wrapper i {
+	color: var(--primary-main-color) !important;
+	font-size: 32px !important;
+}
+
+@keyframes pulse {
+	0% {
+		transform: translate(-50%, -50%) scale(1);
+		opacity: 1;
+	}
+
+	50% {
+		transform: translate(-50%, -50%) scale(1.2);
+		opacity: 0.7;
+	}
+
+	100% {
+		transform: translate(-50%, -50%) scale(1);
+		opacity: 1;
+	}
+}
+
+.article-lists .items .item .header-title {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.article-lists .items .item .header-title .tags, .author, .comments, .views {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.article-lists .items .item .header-title i {
+    color: var(--primary-main-color);
+    font-size: 18px;
+}
+
+.article-lists .items .item .header-title span {
+    color: var(--secondary-color);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.article-lists .items .item .info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.article-lists .items .item .info .title {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.article-lists .items .item .info .description {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-lighter-color);
+    font-weight: 400;
+}
+
+.article-lists .items .item .info a {
+    color: var(--primary-main-color);
+    font-size: 16px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}

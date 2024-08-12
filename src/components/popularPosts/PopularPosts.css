@@ -1,0 +1,102 @@
+.popular-posts {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.popular-posts .search-post {
+    width: 100%;
+    background-color: var(--third-color);
+    color: var(--secondary-color);
+    padding: 15px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.popular-posts .search-post input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    width: 90%;
+    height: 100%;
+}
+
+.popular-posts .items {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    height: 325px;
+    overflow-y: auto;
+}
+
+.popular-posts .items::-webkit-scrollbar {
+	width: 5px;
+	overflow: hidden;
+}
+
+.popular-posts .items::-webkit-scrollbar-thumb {
+	background-color: var(--primary-main-color);
+	border-radius: 10px;
+}
+
+.popular-posts .items::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 10px;
+
+}
+
+.popular-posts .items .title {
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.popular-posts .items .item  {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--primary-lighter-color);
+    cursor: pointer;
+}
+
+
+.popular-posts .items .item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.popular-posts .items .item iframe {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.popular-posts .items .item .info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.popular-posts .items .item .info .name {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.popular-posts .items .item .info span {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--primary-main-color);
+}

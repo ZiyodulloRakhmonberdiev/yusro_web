@@ -1,0 +1,81 @@
+.login-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+.login-container .title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.login-container .title span {
+    color: var(--primary-main-color);
+    font-size: 36px;
+}
+
+.form-container {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 10px;
+    border-radius: 8px 8px 0 0;
+    background-color: var(--primary-color);
+    border-top: 3px solid var(--primary-main-color);
+    overflow: hidden;
+}
+
+.form-container .logo {
+    width: 200px;
+}
+
+.form-container .logo img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.form-container form {
+    width: 100%;
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form-container form input{
+    /* border: 1px solid var(--primary-lighter-color) !important; */
+    background-color: #f1f1f1;
+    border-radius: 2px !important;
+    padding: 10px !important;
+    margin-top: 5px;
+}
+
+.form-container form button {
+    border: none;
+    border-radius: 2px;
+    color: var(--primary-color);
+    background-color: var(--primary-main-color);
+    padding: 10px;
+}
+
+.admin-panel-error {
+    color: red;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+} 
+
+.error-input {
+    border: 1px solid red !important;
+}

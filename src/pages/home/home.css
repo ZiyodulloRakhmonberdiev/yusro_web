@@ -1,0 +1,188 @@
+.home {
+	position: relative;
+}
+
+.agency-about {
+	width: 100%;
+	padding: 150px 0;
+	background-image: url('../../images/pictures/img 1.jpg');
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin-top: 140px;
+	position: relative;
+	overflow: hidden;
+	/* background-attachment: fixed; */
+}
+
+.agency-about::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 1;
+}
+
+.agency-about .container {
+	width: 100%;
+	height: 80%;
+	position: relative;
+	z-index: 2;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	align-items: start;
+	justify-content: center;
+	padding: 0 20px;
+}
+
+.agency-about .container span {
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--primary-color);
+}
+
+.agency-about .container h1 {
+	color: var(--primary-color);
+	font-size: 48px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.agency-about .container a {
+	border: none;
+	padding: 15px 35px;
+	color: var(--primary-color);
+	background-color: var(--primary-main-color);
+	border-radius: 8px;
+	transition: 0.3s ease;
+}
+
+.agency-about .container a:hover {
+	background-color: #058b43;
+}
+
+.agency-experience2 {
+	padding-top: 100px;
+	display: flex;
+	gap: 70px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.agency-experience2 .image {
+	position: relative;
+}
+
+.agency-experience2 .image .image-wrapper img {
+	width: 500px;
+}
+
+.agency-experience2 .image .for-wrapper {
+	position: absolute;
+	width: 330px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* contact */
+.contact-us .container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.contact-us {
+	padding: 50px 0;
+	position: relative;
+	margin: 10px auto;
+	z-index: 100;
+	background-color: #fff;
+}
+
+.contact-us::before,
+.contact-us::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 50%;
+	z-index: -1;
+}
+
+.contact-us::before {
+	left: 0;
+	background: url('../../images/pictures/patern 1.png') no-repeat top left;
+	background-size: cover;
+}
+
+.contact-us::after {
+	background: url('../../images/pictures/img 9.jpg') no-repeat top right;
+	right: 0;
+	background-size: cover;
+}
+
+@media (max-width: 1120px) {
+	.agency-experience2 {
+		gap: 20px;
+	}
+
+	.agency-experience2 .image {
+		display: none;
+	}
+}
+
+@media (max-width: 970px) {
+	.contact-us::after{
+		background: transparent;
+	}
+	.contact-us .container {
+		flex-direction: column;
+	}
+	.contact-us::before {
+		width: 100%;
+	}
+}
+
+@media (max-width: 850px) {
+	header {
+		background-color: transparent;
+	}
+
+	.agency-about {
+		margin-top: 80px;
+		padding: 100px 0;
+	}
+}
+
+@media (max-width: 650px) {
+	header {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 40px;
+	}
+
+	.agency-about {
+		margin-top: 40px;
+	}
+
+	.agency-about .container h1 {
+		font-size: 36px;
+	}
+}
+
+@media (max-width: 450px) {
+	.agency-about .container h1 {
+		font-size: 32px;
+	}
+
+	.agency-about .container a {
+		padding: 10px 25px;
+	}
+}

@@ -1,0 +1,169 @@
+.contact-page .container {
+    width: 100%;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-page .container .contact-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.contact-page .container .contact-wrapper .contact-info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-page .container .contact-wrapper .contact-info .title p {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.contact-page .container .contact-wrapper .contact-info .details {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+}
+
+.contact-page .container .contact-wrapper .contact-info .details .detail {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.contact-page .container .contact-wrapper .contact-info .details .detail img {
+    width: 30px;
+}
+
+.contact-page .container .contact-wrapper .contact-info .details .detail .about {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.contact-page .container .contact-wrapper .contact-info .details .detail .about span {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+.contact-page .container .contact-wrapper .contact-info .details .detail .about p {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--primary-lighter-color);
+}
+
+.contact-page .contact-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    background-color: aliceblue;
+    border-radius: 8px;
+    margin-bottom: 50px;
+}
+
+.contact-page .contact-form h2 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.contact-page .contact-form form {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-page .contact-form form .form-group {
+    display: flex;
+    gap: 20px;
+}
+
+.contact-page .contact-form .form-group textarea {
+    resize: vertical;
+    padding-bottom: 20px;
+    font-family: 'Montserrat', 'sans-serif';
+}
+
+.contact-page .contact-form form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-main-color);
+    font-size: 16px;
+    color: var(--primary-color);
+    padding: 10px 35px;
+    max-width: 200px;
+}
+
+.contact-wrapper .map-container .map{
+    width: 500px !important;
+    height: 350px !important;
+ }
+
+@media (max-width: 1120px) {
+     .contact-wrapper .map-container .map{
+        width: 400px !important;
+        height: 300px !important;
+     }
+}
+@media (max-width: 850px) {
+     .contact-wrapper .map-container .map{
+        width: 300px !important;
+        height: 300px !important;
+     }
+}
+@media (max-width: 750px) {
+    .contact-wrapper .contact-info .title p{
+        font-size: 25px !important;
+    }
+     .contact-wrapper .map-container .map{
+        width: 300px !important;
+        height: 300px !important;
+     }
+}
+@media (max-width: 650px) {
+    .contact-form .form-group {
+        
+        flex-direction: column;
+    }
+     .contact-wrapper .map-container .map{
+        width: 300px !important;
+        height: 300px !important;
+     }
+}
+@media (max-width: 430px) {
+    .contact-form h2 {
+        font-size: 24px !important;
+    }
+}
+
+@media (max-width: 615px) {
+    .contact-wrapper .contact-info .title p{
+        font-size: 25px !important;
+    }
+    .contact-wrapper {
+        flex-direction: column;
+        width: 100%;
+    }
+    .contact-wrapper .contact-info {
+        width: 100% !important;
+    }
+     .contact-wrapper .map-container .map{
+        width: 100% !important;
+        height: 300px !important;
+     }
+}

@@ -1,0 +1,22 @@
+.ui-input {
+    width: 100%;
+}
+
+.ui-input input, textarea {
+    width: 100%;
+    font-size: 14px;
+    padding: 15px 10px;
+    border: none;
+    border-radius: 5px;
+    color: var(--secondary-color);
+    font-family: 'Montserrat', 'sans-serif';
+}
+
+.error-input {
+    border: 1px solid red !important;
+    color: var(--secondary-color);
+}
+
+.error-input::placeholder {
+    color: red;
+}
