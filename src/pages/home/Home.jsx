@@ -17,14 +17,14 @@ function Home() {
 		<div className='home'>
 			<div className="agency-about">
 				<div className="container">
-					<span>Haj & umra turizm agentligi</span>
+					<span>HAJ & UMRA TURIZM AGENTLIGI</span>
 					<h1>yusro agentligining <br />rasmiy sahifasiga <br /> xush kelibsiz!</h1>
 					<Link to='/packages'>Bizning paketlarimiz</Link>
 				</div>
 			</div>
 			{/* category */}
 			<Category />
-
+ 
 			{/* experience */}
 			<div className="agency-experience2 container">
 				<div className="image">

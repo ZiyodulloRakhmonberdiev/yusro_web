@@ -15,7 +15,7 @@ function Category() {
     return (
         <div className='category'>
             <div className="container">
-                <Title img={images.kabah} title="Bizning takliflar" description="Biz sizga ishonchli bo'lgan xizmatlarni taklif qilamiz" />
+                {/* <Title img={images.kabah} title="Bizning takliflar" description="Biz sizga ishonchli bo'lgan xizmatlarni taklif qilamiz" /> */}
                 <div className="cards">
                     {
                         loading ? <Loader /> : error ? <NotAvailable name={error.message}/> : <>

@@ -136,7 +136,7 @@
 	cursor: pointer !important;
 }
 
-.sidebar-footer .by-phonenumber {
+.sidebar-footer .by-contact {
 	height: 60px;
 	display: flex !important;
 	align-items: center;
@@ -147,21 +147,21 @@
 	border-radius: 10px;
 }
 
-.sidebar-footer .by-phonenumber .about span {
+.sidebar-footer .by-contact .about span {
 	font-size: 14px;
 	color: var(--primary-color);
 }
 
-.sidebar-footer .by-phonenumber img {
+.sidebar-footer .by-contact img {
 	width: 30px;
 	height: 30px;
 }
 
-.sidebar-footer .by-phonenumber .about p {
+.sidebar-footer .by-contact .about p {
 	font-weight: 500;
 }
 
-.sidebar-footer .by-emailadress {
+.sidebar-footer .by-contact {
 	display: flex !important;
 	align-items: center;
 	height: 50px;
@@ -172,16 +172,16 @@
 	gap: 20px;
 }
 
-.sidebar-footer .by-emailadress .about span {
+.sidebar-footer .by-contact .about span {
 	font-size: 14px;
 	color: var(--primary-color);
 }
 
-.sidebar-footer .by-emailadress .about p {
+.sidebar-footer .by-contact .about p {
 	font-weight: 500;
 }
 
-.sidebar-footer .by-emailadress img {
+.sidebar-footer .by-contact img {
 	width: 30px;
 	height: 30px;
 }

@@ -85,18 +85,18 @@ function RootLayout() {
 							<Link className="logo">
 								<img src={images.logo} alt="" />
 							</Link>
-							<div className="by-phonenumber">
+							<div className="by-contact">
 								<img src={images.phoneLogo} alt="" />
 								<div className="about">
 									<span>Hoziroq bizga qo'ng'iroq qiling</span>
-									<p>+998 (88) 511 11 66</p>
+									<a href="tel:998885111166">+998 (88) 511 11 66</a>
 								</div>
 							</div>
-							<div className="by-emailadress">
+							<div className="by-contact">
 								<img src={images.messageLogo} alt="" />
 								<div className="about">
 									<span>Email manzilimiz</span>
-									<p>admin@yusro.uz</p>
+									<a href="mailto:admin@yusro.uz">admin@yusro.uz</a>
 								</div>
 							</div>
 							<div className="search-wrapper">
@@ -112,10 +112,10 @@ function RootLayout() {
 							</div>
 						</div>
 						<div className="navbar">
-							<Link to='/' className="active">Bosh safiha</Link>
+							<Link to='/' className="active">Bosh sahifa</Link>
 							<Link to='/packages'>Paketlar</Link>
 							<Link to='/blog'>Blog</Link>
-							<Link to='/video-content'>Video kontent</Link>
+							<Link to='/video-content'>Media</Link>
 						</div>
 					</div>
 				</section>
@@ -180,7 +180,7 @@ function RootLayout() {
 								</div>
 							</div>
 							<div className="clip">
-								<div className="title">Lahalar</div>
+								<div className="title">Lavhalar</div>
 								<div className="images">
 									<img src={images.nabwi2} alt="" />
 									<img src={images.nabwi2} alt="" />

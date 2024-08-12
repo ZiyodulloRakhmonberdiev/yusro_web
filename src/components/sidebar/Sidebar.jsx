@@ -38,14 +38,14 @@ function Sidebar({ active, setActive }) {
                     <img src={images.youtubeLogo} alt="" onClick={handleLinkClick} />
                     <span></span>
                 </div>
-                <div className="by-phonenumber">
+                <div className="by-contact">
                     <img src={images.phoneLogo} alt="" />
                     <div className="about">
                         <span>Hoziroq bizga qo'ng'iroq qiling</span>
                         <p>+998 (88) 511 11 66</p>
                     </div>
                 </div>
-                <div className="by-emailadress">
+                <div className="by-contact">
                     <img src={images.messageLogo} alt="" />
                     <div className="about">
                         <span>Email manzilimiz</span>
