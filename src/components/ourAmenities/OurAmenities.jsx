@@ -16,17 +16,17 @@ function OurAmenities() {
                     <div className="cards">
                         <div className="card">
                             <img src={images.kabah} alt="" />
-                            <p>Umra <span>(Ro'yxatdan O'tish)</span></p>
+                            <p>Umra <span>(Ro'yxatdan o'tish)</span></p>
                             <i className="fa-solid fa-arrow-right"></i>
                         </div>
                         <div className="card card2">
                             <img src={images.mosque2} alt="" />
-                            <p>35% Chegirmali Paket</p>
+                            <p>35% Chegirmali paket</p>
                         </div>
                     </div>
                 </div>
 
-                <div style={{ paddingTop: "80px" }}>
+                <div style={{ paddingTop: "120px" }}>
                     <Title img={images.kabah} title="Qulayliklarimiz" description="Haj va Umra ziyoratlarini birlashtirishda yuqori tajribaga ega" />
                 </div>
 
@@ -34,7 +34,7 @@ function OurAmenities() {
                     {loading ? <Loader /> : error ? <NotAvailable name={error.message}/> : data && data.length > 0 ? data.map(data => (
                         <div key={data.id} className="amenity-card">
                             <img src={data.image_path} alt='empty' className="amenity-image" />
-                            <p>{data.description}</p>
+                            <p>{data.description}</p>  
                         </div>
                     )) : <NotAvailable name="Ma'lumot mavjud emas"/>}
                 </div>

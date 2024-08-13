@@ -1,12 +1,13 @@
 import './agencyExperience.css'
 import images from './../../images/index';
+import nabawi from "./assets/images/nabawi.jpg"
 
 function AgencyExperience() {
 	return (
 		<div className='agency-experience container'>
 			<div className="images">
 				<div className="nabwi1-wrapper">
-					<img src={images.nabwi1} alt="" className='nabwi1' />
+					<img src={nabawi} alt="nabawi" className='nabwi1' />
 				</div>
 				<div className='grid-image-wrapper'>
 					<div className="sign1-wrapper">
