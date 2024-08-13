@@ -67,6 +67,7 @@ function ContactUs() {
 				) : (
 					<>
 						<h2 className='title'>Hoziroq ro'yxatdan o'ting</h2>
+						<p>va chegirmaga ega bo'ling</p>
 						<form onSubmit={handleSubmit}>
 							<UiInput
 								type='text'

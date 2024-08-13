@@ -1,31 +1,42 @@
 .agency-experience {
 	padding: 100px 0;
 	display: flex;
-	gap: 20px;
+	column-gap: 120px;
 }
 
 .agency-experience .images {
 	display: flex;
-	gap: 20px;
+	gap: 30px;
 	align-items: center;
 	justify-content: center;
 	flex: 1;
+	min-height: 600px;
 }
 
-.agency-experience .images img {
+.images .nabawi-wrap img{
+	height: 420px;
+	width: 250px;
+	object-fit: cover;
+}
+.images img {
 	width: 100%;
-	height: auto;
 }
 
 .grid-image-wrapper {
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 30px;
+	height: 100%;
+	justify-content: center;
 }
 
 .agency-experience .images .sign1-wrapper {
 	background-image: url('../../images/pictures/patern 1.png');
 	position: relative;
+	padding: 35px 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .agency-experience .images .sign1-wrapper::before {
@@ -35,24 +46,25 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(67, 170, 97, 0.8);
+	background-color: rgba(34, 124, 37, 0.9);
 	z-index: 1;
 }
 
 .agency-experience .images .sign1-wrapper h1 {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
 	z-index: 2;
 	color: var(--primary-color);
-	font-weight: 600;
+	font-weight: 500;
 	font-size: 28px;
 }
 
-.agency-experience .images .nabwi2-wrapper {
+.images .nabwi2-wrapper {
 	position: relative;
 	display: inline-block;
+	min-height: 270px;
+}
+
+.images .nabwi2-wrapper img{
+	height: 100%;
 }
 
 .agency-experience .images .nabwi2-wrapper .play-icon-wrapper {
@@ -99,14 +111,19 @@
 
 
 .agency-experience .about {
-	flex: 1;
 	display: flex;
+	flex: 1;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 }
 
 .agency-experience .main-title {
 	text-align: left;
+	max-width: 470px;
+	padding-top: 0;
+	display: flex;
+	align-self: start;
 }
 
 .agency-experience .main-title h1 {
@@ -129,6 +146,7 @@
 
 .agency-experience .experience {
 	position: relative;
+	margin-top: 40px;
 }
 
 .agency-experience .experience .about {
@@ -148,7 +166,7 @@
 
 
 .agency-experience .experience .about h1 {
-	color: var(--primary-main-color);
+	color: var(--secondary-color);
 	font-size: 48px;
 	margin: 0;
 }
@@ -166,9 +184,13 @@
 
 .agency-experience .experience-about li {
 	display: flex;
-	align-items: center;
+	align-items: start;
 	gap: 10px;
 	font-size: 16px;
+	font-weight: bolder;
+}
+
+.experience-about li span{
 	color: var(--secondary-color);
 }
 
@@ -185,7 +207,7 @@
 		flex-direction: row;
 	}
 
-	.nabwi1-wrapper {
+	.nabawi-wrap {
 		display: none;
 	}
 
