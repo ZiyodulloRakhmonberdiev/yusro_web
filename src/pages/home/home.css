@@ -10,6 +10,7 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	margin-top: 160px;
+	background-attachment: fixed;
 	position: relative;
 	overflow: hidden;
 }

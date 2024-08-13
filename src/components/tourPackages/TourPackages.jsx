@@ -63,7 +63,7 @@ function TourPackages() {
               ))
             )}
           </div>
-          {selectedPackage.tour_packs.length > 0 ? (
+          {selectedPackage?.tour_packs?.length > 0 ? (
             <Swiper
               slidesPerView="1"
               pagination={{
@@ -87,7 +87,7 @@ function TourPackages() {
               }}
             >
               {selectedPackage ? (
-                selectedPackage.tour_packs.map((pack) => (
+                selectedPackage.tour_packs?.map((pack) => (
                   <SwiperSlide key={pack.id}>
                     <div className="package">
                       <div className="package-image">

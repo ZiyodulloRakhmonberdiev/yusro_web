@@ -1,7 +1,6 @@
 header {
 	width: 100%;
 	height: 70px;
-	/* padding: 20px 0; */
 	background-color: var(--secondary-color);
 }
 
@@ -38,8 +37,6 @@ header .main-head .social-media span {
 }
 
 header .main-head .navbar {
-	/* padding-left: 10px; */
-	/* width: 50%; */
 	display: flex !important;
 	width: auto;
 	gap: 16px;
@@ -203,9 +200,9 @@ footer {
 	transform: translate(-50%, -50%);
 	width: 100%;
 	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 60px 50px;
+	align-items: start;
+	justify-content: space-around;
+	padding: 80px 50px;
 	background-color: var(--primary-main-color);
 	color: var(--primary-color);
 	border-radius: 10px;
@@ -215,7 +212,7 @@ footer {
 	width: 40%;
 	display: flex;
 	gap: 20px;
-	align-items: center;
+	align-items: start;
 }
 
 .footer-top-section .about i {
@@ -235,11 +232,16 @@ footer {
 	color: var(--primary-color);
 }
 
+.footer-top-section .about .info span {
+	color: var(--primary-color);
+	font-size: 18px;
+	margin-top: 5px;
+}
+
+
 .footer-top-section .send-phoneNumber {
-	height: 50px;
-	width: 40%;
 	background-color: var(--primary-color);
-	border-radius: 6px;
+	border-radius: 4px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -255,27 +257,24 @@ footer {
 
 .footer-top-section .send-phoneNumber input {
 	border: none;
+	padding: 15px 100px 15px 25px;
 	font-size: 16px;
 	width: 100%;
 }
 
 .footer-top-section .send-phoneNumber button {
-	width: 15%;
-	height: 100%;
 	font-size: 20px;
 	background-color: var(--secondary-color);
 	color: var(--primary-color);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
+	border: none;
+	padding: 25px 30px;}
 
 .footer-top-section .send-phoneNumber button:focus {
 	outline: none;
 }
 
 .main-footer {
-	padding-top: 170px;
+	padding-top: 230px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -312,7 +311,7 @@ footer {
 
 .main-footer-details .logo .info .social-networks {
 	display: flex;
-	gap: 20px;
+	gap: 12px;
 }
 
 .main-footer-details .logo .info .social-networks i {
@@ -321,7 +320,7 @@ footer {
 	padding: 8px;
 	border-radius: 50%;
 	border: 1px solid var(--primary-lighter-color);
-	color: var(--primary-color);
+	color: var(--primary-lighter-color);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -382,7 +381,7 @@ footer {
 .main-footer-details .we-offer .lists .list i,
 span {
 	color: var(--primary-lighter-color);
-	font-size: 14px;
+	font-size: 10px;
 }
 
 .main-footer-details .we-offer .lists .list:hover * {
@@ -404,7 +403,7 @@ span {
 	margin-top: 20px;
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
+	gap: 14px;
 }
 
 .main-footer-details .footer-contact-us .details .detail {
@@ -454,6 +453,7 @@ p {
 .footer-bottom .payment {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	gap: 25px;
 }
 
@@ -468,7 +468,7 @@ p {
 }
 
 .footer-bottom .payment .methods img {
-	width: 60px;
+	width: 35px;
 }
 
 .hamburger-menu {

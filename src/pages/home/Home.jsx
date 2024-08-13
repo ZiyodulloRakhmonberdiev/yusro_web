@@ -57,7 +57,7 @@ function Home() {
 				<Opinion />
 
 			{/* partners */}
-			<Partners />
+			{/* <Partners /> */}
 
 			{/* news */}
 			<News />

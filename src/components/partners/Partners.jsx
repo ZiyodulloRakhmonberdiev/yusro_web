@@ -6,14 +6,14 @@ import images from './../../images/index';
 
 function Partners() {
 
-	// const [partnersData, setPartnersData] = useState([]);
-	// const [loading, setLoading] = useState(true);
-	// const [error, setError] = useState(null);
+	const [partnersData, setPartnersData] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
 
 	// useEffect(() => {
 	// 	async function fetchPartners() {
 	// 		try {
-	// 			const data = await TotalCommand.getPartners();
+	// 			const data = await TotalCommand?.getPartners();
 	// 			setPartnersData(data);
 	// 			setLoading(false);
 	// 		} catch (error) {
@@ -28,13 +28,13 @@ function Partners() {
 
 	return (
 		<div className='partners'>
-			{/* {loading ? (
+			{loading ? (
 				<Loader />
 			) : error ? (
 				<div className="error">{error}</div>
 			) : <div className='container'>
 				<Title img={images.kabah} title="Bizning aloqalarimiz" description="Bizning ko'rsatmalarimiz din ishlari bo'yicha ko'rsatmalarga muvofiq ishlab chiqilgan"/>
-				{partnersData.map(partner => {
+				{/* {partnersData?.length > 0 && partnersData?.map(partner => {
 					return (
 						<div className='partner-contents'>
 							<div key={partner.id} className="partner-content">
@@ -52,8 +52,8 @@ function Partners() {
 							</div>
 						</div>
 					)
-				})}
-			</div>} */}
+				})} */}
+			</div>}
 		</div>
 	)
 }

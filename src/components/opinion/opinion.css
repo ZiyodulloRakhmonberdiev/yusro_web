@@ -8,6 +8,7 @@
   text-align: center;
   position: relative;
   background: url("../../images/pictures/img 10.jpg") no-repeat center center;
+  background-attachment: fixed;
   background-size: cover;
   position: relative;
 }

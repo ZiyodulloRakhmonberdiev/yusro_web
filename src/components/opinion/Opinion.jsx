@@ -51,7 +51,7 @@ function Opinion() {
                             modules={[Pagination, Autoplay]}
                             className="mySwiper"
                         >
-                            {data.length > 0 ?data.map((opinion, index) => (
+                            {data.length > 0 ? data.map((opinion, index) => (
                                 <SwiperSlide key={index}>
                                     <div className="opinion-slide">
                                         <div className="opinion-image">
