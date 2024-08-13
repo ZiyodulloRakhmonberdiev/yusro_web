@@ -13,7 +13,11 @@ import {
 import Sidebar from "./../components/sidebar/Sidebar";
 import ValidateForm from "../helpers/ValidateForm";
 
-import mail from "./images/mail-send.png";
+import logo from './images/logo.png'
+import logo2 from './images/logo2.png'
+import phone_icon from './images/phone_icon.png'
+import mail_icon from './images/mail_icon.png'
+import mail_send from './images/mail_send.png'
 
 function RootLayout() {
   const [active, setActive] = useState(false);
@@ -65,13 +69,17 @@ function RootLayout() {
           <div className="social-media">
             <p>Ijtimoiy tarmoqlarimiz</p>
             <span></span>
-            <img src={images.instagramLogo} alt="" />
+            {/* <img src={images.instagramLogo} alt="" /> */}
+            <i className="fab fa-instagram"></i>
             <span></span>
-            <img src={images.telegramLogo} alt="" />
+            <i className="fab fa-telegram"></i>
+            {/* <img src={images.telegramLogo} alt="" /> */}
             <span></span>
-            <img src={images.facebookLogo} alt="" />
+            {/* <img src={images.facebookLogo} alt="" /> */}
+            <i className="fab fa-facebook"></i>
             <span></span>
-            <img src={images.youtubeLogo} alt="" />
+            {/* <img src={images.youtubeLogo} alt="" /> */}
+            <i className="fab fa-youtube"></i>
             <span></span>
           </div>
           <div className="navbar">
@@ -85,23 +93,23 @@ function RootLayout() {
         </section>
         <section className="container header-details">
           <Link className="logo main-logo">
-            <img src={images.logo} alt="" />
+            <img src={logo2} alt="" />
             <span></span>
           </Link>
           <div className="details">
             <div className="contacts">
               <Link className="logo">
-                <img src={images.logo} alt="" />
+                <img src={logo} alt="" />
               </Link>
               <div className="by-contact">
-                <img src={images.phoneLogo} alt="" />
+                <img src={phone_icon} alt="" />
                 <div className="about">
                   <span>Hoziroq bizga qo'ng'iroq qiling</span>
                   <a href="tel:998885111166">+998 (88) 511 11 66</a>
                 </div>
               </div>
               <div className="by-contact">
-                <img src={images.messageLogo} alt="" />
+                <img src={mail_icon} alt="" />
                 <div className="about">
                   <span>Email manzilimiz</span>
                   <a href="mailto:admin@yusro.uz">admin@yusro.uz</a>
@@ -138,8 +146,8 @@ function RootLayout() {
         <div className="container">
           <div className="footer-top-section container">
             <div className="about">
-              <i className="fa-solid fa-envelope"></i>
-              {/* <img src={mail} alt="mail-send" /> */}
+              {/* <i className="fa-solid fa-envelope"></i> */}
+              <img src={mail_send} alt="mail-send" />
               <div className="info">
                 <p>Yangi maqolalarga obuna bo'ling</p>
                 <span>Eng so'ngi yangiliklar faqat bizda!</span>

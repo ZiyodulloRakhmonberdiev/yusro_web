@@ -24,6 +24,12 @@ header .main-head .social-media img {
 	cursor: pointer;
 }
 
+header .main-head .social-media i {
+	font-size: 16px;
+	color: var(--primary-lighter-color);
+	cursor: pointer;
+}
+
 header .main-head .social-media p {
 	color: var(--third-color);
 	font-size: 12px;
@@ -69,7 +75,6 @@ header .main-head .navbar a:hover {
 
 .header-details .logo {
 	width: 226px;
-	/* height: 100px; */
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -213,11 +218,12 @@ footer {
 	display: flex;
 	gap: 20px;
 	align-items: start;
+	justify-content: start;
 }
 
-.footer-top-section .about i {
-	color: var(--primary-color);
-	font-size: 96px;
+.footer-top-section .about img {
+	width: 90px;
+	margin-top: -15px;
 }
 
 .footer-top-section .about .info {
