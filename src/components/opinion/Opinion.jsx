@@ -31,7 +31,7 @@ function Opinion() {
         <div className='opinion-section'>
             <div className="container">
                 <div className="title-wrapper">
-                    <Title img={images.kabah} title="Fikrlar" description="Har yili yuzlab mijozlar biz orqali safarga chiqishmoqda." />
+                    <Title img={images.kabah} title="Fikrlar" whiteDescription="Har yili yuzlab mijozlar biz orqali safarga chiqishmoqda." />
                 </div>
                 <div className="opinion-carousel">
                     {loading ? (

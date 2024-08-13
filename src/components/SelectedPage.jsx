@@ -9,7 +9,7 @@ function SelectedPage({ packages, error, loading }) {
 
     return (
         <div className='tour-package'>
-            <ExtraPagesHeader title={tourPackage.name || "Paket Tafsilotlari"} />
+            <ExtraPagesHeader title={tourPackage.name || "Paket tafsilotlari"} />
             <div className="container">
                 <div className="tour-package-about">
                     {loading ? <Loader/> : error ? <h2>{error.message}</h2> : <>

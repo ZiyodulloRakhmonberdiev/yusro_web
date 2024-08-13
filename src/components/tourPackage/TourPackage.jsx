@@ -15,7 +15,7 @@ function TourPackage() {
 
     return (
         <div className='tour-package'>
-            <ExtraPagesHeader title={tourPackage.name + ' PAKETI' || "Paket Tafsilotlari"} />
+            <ExtraPagesHeader title={tourPackage.name + ' PAKETI' || "Paket tafsilotlari"} />
             <div className="container">
                 <div className="tour-package-about">
                     {loading ? <Loader /> : error ? <NotAvailable name={error.message}/> : <>
