@@ -3,7 +3,7 @@
 }
 
 .contact-us-section {
-	padding: 100px 60px 60px; 
+	padding: 50px 60px 100px; 
 	background: url('./images/back.png');
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -52,7 +52,8 @@
 }
 
 .form-wrapper button {
-	width: 100%;
+	width: 80%;
+	margin: 0 auto;
 	padding: 15px;
 	border: none;
 	border-radius: 3px;

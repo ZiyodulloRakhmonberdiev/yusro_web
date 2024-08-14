@@ -1,6 +1,5 @@
 import './teams.css';
 import Title from '../../ui/Title';
-import images from '../../images';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
@@ -10,11 +9,16 @@ import 'swiper/css/pagination';
 // import required modules
 import { Pagination } from 'swiper/modules';
 
+
+// import images
+import kabah from './images/kabah.png';
+import muslim from './images/muslim.png';
+
 function Teams() {
 	return (
 		<div className='teams'>
 			<div className="container">
-				<Title img={images.kabah} title='Jamoa bilan tanishing' description="Malakali jamoa a'zolari sizga o'z xizmatlarini taklif qiladi" />
+				<Title img={kabah} title='Jamoa bilan tanishing' description="Malakali jamoa a'zolari sizga o'z xizmatlarini taklif qiladi" />
 				<div className='carousel'>
 					<Swiper
 						slidesPerView='1'
@@ -41,16 +45,16 @@ function Teams() {
 					>
 						<SwiperSlide>
 							<div className="image">
-								<img src={images.muslim} alt="" />
+								<img src={muslim} alt="" />
 							</div>
 							<div className="about">
-								<div className="name">Maxmudox Shoxrux</div>
+								<div className="name">Maxmudov Shoxrux</div>
 								<div className="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, eum.</div>
 							</div>
 						</SwiperSlide>
 						<SwiperSlide>
 							<div className="image">
-								<img src={images.muslim} alt="" />
+								<img src={muslim} alt="" />
 							</div>
 							<div className="about">
 								<div class="name">Maxmudox Shoxrux</div>
@@ -59,7 +63,7 @@ function Teams() {
 						</SwiperSlide>
 						<SwiperSlide>
 							<div className="image">
-								<img src={images.muslim} alt="" />
+								<img src={muslim} alt="" />
 							</div>
 							<div className="about">
 								<div className="name">Maxmudox Shoxrux</div>
@@ -68,7 +72,7 @@ function Teams() {
 						</SwiperSlide>
 						<SwiperSlide>
 							<div className="image">
-								<img src={images.muslim} alt="" />
+								<img src={muslim} alt="" />
 							</div>
 							<div className="about">
 								<div className="name">Maxmudox Shoxrux</div>

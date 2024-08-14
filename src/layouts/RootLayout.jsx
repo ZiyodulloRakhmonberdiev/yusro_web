@@ -186,7 +186,7 @@ function RootLayout() {
                     state={phoneNumber}
                     setState={setPhoneNumber}
                     placeholder={
-                      placeholder.phoneNumber || "Telefon raqamingizni kiriting"
+                      placeholder.phoneNumber || "Emailingizni kiriting"
                     }
                     hasError={!!formErrors.phoneNumber}
                   />
