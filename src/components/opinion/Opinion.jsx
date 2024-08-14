@@ -17,6 +17,9 @@ import useFetch from './../../hooks/useFetch';
 import UserOpinion from './../../service/opinion';
 import NotAvailable from './../../helpers/NotAvailable';
 
+// import images
+import kabah from './images/kabah.png';
+
 function Opinion() {
     const { data, loading, error } = useFetch(UserOpinion.getAgencyComfort);
     const renderStars = (point) => {
@@ -31,7 +34,7 @@ function Opinion() {
         <div className='opinion-section'>
             <div className="container">
                 <div className="title-wrapper">
-                    <Title img={images.kabah} title="Fikrlar" whiteDescription="Har yili yuzlab mijozlar biz orqali safarga chiqishmoqda." />
+                    <Title img={kabah} title="Fikrlar" whiteDescription="Har yili yuzlab mijozlar biz orqali safarga chiqishmoqda." />
                 </div>
                 <div className="opinion-carousel">
                     {loading ? (

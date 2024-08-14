@@ -13,11 +13,29 @@ import {
 import Sidebar from "./../components/sidebar/Sidebar";
 import ValidateForm from "../helpers/ValidateForm";
 
+// import images
 import logo from './images/logo.png'
 import logo2 from './images/logo2.png'
 import phone_icon from './images/phone_icon.png'
 import mail_icon from './images/mail_icon.png'
 import mail_send from './images/mail_send.png'
+
+import layer1 from "./images/layer1.jpg";
+import layer2 from "./images/layer2.jpg";
+import layer3 from "./images/layer3.jpg";
+import layer4 from "./images/layer4.jpg";
+import layer5 from "./images/layer5.jpg";
+import layer6 from "./images/layer6.jpg";
+
+import humo from "./icons/humo.png";
+import uzcard from "./icons/uzcard.png";
+import mastercard from "./icons/mastercard.png";
+import visa from "./icons/visa.png";
+
+import phone from "./icons/phone.png";
+import telegram from "./icons/telegram.png";
+import message from "./icons/message.png";
+import location from "./icons/location.png";
 
 function RootLayout() {
   const [active, setActive] = useState(false);
@@ -146,7 +164,6 @@ function RootLayout() {
         <div className="container">
           <div className="footer-top-section container">
             <div className="about">
-              {/* <i className="fa-solid fa-envelope"></i> */}
               <img src={mail_send} alt="mail-send" />
               <div className="info">
                 <p>Yangi maqolalarga obuna bo'ling</p>
@@ -189,7 +206,7 @@ function RootLayout() {
           <div className="container">
             <div className="main-footer-details">
               <div className="logo">
-                <img src={images.logo2} alt="" />
+                <img src={logo} alt="" />
                 <div className="info">
                   <p>
                     Yusro turizm agentligi O‘zbekistondagi eng ishonchli, tezkor
@@ -208,12 +225,12 @@ function RootLayout() {
               <div className="clip">
                 <div className="title">Lavhalar</div>
                 <div className="images">
-                  <img src={images.nabwi2} alt="" />
-                  <img src={images.nabwi2} alt="" />
-                  <img src={images.nabwi2} alt="" />
-                  <img src={images.nabwi2} alt="" />
-                  <img src={images.nabwi2} alt="" />
-                  <img src={images.nabwi2} alt="" />
+                  <img src={layer1} alt="" />
+                  <img src={layer2} alt="" />
+                  <img src={layer3} alt="" />
+                  <img src={layer4} alt="" />
+                  <img src={layer5} alt="" />
+                  <img src={layer6} alt="" />
                 </div>
               </div>
               <div className="we-offer">
@@ -237,19 +254,19 @@ function RootLayout() {
                 <div className="title">Biz bilan bog'laning</div>
                 <div className="details">
                   <div className="detail">
-                    <img src={images.phone} alt="" />
+                    <img src={phone} alt="" />
                     <span>+998 (88) 511 11 66</span>
                   </div>
                   <div className="detail">
-                    <img src={images.telegram3} alt="" />
+                    <img src={telegram} alt="" />
                     <span>yusro_admin</span>
                   </div>
                   <div className="detail">
-                    <img src={images.message} alt="" />
+                    <img src={message} alt="" />
                     <span>admin@yusro.uz</span>
                   </div>
                   <div className="detail">
-                    <img src={images.location2} alt="" />
+                    <img src={location} alt="" />
                     <span>Toshkent shahar, Ko'kcha masjidi ro'parasi</span>
                   </div>
                 </div>
@@ -264,10 +281,10 @@ function RootLayout() {
               <div className="payment">
                 <span>Quyidagi to'lov usullari mavjud</span>
                 <div className="methods">
-                  <img src={images.humo} alt="" />
-                  <img src={images.uzcard} alt="" />
-                  <img src={images.visa} alt="" />
-                  <img src={images.mastercard} alt="" />
+                  <img src={humo} alt="" />
+                  <img src={uzcard} alt="" />
+                  <img src={visa} alt="" />
+                  <img src={mastercard} alt="" />
                 </div>
               </div>
             </div>

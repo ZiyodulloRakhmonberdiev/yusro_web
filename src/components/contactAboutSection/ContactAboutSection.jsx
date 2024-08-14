@@ -1,5 +1,9 @@
 import "./contactAboutSection.css";
-import images from "./../../images/index";
+
+// import images
+import kabahlocation from "./images/kabahlocation.png";
+import sign from "./images/sign.png";
+import phone from "./images/phone.png"
 
 function ContactAboutSection() {
   return (
@@ -16,14 +20,14 @@ function ContactAboutSection() {
           </p>
           <div className="we-results">
             <div className="we-result">
-              <img src={images.sign} alt="icon" />
+              <img src={sign} alt="icon" />
               <div className="we-result-about">
                 <p>100k+</p>
                 <span>Muvaffaqiyatli viza</span>
               </div>
             </div>
             <div className="we-result">
-              <img src={images.kabahlocation2} alt="icon" />
+              <img src={kabahlocation} alt="icon" />
               <div className="we-result-about">
                 <p>850k+</p>
                 <span>Umra sayohatchilari</span>
@@ -31,7 +35,7 @@ function ContactAboutSection() {
             </div>
           </div>
           <div className="answers-to-questions">
-            <img src={images.phone2} alt="phone-icon" />
+            <img src={phone} alt="phone-icon" />
             <div className="wrapper">
               <p>Savollaringiz bormi? Biz bilan bog'laning</p>
               <span>+998 (88) 511 11 66</span>

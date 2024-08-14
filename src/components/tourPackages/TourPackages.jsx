@@ -5,12 +5,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
-import images from "./../../images/index";
 import Title from "./../../ui/Title";
 import useFetch from "./../../hooks/useFetch";
 import Travel from "./../../service/travel";
 import Loader from "./../../ui/Loader";
 import NotAvailable from "./../../helpers/NotAvailable";
+
+import kabah from './images/kabah.png'
 
 function TourPackages() {
   const { data, loading, error } = useFetch(Travel.getPlaces);
@@ -34,7 +35,7 @@ function TourPackages() {
   return (
     <div className="tour-packages container">
       <Title
-        img={images.kabah}
+        img={kabah}
         title="Bizning tur paketlarimiz"
         description="Maxsus takliflarni o'tkazib yubormang"
       />

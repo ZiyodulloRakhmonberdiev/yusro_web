@@ -1,5 +1,4 @@
 import './news.css';
-import images from './../../images/index';
 import Title from './../../ui/Title';
 import Loader from './../../ui/Loader';
 import NotAvailable from './../../helpers/NotAvailable';
@@ -8,6 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchArticles } from '../../features/alice/articlesSlice';
 import { useEffect } from 'react';
+
+// import images
+import kabah from "./images/kabah.png";
 
 function News() {
   const navigate = useNavigate();
@@ -24,7 +26,7 @@ function News() {
     <div className='news'>
       <div className="container">
         <Title
-          img={images.kabah}
+          img={kabah}
           title="So'ngi yangiliklar va maslahatlar"
           description="Haqiqiy manbalardan olingan eng yangi postlari va so'ngi yangiliklar"
         />
