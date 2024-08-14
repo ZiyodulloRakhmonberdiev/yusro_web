@@ -1,11 +1,19 @@
 import "./experienceAbout.css";
-import images from "./../../images/index";
+// import images from "./../../images/index";
+
+// Import images
+import bismillah from "./images/bismillah.png"
+import hotel from "./images/hotel.png"
+import kabah from "./images/kabah.png"
+import hour from "./images/hour.png"
+import passport from "./images/passport.png"
+
 
 function ExperienceAbout() {
   return (
     <div className="container">
       <div className="about">
-        <img src={images.bismillah} alt="bismillah-image" />
+        <img src={bismillah} alt="bismillah-image" />
         <h1 className="title">
           Biz 7 yillik tajribaga ega sayyohlik agentligimiz
         </h1>
@@ -17,25 +25,25 @@ function ExperienceAbout() {
         <div className="items">
           <div className="item">
             <div className="item-image-wrapper">
-              <img src={images.mehmonxona} alt="hotel" />
+              <img src={hotel} alt="hotel" />
             </div>
             <span>Shinam mehmonxonalar</span>
           </div>
           <div className="item">
             <div className="item-image-wrapper">
-              <img src={images.passport} alt="visa-document" />
+              <img src={passport} alt="visa-document" />
             </div>
             <span>Tezkor viza xizmati</span>
           </div>
           <div className="item">
             <div className="item-image-wrapper">
-              <img src={images.kabah} alt="kabah" />
+              <img src={kabah} alt="kabah" />
             </div>
             <span>Haramga yaqin</span>
           </div>
           <div className="item">
             <div className="item-image-wrapper">
-              <img src={images.hour} alt="hour-day" />
+              <img src={hour} alt="hour-day" />
             </div>
             <span>24 / 7 Hojiboshilar xizmati</span>
           </div>

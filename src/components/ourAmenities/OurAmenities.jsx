@@ -6,6 +6,10 @@ import useFetch from './../../hooks/useFetch';
 import ComfortItem from './../../service/comfort';
 import NotAvailable from '../../helpers/NotAvailable';
 
+// import images
+import kabah from "./images/kabah.png";
+import mosque from "./images/mosque.png";
+
 function OurAmenities() {
     const { data, loading, error } = useFetch(ComfortItem.getAgencyComfort);
 
@@ -15,19 +19,19 @@ function OurAmenities() {
                 <div className="amenities-title">
                     <div className="cards">
                         <div className="card">
-                            <img src={images.kabah} alt="" />
+                            <img src={kabah} alt="" />
                             <p>Umra <span>(Ro'yxatdan o'tish)</span></p>
                             <i className="fa-solid fa-arrow-right"></i>
                         </div>
                         <div className="card card2">
-                            <img src={images.mosque2} alt="" />
+                            <img src={mosque} alt="" />
                             <p>35% Chegirmali paket</p>
                         </div>
                     </div>
                 </div>
 
                 <div style={{ paddingTop: "120px" }}>
-                    <Title img={images.kabah} title="Qulayliklarimiz" description="Haj va Umra ziyoratlarini birlashtirishda yuqori tajribaga ega" />
+                    <Title img={kabah} title="Qulayliklarimiz" description="Haj va Umra ziyoratlarini birlashtirishda yuqori tajribaga ega" />
                 </div>
 
                 <div className="amenities-grid">

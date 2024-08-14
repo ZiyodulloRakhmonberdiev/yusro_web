@@ -1,6 +1,10 @@
 import "./agencyExperience.css";
 import images from "./../../images/index";
-import nabawi from "./assets/images/nabawi.jpg";
+
+// import images
+import nabawi from "./images/nabawi.jpg";
+import video_image from "./images/video-image.jpg"
+import security from "./images/security.png"
 
 function AgencyExperience() {
   return (
@@ -15,7 +19,7 @@ function AgencyExperience() {
             <h1>Haj va umrani mukammal bajarishni bilib oling</h1>
           </div>
           <div className="nabwi2-wrapper">
-            <img src={images.nabwi2} alt="" className="nabwi2" />
+            <img src={video_image} alt="" className="nabwi2" />
             <span className="play-icon-wrapper">
               <i className="fa-solid fa-play"></i>
             </span>
@@ -36,7 +40,7 @@ function AgencyExperience() {
 
           <div className="experience-section">
             <div className="experience">
-              <img src={images.imageWrapper2} alt="" />
+              <img src={security} alt="" />
               <div className="about">
                 <h1>7</h1>
                 <span>Yillik tajriba</span>

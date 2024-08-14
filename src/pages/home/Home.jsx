@@ -12,6 +12,10 @@ import Partners from './../../components/partners/Partners';
 import News from './../../components/news/News';
 import ExperienceAbout from './../../components/experienceAbot/ExperienceAbout';
 
+// import images
+import nabawi from "./images/nabawi.png"
+import wrap from "./images/wrap.png"
+
 function Home() {
 	return (
 		<div className='home'>
@@ -29,9 +33,9 @@ function Home() {
 			<div className="agency-experience2 container">
 				<div className="image">
 					<div className="image-wrapper">
-						<img src={images.imageWrapper} alt="" />
+						<img src={wrap} alt="" />
 					</div>
-					<img src={images.forImageWrapper} alt="" className='for-wrapper' />
+					<img src={nabawi} alt="" className='for-wrapper' />
 				</div>
 				<ExperienceAbout />
 			</div>
