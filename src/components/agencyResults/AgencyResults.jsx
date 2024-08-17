@@ -1,5 +1,10 @@
 import './agencyResults.css'
-import images from './../../images/index';
+
+import mosque_2 from '../../images/mosque_2.jpg';
+import message_fill from "../../icons/message_fill.png";
+import location_fill from "../../icons/location_fill.png";
+import muslim from "../../icons/muslim_icon.png";
+
 
 function AgencyResults() {
 	return (
@@ -8,7 +13,7 @@ function AgencyResults() {
 				<div className="about">
 					<div className="title">Agentligimiz 1000 dan ortiq haj va umra sayohatchilariga yordam bergan</div>
 					<div className="image">
-						<img src={images.img23} alt="" />
+						<img src={mosque_2} alt="" />
 						<span className="play-icon-wrapper">
 							<i className="fa-solid fa-play"></i>
 						</span>
@@ -17,7 +22,7 @@ function AgencyResults() {
 				<div className="cards">
 					<div className="card">
 						<div className="image">
-							<img src={images.colourlyMessage} alt="" />
+							<img src={message_fill} alt="" />
 						</div>
 						<div className="about">
 							<div className="title">Haj va Umra tur operatori</div>
@@ -26,7 +31,7 @@ function AgencyResults() {
 					</div>
 					<div className="card">
 						<div className="image">
-							<img src={images.colourlyLocation} alt="" />
+							<img src={location_fill} alt="" />
 						</div>
 						<div className="about">
 							<div className="title">Aviakompaniyalarni bron qilish va chiptalarni sotish</div>
@@ -35,7 +40,7 @@ function AgencyResults() {
 					</div>
 					<div className="card">
 						<div className="image">
-							<img src={images.muslim} alt="" />
+							<img src={muslim} alt="" />
 						</div>
 						<div className="about">
 							<div className="title">Haj va Umra uchun sifatli xizmat ko'rsatish</div>

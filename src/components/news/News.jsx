@@ -9,7 +9,7 @@ import { fetchArticles } from '../../features/alice/articlesSlice';
 import { useEffect } from 'react';
 
 // import images
-import kabah from "./images/kabah.png";
+import kabah from "../../icons/kabah_outline.png";
 
 function News() {
   const navigate = useNavigate();

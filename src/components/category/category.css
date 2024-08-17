@@ -65,6 +65,7 @@
 @media (max-width: 960px) {
 	.category .cards {
 		grid-template-columns: auto auto;
+		margin-top: 10px;
 	}
 	.category .cards .card .header-image-icon {
 		transform: translate(-50%, 10%);
@@ -73,7 +74,6 @@
 @media (max-width: 640px) {
 	.category .cards {
 		grid-template-columns: auto;
-		margin-top: 10px;
 		gap: 20px;
 	}
 	.category .cards .card {

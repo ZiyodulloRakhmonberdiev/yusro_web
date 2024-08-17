@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import './partners.css'
 import Loader from './../../ui/Loader';
 import Title from './../../ui/Title';
-import images from './../../images/index';
+
+import kabah from "../../icons/kabah_outline.png"
 
 function Partners() {
 
@@ -33,7 +34,7 @@ function Partners() {
 			) : error ? (
 				<div className="error">{error}</div>
 			) : <div className='container'>
-				<Title img={images.kabah} title="Bizning aloqalarimiz" description="Bizning ko'rsatmalarimiz din ishlari bo'yicha ko'rsatmalarga muvofiq ishlab chiqilgan"/>
+				<Title img={kabah} title="Bizning aloqalarimiz" description="Bizning ko'rsatmalarimiz din ishlari bo'yicha ko'rsatmalarga muvofiq ishlab chiqilgan"/>
 				{/* {partnersData?.length > 0 && partnersData?.map(partner => {
 					return (
 						<div className='partner-contents'>

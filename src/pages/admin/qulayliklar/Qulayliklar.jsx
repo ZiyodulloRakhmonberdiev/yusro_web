@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Dialog, DialogActions, DialogContent, DialogTitle, Button, TextField, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+// import { Dialog, DialogActions, DialogContent, DialogTitle, Button, TextField, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import './qulayliklar.css';
 import Navbar from '../../../components/admin/navbar/Navbar';
 import AddItemBtn from '../../../components/admin/addItem/AddItemBtn';

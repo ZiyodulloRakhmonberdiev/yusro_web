@@ -5,12 +5,12 @@
 .agency-about {
 	width: 100%;
 	padding: 150px 0 250px;
-	background-image: url('../../images/pictures/img 1.jpg');
+	background-image: url("../../images/kabah_7.jpg");
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
 	margin-top: 160px;
-	background-attachment: fixed;
+	/* background-attachment: fixed; */
 	position: relative;
 	overflow: hidden;
 }
@@ -117,12 +117,12 @@
 
 .contact-us::before {
 	left: 0;
-	background: url('../../images/pictures/patern 1.png') no-repeat top left;
+	background: url("../../images/pattern_1.png") no-repeat top left;
 	background-size: cover;
 }
 
 .contact-us::after {
-	background: url('../../images/pictures/img 9.jpg') no-repeat top right;
+	background: url("../../images/nabawi_4.jpg") no-repeat top right;
 	right: 0;
 	background-size: cover;
 }

@@ -5,7 +5,7 @@
 	width: 0;
 	min-height: 100vh;
 	background-color: var(--primary-main-color);
-	background-image: url('../../images/pictures/patern 1.png');
+	background-image: url("../../images/pattern_1.png");
 	background-size: cover;
 	background-position: top left;
 	background-repeat: no-repeat;

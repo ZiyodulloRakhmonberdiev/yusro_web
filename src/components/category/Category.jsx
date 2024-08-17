@@ -3,7 +3,6 @@ import './category.css';
 import ServiceItem from '../../service/serviceItem';
 // hooks
 import useFetch from '../../hooks/useFetch';
-import images from './../../images/index';
 import Title from './../../ui/Title';
 import Loader from './../../ui/Loader';
 import NotAvailable from '../../helpers/NotAvailable';

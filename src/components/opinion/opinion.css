@@ -7,8 +7,8 @@
   padding: 0 0 140px 0;
   text-align: center;
   position: relative;
-  background: url("../../images/pictures/img 10.jpg") no-repeat center center;
-  background-attachment: fixed;
+  background: url("../../images/nabawi_3.jpg") no-repeat center center;
+  /* background-attachment: fixed; */
   background-size: cover;
   position: relative;
 }
@@ -31,7 +31,7 @@
   margin: 70px auto 0;
   overflow: hidden;
   z-index: 100;
-  background: url("../../images/pictures/3 in 1 bg.png") no-repeat top left;
+  background: url("../../images/slider_background.png") no-repeat top left;
   background-size: contain;
   overflow: hidden;
   padding: 0 200px 0 200px;
@@ -61,7 +61,7 @@
 .opinion-image {
   width: 300px;
   height: 250px;
-  background-image: url("../../images/icons/help.png");
+  background-image: url("../../icons/sec_help_fill.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
@@ -132,7 +132,7 @@
 
 @media (max-width: 1120px) {
   .opinion-carousel {
-    background-image: url("../../images/icons/qirqilgan bg max resolution.png");
+    background-image: url("../../icons/slider_bg.png");
     background-size: cover;
     padding: 0;
     height: max-content;

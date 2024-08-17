@@ -1,6 +1,5 @@
 import "./rootLayout.css";
 import { Link, Outlet } from "react-router-dom";
-import images from "./../images/index";
 import { useState } from "react";
 import UiInput from "./../ui/UiInput";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,11 +13,11 @@ import Sidebar from "./../components/sidebar/Sidebar";
 import ValidateForm from "../helpers/ValidateForm";
 
 // import images
-import logo from './images/logo.png'
-import logo2 from './images/logo2.png'
-import phone_icon from './images/phone_icon.png'
-import mail_icon from './images/mail_icon.png'
-import mail_send from './images/mail_send.png'
+import logo from "./images/logo.png";
+import logo2 from "./images/logo2.png";
+import phone_icon from "./images/phone_icon.png";
+import mail_icon from "./images/mail_icon.png";
+import mail_send from "./images/mail_send.png";
 
 import layer1 from "./images/layer1.jpg";
 import layer2 from "./images/layer2.jpg";
@@ -36,6 +35,11 @@ import phone from "./icons/phone.png";
 import telegram from "./icons/telegram.png";
 import message from "./icons/message.png";
 import location from "./icons/location.png";
+
+import telegram_icon from "../icons/telegram_icon.png";
+import facebook_icon from "../icons/facebook_icon.png";
+import instagram_icon from "../icons/instagram_icon.png";
+import youtube_icon from "../icons/youtube_icon.png";
 
 function RootLayout() {
   const [active, setActive] = useState(false);
@@ -87,18 +91,21 @@ function RootLayout() {
           <div className="social-media">
             <p>Ijtimoiy tarmoqlarimiz</p>
             <span></span>
-            {/* <img src={images.instagramLogo} alt="" /> */}
-            <i className="fab fa-instagram"></i>
+            <a href="#">
+              <img src={instagram_icon} alt="" />
+            </a>
             <span></span>
-            <i className="fab fa-telegram"></i>
-            {/* <img src={images.telegramLogo} alt="" /> */}
+            <a href="#">
+              <img src={telegram_icon} alt="" />
+            </a>
             <span></span>
-            {/* <img src={images.facebookLogo} alt="" /> */}
-            <i className="fab fa-facebook"></i>
+            <a href="#">
+              <img src={facebook_icon} alt="" />
+            </a>
             <span></span>
-            {/* <img src={images.youtubeLogo} alt="" /> */}
-            <i className="fab fa-youtube"></i>
-            <span></span>
+            <a href="#">
+              <img src={youtube_icon} alt="" />
+            </a>
           </div>
           <div className="navbar">
             <Link to="/about-us">Biz haqimizda</Link>
@@ -214,11 +221,21 @@ function RootLayout() {
                     Biz sizga qulay va oson sayohat qilishni kafolat beramiz.
                   </p>
                   <div className="social-networks">
-                    <i className="fab fa-instagram"></i>
-                    <i className="fab fa-telegram"></i>
-                    <i className="fab fa-facebook"></i>
-                    <i className="fab fa-youtube"></i>
+                    <a href="#">
+                      <img src={instagram_icon} alt="" />
+                    </a>
                     <span></span>
+                    <a href="#">
+                      <img src={telegram_icon} alt="" />
+                    </a>
+                    <span></span>
+                    <a href="#">
+                      <img src={facebook_icon} alt="" />
+                    </a>
+                    <span></span>
+                    <a href="#">
+                      <img src={youtube_icon} alt="" />
+                    </a>
                   </div>
                 </div>
               </div>

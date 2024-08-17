@@ -3,10 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import './contact.css';
 import { signInUserFailure, signInUserStart, signInUserSuccess } from '../../features/auth/authSlice';
 import ExtraPagesHeader from './../../components/extraPagesHeader/ExtraPagesHeader';
-import images from './../../images/index';
 import UiInput from './../../ui/UiInput';
 import AuthService from './../../service/auth';
 import UiTextarea from './../../ui/UiTextarea';
+
+import phone_outline from "../../icons/phone_outline.png";
+import message_outline from "../../icons/message_outline.png";
+import location_outline from "../../icons/location_outline.png";
 
 function Contact() {
     const [name, setName] = useState('');
@@ -92,21 +95,21 @@ function Contact() {
                         </div>
                         <div className="details">
                             <div className="detail">
-                                <img src={images.location2} alt="" />
+                                <img src={location_outline} alt="" />
                                 <div className="about">
                                     <span>Bizning manzil</span>
                                     <p>Farg'ona vilyati farg'ona shahar</p>
                                 </div>
                             </div>
                             <div className="detail">
-                                <img src={images.phone} alt="" />
+                                <img src={phone_outline} alt="" />
                                 <div className="about">
                                     <span>24/7 aloqada</span>
                                     <p>+998 (88) 511 11 66</p>
                                 </div>
                             </div>
                             <div className="detail">
-                                <img src={images.message} alt="" />
+                                <img src={message_outline} alt="" />
                                 <div className="about">
                                     <span>Bizga xabar qoldiring</span>
                                     <p>admin@yusro.uz</p>

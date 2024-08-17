@@ -1,11 +1,13 @@
 import './aboutUs.css'
 import ExtraPagesHeader from './../../components/extraPagesHeader/ExtraPagesHeader';
 import ExperienceAbout from './../../components/experienceAbot/ExperienceAbout';
-import images from './../../images/index';
 import AgencyResults from './../../components/agencyResults/AgencyResults';
 import Teams from './../../components/teams/Teams';
 import Opinion from './../../components/opinion/Opinion';
 import Partners from './../../components/partners/Partners';
+
+import kabah_1 from "../../images/kabah_1.jpg";
+import kabah_2 from "../../images/kabah_2.jpg";
 
 function AboutUs() {
 	return (
@@ -16,8 +18,8 @@ function AboutUs() {
 			{/* ExperienceAbout */}
 			<div className="about-us-experience agency-experience2 container">
 				<div className="images">
-					<img src={images.img21} alt="" />
-					<img src={images.img22} alt="" />
+					<img src={kabah_2} alt="" />
+					<img src={kabah_1} alt="" />
 				</div>
 				<div className="about">
 					<ExperienceAbout />

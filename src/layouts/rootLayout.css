@@ -19,8 +19,8 @@ header .main-head .social-media {
 }
 
 header .main-head .social-media img {
-	width: 15px;
-	height: 15px;
+	width: 17px;
+	height: 16px;
 	cursor: pointer;
 }
 
@@ -320,16 +320,10 @@ footer {
 	gap: 12px;
 }
 
-.main-footer-details .logo .info .social-networks i {
+.main-footer-details .logo .info .social-networks img {
 	margin-top: 20px;
-	font-size: 14px;
-	padding: 8px;
-	border-radius: 50%;
-	border: 1px solid var(--primary-lighter-color);
-	color: var(--primary-lighter-color);
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	width: 17px;
+	height: 15px;
 }
 
 .main-footer-details .logo .info .social-networks i:hover {

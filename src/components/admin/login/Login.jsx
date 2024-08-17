@@ -3,9 +3,11 @@ import { loginUser } from '../../../features/admin/auth/authSlice';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import images from './../../../images/index';
 import UiInput from './../../../ui/UiInput';
 import ValidationError from '../../../helpers/FormValidation';
+
+// import images 
+import logo from "../../../icons/logo_black.png"
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -39,7 +41,7 @@ function Login() {
             <h1 className='title'><span>Yusro Tour</span> <br /> Admin Paneliga Xush Kelibsiz!</h1>
             <div className="form-container">
                 <div className="logo">
-                    <img src={images.logo} alt="" />
+                    <img src={logo} alt="" />
                 </div>
                 <form onSubmit={handleSubmit}>
                     <div>

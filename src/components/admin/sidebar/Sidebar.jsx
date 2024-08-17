@@ -1,9 +1,11 @@
 // src/components/sidebar/Sidebar.js
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import images from './../../../images/index';
 import './sidebar.css';
 import { useSidebar } from '../../../context/SidebarContext';
+
+// import images
+import logo from '../../../icons/logo_black.png';
 
 function Sidebar() {
   const { isSidebarOpen } = useSidebar();
@@ -11,7 +13,7 @@ function Sidebar() {
   return (
     <div className={`sidebar-admin ${isSidebarOpen ? 'open' : 'closed'}`}>
       <div className="logo">
-        <img src={images.logo} alt="Logo" />
+        <img src={logo} alt="Logo" />
       </div>
       <div className="items">
         <ul>

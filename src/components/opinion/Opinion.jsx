@@ -8,7 +8,6 @@ import 'swiper/css/autoplay';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 
-import images from './../../images/index';
 // ui
 import Title from './../../ui/Title';
 import Loader from './../../ui/Loader';
@@ -18,7 +17,8 @@ import UserOpinion from './../../service/opinion';
 import NotAvailable from './../../helpers/NotAvailable';
 
 // import images
-import kabah from './images/kabah.png';
+import kabah from '../../icons/kabah_outline.png';
+import muslim from "../../icons/muslim_icon.png";
 
 function Opinion() {
     const { data, loading, error } = useFetch(UserOpinion.getAgencyComfort);
@@ -58,7 +58,7 @@ function Opinion() {
                                 <SwiperSlide key={index}>
                                     <div className="opinion-slide">
                                         <div className="opinion-image">
-                                            <img src={opinion.image_path ? opinion.image_path : images.muslim} alt={opinion.full_name} />
+                                            <img src={opinion.image_path ? opinion.image_path : muslim} alt={opinion.full_name} />
                                         </div>
                                         <div className="opinion-about">
                                             <span className='point'>{renderStars(opinion.rate)}</span>

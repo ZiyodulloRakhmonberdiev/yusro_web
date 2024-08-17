@@ -1,10 +1,9 @@
 import "./agencyExperience.css";
-import images from "./../../images/index";
 
 // import images
-import nabawi from "./images/nabawi.jpg";
-import video_image from "./images/video-image.jpg"
-import security from "./images/security.png"
+import nabawi from "../../images/nabawi_9.jpg";
+import nabawi_3 from "../../images/nabawi_3.jpg"
+import security from "../../icons/sec_tall_wrap.png"
 
 function AgencyExperience() {
   return (
@@ -19,7 +18,7 @@ function AgencyExperience() {
             <h1>Haj va umrani mukammal bajarishni bilib oling</h1>
           </div>
           <div className="nabwi2-wrapper">
-            <img src={video_image} alt="" className="nabwi2" />
+            <img src={nabawi_3} alt="" className="nabwi2" />
             <span className="play-icon-wrapper">
               <i className="fa-solid fa-play"></i>
             </span>

@@ -1,6 +1,14 @@
 import { Link } from 'react-router-dom';
 import './sidebar.css';
-import images from './../../images/index';
+
+// import images
+import logo from "../../icons/logo_white.png";
+import youtube_icon from "../../icons/youtube_icon.png";
+import instagram_icon from "../../icons/instagram_icon.png";
+import telegram_icon from "../../icons/telegram_icon.png";
+import facebook_icon from "../../icons/facebook_icon.png";
+import phone_outline from "../../icons/phone_outline.png";
+import message_outline from "../../icons/message_outline.png";
 
 function Sidebar({ active, setActive }) {
     const handleLinkClick = () => {
@@ -11,7 +19,7 @@ function Sidebar({ active, setActive }) {
         <div className={`sidebar ${active ? 'active' : ''}`}>
             <div className="logo-wrapper">
                 <Link className="logo">
-                    <img src={images.logo2} alt="" />
+                    <img src={logo} alt="" />
                 </Link>
                 <i className="fa-solid fa-xmark" onClick={() => setActive(false)}></i>
             </div>
@@ -29,24 +37,24 @@ function Sidebar({ active, setActive }) {
                 <div className="social-media">
                     <p>Ijtimoiy tarmoqlarimiz</p>
                     <span></span>
-                    <img src={images.instagramLogo} alt="" onClick={handleLinkClick} />
+                    <img src={instagram_icon} alt="" onClick={handleLinkClick} />
                     <span></span>
-                    <img src={images.telegramLogo} alt="" onClick={handleLinkClick} />
+                    <img src={telegram_icon} alt="" onClick={handleLinkClick} />
                     <span></span>
-                    <img src={images.facebookLogo} alt="" onClick={handleLinkClick} />
+                    <img src={facebook_icon} alt="" onClick={handleLinkClick} />
                     <span></span>
-                    <img src={images.youtubeLogo} alt="" onClick={handleLinkClick} />
+                    <img src={youtube_icon} alt="" onClick={handleLinkClick} />
                     <span></span>
                 </div>
                 <div className="by-contact">
-                    <img src={images.phoneLogo} alt="" />
+                    <img src={phone_outline} alt="" />
                     <div className="about">
                         <span>Hoziroq bizga qo'ng'iroq qiling</span>
                         <p>+998 (88) 511 11 66</p>
                     </div>
                 </div>
                 <div className="by-contact">
-                    <img src={images.messageLogo} alt="" />
+                    <img src={message_outline} alt="" />
                     <div className="about">
                         <span>Email manzilimiz</span>
                         <p>admin@yusro.uz</p>

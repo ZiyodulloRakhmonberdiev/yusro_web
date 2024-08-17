@@ -1,12 +1,11 @@
 import "./experienceAbout.css";
-// import images from "./../../images/index";
 
 // Import images
-import bismillah from "./images/bismillah.png"
-import hotel from "./images/hotel.png"
-import kabah from "./images/kabah.png"
-import hour from "./images/hour.png"
-import passport from "./images/passport.png"
+import bismillah from "../../images/bismillah.png"
+import hotel from "../../icons/hotel_outline.png"
+import kabah from "../../icons/kabah_outline.png"
+import hour from "../../icons/24_7_outline.png"
+import passport from "../../icons/passport_outline.png"
 
 
 function ExperienceAbout() {

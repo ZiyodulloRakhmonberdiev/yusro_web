@@ -11,8 +11,8 @@ import { Pagination } from 'swiper/modules';
 
 
 // import images
-import kabah from './images/kabah.png';
-import muslim from './images/muslim.png';
+import kabah from '../../icons/kabah_outline.png';
+import muslim from '../../icons/muslim_icon.png';
 
 function Teams() {
 	return (

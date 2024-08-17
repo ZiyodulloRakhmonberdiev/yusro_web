@@ -1,9 +1,9 @@
 import "./contactAboutSection.css";
 
 // import images
-import kabahlocation from "./images/kabahlocation.png";
-import sign from "./images/sign.png";
-import phone from "./images/phone.png"
+import kabahlocation from "../../icons/kabah_loc_outline.png";
+import sign from "../../icons/sign_twice.png";
+import phone from "../../icons/phone_fill.png"
 
 function ContactAboutSection() {
   return (

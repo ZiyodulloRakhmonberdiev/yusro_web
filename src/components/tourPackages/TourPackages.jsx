@@ -11,7 +11,7 @@ import Travel from "./../../service/travel";
 import Loader from "./../../ui/Loader";
 import NotAvailable from "./../../helpers/NotAvailable";
 
-import kabah from './images/kabah.png'
+import kabah from '../../icons/kabah_outline.png'
 
 function TourPackages() {
   const { data, loading, error } = useFetch(Travel.getPlaces);

@@ -1,5 +1,4 @@
 import './ourAmenities.css';
-import images from './../../images/index';
 import Title from './../../ui/Title';
 import Loader from './../../ui/Loader';
 import useFetch from './../../hooks/useFetch';
@@ -7,8 +6,8 @@ import ComfortItem from './../../service/comfort';
 import NotAvailable from '../../helpers/NotAvailable';
 
 // import images
-import kabah from "./images/kabah.png";
-import mosque from "./images/mosque.png";
+import kabah from "../../icons/kabah_outline.png";
+import mosque from "../../icons/mosque_outline.png";
 
 function OurAmenities() {
     const { data, loading, error } = useFetch(ComfortItem.getAgencyComfort);
