@@ -12,3 +12,27 @@
 .blog .blog-pagination {
   width: 60%;
 }
+
+@media(max-width: 751px){
+  .blog .container{
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: inherit;
+  }
+  .blog .posts{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .blog .blog-pagination {
+    margin-bottom: 3rem;
+  }
+  .blog .blog-tags{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+}

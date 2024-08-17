@@ -100,3 +100,14 @@
     font-weight: 400;
     color: var(--primary-main-color);
 }
+
+@media(max-width: 750px) {
+    .popular-posts{
+        max-width: inherit;
+    }
+    .popular-posts .items .item{
+        width: 95%;
+        justify-content: start;
+        align-items: center;
+    }
+}

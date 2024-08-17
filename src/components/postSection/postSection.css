@@ -18,7 +18,7 @@
 }
 
 .post-section .items .item {
-    width: 100% ;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -51,4 +51,12 @@
     background-color: var(--primary-lighter-color);
     border: none;
     border-radius: 50%;
+}
+
+@media(max-width: 750px){
+    .items{
+    }
+    .post-section .items .item{
+
+    }
 }

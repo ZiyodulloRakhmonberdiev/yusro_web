@@ -38,7 +38,7 @@ const Blog = () => {
       <ExtraPagesHeader title="Maqolalar" />
       <div className="container">
         {status === 'loading' ? <Loader /> : status === 'failed' ? <NotAvailable name={error} /> : (
-          <>
+          <div className='posts'>
             {!data ? <NotAvailable name="Ma'lumot mavjud emas" /> : <div className="blog-pagination">
               <ArticleList articles={data} />
               <Pagination
@@ -47,7 +47,7 @@ const Blog = () => {
                 onPageChange={handlePageChange}
               />
             </div>}
-          </>
+          </div>
         )}
         <div className="blog-tags">
           <PopularPosts />

@@ -46,7 +46,7 @@ function VideoContent({ videos }) {
         {status === 'loading' ? <Loader /> : status === 'failed' ? <NotAvailable name={error} /> : (
           <>
             {videoArticles ? <div className="blog-pagination">
-              <ArticleList articles={videoArticles} />
+              <ArticleList articles={videoArticles} className="article-list" />
               <Pagination
                 currentPage={page}
                 pageCount={pageCount}

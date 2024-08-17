@@ -178,3 +178,9 @@
 	background-color: var(--primary-main-color);
 	width: max-content;
 }
+@media(max-width: 750px) {
+	.blog-tags .answer-to-questions {
+		width: auto;
+		padding: 15px;
+	}
+}
