@@ -19,8 +19,7 @@ function OurAmenities() {
                     <div className="cards">
                         <div className="card">
                             <img src={kabah} alt="" />
-                            <p>Umra <span>(Ro'yxatdan o'tish)</span></p>
-                            <i className="fa-solid fa-arrow-right"></i>
+                            <p>Umra <span>(Ro'yxatdan o'tish)</span><i className="fa-solid fa-arrow-right"></i></p>
                         </div>
                         <div className="card card2">
                             <img src={mosque} alt="" />

@@ -1,209 +1,228 @@
 .our-amenities {
-	width: 100%;
-	height: 100%;
-	background-image: url("../../images/mosque_3.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: bottom center;
-	position: relative;
-	/* background-attachment: fixed; */
-	margin-top: 200px;
-	padding-bottom: 100px;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../images/mosque_3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  position: relative;
+  /* background-attachment: fixed; */
+  margin-top: 200px;
+  padding-bottom: 100px;
 }
 
 .our-amenities::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(255, 255, 255, 0.5);
-	filter: blur(5px);
-	z-index: 1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  filter: blur(5px);
+  z-index: 1;
 }
 
 .our-amenities .container {
-	position: relative;
-	z-index: 2;
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .our-amenities .container h1 {
-	z-index: 3;
-	position: relative;
+  z-index: 3;
+  position: relative;
 }
 
 .our-amenities .amenities-title {
-	position: absolute;
-	left: 50%;
-	top: 0;
-	transform: translate(-50%, -50%);
-	z-index: 3;
-	width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 100%;
 }
 
 .our-amenities .amenities-title .cards {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
 }
 
 .our-amenities .amenities-title .cards .card {
-	position: relative;
-	overflow: hidden;
-	width: 100%;
-	display: flex;
-	gap: 18px;
-	align-items: center;
-	justify-content: center;
-	padding: 0 50px;
-	border-radius: 16px 0 0 16px;
-	background-image: url("../../images/mosque_2.jpg");
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat;
-	padding: 60px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px 0 0 16px;
+  background-image: url("../../images/mosque_2.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 60px;
 }
 
 .our-amenities .amenities-title .cards .card::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(67, 170, 97, 0.8);
-	z-index: 1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(67, 170, 97, 0.8);
+  z-index: 1;
 }
 
 .our-amenities .amenities-title .cards .card2 {
-	background-image: url("../../images/mosque_4.jpg");
-	border-radius: 0 16px 16px 0;
+  background-image: url("../../images/mosque_4.jpg");
+  border-radius: 0 16px 16px 0;
 }
 
 .our-amenities .amenities-title .cards .card2::before {
-	background-color: rgba(210, 144, 34, 0.8);
+  background-color: rgba(210, 144, 34, 0.8);
 }
 
 .our-amenities .amenities-title .cards .card img {
-	width: 50px;
+  width: 50px;
 }
 
 .our-amenities .amenities-title .cards .card * {
-	z-index: 5;
+  z-index: 5;
 }
 
 .our-amenities .amenities-title .cards .card p {
-	white-space: nowrap;
-	color: var(--primary-color);
-	font-size: 30px;
-	font-weight: 500;
-	display: flex;
-	align-items: center;
-	gap: 5px;
-	line-height: 48px;
+  white-space: nowrap;
+  color: var(--primary-color);
+  font-size: 26px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 48px;
 }
 
 .our-amenities .amenities-title .cards .card span {
-	color: var(--third-color);
-	font-size: 24px;
+  color: var(--third-color);
+  font-size: 24px;
 }
 
 .our-amenities .amenities-title .cards .card i {
-	color: var(--primary-color);
-	font-size: 22px;
-	transition: transform 0.3s linear;
+  color: var(--primary-color);
+  font-size: 18px;
+  transition: transform 0.3s linear;
 }
 
 .our-amenities .amenities-title .cards .card:hover i {
-	transform: translateX(50%);
+  transform: translateX(50%);
 }
 
 .amenities-grid {
-	margin-top: 50px;
-	width: 100%;
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-gap: 30px;	
-	/* grid-template-rows: repeat(2, 1fr); */
+  margin-top: 50px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
 }
 
 .amenity-card {
-	background-color: var(--primary-color);
-	padding: 30px;
-	width: 100%;
+  background-color: var(--primary-color);
+  padding: 30px;
+  width: 100%;
 }
 
 .amenity-image {
-	width: 73px;
-	height: auto;
-	margin: 0 auto 15px;
+  width: 73px;
+  height: auto;
+  margin: 0 auto 15px;
 }
 
 .amenity-card p {
-	color: var(--secondary-color);
-	font-size: 22px;
-	font-weight: 600;
+  color: var(--secondary-color);
+  font-size: 22px;
+  font-weight: 600;
 }
 
 @media (max-width: 940px) {
-	.amenities-grid {
-		grid-template-columns: repeat(3, 1fr);
-	}
+  .amenities-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 700px) {
-	.amenities-grid {
-		grid-template-columns: auto auto;
-	}
+  .amenities-grid {
+    grid-template-columns: auto auto;
+  }
 }
 
 @media (max-width: 920px) {
-	.our-amenities .amenities-title .cards .card {
-		width: 300px;
-		height: 100px;
+	.our-amenities .main-title{
+		padding-top: 0;
 	}
+  .our-amenities {
+    margin-top: 420px;
+  }
+  .our-amenities .amenities-title .cards {
+    flex-wrap: wrap;
+		gap: 20px;
+  }
+  .our-amenities .amenities-title .cards .card {
+    display: flex;
+    flex-direction: column;
+    padding: 14px 24px;
+    width: 100%;
+    top: -200px;
+    border-radius: 10px;
+  }
 }
 @media (max-width: 640px) {
-	.our-amenities .amenities-title .cards {
-		flex-direction: column;
+	.our-amenities .main-title{
+		margin-top: -50px;
 	}
-	.our-amenities .amenities-title .cards .card{
-		width: 100%;
-		width: 500px;
-		border-radius: 10px;
+	.our-amenities{
+		padding-bottom: 50px;
 	}
+  .our-amenities .amenities-title .cards {
+    flex-direction: column;
+  }
+  .our-amenities .amenities-title .cards .card {
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
+    width: 100%;
+    border-radius: 10px;
+  }
 }
 @media (max-width: 540px) {
-	.our-amenities .amenities-title .cards .card{
-		width: 400px;
-	}
+  .our-amenities .amenities-title .cards .card {
+    width: 400px;
+  }
 }
 @media (max-width: 420px) {
-	.our-amenities .amenities-title .cards .card{
-		width: 300px;
-	}
+  .our-amenities .amenities-title .cards .card {
+    width: 300px;
+  }
 }
 
 @media (max-width: 450px) {
+  .amenity-cards .amenity-card {
+    padding: 10px;
+    width: 140px;
+    height: 140px;
+  }
 
-	.amenity-card {
-		padding: 10px;
-		width: 140px;
-		height: 140px;
-	}
+  .amenity-image {
+    width: 60px;
+    height: auto;
+  }
 
-	.amenity-image {
-		width: 60px;
-		height: auto;
-	}
-
-	.amenity-card p {
-		font-size: 14px;
-	}
+  .amenity-card p {
+    font-size: 14px;
+  }
 }

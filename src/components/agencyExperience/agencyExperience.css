@@ -31,7 +31,7 @@
 }
 
 .agency-experience .images .sign1-wrapper {
-	background-image: url('../../images/pictures/patern 1.png');
+	background-image: url('../../images/pattern_1.png');
 	position: relative;
 	padding: 35px 30px;
 	display: flex;
@@ -203,6 +203,10 @@
 		flex-direction: column;
 	}
 
+	.agency-experience .images{
+		min-height: 100px;
+	}
+
 	.agency-experience .images .grid-image-wrapper {
 		flex-direction: row;
 	}
@@ -221,9 +225,26 @@
 	}
 }
 
+@media (max-width: 920px) {
+	.agency-experience{
+		padding-top: 50;
+		padding-bottom: 50px;
+	}
+	.grid-image-wrapper{
+		margin-bottom: 20px;
+	}
+}
 @media (max-width: 640px) {
 	.agency-experience .images {
 		margin-top: 50px;
+	}
+
+	.agency-experience .about{
+		padding-bottom: 20px;
+	}
+
+	.agency-experience .images .sign1-wrapper{
+		padding: 20px;
 	}
 
 	.agency-experience .main-title h1 {

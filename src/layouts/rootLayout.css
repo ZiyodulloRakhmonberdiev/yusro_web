@@ -274,13 +274,13 @@ footer {
 	color: var(--primary-color);
 	border: none;
 	padding: 25px 30px;}
-
+ 
 .footer-top-section .send-phoneNumber button:focus {
 	outline: none;
 }
 
 .main-footer {
-	padding-top: 230px;
+	padding-top: 35px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -527,7 +527,6 @@ p {
 	.hamburger-menu {
 		display: flex !important;
 	}
-
 	.main-head,
 	.by-contact,
 	.by-contact {
@@ -561,8 +560,13 @@ p {
 
 /* footer media screen */
 @media (max-width: 1220px) {
+	footer{
+		margin-top: 50px;
+	}
 	.footer-top-section {
 		padding: 30px;
+		position: relative;
+		margin-bottom: 10px;
 	}
 
 	.footer-top-section .about i {
@@ -588,16 +592,21 @@ p {
 
 @media (max-width: 970px) {
 	.footer-top-section {
-		padding: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
-	.footer-top-section .about i {
-		color: var(--primary-color);
-		font-size: 48px;
+	.footer-top-section .container {
+		padding: 20px;
 	}
 
 	.footer-top-section .about .info p {
 		font-size: 20px;
+	}
+
+	.footer-top-section .about .info span{
+		display: none;
 	}
 
 	.footer-top-section .send-phoneNumber {
@@ -629,7 +638,7 @@ p {
 
 	.footer-top-section .send-phoneNumber {
 		width: 80%;
-		margin-bottom: 20px;
+		margin-bottom: 30px;
 	}
 
 	.footer-top-section .send-phoneNumber i {
@@ -638,8 +647,14 @@ p {
 }
 
 @media (max-width: 860px) {
-	.main-footer {
-		padding-top: 120px;
+		.main-footer {
+		padding-top: 40px;
+	}
+
+	.main-footer-details .clip .images{
+		display: flex;
+		flex-wrap: wrap;
+		gap: 5px;
 	}
 
 	.main-footer-details {
