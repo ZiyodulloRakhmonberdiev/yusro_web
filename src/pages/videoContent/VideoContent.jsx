@@ -44,7 +44,7 @@ function VideoContent({ videos }) {
       <ExtraPagesHeader title="Video Kontent" />
       <div className="container">
         {status === 'loading' ? <Loader /> : status === 'failed' ? <NotAvailable name={error} /> : (
-          <>
+          <div className='articles'>
             {videoArticles ? <div className="blog-pagination">
               <ArticleList articles={videoArticles} className="article-list" />
               <Pagination
@@ -53,7 +53,7 @@ function VideoContent({ videos }) {
                 onPageChange={handlePageChange}
               />
             </div> : !videoArticles && <NotAvailable name="Ma'lumot mavjud emas" />}
-          </>
+          </div>
         )}
         <div className="blog-tags">
           <PopularPosts />
