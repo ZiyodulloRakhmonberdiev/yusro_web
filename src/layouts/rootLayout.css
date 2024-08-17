@@ -556,6 +556,10 @@ p {
 	.header-details .navbar a:active {
 		font-size: 14px;
 	}
+	.footer-top-section .send-phoneNumber input {
+		font-size: 12px;
+		padding: 5px;
+	}
 }
 
 /* footer media screen */
