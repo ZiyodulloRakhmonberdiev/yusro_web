@@ -8,9 +8,12 @@
     width: 100% !important;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
   .video-content .articles .article-list{
     width: 100% !important;
     display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

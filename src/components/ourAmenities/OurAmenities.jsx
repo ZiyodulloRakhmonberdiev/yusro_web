@@ -7,7 +7,8 @@ import NotAvailable from '../../helpers/NotAvailable';
 
 // import images
 import kabah from "../../icons/kabah_outline.png";
-import mosque from "../../icons/mosque_outline.png";
+import kabah_white from "../../icons/kabah_white.png";
+import mosque_white from "../../icons/mosque_white.png";
 
 function OurAmenities() {
     const { data, loading, error } = useFetch(ComfortItem.getAgencyComfort);
@@ -18,17 +19,17 @@ function OurAmenities() {
                 <div className="amenities-title">
                     <div className="cards">
                         <div className="card">
-                            <img src={kabah} alt="" />
+                            <img src={kabah_white} alt="" />
                             <p>Umra <span>(Ro'yxatdan o'tish)</span><i className="fa-solid fa-arrow-right"></i></p>
                         </div>
                         <div className="card card2">
-                            <img src={mosque} alt="" />
+                            <img src={mosque_white} alt="" />
                             <p>35% Chegirmali paket</p>
                         </div>
                     </div>
                 </div>
 
-                <div style={{ paddingTop: "120px" }}>
+                <div style={{ paddingTop: "100px" }}>
                     <Title img={kabah} title="Qulayliklarimiz" description="Haj va Umra ziyoratlarini birlashtirishda yuqori tajribaga ega" />
                 </div>
 
