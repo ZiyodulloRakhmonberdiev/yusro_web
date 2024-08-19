@@ -31,7 +31,7 @@
 }
 
 .agency-experience .images .sign1-wrapper {
-	background-image: url("../../images/pattern_1.png");
+	background-image: url("../../images/pattern_green_bg.png");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -40,7 +40,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: rgba(34, 124, 37, 0.9);
+	background-color: var(--primary-main-color);
 }
 
 /* .agency-experience .images .sign1-wrapper::before {
@@ -268,5 +268,9 @@
 	}
 	.agency-experience .images .grid-image-wrapper{
 		flex-direction: column;
+	}
+	.agency-experience .experience-section {
+		flex-wrap: wrap;
+		justify-content: center;
 	}
 }

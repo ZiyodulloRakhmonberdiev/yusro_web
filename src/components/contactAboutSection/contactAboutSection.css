@@ -1,9 +1,11 @@
+
 .contact-us-about .about {
 	display: flex;
 	flex-direction: column;
 	flex: 1;
 	max-width: 500px;
 	row-gap: 30px;
+	justify-content: start;
 }
 
 .contact-us-about .about .main-title {
@@ -29,6 +31,7 @@
 	display: flex;
 	align-items: center;
 	gap: 20px;
+	flex-wrap: wrap;
 }
 
 .contact-us-about .we-result {
@@ -60,21 +63,19 @@
 	font-weight: 400;
 }
 
-.contact-us-about .answers-to-questions .wrapper span {
+.contact-us-about .answers-to-questions .wrapper a {
 	color: #F2A826;
 	font-size: 24px;
 	font-weight: 600;
 }
 
 @media (max-width: 970px) {
-	.contact-us-about {
-		padding: 0 20px;
-	}
 	.contact-us-about .about {
 		max-width: 100%;
 	}
 	.contact-us-about .container {
 		width: 100%;
+		padding: 0;
 	}
 }
 @media (max-width: 640px) {
@@ -82,5 +83,21 @@
 		font-size: 24px;
 		text-align: start;
 		padding-top: 0;
+	}
+	.contact-us-about .answers-to-questions .wrapper p {
+		line-height: 18px;
+		margin-bottom: 4px;
+		text-align: center;
+	}
+	.contact-us-about .answers-to-questions .wrapper a {
+		font-size: 16px;
+		display: block;
+		text-align: center;
+	}
+	.contact-us-about .answers-to-questions{
+		padding: 20px 60px;
+		padding-left: 40px;
+		width: 92%;
+		margin-left: auto;
 	}
 }

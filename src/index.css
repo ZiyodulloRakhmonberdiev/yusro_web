@@ -8,6 +8,7 @@
   --primary-lighter-color: #616161;
   --secondary-lighter-color: #e0dfdf;
   --primary-border-color: #FAFAFA;
+  --secondary-border-color: #FFF9A3;
 }
 
 * {
@@ -95,5 +96,13 @@ textarea:focus {
 @media (max-width: 650px) {
   .container {
     padding: 0 15px;
+  }
+}
+@media (max-width: 340px) {
+  .container {
+    /* max-width: 220px; */
+    width: 100%;
+    padding: 0 10px;
+    margin: 0 auto;
   }
 }

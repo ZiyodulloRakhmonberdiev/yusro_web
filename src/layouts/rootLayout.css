@@ -692,10 +692,16 @@ p {
 		grid-template-columns: auto;
 		row-gap: 30px;
 	}
-
+	.footer-bottom .payment span,
+	.footer-bottom .copyright span{
+		font-size: 14px;
+	}
 	.footer-bottom .payment {
 		flex-direction: column;
 		align-items: start;
 		gap: 5px;
+	}
+	.main-footer-details .footer-contact-us .details .detail a {
+		font-size: 14px;
 	}
 }

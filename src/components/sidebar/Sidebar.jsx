@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import './sidebar.css';
 
 // import images
-import logo from "../../icons/logo_white.png";
+import logo from "../../icons/logo_tour.png";
 import youtube_icon from "../../icons/youtube_icon.png";
 import instagram_icon from "../../icons/instagram_icon.png";
 import telegram_icon from "../../icons/telegram_icon.png";
@@ -50,7 +50,7 @@ function Sidebar({ active, setActive }) {
                     <img src={phone_outline} alt="" />
                     <div className="about">
                         <span>Hoziroq bizga qo'ng'iroq qiling</span>
-                        <a href='tel:998885111166'>+998 (88) 511 11 66</a>
+                        <a href='tel:+998885111166'>+998 (88) 511 11 66</a>
                     </div>
                 </div>
                 <div className="by-contact">

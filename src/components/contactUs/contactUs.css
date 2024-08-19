@@ -73,7 +73,7 @@
 		background-position: center;
 		background-size: cover;
 		border-radius: 10px;
-		border: 10px solid #FFF9A3;
+		border: 10px solid var(--secondary-border-color);
 	}
 	.form-wrapper {
 		margin: 0 auto;

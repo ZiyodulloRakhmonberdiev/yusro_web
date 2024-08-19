@@ -17,6 +17,7 @@ import AdminLayout from '../layouts/AdminLayout';
 import Login from '../components/admin/login/Login';
 import PrivateRoute from './../components/admin/privateRoute/PrivateRoute';
 import AdminRoutes from './AdminRoutes';
+import ScrollToTop from '../helpers/ScrollToTop';
 
 function Routes() {
 	return createBrowserRouter(
@@ -35,6 +36,7 @@ function Routes() {
 					<Route path='/video-content' element={<VideoContent />} />
 					<Route path='*' element={<PageNotFound />} />
 				</Route>
+				{/* <ScrollToTop /> */}
 				<Route path='/login' element={<Login />} />
 				{AdminRoutes}
 			</>

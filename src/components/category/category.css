@@ -95,3 +95,8 @@
 	}
 }
 
+@media (max-width: 350px) {
+	.category .cards .card .header-image-icon {
+		transform: translate(-50%, 25%);
+	}
+}

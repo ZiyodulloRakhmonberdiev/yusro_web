@@ -1,4 +1,3 @@
-import React from 'react';
 import ExtraPagesHeader from './extraPagesHeader/ExtraPagesHeader';
 import ContactUs from './contactUs/ContactUs';
 import AnswerToQuestions from './answerToQuestions/AnswerToQuestions';
@@ -8,6 +7,7 @@ import kabah_1 from "../images/kabah_3.jpg";
 
 function SelectedPage({ packages, loading, error }) {
     const tourPackage = packages && packages[0] || {};
+
     return (
         <div className='tour-package'>
             <ExtraPagesHeader title={tourPackage.name || "Paket tafsilotlari"} />

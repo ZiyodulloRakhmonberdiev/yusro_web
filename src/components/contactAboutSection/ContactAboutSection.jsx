@@ -38,7 +38,7 @@ function ContactAboutSection() {
             <img src={phone} alt="phone-icon" />
             <div className="wrapper">
               <p>Savollaringiz bormi? Biz bilan bog'laning</p>
-              <span>+998 (88) 511 11 66</span>
+              <a href="+998885111166">+998 (88) 511 11 66</a>
             </div>
           </div>
         </div>

@@ -1,12 +1,12 @@
 import './readArticle.css'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import AnswerToQuestions from './../answerToQuestions/AnswerToQuestions';
 import BlogArticle from './../../service/blog';
 import ExtraPagesHeader from './../extraPagesHeader/ExtraPagesHeader';
 import useFetch from './../../hooks/useFetch';
 import { formatDate } from '../../utils/formatDate';
 import PopularPosts from '../popularPosts/PopularPosts';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Comments from '../comments/Comments';
 import CommentPost from '../commentPost/CommentPost';
 
@@ -27,8 +27,14 @@ function ReadArticle() {
             .catch(err => console.error('Failed to copy the URL: ', err));
     };
 
+    const { pathname } = useLocation();
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+
+
     return (
-        <div className='read-article blog'>
+        <div className='read-article blog'> 
             <ExtraPagesHeader title={article.title} />
             <div className="container">
                 <div className="article-info">

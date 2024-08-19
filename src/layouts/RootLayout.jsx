@@ -13,8 +13,8 @@ import Sidebar from "./../components/sidebar/Sidebar";
 import ValidateForm from "../helpers/ValidateForm";
 
 // import images
-import logo from "./images/logo.png";
-import logo2 from "./images/logo2.png";
+import logo from "../icons/logo_tour.png";
+import logo2 from "../icons/logo_tour.png";
 import phone_icon from "./images/phone_icon.png";
 import mail_icon from "./images/mail_icon.png";
 import mail_send from "./images/mail_send.png";
@@ -130,7 +130,7 @@ function RootLayout() {
                 <img src={phone_icon} alt="" />
                 <div className="about">
                   <span>Hoziroq bizga qo'ng'iroq qiling</span>
-                  <a href="tel:998885111166">+998 (88) 511 11 66</a>
+                  <a href="tel:+998885111166">+998 (88) 511 11 66</a>
                 </div>
               </div>
               <div className="by-contact">
@@ -272,7 +272,7 @@ function RootLayout() {
                 <div className="details">
                   <div className="detail">
                     <img src={phone} alt="" />
-                    <a href="tel:998885111166">+998 (88) 511 11 66</a>
+                    <a href="tel:+998885111166">+998 (88) 511 11 66</a>
                   </div>
                   <div className="detail">
                     <img src={telegram} alt="" />
