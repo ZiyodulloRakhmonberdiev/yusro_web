@@ -134,7 +134,7 @@
 .read-article .container .item .info {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
 .read-article .container .item .info .title {
@@ -151,7 +151,7 @@
     background-color: aliceblue;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     align-items: center;
     justify-content: center;
 }
@@ -211,4 +211,18 @@
 .read-article .blog-post {
     display: flex;
     /* flex-direction: column; */
+}
+
+@media(max-width:750px){
+    .read-article .container .article-info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .read-article .container .article-info .header-title {
+        /* display: none; */
+        flex-wrap: wrap !important;
+        gap: 10px;
+    }
 }

@@ -4,16 +4,15 @@
 
 
 @media(max-width: 750px){
-  .video-content .articles{
-    width: 100% !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .video-content .container{
+    /* display: none; */
+    max-width: inherit !important;
+    /* display: flex; */
+    /* flex-direction: column; */
   }
-  .video-content .articles .article-list{
-    width: 100% !important;
+  .video-content .articles{
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding: 0;
   }
 }

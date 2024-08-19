@@ -4,6 +4,8 @@ import ContactUs from './contactUs/ContactUs';
 import AnswerToQuestions from './answerToQuestions/AnswerToQuestions';
 import Loader from './../ui/Loader';
 
+import kabah_1 from "../images/kabah_3.jpg"
+
 function SelectedPage({ packages, error, loading }) {
     const tourPackage = packages && packages[0] || {};
 
@@ -15,7 +17,7 @@ function SelectedPage({ packages, error, loading }) {
                     {loading ? <Loader/> : error ? <h2>{error.message}</h2> : <>
                     <div className="tour-offer">
                         <div className="main-image">
-                            <img src={tourPackage.image_path} alt={tourPackage.name} />
+                            <img src={tourPackage.image_path ? tourPackage.image_path : kabah_1} alt={tourPackage.name} />
                         </div>
                         <div className="title">
                             <h1>{tourPackage.name}</h1>

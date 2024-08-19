@@ -36,7 +36,7 @@ function AboutUs() {
 			<Opinion/>
 
 			{/* partners */}
-			<Partners/>
+			{/* <Partners/> */}
 		</div>
 	)
 }

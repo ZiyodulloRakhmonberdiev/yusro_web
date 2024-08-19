@@ -2,7 +2,7 @@
 	position: relative;
 	min-height: 300px;
 	width: 100%;
-	margin-top: 150px;
+	margin-top: 162px;
 	background-image: url("../../images/kabah_5.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -47,6 +47,7 @@
 @media (max-width: 850px) {
 	.extra-pages-header {
 		margin-top: 100px;
+		/* margin-bottom: 100px; */
 	}
 }
 @media (max-width: 650px) {

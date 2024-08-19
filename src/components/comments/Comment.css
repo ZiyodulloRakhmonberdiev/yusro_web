@@ -16,7 +16,7 @@
 
 .article-comments .items {
     width: 100%;
-    height: 310px;
+    max-height: 410px;
     overflow-y: auto;
     display: flex;
     gap: 20px;

@@ -9,7 +9,6 @@
 	width: 50%;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 }
 
 .tour-package .tour-offer {
@@ -50,12 +49,14 @@
 
 .tour-package-items {
 	display: flex;
-	align-items: start !important;
 	gap: 20px;
 	flex-direction: column;
 	margin-top: 20px;
 }
-
+.tour-package-items .packages{
+	justify-content: start;
+	gap: 20px;
+}
 
 .tour-package .tour-package-items .title h1 {
 	font-size: 36px;
@@ -70,9 +71,9 @@
 	line-height: 25px;
 }
 
-.tour-package .items {
+/* .tour-package .items {
 	width: 50%;
-}
+} */
 
 .package-items {
 	display: grid;
@@ -84,14 +85,20 @@
 		gap: 15px;
 	}
 
+
 	.tour-package .container .tour-package-about {
 		width: 100%;
 	}
 
-	.tour-package .items {
-		width: 50%;
+	.tour-package .container .items {
+		width: 100%;
+		display: flex;
+		align-items: start;
+		margin-bottom: 50px;
 	}
-
+	.tour-package .container .items .contact-us-section{
+		margin-top: -20px;
+	}
 	.tour-package .container {
 		flex-direction: column;
 	}

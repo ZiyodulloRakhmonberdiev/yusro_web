@@ -109,8 +109,8 @@ function RootLayout() {
           </div>
           <div className="navbar">
             <Link to="/about-us">Biz haqimizda</Link>
-            <Link to="">Hamkorlik</Link>
-            <Link to="">Fikrlar</Link>
+            {/* <Link to="">Hamkorlik</Link> */}
+            {/* <Link to="">Fikrlar</Link> */}
             <Link to="/umra">Umra</Link>
             <Link to="/haj">Haj</Link>
             <Link to="/contact">Aloqa</Link>
@@ -145,7 +145,7 @@ function RootLayout() {
                   <input type="text" placeholder="Qidirish" name="search" />
                   <i className="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <div className="hamburger-menu" onClick={() => setActive(true)}>
+                <div className="hamburger-menu" onClick={() => setActive(!active)}>
                   <span></span>
                   <span></span>
                   <span></span>
@@ -168,7 +168,7 @@ function RootLayout() {
         <Outlet />
       </main>
       <footer>
-        <div className="container">
+        <div className="container footer-top">
           <div className="footer-top-section container">
             <div className="about">
               <img src={mail_send} alt="mail-send" />
@@ -193,7 +193,7 @@ function RootLayout() {
                     state={phoneNumber}
                     setState={setPhoneNumber}
                     placeholder={
-                      placeholder.phoneNumber || "Emailingizni kiriting"
+                      placeholder.phoneNumber || "Telefon/Email yuboring"
                     }
                     hasError={!!formErrors.phoneNumber}
                   />
@@ -272,15 +272,15 @@ function RootLayout() {
                 <div className="details">
                   <div className="detail">
                     <img src={phone} alt="" />
-                    <span>+998 (88) 511 11 66</span>
+                    <a href="tel:998885111166">+998 (88) 511 11 66</a>
                   </div>
                   <div className="detail">
                     <img src={telegram} alt="" />
-                    <span>yusro_admin</span>
+                    <a href="">yusro_admin</a>
                   </div>
                   <div className="detail">
                     <img src={message} alt="" />
-                    <span>admin@yusro.uz</span>
+                    <a href="mailto:admin@yusro.uz">admin@yusro.uz</a>
                   </div>
                   <div className="detail">
                     <img src={location} alt="" />

@@ -26,8 +26,8 @@ function Sidebar({ active, setActive }) {
             <div className="sidebar-navbar-wrapper">
                 <div className="sidebar-navbar">
                     <Link to="/about-us" onClick={handleLinkClick}>Biz haqimizda</Link>
-                    <Link to="" onClick={handleLinkClick}>Hamkorkik</Link>
-                    <Link to="" onClick={handleLinkClick}>Fikrlar</Link>
+                    {/* <Link to="" onClick={handleLinkClick}>Hamkorkik</Link> */}
+                    {/* <Link to="" onClick={handleLinkClick}>Fikrlar</Link> */}
                     <Link to="/umra" onClick={handleLinkClick}>Umra</Link>
                     <Link to="/haj" onClick={handleLinkClick}>Haj</Link>
                     <Link to="/contact" onClick={handleLinkClick}>Aloqa</Link>
@@ -50,14 +50,14 @@ function Sidebar({ active, setActive }) {
                     <img src={phone_outline} alt="" />
                     <div className="about">
                         <span>Hoziroq bizga qo'ng'iroq qiling</span>
-                        <p>+998 (88) 511 11 66</p>
+                        <a href='tel:998885111166'>+998 (88) 511 11 66</a>
                     </div>
                 </div>
                 <div className="by-contact">
                     <img src={message_outline} alt="" />
                     <div className="about">
                         <span>Email manzilimiz</span>
-                        <p>admin@yusro.uz</p>
+                        <a href='mailto:admin@yusro.uz'>admin@yusro.uz</a>
                     </div>
                 </div>
             </div>
