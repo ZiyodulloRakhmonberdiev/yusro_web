@@ -225,4 +225,7 @@
         flex-wrap: wrap !important;
         gap: 10px;
     }
+    .read-article .blog-tags{
+        width: 100%;
+    }
 }

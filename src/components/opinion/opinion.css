@@ -148,6 +148,7 @@
 @media (max-width: 640px) {
   .opinion-section .title-wrapper{
     padding-top: 30px;
+    text-align: center;
   }
   .opinion-slide {
     flex-direction: column;
@@ -155,16 +156,24 @@
 
   .opinion-about .theme {
     font-size: 14px;
+    text-align: center;
+  }
+  
+  .opinion-about .point {
+    margin-top: 10px;
+    text-align: center;
   }
 
   .opinion-about h3 {
     color: var(--secondary-color);
     font-size: 16px;
+    text-align: center;
   }
 
   .opinion-about .description {
     color: var(--secondary-color);
     font-size: 14px;
+    text-align: center;
   }
 
   .opinion-carousel {
