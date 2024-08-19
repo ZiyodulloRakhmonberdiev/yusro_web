@@ -136,11 +136,6 @@
 	cursor: pointer !important;
 }
 
-.sidebar-footer .by-contact .about span {
-	font-size: 14px;
-	color: var(--primary-color);
-}
-
 .sidebar-footer .by-contact img {
 	width: 30px;
 	height: 30px;
@@ -160,13 +155,16 @@
 	gap: 20px;
 }
 
-.sidebar-footer .by-contact .about span {
-	font-size: 14px;
+.by-contact .about a{
 	color: var(--primary-color);
+	font-size: 14px;
+	cursor: pointer;
+	text-decoration: underline;
 }
-
-.sidebar-footer .by-contact .about p {
-	font-weight: 500;
+.sidebar-footer .by-contact .about span {
+	color: var(--primary-color);
+	font-size: 14px;
+	margin-right: 10px;
 }
 
 .sidebar-footer .by-contact img {

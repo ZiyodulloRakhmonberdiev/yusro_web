@@ -109,8 +109,8 @@ function RootLayout() {
           </div>
           <div className="navbar">
             <Link to="/about-us">Biz haqimizda</Link>
-            {/* <Link to="">Hamkorlik</Link> */}
-            {/* <Link to="">Fikrlar</Link> */}
+            <Link to="">Hamkorlik</Link>
+            <Link to="">Fikrlar</Link>
             <Link to="/umra">Umra</Link>
             <Link to="/haj">Haj</Link>
             <Link to="/contact">Aloqa</Link>

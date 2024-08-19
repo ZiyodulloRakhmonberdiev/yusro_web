@@ -1,3 +1,12 @@
+.answer-to-questions{
+	text-align: center;
+	width: 100% !important;
+	/* max-width: 550px; */
+}
+
+.answer-to-questions a{
+	margin: 0 auto;
+}
 .tour-package .container .items {
 	display: flex;
 	gap: 50px;
@@ -182,5 +191,13 @@
 	.blog-tags .answer-to-questions {
 		width: auto;
 		padding: 15px;
+		text-align: center;
+		justify-content: center;
+	}
+	.umra-page .container .items .answer-to-questions{
+		width: auto;
+		text-align: center;
+		display: flex;
+		justify-content: center;
 	}
 }

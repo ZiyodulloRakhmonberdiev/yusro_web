@@ -26,8 +26,8 @@ function Sidebar({ active, setActive }) {
             <div className="sidebar-navbar-wrapper">
                 <div className="sidebar-navbar">
                     <Link to="/about-us" onClick={handleLinkClick}>Biz haqimizda</Link>
-                    {/* <Link to="" onClick={handleLinkClick}>Hamkorkik</Link> */}
-                    {/* <Link to="" onClick={handleLinkClick}>Fikrlar</Link> */}
+                    <Link to="" onClick={handleLinkClick}>Hamkorkik</Link>
+                    <Link to="" onClick={handleLinkClick}>Fikrlar</Link>
                     <Link to="/umra" onClick={handleLinkClick}>Umra</Link>
                     <Link to="/haj" onClick={handleLinkClick}>Haj</Link>
                     <Link to="/contact" onClick={handleLinkClick}>Aloqa</Link>

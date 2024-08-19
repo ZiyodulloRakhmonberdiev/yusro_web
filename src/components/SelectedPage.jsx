@@ -4,11 +4,10 @@ import ContactUs from './contactUs/ContactUs';
 import AnswerToQuestions from './answerToQuestions/AnswerToQuestions';
 import Loader from './../ui/Loader';
 
-import kabah_1 from "../images/kabah_3.jpg"
+import kabah_1 from "../images/kabah_3.jpg";
 
-function SelectedPage({ packages, error, loading }) {
+function SelectedPage({ packages, loading, error }) {
     const tourPackage = packages && packages[0] || {};
-
     return (
         <div className='tour-package'>
             <ExtraPagesHeader title={tourPackage.name || "Paket tafsilotlari"} />
@@ -30,6 +29,7 @@ function SelectedPage({ packages, error, loading }) {
                         <div className="title">
                             <h1>{tourPackage.name || 'Paketlar'} paketlari</h1>
                         </div>
+
                         <div className="packages">
                             {tourPackage.tour_packs && tourPackage.tour_packs.map((pack) => (
                                 <div className="package" key={pack.id}>

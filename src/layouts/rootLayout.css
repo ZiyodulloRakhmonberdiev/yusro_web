@@ -575,7 +575,6 @@ p {
 @media (max-width: 1220px) {
 	.footer-top-section {
 		padding: 30px;
-		margin-bottom: 10px;
 	}
 
 	.footer-top-section .about i {
@@ -605,7 +604,7 @@ p {
 
 @media (max-width: 970px) {
 	footer{
-		margin-top: 170px;
+		margin-top: 200px;
 	}
 	.main-footer {
 		padding-top: 40px;
@@ -664,7 +663,6 @@ p {
 
 	.footer-top-section .send-phoneNumber {
 		width: 100%;
-		/* border-radius: 0; */
 	}
 
 	.footer-top-section .send-phoneNumber input {
