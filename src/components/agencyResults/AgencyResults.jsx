@@ -14,9 +14,11 @@ function AgencyResults() {
 					<div className="title">Agentligimiz 1000 dan ortiq haj va umra sayohatchilariga yordam bergan</div>
 					<div className="image">
 						<img src={mosque_2} alt="" />
-						<span className="play-icon-wrapper">
-							<i className="fa-solid fa-play"></i>
-						</span>
+						<div className="play-icon-div">
+            <button className="play-icon-wrapper">
+              <div className="triangle"></div>
+            </button>
+            </div>
 					</div>
 				</div>
 				<div className="cards">

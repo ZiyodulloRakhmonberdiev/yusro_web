@@ -47,11 +47,17 @@
 @media (max-width: 850px) {
 	.extra-pages-header {
 		margin-top: 100px;
-		/* margin-bottom: 100px; */
 	}
 }
 @media (max-width: 650px) {
 	.extra-pages-header {
 		margin-top: 50px;
+		min-height: 250px;
+	}
+	.extra-pages-header .about .title {
+		font-size: 28px;
+	}
+	.extra-pages-header .about .breadcrumb {
+		margin-bottom: 0;
 	}
 }

@@ -41,7 +41,7 @@ function VideoContent({ videos }) {
 
   return (
     <div className='video-content blog'>
-      <ExtraPagesHeader title="Video Kontent" />
+      <ExtraPagesHeader title="Media" />
       <div className="container">
         {status === 'loading' ? <Loader /> : status === 'failed' ? <NotAvailable name={error} /> : (
           <div className='articles'>
