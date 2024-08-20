@@ -19,9 +19,11 @@ function AgencyExperience() {
           </div>
           <div className="nabwi2-wrapper">
             <img src={nabawi_3} alt="" className="nabwi2" />
-            <span className="play-icon-wrapper">
-              <i className="fa-solid fa-play"></i>
-            </span>
+            <div className="play-icon-div">
+            <button className="play-icon-wrapper">
+              <div className="triangle"></div>
+            </button>
+            </div>
           </div>
         </div>
       </div>

@@ -103,6 +103,9 @@ function TourPackages() {
                       <div className="package-content">
                         <h3>{pack.name}</h3>
                         <ul>
+                              <p>
+                                O'z ichiga oladi:
+                              </p>
                           {pack.pack_includes &&
                           pack.pack_includes.length > 0 ? (
                             pack.pack_includes.map((include) => (

@@ -7,7 +7,7 @@ function AnswerToQuestions() {
 				<h1>savollaringiz bormi?</h1>
 				<p>Hoziroq biz bilan bog'laning</p>
 			</div>
-			<a href='tel:+998885111166' className="phone-number">+998 (88) 511 11 66</a>
+			<a href='tel:+998555002228' className="phone-number">+998 55 500 22 28</a>
 		</div>
 	)
 }

@@ -5,7 +5,7 @@
 .agency-about {
 	width: 100%;
 	padding: 150px 0 250px;
-	background-image: url("../../images/kabah_7.jpg");
+	background-image: url("../../images/kabah_9.png");
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -15,7 +15,7 @@
 	overflow: hidden;
 }
 
-.agency-about::before {
+/* .agency-about::before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -24,7 +24,7 @@
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.7);
 	z-index: 1;
-}
+} */
 
 .agency-about .container {
 	width: 100%;
@@ -34,7 +34,7 @@
 	color: white;
 	display: flex;
 	flex-direction: column;
-	gap: 40px;
+	gap: 20px;
 	align-items: start;
 	justify-content: center;
 	padding: 0 20px;
@@ -58,8 +58,9 @@
 	padding: 15px 35px;
 	color: var(--primary-color);
 	background-color: var(--primary-main-color);
-	border-radius: 8px;
+	border-radius: 4px;
 	transition: 0.3s ease;
+	margin-top: 2rem;
 }
 
 .agency-about .container a:hover {
@@ -173,13 +174,13 @@
 	}
 
 	.agency-about .container h1 {
-		font-size: 36px;
+		font-size: 28px;
 	}
 }
 
 @media (max-width: 450px) {
 	.agency-about .container h1 {
-		font-size: 32px;
+		font-size: 24px;
 	}
 
 	.agency-about .container a {

@@ -130,7 +130,7 @@ function RootLayout() {
                 <img src={phone_icon} alt="" />
                 <div className="about">
                   <span>Hoziroq bizga qo'ng'iroq qiling</span>
-                  <a href="tel:+998885111166">+998 (88) 511 11 66</a>
+                  <a href="tel:+998555002228">+998 55 500 22 28</a>
                 </div>
               </div>
               <div className="by-contact">
@@ -272,7 +272,7 @@ function RootLayout() {
                 <div className="details">
                   <div className="detail">
                     <img src={phone} alt="" />
-                    <a href="tel:+998885111166">+998 (88) 511 11 66</a>
+                    <a href="tel:+998555002228">+998 55 500 22 28</a>
                   </div>
                   <div className="detail">
                     <img src={telegram} alt="" />

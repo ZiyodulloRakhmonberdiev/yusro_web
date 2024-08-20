@@ -123,11 +123,12 @@
 	background-color: #F1C30E;
 	padding: 10px 35px;
 	border-radius: 4px;
+	font-weight: 700;
 }
 
 .package-content ul {
 	width: 100%;
-	min-height: 100px;
+	min-height: 150px;
 	max-height: 280px;
 	background-color: var(--primary-color) !important;
 	list-style: none;
@@ -141,6 +142,7 @@
 	gap: 25px;
 	margin-bottom: 10px;
 	overflow-y: auto;
+	position: relative;
 }
 
 ul::-webkit-scrollbar {
@@ -159,19 +161,21 @@ ul::-webkit-scrollbar-track {
 
 }
 
-
+ul p{
+	font-weight: 600;
+	color: var(--secondary-color);
+	font-size: 18px;
+	margin-top: 1rem;
+}
 ul span {
 	color: var(--secondary-color);
-	font-weight: 600;
 	font-size: 18px;
 }
 
 ul li {
+	font-weight: 500;
 	font-size: 14PX;
 	width: 100%;
-	/* height: max-content; */
-	/* margin: 10px 0; */
-	/* flex: 1; */
 }
 
 ul li span {

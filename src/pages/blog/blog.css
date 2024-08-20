@@ -7,10 +7,15 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  gap: 10rem;
 }
 
 .blog .blog-pagination {
-  width: 60%;
+  width: 100%;
+}
+
+.blog .blog-tags{
+  min-width: 350px;
 }
 
 @media(max-width: 751px){

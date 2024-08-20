@@ -71,6 +71,8 @@ header .main-head .navbar a:hover {
 	gap: 20px;
 	flex-direction: column;
 	/* min-width: 180px; */
+	width: 100%;
+	padding-left: 8rem;
 }
 
 .header-details .logo {
@@ -88,6 +90,7 @@ header .main-head .navbar a:hover {
 .header-details .details .contacts {
 	display: flex;
 	align-items: center;
+	justify-content: end;
 	gap: 60px;
 	padding: 0 0 20px;
 	border-bottom: 1px solid var(--secondary-lighter-color);
@@ -177,7 +180,7 @@ header .main-head .navbar a:hover {
 .header-details .navbar {
 	width: 100%;
 	display: flex;
-	justify-content: end;
+	justify-content: start;
 	align-items: start;
 	gap: 60px;
 }
@@ -273,7 +276,7 @@ footer {
 }
 
 .footer-top-section .send-phoneNumber button {
-	font-size: 20px;
+	font-size: 16px;
 	background-color: var(--secondary-color);
 	color: var(--primary-color);
 	border: none;
@@ -507,6 +510,7 @@ p {
 	.header-details .details {
 		width: 100%;
 		align-items: center;
+		padding-left: 0;
 	}
 
 	.header-details .main-logo {

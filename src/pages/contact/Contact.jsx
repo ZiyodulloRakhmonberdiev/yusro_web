@@ -105,7 +105,7 @@ function Contact() {
                                 <img src={phone_outline} alt="" />
                                 <div className="about">
                                     <span>24/7 aloqada</span>
-                                    <p>+998 (88) 511 11 66</p>
+                                    <p>+998 55 500 22 28</p>
                                 </div>
                             </div>
                             <div className="detail">

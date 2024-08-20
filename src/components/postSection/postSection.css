@@ -51,12 +51,5 @@
     background-color: var(--primary-lighter-color);
     border: none;
     border-radius: 50%;
-}
-
-@media(max-width: 750px){
-    .items{
-    }
-    .post-section .items .item{
-
-    }
+    color: var(--primary-color);
 }

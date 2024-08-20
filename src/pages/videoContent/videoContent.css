@@ -3,12 +3,10 @@
 }
 
 
+
 @media(max-width: 750px){
   .video-content .container{
-    /* display: none; */
     max-width: inherit !important;
-    /* display: flex; */
-    /* flex-direction: column; */
   }
   .video-content .articles{
     display: flex;
