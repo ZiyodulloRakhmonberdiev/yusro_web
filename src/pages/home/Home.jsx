@@ -40,7 +40,7 @@ function Home() {
 			</div>
 
 			{/* amenities */}
-			<OurAmenities />
+			{/* <OurAmenities /> */}
 
 			{/* agency ecperience */}
 			<AgencyExperience />
@@ -54,10 +54,10 @@ function Home() {
 			</div>
 
 			{/* TourPackages */}
-			<TourPackages />
+			{/* <TourPackages /> */}
 
 			{/* opinon */}
-				<Opinion />
+				{/* <Opinion /> */}
 
 			{/* partners */}
 			{/* <Partners /> */}

@@ -70,7 +70,6 @@ header .main-head .navbar a:hover {
 	display: flex;
 	gap: 20px;
 	flex-direction: column;
-	/* min-width: 180px; */
 	width: 100%;
 	padding-left: 8rem;
 }
@@ -210,7 +209,7 @@ footer {
 	display: flex;
 	align-items: start;
 	justify-content: space-around;
-	padding: 80px 50px;
+	padding: 60px 50px;
 	background-color: var(--primary-main-color);
 	color: var(--primary-color);
 	border-radius: 10px;

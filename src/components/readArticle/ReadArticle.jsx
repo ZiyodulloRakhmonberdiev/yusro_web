@@ -5,7 +5,7 @@ import BlogArticle from './../../service/blog';
 import ExtraPagesHeader from './../extraPagesHeader/ExtraPagesHeader';
 import useFetch from './../../hooks/useFetch';
 import { formatDate } from '../../utils/formatDate';
-import PopularPosts from '../popularPosts/PopularPosts';
+// import PopularPosts from '../popularPosts/PopularPosts';
 import { useEffect, useState } from 'react';
 import Comments from '../comments/Comments';
 import CommentPost from '../commentPost/CommentPost';

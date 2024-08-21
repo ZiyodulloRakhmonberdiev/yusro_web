@@ -2,8 +2,8 @@ import "./agencyExperience.css";
 
 // import images
 import nabawi from "../../images/nabawi_9.jpg";
-import nabawi_3 from "../../images/nabawi_3.jpg"
-import security from "../../icons/sec_tall_wrap.png"
+import nabawi_3 from "../../images/nabawi_3.jpg";
+import security from "../../icons/sec_tall_wrap.png";
 
 function AgencyExperience() {
   return (
@@ -20,9 +20,9 @@ function AgencyExperience() {
           <div className="nabwi2-wrapper">
             <img src={nabawi_3} alt="" className="nabwi2" />
             <div className="play-icon-div">
-            <button className="play-icon-wrapper">
-              <div className="triangle"></div>
-            </button>
+              <button className="play-icon-wrapper">
+                <div className="triangle"></div>
+              </button>
             </div>
           </div>
         </div>

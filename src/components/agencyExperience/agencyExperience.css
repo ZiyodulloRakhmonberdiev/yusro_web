@@ -120,17 +120,14 @@
 @keyframes pulse {
 	0% {
 		transform: translate(-50%, -50%) scale(0.9);
-		opacity: 1;
 	}
 
 	50% {
 		transform: translate(-50%, -50%) scale(0.95);
-		opacity: 0.9;
 	}
 
 	100% {
 		transform: translate(-50%, -50%) scale(1);
-		opacity: 1;
 	}
 }
 

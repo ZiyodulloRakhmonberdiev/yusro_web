@@ -9,10 +9,10 @@ import useQueryParams from '../../hooks/useQueryParams'
 import NotAvailable from '../../helpers/NotAvailable'
 import Loader from '../../ui/Loader'
 import ArticleList from '../../components/articleList/ArticleList'
-import PopularPosts from '../../components/popularPosts/PopularPosts'
+// import PopularPosts from '../../components/popularPosts/PopularPosts'
 import AnswerToQuestions from '../../components/answerToQuestions/AnswerToQuestions'
 import PostSection from '../../components/postSection/PostSection'
-import PostTags from '../../components/postTags/PostTags'
+// import PostTags from '../../components/postTags/PostTags'
 import Pagination from './../../helpers/Pagination';
 
 function VideoContent({ videos }) {
@@ -41,7 +41,7 @@ function VideoContent({ videos }) {
 
   return (
     <div className='video-content blog'>
-      <ExtraPagesHeader title="Video Kontent" />
+      <ExtraPagesHeader title="Media" />
       <div className="container">
         {status === 'loading' ? <Loader /> : status === 'failed' ? <NotAvailable name={error} /> : (
           <div className='articles'>
@@ -56,7 +56,7 @@ function VideoContent({ videos }) {
           </div>
         )}
         <div className="blog-tags">
-          <PopularPosts />
+          {/* <PopularPosts /> */}
           <AnswerToQuestions />
         </div>
       </div>

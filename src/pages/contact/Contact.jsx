@@ -85,7 +85,7 @@ function Contact() {
 
     return (
         <div className='contact-page'>
-            <ExtraPagesHeader />
+            <ExtraPagesHeader title="Bizga bog'laning" />
 
             <div className="container">
                 <div className="contact-wrapper">
@@ -98,34 +98,35 @@ function Contact() {
                                 <img src={location_outline} alt="" />
                                 <div className="about">
                                     <span>Bizning manzil</span>
-                                    <p>Farg'ona vilyati farg'ona shahar</p>
+                                    <p>Farg'ona vilyati, Farg'ona Shahri</p>
                                 </div>
                             </div>
                             <div className="detail">
                                 <img src={phone_outline} alt="" />
                                 <div className="about">
                                     <span>24/7 aloqada</span>
-                                    <p>+998 55 500 22 28</p>
+                                    <a href='tel:+998555002228'>+998 (55) 500 22 28</a>
                                 </div>
                             </div>
                             <div className="detail">
                                 <img src={message_outline} alt="" />
                                 <div className="about">
                                     <span>Bizga xabar qoldiring</span>
-                                    <p>admin@yusro.uz</p>
+                                    <a href='mailto:admin@yusro.uz'>admin@yusro.uz</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="map-container">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59915.49844840892!2d69.20407624303485!3d41.31115128493007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef4e71171a0e5%3A0x7d64b1d6d5e1c0f4!2z0J3QsNGI0LrQtdC90LjRhtC60LDRjywg0KLQvtC00LDQvQ!5e0!3m2!1suz!2s!4v1688476828371!5m2!1suz!2s"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d307.7693158839932!2d71.78828317867537!3d40.387142565784345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1suz!2s!4v1724150196766!5m2!1suz!2s"
                             style={{ border: 0 }}
                             allowFullScreen=""
                             loading="lazy"
                             title="Google Map"
                             className='map'
                         ></iframe>
+                        {/* <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d307.7693158839932!2d71.78828317867537!3d40.387142565784345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1suz!2s!4v1724150196766!5m2!1suz!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
                     </div>
                 </div>
                 <div className="contact-form">
