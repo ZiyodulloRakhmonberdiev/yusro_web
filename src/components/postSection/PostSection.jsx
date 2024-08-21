@@ -10,6 +10,7 @@ import useQueryParams from './../../hooks/useQueryParams';
 function PostSection() {
     const { data: sections, loading, error } = useFetch(BlogArticle.fetchArticleSection);
     const dispatch = useDispatch();
+console.log(sections);
 
     const { params, updateQueryParams } = useQueryParams();
 
@@ -26,11 +27,11 @@ function PostSection() {
             <div className="title">Bo'limlar</div>
             <div className="items">
                 {loading ? (
-                    <Loader />
+                    <Loader /> 
                 ) : error ? (
                     <span>{error.message}</span>
                 ) : sections ? (
-                    sections.map(item => (
+                    sections?.results?.map(item => (
                         <div key={item.id} className="item" onClick={() => handleCategorySelect(item.id)}>
                             <div className="name">
                                 <i className="fa-solid fa-arrow-right"></i>

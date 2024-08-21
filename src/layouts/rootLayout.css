@@ -549,7 +549,6 @@ p {
 @media (max-width: 650px) {
 	.header-details .navbar {
 		gap: 20px;
-		padding-bottom: 0;
 	}
 
 	.header-details .navbar a {
