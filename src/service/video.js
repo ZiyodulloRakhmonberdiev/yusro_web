@@ -29,8 +29,12 @@ const VideoArticle = {
   // },
 
   async readVideo(id) {
-    const response = await axios.get(`/main/video/${id}`);
-    return response.data;
+    try {
+      const response = await axios.get(`/main/video/${id}/`);
+      return response.data;
+    } catch (error) {
+      throw error.response || new Error('Xatolik yuz berdi!');
+    }
   },
 
   // post comment

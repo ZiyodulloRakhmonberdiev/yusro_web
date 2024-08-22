@@ -7,7 +7,7 @@ import NotAvailable from '../../helpers/NotAvailable'
 import { formatDate } from '../../utils/formatDate'
 
 function Comments({ articleComments, loading, error }) {
-
+  
   const { id } = useParams()
 
   return (
