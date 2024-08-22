@@ -14,10 +14,10 @@ const BlogArticle = {
     const response = await axios.get('/main/post-category/');
     return response.data;
   },
-  async fetchArticlePopular(params) {
-    const response = await axios.get('/main/post/tags/', { params });
-    return response.data;
-  },
+  // async fetchArticlePopular(params) {
+  //   const response = await axios.get('/main/post/tags/', { params });
+  //   return response.data;
+  // },
 
   // async fetchArticleTag(params) {
   //   const response = await axios.get('/post/tags/', { params });
@@ -25,8 +25,12 @@ const BlogArticle = {
   // },
 
   async readArticle(id) {
-    const response = await axios.get(`/main/post/${id}`);
-    return response.data;
+    try{
+      const response = await axios.get(`/main/post/${id}/`);
+      return response.data;
+    }catch(error){
+      throw error.response || new Error('Xatolik yuz berdi!');
+    }
   },
 
   // post comment

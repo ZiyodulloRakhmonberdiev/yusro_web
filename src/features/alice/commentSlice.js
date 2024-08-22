@@ -11,7 +11,7 @@ export const postComment = createAsyncThunk(
         } catch (error) {
             return rejectWithValue(error.response?.data?.errors || 'An error occurred while posting the comment.');
         }
-    }
+    } 
 );
 
 const initialState = {

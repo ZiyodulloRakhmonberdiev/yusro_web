@@ -9,18 +9,18 @@ import { formatDate } from "../../utils/formatDate";
 import { useEffect, useState } from "react";
 import Comments from "../comments/Comments";
 import CommentPost from "../commentPost/CommentPost";
+import axios from "axios";
 
 function ReadArticle() {
   const { id } = useParams();
+  
   const {
     data: article,
     loading,
     error,
   } = useFetch(() => BlogArticle.readArticle(id));
-  console.log(article);
 
   const [copied, setCopied] = useState(false);
-
   const handleCopyLink = () => {
     navigator.clipboard
       .writeText(window.location.href)
@@ -28,7 +28,7 @@ function ReadArticle() {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       })
-      .catch((err) => console.error("Failed to copy the URL: ", err));
+      .catch((err) => console.error("Nusxalashda muammo yuz berdi", err));
   };
 
   const { pathname } = useLocation();
@@ -38,12 +38,12 @@ function ReadArticle() {
 
   return (
     <div className="read-article blog">
-      <ExtraPagesHeader title={article.title} />
+      <ExtraPagesHeader title={article.name} />
       <div className="container">
         <div className="article-info">
           <div className="item" key={article.id}>
             <div className="header-image">
-              <img src={article.image_path} alt="" />
+              <img src={article.image} alt="" />
               <span className="created-date">
                 {formatDate(article.created_at)}
               </span>
@@ -51,29 +51,21 @@ function ReadArticle() {
             <div className="header-title">
               <div className="tags">
                 <i className="fa-solid fa-tag"></i>
-                {article.tags &&
-                  article.tags.map((tag) => (
-                    <span key={tag.id}>{tag.name}</span>
+                {article.post_tag &&
+                  article.post_tag?.map((tag) => (
+                    <span className="tag" key={tag.id}>{tag.name}</span>
                   ))}
-              </div>
-              <div className="author">
-                <i className="fa-solid fa-user"></i>
-                <span>{article.author}</span>
               </div>
               <div className="comments">
                 <i className="fa-regular fa-comment"></i>
                 {/* <span>{article.comments && article.comments.length}</span> */}
               </div>
-              <div className="views">
-                <i className="fa-solid fa-eye"></i>
-                {/* <span>{article.views}</span> */}
-              </div>
             </div>
             <div className="info">
-              {/* <div className="title">{article.name}</div> */}
+              <div className="title">{article.name}</div>
               <div className="intro-text">
                 <i className="fa-solid fa-quote-right"></i>
-                {/* <p>{article.intro_text}</p> */}
+                <p>{article.post_slogan}</p>
                 <span>Yusro Tour</span>
               </div>
               <div className="description">{article.post_content}</div>

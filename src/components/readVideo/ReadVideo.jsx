@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import Comments from "../comments/Comments";
 import CommentPost from "../commentPost/CommentPost";
 import VideoArticle from "../../service/video";
+import defaultVideo from "../../video/defaultVideo.mp4"
 
 function ReadVideo() {
   const { id } = useParams();
@@ -28,7 +29,7 @@ function ReadVideo() {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       })
-      .catch((err) => console.error("Failed to copy the URL: ", err));
+      .catch((err) => console.error("Nusxalashda muammo yuz berdi: ", err));
   };
 
   const { pathname } = useLocation();
@@ -43,7 +44,7 @@ function ReadVideo() {
         <div className="video-info">
           <div className="item" key={video.id}>
             <div className="header-image">
-              {video.video && <video src={video.video} controls />}
+              <video src={video.video_url ? video.video_url : video.video ? video.video : defaultVideo} controls />
               <span className="created-date">
                 {formatDate(video.created_at)}
               </span>

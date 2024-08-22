@@ -36,14 +36,11 @@ function VideoContent({ videos }) {
   console.log(data);
   
 
-  const videosList = data.filter(article => article.video !== null && article.video !== undefined);
-console.log(videosList);
+//   const videosList = data.filter(article => article.video !== null && article.video !== undefined);
+// console.log(videosList);
 
 
-  const pageCount = videosList.length > 0 ? Math.ceil((videosList.length / pageSize)) : 1;
-
-  console.log(status);
-  
+  const pageCount = data.length > 0 ? Math.ceil((data.length / pageSize)) : 1;
 
   return (
     <div className='video-content blog'>
@@ -51,8 +48,8 @@ console.log(videosList);
       <div className="container">
         {status === 'loading' ? <Loader /> : status === 'failed' ? <NotAvailable name={error} /> : (
           <div className='articles'>
-            {videosList ? <div className="blog-pagination">
-              <VideoList videos={videosList} className="article-list" />
+            {data ? <div className="blog-pagination">
+              <VideoList videos={data} className="article-list" />
               <Pagination
                 currentPage={page}
                 pageCount={pageCount}
