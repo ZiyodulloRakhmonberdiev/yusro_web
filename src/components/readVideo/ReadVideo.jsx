@@ -1,23 +1,23 @@
-import "./readArticle.css";
+import "./readVideo.css";
 import { Link, useLocation, useParams } from "react-router-dom";
-import AnswerToQuestions from "./../answerToQuestions/AnswerToQuestions";
-import BlogArticle from "./../../service/blog";
-import ExtraPagesHeader from "./../extraPagesHeader/ExtraPagesHeader";
-import useFetch from "./../../hooks/useFetch";
+import AnswerToQuestions from "../answerToQuestions/AnswerToQuestions";
+import ExtraPagesHeader from "../extraPagesHeader/ExtraPagesHeader";
+import useFetch from "../../hooks/useFetch";
 import { formatDate } from "../../utils/formatDate";
 // import PopularPosts from '../popularPosts/PopularPosts';
 import { useEffect, useState } from "react";
 import Comments from "../comments/Comments";
 import CommentPost from "../commentPost/CommentPost";
+import VideoArticle from "../../service/video";
 
-function ReadArticle() {
+function ReadVideo() {
   const { id } = useParams();
   const {
-    data: article,
+    data: video,
     loading,
     error,
-  } = useFetch(() => BlogArticle.readArticle(id));
-  console.log(article);
+  } = useFetch(() => VideoArticle.readVideo(id));
+  console.log(video);
 
   const [copied, setCopied] = useState(false);
 
@@ -37,59 +37,67 @@ function ReadArticle() {
   }, [pathname]);
 
   return (
-    <div className="read-article blog">
-      <ExtraPagesHeader title={article.title} />
+    <div className="read-video blog">
+      <ExtraPagesHeader title={video.title} />
       <div className="container">
-        <div className="article-info">
-          <div className="item" key={article.id}>
+        <div className="video-info">
+          <div className="item" key={video.id}>
             <div className="header-image">
-              <img src={article.image_path} alt="" />
+              {video.video && <video src={video.video} controls />}
               <span className="created-date">
-                {formatDate(article.created_at)}
+                {formatDate(video.created_at)}
               </span>
             </div>
             <div className="header-title">
-              <div className="tags">
+              {/* <div className="tags">
                 <i className="fa-solid fa-tag"></i>
-                {article.tags &&
-                  article.tags.map((tag) => (
+                {video.tags &&
+                  video.tags.map((tag) => (
                     <span key={tag.id}>{tag.name}</span>
                   ))}
-              </div>
-              <div className="author">
+              </div> */}
+              {/* <div className="author">
                 <i className="fa-solid fa-user"></i>
-                <span>{article.author}</span>
-              </div>
-              <div className="comments">
+                <span>{video.author}</span>
+              </div> */}
+              {/* <div className="comments">
                 <i className="fa-regular fa-comment"></i>
-                {/* <span>{article.comments && article.comments.length}</span> */}
-              </div>
-              <div className="views">
+                <span>{video.comments && video.comments.length}</span>
+              </div> */}
+              {/* <div className="views">
                 <i className="fa-solid fa-eye"></i>
-                {/* <span>{article.views}</span> */}
-              </div>
+                <span>{video.views}</span>
+              </div> */}
             </div>
             <div className="info">
-              {/* <div className="title">{article.name}</div> */}
-              <div className="intro-text">
+              <div className="title">{video.name}</div>
+              {/* <div className="intro-text">
                 <i className="fa-solid fa-quote-right"></i>
-                {/* <p>{article.intro_text}</p> */}
+                <p>{video.intro_text}</p>
                 <span>Yusro Tour</span>
-              </div>
-              <div className="description">{article.post_content}</div>
+              </div> */}
+              <div className="description">{video.text}</div>
             </div>
             <div className="extra-info">
               {/* <div>
-                                <span>Teglar:</span> {article.tags && article.tags.map(tag => <span key={tag.id}>{tag.name}</span>)}
-                            </div> */}
+                <span>Teglar:</span>{" "}
+                {video.tags &&
+                  video.tags.map((tag) => (
+                    <span key={tag.id}>{tag.name}</span>
+                  ))}
+              </div> */}
               <p onClick={handleCopyLink}>
                 <span>Bu postni ulashish</span>
                 <i className="fa-solid fa-link"></i>
                 {copied && <p className="copied">Nusxalandi</p>}
               </p>
             </div>
-            {/* <Comments articleComments={article.comments && article.comments} loading={loading} error={error} /> */}
-            {/* <CommentPost id={id}/> */}
+            {/* <Comments
+              videoComments={video.comments && video.comments}
+              loading={loading}
+              error={error}
+            /> */}
+            {/* <CommentPost id={id} /> */}
           </div>
         </div>
         <div className="blog-tags">
@@ -101,4 +109,4 @@ function ReadArticle() {
   );
 }
 
-export default ReadArticle;
+export default ReadVideo;

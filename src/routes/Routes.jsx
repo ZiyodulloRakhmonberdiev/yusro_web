@@ -18,6 +18,7 @@ import Login from '../components/admin/login/Login';
 import PrivateRoute from './../components/admin/privateRoute/PrivateRoute';
 import AdminRoutes from './AdminRoutes';
 import ScrollToTop from '../helpers/ScrollToTop';
+import ReadVideo from '../components/readVideo/ReadVideo';
 
 function Routes() {
 	return createBrowserRouter(
@@ -31,9 +32,10 @@ function Routes() {
 					<Route path='/contact' element={<Contact />} />
 					<Route path='/blog' element={<Blog />} />
 					<Route path='/packages' element={<PackagePage />} />
-					<Route path='/article/:id' element={<ReadArticle />} />
+					<Route path='/main/post/:id' element={<ReadArticle />} />
 					<Route path='/tour-package/:id' element={<TourPackage />} />
 					<Route path='/video-content' element={<VideoContent />} />
+					<Route path='/video-content/:id' element={<ReadVideo />} />
 					<Route path='*' element={<PageNotFound />} />
 				</Route>
 				{/* <ScrollToTop /> */}

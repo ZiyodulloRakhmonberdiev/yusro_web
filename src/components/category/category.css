@@ -15,12 +15,13 @@
 	border-radius: 16px;
 	margin-top: -120px;
 	z-index: 2;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .category .cards .card {
 	position: relative;
 	display: flex;
-	justify-content: center;
+	justify-content: start;
 	flex-direction: column;
 	text-align: center;
 	gap: 20px;

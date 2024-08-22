@@ -6,7 +6,7 @@ const BlogArticle = {
       const response = await axios.get('/main/post/', { params });
       return response.data;
     } catch (error) {
-      throw error.response || new Error('Unknown error');
+      throw error.response || new Error('Xatolik yuz berdi!');
     }
   },
 
@@ -30,11 +30,11 @@ const BlogArticle = {
   },
 
   // post comment
-  async postComment(user) {
-    console.log(user);
-    const response = await axios.post(`/post/comments/`, user);
-    return response.data;
-  },
+  // async postComment(user) {
+  //   console.log(user);
+  //   const response = await axios.post(`/post/comments/`, user);
+  //   return response.data;
+  // },
   
 };
 
