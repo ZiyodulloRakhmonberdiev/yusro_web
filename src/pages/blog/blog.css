@@ -18,6 +18,13 @@
   min-width: 350px;
 }
 
+@media(max-width: 1200px){
+  .blog .container{
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
+}
+
 @media(max-width: 751px){
   .blog {
     padding-bottom: 50px;
@@ -25,6 +32,7 @@
   .blog .container{
     flex-direction: column;
     justify-content: center;
+    flex-direction: column;
     gap: 1.5rem;
   }
   .blog .posts{
