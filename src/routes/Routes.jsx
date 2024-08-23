@@ -32,6 +32,7 @@ function Routes() {
 					<Route path='/contact' element={<Contact />} />
 					<Route path='/blog' element={<Blog />} />
 					<Route path='/packages' element={<PackagePage />} />
+					<Route path='/main/post/' element={<Blog />} />
 					<Route path='/main/post/:id' element={<ReadArticle />} />
 					<Route path='/tour-package/:id' element={<TourPackage />} />
 					<Route path='/video-content' element={<VideoContent />} />
