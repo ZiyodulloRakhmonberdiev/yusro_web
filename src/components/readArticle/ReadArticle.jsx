@@ -20,6 +20,10 @@ function ReadArticle() {
     error,
   } = useFetch(() => BlogArticle.readArticle(id));
 
+  // useEffect(() => {
+  //   article
+  // }, [])
+
   const [copied, setCopied] = useState(false);
   const handleCopyLink = () => {
     navigator.clipboard
@@ -31,10 +35,10 @@ function ReadArticle() {
       .catch((err) => console.error("Nusxalashda muammo yuz berdi", err));
   };
 
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+  // const { pathname } = useLocation();
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, [pathname]);
 
   return (
     <div className="read-article blog">

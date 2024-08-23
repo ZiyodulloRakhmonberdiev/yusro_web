@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import './PopularPosts.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Loader from './../../ui/Loader';
 import { formatDate } from '../../utils/formatDate';
 
@@ -66,6 +66,7 @@ const PopularPosts = ({ page, pageSize }) => {
 
   const handleArticleClick = (id) => {
     navigate(`/main/post/${id}/`);
+    // window.location.reload()
   };
 
   const handleKeyPress = (event) => {
