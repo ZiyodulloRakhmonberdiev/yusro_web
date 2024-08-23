@@ -5,7 +5,7 @@ import BlogArticle from "./../../service/blog";
 import ExtraPagesHeader from "./../extraPagesHeader/ExtraPagesHeader";
 import useFetch from "./../../hooks/useFetch";
 import { formatDate } from "../../utils/formatDate";
-// import PopularPosts from '../popularPosts/PopularPosts';
+import PopularPosts from '../popularPosts/PopularPosts';
 import { useEffect, useState } from "react";
 import Comments from "../comments/Comments";
 import CommentPost from "../commentPost/CommentPost";
@@ -20,6 +20,10 @@ function ReadArticle() {
     error,
   } = useFetch(() => BlogArticle.readArticle(id));
 
+  // useEffect(() => {
+  //   article
+  // }, [])
+
   const [copied, setCopied] = useState(false);
   const handleCopyLink = () => {
     navigator.clipboard
@@ -31,10 +35,10 @@ function ReadArticle() {
       .catch((err) => console.error("Nusxalashda muammo yuz berdi", err));
   };
 
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+  // const { pathname } = useLocation();
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, [pathname]);
 
   return (
     <div className="read-article blog">
@@ -85,7 +89,7 @@ function ReadArticle() {
           </div>
         </div>
         <div className="blog-tags">
-          {/* <PopularPosts /> */}
+          <PopularPosts />
           <AnswerToQuestions />
         </div>
       </div>
