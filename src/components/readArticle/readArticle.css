@@ -215,6 +215,11 @@
     font-size: 16px;
 }
 
+.read-article .container .item .extra-info .tag {
+    color: var(--primary-lighter-color);
+    font-size: 14px;
+}
+
 .read-article .blog-post {
     display: flex;
     /* flex-direction: column; */

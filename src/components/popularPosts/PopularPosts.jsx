@@ -43,7 +43,7 @@ const PopularPosts = ({ page, pageSize }) => {
       setSearchResults(response.data.results);
       setLoading(false);
     } catch (error) {
-      setError('Search error:', error);
+      setError('Qidirishda xatolik:', error);
       setLoading(false);
     }
   }, [searchQuery]);
@@ -65,8 +65,8 @@ const PopularPosts = ({ page, pageSize }) => {
   }, [searchQuery]);
 
   const handleArticleClick = (id) => {
-    navigate(`/main/post/${id}/`);
-    // window.location.reload()
+    navigate(`/main/post/${id}/`, {replace: true});
+    window.location.reload()
   };
 
   const handleKeyPress = (event) => {
@@ -99,7 +99,7 @@ const PopularPosts = ({ page, pageSize }) => {
           ) : (
             searchResults.length > 0 ? (
               searchResults.map((article) => (
-                <div className="article-item item" key={article.id} onClick={() => handleArticleClick(article.id)}>
+                <div className="article-item item" key={id} onClick={() => handleArticleClick(article.id)}>
                   {article.image ? <img src={article.image} alt="" /> : <iframe src={article.video} title="Umra ziyorati: ko‘zga ko‘rinmaydigan jihatlar haqida 10 ta maslahat" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>}
                   <div className="info">
                     <div className="name">{article.name}</div>

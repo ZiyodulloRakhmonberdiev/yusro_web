@@ -20,8 +20,6 @@ const Blog = () => {
   const dispatch = useDispatch();
   const { data, status, error } = useSelector(state => state.articles);
 
-  console.log(data);
-
   useEffect(() => {
     dispatch(fetchArticles({ page, pageSize, categoryId }));
   }, [dispatch, page, pageSize, categoryId]);

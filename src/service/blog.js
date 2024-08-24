@@ -34,11 +34,18 @@ const BlogArticle = {
   },
 
   // post comment
-  // async postComment(user) {
-  //   console.log(user);
-  //   const response = await axios.post(`/post/comments/`, user);
-  //   return response.data;
-  // },
+  async postComment(id) {
+    // console.log(id);
+    const response = await axios.post(`/main/comments/by-post/${id}/`);
+    return response.data;
+  },
+
+  // post comment
+  async fetchComments(id) {
+    // console.log(id);
+    const response = await axios.get(`/main/comments/by-post/${id}/`);
+    return response.data;
+  },
   
 };
 
