@@ -9,7 +9,7 @@ export const postComment = createAsyncThunk(
             const response = await BlogArticle.postComment(user); // id ni keyin jo'natish
             return response;
         } catch (error) {
-            return rejectWithValue(error.response?.data?.errors || 'An error occurred while posting the comment.');
+            return rejectWithValue(error.response?.data?.errors || 'Izoh paytida xatolik yuz berdi!');
         }
     } 
 );
@@ -19,7 +19,6 @@ const initialState = {
     isLoading: false,
     error: null,
 };
-console.log(initialState.error);
 
 const commentSlice = createSlice({
     name: 'comments',

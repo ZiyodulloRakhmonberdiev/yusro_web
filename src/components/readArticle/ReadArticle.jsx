@@ -5,26 +5,24 @@ import BlogArticle from "./../../service/blog";
 import ExtraPagesHeader from "./../extraPagesHeader/ExtraPagesHeader";
 import useFetch from "./../../hooks/useFetch";
 import { formatDate } from "../../utils/formatDate";
-import PopularPosts from '../popularPosts/PopularPosts';
+import PopularPosts from "../popularPosts/PopularPosts";
 import { useEffect, useState } from "react";
 import Comments from "../comments/Comments";
 import CommentPost from "../commentPost/CommentPost";
-import axios from "axios";
+import axios from "axios"
+// import axios from "axios";
 
 function ReadArticle() {
   const { id } = useParams();
-  
+  const [copied, setCopied] = useState(false);
+  const [subComments, setSubComments] = useState([]);
+
   const {
     data: article,
     loading,
     error,
   } = useFetch(() => BlogArticle.readArticle(id));
 
-  // useEffect(() => {
-  //   article
-  // }, [])
-
-  const [copied, setCopied] = useState(false);
   const handleCopyLink = () => {
     navigator.clipboard
       .writeText(window.location.href)
@@ -35,10 +33,42 @@ function ReadArticle() {
       .catch((err) => console.error("Nusxalashda muammo yuz berdi", err));
   };
 
-  // const { pathname } = useLocation();
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, [pathname]);
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+
+  const main_url = "http://95.46.96.78:7777/api/v1"
+  const [comments, setComments] = useState([]);
+  
+
+  useEffect(() => {
+    axios
+      .get(`${main_url}/main/comments/by-post/${id}/`)
+      .then((response) => {
+        setComments(response.data)
+      })
+      .catch(() => {
+        throw new Error('Xatolik yuz berdi!');
+      });
+  }, []);
+
+
+
+  // const getSubComments = (id) => {
+  //   setCommentId(id);
+  //   axios
+  //       .get(`${main_url}/main/comments/by-comment/2/`)
+  //       .then((response) => {
+  //         setSubComments(response.data);
+  //         console.log(response);
+          
+  //       })
+  //       .catch(() => {
+  //         throw new Error("Xatolik yuz berdi!");
+  //       });
+  // };
 
   return (
     <div className="read-article blog">
@@ -57,12 +87,14 @@ function ReadArticle() {
                 <i className="fa-solid fa-tag"></i>
                 {article.post_tag &&
                   article.post_tag?.map((tag) => (
-                    <span className="tag" key={tag.id}>{tag.name}</span>
+                    <span className="tag" key={tag.id}>
+                      {tag.name}
+                    </span>
                   ))}
               </div>
               <div className="comments">
                 <i className="fa-regular fa-comment"></i>
-                {/* <span>{article.comments && article.comments.length}</span> */}
+                <span>{comments && comments.results?.length}</span>
               </div>
             </div>
             <div className="info">
@@ -75,9 +107,15 @@ function ReadArticle() {
               <div className="description">{article.post_content}</div>
             </div>
             <div className="extra-info">
-              {/* <div>
-                                <span>Teglar:</span> {article.tags && article.tags.map(tag => <span key={tag.id}>{tag.name}</span>)}
-                            </div> */}
+              <div>
+                <span>Teglar:</span>{" "}
+                {article.post_tag &&
+                  article.post_tag.map((tag) => (
+                      <span className="tag" key={tag.id}>
+                      {tag.name}
+                    </span>
+                  ))}
+              </div>
               <p onClick={handleCopyLink}>
                 <span>Bu postni ulashish</span>
                 <i className="fa-solid fa-link"></i>
@@ -85,6 +123,12 @@ function ReadArticle() {
               </p>
             </div>
             {/* <Comments articleComments={article.comments && article.comments} loading={loading} error={error} /> */}
+            {/* <Comments postId={id} comments={comments} /> */}
+            {
+              comments.results?.map((comment) => (
+                <Comments comment={comment} />
+              ))
+            }
             {/* <CommentPost id={id}/> */}
           </div>
         </div>
