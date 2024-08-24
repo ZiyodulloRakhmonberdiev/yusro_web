@@ -9,10 +9,13 @@ import PopularPosts from "../popularPosts/PopularPosts";
 import { useEffect, useState } from "react";
 import Comments from "../comments/Comments";
 import CommentPost from "../commentPost/CommentPost";
+import axios from "axios"
 // import axios from "axios";
 
 function ReadArticle() {
   const { id } = useParams();
+  const [copied, setCopied] = useState(false);
+  const [subComments, setSubComments] = useState([]);
 
   const {
     data: article,
@@ -20,7 +23,6 @@ function ReadArticle() {
     error,
   } = useFetch(() => BlogArticle.readArticle(id));
 
-  const [copied, setCopied] = useState(false);
   const handleCopyLink = () => {
     navigator.clipboard
       .writeText(window.location.href)
@@ -35,6 +37,38 @@ function ReadArticle() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+
+  const main_url = "http://95.46.96.78:7777/api/v1"
+  const [comments, setComments] = useState([]);
+  
+
+  useEffect(() => {
+    axios
+      .get(`${main_url}/main/comments/by-post/${id}/`)
+      .then((response) => {
+        setComments(response.data)
+      })
+      .catch(() => {
+        throw new Error('Xatolik yuz berdi!');
+      });
+  }, []);
+
+
+
+  // const getSubComments = (id) => {
+  //   setCommentId(id);
+  //   axios
+  //       .get(`${main_url}/main/comments/by-comment/2/`)
+  //       .then((response) => {
+  //         setSubComments(response.data);
+  //         console.log(response);
+          
+  //       })
+  //       .catch(() => {
+  //         throw new Error("Xatolik yuz berdi!");
+  //       });
+  // };
 
   return (
     <div className="read-article blog">
@@ -60,7 +94,7 @@ function ReadArticle() {
               </div>
               <div className="comments">
                 <i className="fa-regular fa-comment"></i>
-                {/* <span>{article.comments && article.comments.length}</span> */}
+                <span>{comments && comments.results?.length}</span>
               </div>
             </div>
             <div className="info">
@@ -77,7 +111,9 @@ function ReadArticle() {
                 <span>Teglar:</span>{" "}
                 {article.post_tag &&
                   article.post_tag.map((tag) => (
-                    <span className="tag" key={tag.id}>{tag.name}</span>
+                      <span className="tag" key={tag.id}>
+                      {tag.name}
+                    </span>
                   ))}
               </div>
               <p onClick={handleCopyLink}>
@@ -87,7 +123,12 @@ function ReadArticle() {
               </p>
             </div>
             {/* <Comments articleComments={article.comments && article.comments} loading={loading} error={error} /> */}
-            <Comments postId={id} />
+            {/* <Comments postId={id} comments={comments} /> */}
+            {
+              comments.results?.map((comment) => (
+                <Comments comment={comment} />
+              ))
+            }
             {/* <CommentPost id={id}/> */}
           </div>
         </div>

@@ -40,7 +40,7 @@ function VideoContent({ videos }) {
 // console.log(videosList);
 
 
-  const pageCount = data.length > 0 ? Math.ceil((data.length / pageSize)) : 1;
+  const pageCount = data.length > 0 ? Math.ceil((data.length / pageSize)) : 1; 
 
   return (
     <div className='video-content blog'>
