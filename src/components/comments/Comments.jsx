@@ -87,7 +87,7 @@ function Comments({ comment, postId }) {
                     </button>
                   </div>
                 </div>
-                <div className={`extra-sub-comments ${showExtraSubcomments ? 'show' : 'none'}`}>
+                {/* <div className={`extra-sub-comments ${showExtraSubcomments ? 'show' : 'none'}`}>
                   {subExtraComments.results?.length > 0 &&
                     subExtraComments.results.map((subExtraComment) => (
                       <div className="item" key={subExtraComment.id}>
@@ -104,7 +104,7 @@ function Comments({ comment, postId }) {
                         </div>
                       </div>
                     ))}
-                </div>
+                </div> */}
               </div>
             ))}
         </div>
