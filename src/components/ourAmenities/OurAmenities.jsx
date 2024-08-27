@@ -9,7 +9,7 @@ import NotAvailable from '../../helpers/NotAvailable';
 import kabah from "../../icons/kabah_outline.png";
 import kabah_white from "../../icons/kabah_white.png";
 import mosque_white from "../../icons/mosque_white.png";
-
+ 
 function OurAmenities() {
     const { data, loading, error } = useFetch(ComfortItem.getAgencyComfort);
 
@@ -34,10 +34,10 @@ function OurAmenities() {
                 </div>
 
                 <div className="amenities-grid">
-                    {loading ? <Loader /> : error ? <NotAvailable name={error.message}/> : data && data.length > 0 ? data.map(data => (
+                    {loading ? <Loader /> : error ? <NotAvailable name={error.message}/> : data && data.results?.length > 0 ? data.results?.map(data => (
                         <div key={data.id} className="amenity-card">
-                            <img src={data.image_path} alt='empty' className="amenity-image" />
-                            <p>{data.description}</p>  
+                            <img src={data.image} alt='empty' className="amenity-image" />
+                            <p>{data.title}</p>  
                         </div>
                     )) : <NotAvailable name="Ma'lumot mavjud emas"/>}
                 </div>

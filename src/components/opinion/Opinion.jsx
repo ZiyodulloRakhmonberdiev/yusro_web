@@ -54,15 +54,15 @@ function Opinion() {
                             modules={[Pagination, Autoplay]}
                             className="mySwiper"
                         >
-                            {data.length > 0 ? data.map((opinion, index) => (
+                            {data.results?.length > 0 ? data.results?.map((opinion, index) => (
                                 <SwiperSlide key={index}>
                                     <div className="opinion-slide">
                                         <div className="opinion-image">
-                                            <img src={opinion.image_path ? opinion.image_path : muslim} alt={opinion.full_name} />
+                                            <img src={opinion.image ? opinion.image : muslim} alt={opinion.full_name} />
                                         </div>
                                         <div className="opinion-about">
-                                            <span className='point'>{renderStars(opinion.rate)}</span>
-                                            <p className='theme'>{opinion.conclusion}</p>
+                                            <span className='point'>{renderStars(opinion.point)}</span>
+                                            <p className='theme'>{opinion.theme}</p>
                                             <p className='description'>{opinion.text}</p>
                                             <h3 className='name'>{opinion.full_name}</h3>
                                         </div>

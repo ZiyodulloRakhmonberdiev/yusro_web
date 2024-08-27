@@ -193,7 +193,7 @@ function RootLayout() {
                     state={phoneNumber}
                     setState={setPhoneNumber}
                     placeholder={
-                      placeholder.phoneNumber || "Telefon/Email yuboring"
+                      placeholder.phoneNumber || "Email yuboring"
                     }
                     hasError={!!formErrors.phoneNumber}
                   />
