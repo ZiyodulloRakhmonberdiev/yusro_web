@@ -4,7 +4,7 @@ import AnswerToQuestions from "../answerToQuestions/AnswerToQuestions";
 import ExtraPagesHeader from "../extraPagesHeader/ExtraPagesHeader";
 import useFetch from "../../hooks/useFetch";
 import { formatDate } from "../../utils/formatDate";
-// import PopularPosts from '../popularPosts/PopularPosts';
+import PopularPosts from '../popularPosts/PopularPosts';
 import { useEffect, useState } from "react";
 import Comments from "../comments/Comments";
 import CommentPost from "../commentPost/CommentPost";
@@ -18,7 +18,6 @@ function ReadVideo() {
     loading,
     error,
   } = useFetch(() => VideoArticle.readVideo(id));
-  console.log(video);
 
   const [copied, setCopied] = useState(false);
 
@@ -39,24 +38,33 @@ function ReadVideo() {
 
   return (
     <div className="read-video blog">
-      <ExtraPagesHeader title={video.title} />
+      <ExtraPagesHeader title={video.name} />
       <div className="container">
         <div className="video-info">
-          <div className="item" key={video.id}>
+          <div className="item">
             <div className="header-image">
-              <video src={video.video_url ? video.video_url : video.video ? video.video : defaultVideo} controls />
+              
+              {
+                video.video ? <video src={video.video} controls /> : null
+              }
+              {
+                video.video === null && video.video_url === null ? <video src={defaultVideo} controls /> : null
+              }
+              {
+                video.video_url ? <video src={video.video_url} controls /> : null
+              }
               <span className="created-date">
                 {formatDate(video.created_at)}
               </span>
             </div>
             <div className="header-title">
-              {/* <div className="tags">
+              <div className="tags">
                 <i className="fa-solid fa-tag"></i>
-                {video.tags &&
-                  video.tags.map((tag) => (
+                {video.video_tag &&
+                  video.video_tag.map((tag) => (
                     <span key={tag.id}>{tag.name}</span>
                   ))}
-              </div> */}
+              </div>
               {/* <div className="author">
                 <i className="fa-solid fa-user"></i>
                 <span>{video.author}</span>
@@ -102,7 +110,7 @@ function ReadVideo() {
           </div>
         </div>
         <div className="blog-tags">
-          {/* <PopularPosts /> */}
+          <PopularPosts />
           <AnswerToQuestions />
         </div>
       </div>

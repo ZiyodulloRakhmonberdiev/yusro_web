@@ -10,8 +10,6 @@ import useQueryParams from './../../hooks/useQueryParams';
 function PostSection() {
     const { data: sections, loading, error } = useFetch(BlogArticle.fetchArticleSection);
     const dispatch = useDispatch();
-console.log(sections);
-
     const { params, updateQueryParams } = useQueryParams();
 
     const handleCategorySelect = (categoryId) => {
@@ -35,9 +33,9 @@ console.log(sections);
                         <div key={item.id} className="item" onClick={() => handleCategorySelect(item.id)}>
                             <div className="name">
                                 <i className="fa-solid fa-arrow-right"></i>
-                                <span>{item.title}</span>
+                                <span>{item.name}</span>
                             </div>
-                            <span className="count">{item.articles_amount}</span>
+                            {/* <span className="count">{item.articles_amount}</span> */}
                         </div>
                     ))
                 ) : (

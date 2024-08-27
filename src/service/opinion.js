@@ -1,9 +1,9 @@
 // api
-import axios from './api';
+import axios from './apis';
 
 const UserOpinion = {
     async getAgencyComfort() {
-        const response = await axios.get('/company/testimonials/');
+        const response = await axios.get('/main/review/');
         return response.data;
     },
 };

@@ -19,10 +19,10 @@ const BlogArticle = {
   //   return response.data;
   // },
 
-  // async fetchArticleTag(params) {
-  //   const response = await axios.get('/post/tags/', { params });
-  //   return response.data;
-  // },
+  async fetchArticleTag(params) {
+    const response = await axios.get('/main/tag/', { params });
+    return response.data;
+  },
 
   async readArticle(id) {
     try{

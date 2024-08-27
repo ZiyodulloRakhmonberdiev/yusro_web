@@ -149,6 +149,12 @@
   font-weight: 600;
 }
 
+.aminity-desc{
+  font-size: 18px !important;
+  color: var(--primary-lighter-color) !important;
+  margin-top: 5px;
+}
+
 @media (max-width: 940px) {
   .amenities-grid {
     grid-template-columns: repeat(3, 1fr);

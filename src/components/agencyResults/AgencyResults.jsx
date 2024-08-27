@@ -4,9 +4,23 @@ import mosque_2 from '../../images/mosque_2.jpg';
 import message_fill from "../../icons/message_fill.png";
 import location_fill from "../../icons/location_fill.png";
 import muslim from "../../icons/muslim_icon.png";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 
 function AgencyResults() {
+	const [info, setInfo] = useState([]);
+  const main_url = "http://95.46.96.78:7777/api/v1";
+
+  useEffect(() => {
+    axios
+      .get(`${main_url}/main/team/`)
+      .then((response) => setInfo(response.data))
+      .catch(() => {
+        throw new Error("Xatolik yuz berdi!");
+      });
+  }, []);
+	
 	return (
 		<div className='agency-results'>
 			<div className="container">
@@ -28,7 +42,7 @@ function AgencyResults() {
 						</div>
 						<div className="about">
 							<div className="title">Haj va Umra tur operatori</div>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ratione exercitationem necessitatibus eos consequuntur, animi iure ut amet sed. Nesciunt.</p>
+							<p>Tashkilot joylarni qidirish va buyurtma berish, shartnomalar tuzish va muzokaralar olib borishda ko'maklashadi. </p>
 						</div>
 					</div>
 					<div className="card">
@@ -37,7 +51,7 @@ function AgencyResults() {
 						</div>
 						<div className="about">
 							<div className="title">Aviakompaniyalarni bron qilish va chiptalarni sotish</div>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ratione exercitationem necessitatibus eos consequuntur, animi iure ut amet sed. Nesciunt.</p>
+							<p>Aviakompaniyalar bilan shartnoma tuzadi, joylarni bron qiladi va chiptalar sotadi</p>
 						</div>
 					</div>
 					<div className="card">
@@ -46,7 +60,7 @@ function AgencyResults() {
 						</div>
 						<div className="about">
 							<div className="title">Haj va Umra uchun sifatli xizmat ko'rsatish</div>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ratione exercitationem necessitatibus eos consequuntur, animi iure ut amet sed. Nesciunt.</p>
+							<p>Mijozlarga ularning muammolarini yechishda doim yaqindan yordam beradi</p>
 						</div>
 					</div>
 				</div>

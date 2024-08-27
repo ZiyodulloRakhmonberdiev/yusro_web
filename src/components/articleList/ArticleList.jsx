@@ -21,13 +21,13 @@ const ArticleList = ({ articles }) => {
           articles?.map((article) => {
             return (
               <div className="item" key={article.id}>
-                <div className="header-image">
+                <div className="header-image"> 
                   <img src={article.image} alt="" />
                 </div>
                 <div className="header-title">
                   <div className="tags">
                     <i className="fa-solid fa-tag"></i>
-                    {article.post_tag && article.post_tag.map(tag => <span key={tag.id}>{tag.name}</span>)}
+                    {article.post_tag && article.post_tag?.map(tag => <span key={tag.id}>{tag.name}</span>)}
                   </div>
                 </div>
                 <div className="info">
