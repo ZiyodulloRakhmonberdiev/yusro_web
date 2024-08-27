@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import Comments from "../comments/Comments";
 import CommentPost from "../commentPost/CommentPost";
 import axios from "axios"
+import PostTags from "../postTags/PostTags";
 // import axios from "axios";
 
 function ReadArticle() {
@@ -135,6 +136,7 @@ function ReadArticle() {
         <div className="blog-tags">
           <PopularPosts />
           <AnswerToQuestions />
+          {/* <PostTags /> */}
         </div>
       </div>
     </div>

@@ -695,16 +695,40 @@ p {
 		grid-template-columns: auto;
 		row-gap: 30px;
 	}
+	.footer-bottom{
+		flex-direction: column-reverse;
+		margin-top: 1.5rem;
+	}
+	.footer-bottom .copyright span{
+		display: none !important;
+	}
+	.footer-bottom .payment span{
+		display: none !important;
+	}
 	.footer-bottom .payment span,
 	.footer-bottom .copyright span{
 		font-size: 14px;
 	}
 	.footer-bottom .payment {
-		flex-direction: column;
+		flex-direction: column-reverse;
 		align-items: start;
 		gap: 5px;
 	}
 	.main-footer-details .footer-contact-us .details .detail a {
 		font-size: 14px;
+	}
+	.we-offer{
+		display: none !important;
+	}
+	.clip .images{
+		display: grid !important;
+		grid-template-columns: repeat(3, 1fr) !important;
+	}
+	.clip .images img{
+		width: 100% !important;
+		height: 100% !important;
+	}
+	.main-footer .social-networks{
+		display: none !important;
 	}
 }

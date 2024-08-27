@@ -32,9 +32,9 @@ function PostTags() {
           <span>{error.message}</span>
         ) : data.results ? (
           data.results?.map(item => (
-            <div className="item" key={item.id} onClick={() => handleTagClick(item.id)}>
+            <button className="item" key={item.id} onClick={() => handleTagClick(item.id)}>
               {item.name}
-            </div>
+            </button>
           ))
         ) : (
           <span>Ma'lumot mavjud emas</span>

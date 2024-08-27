@@ -245,7 +245,7 @@ function RootLayout() {
                   <img src={layer1} alt="" />
                   <img src={layer2} alt="" />
                   <img src={layer3} alt="" />
-                  <img src={layer4} alt="" />
+                  <img src={layer4} alt="" /> 
                   <img src={layer5} alt="" />
                   <img src={layer6} alt="" />
                 </div>

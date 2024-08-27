@@ -61,6 +61,11 @@
     width: 100%;
     object-fit: cover;
 }
+.read-video .container .item .header-image video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
 
 .read-video .container .item .header-image iframe {
     height: 350px;

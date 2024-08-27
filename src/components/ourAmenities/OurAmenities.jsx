@@ -38,6 +38,7 @@ function OurAmenities() {
                         <div key={data.id} className="amenity-card">
                             <img src={data.image} alt='empty' className="amenity-image" />
                             <p>{data.title}</p>  
+                            <p className='aminity-desc'>{data.description && data.description}</p>
                         </div>
                     )) : <NotAvailable name="Ma'lumot mavjud emas"/>}
                 </div>
