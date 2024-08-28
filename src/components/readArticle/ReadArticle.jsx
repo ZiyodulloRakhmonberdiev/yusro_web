@@ -11,6 +11,7 @@ import Comments from "../comments/Comments";
 import CommentPost from "../commentPost/CommentPost";
 import axios from "axios"
 import PostTags from "../postTags/PostTags";
+import { v4 as uuidv4 } from "uuid";
 // import axios from "axios";
 
 function ReadArticle() {
@@ -88,7 +89,7 @@ function ReadArticle() {
                 <i className="fa-solid fa-tag"></i>
                 {article.post_tag &&
                   article.post_tag?.map((tag) => (
-                    <span className="tag" key={tag.id}>
+                    <span className="tag" key={uuidv4()}>
                       {tag.name}
                     </span>
                   ))}
@@ -112,7 +113,7 @@ function ReadArticle() {
                 <span>Teglar:</span>{" "}
                 {article.post_tag &&
                   article.post_tag.map((tag) => (
-                      <span className="tag" key={tag.id}>
+                      <span className="tag" key={uuidv4()}>
                       {tag.name}
                     </span>
                   ))}
@@ -127,7 +128,7 @@ function ReadArticle() {
             {/* <Comments postId={id} comments={comments} /> */}
             {
               comments.results?.map((comment) => (
-                <Comments comment={comment} />
+                <Comments comment={comment} key={uuidv4()} />
               ))
             }
             {/* <CommentPost id={id}/> */}

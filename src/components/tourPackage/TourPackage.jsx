@@ -48,7 +48,7 @@ function TourPackage() {
               <div className="tour-offer">
                 <div className="main-image">
                   <img
-                    src={tourPackage.background_image_path || ""}
+                    src={tourPackage.image || ""}
                     alt={tourPackage.name || "Tour Package"}
                   />
                 </div>
@@ -73,7 +73,7 @@ function TourPackage() {
                   )}
                 </ul>
               </div>
-              <div className="tour-package-items">
+              {/* <div className="tour-package-items">
                 <div className="title">
                   <h1>{tourPackage.name || "Paketlar"} paketlari</h1>
                 </div>
@@ -114,7 +114,7 @@ function TourPackage() {
                       </div>
                     ))}
                 </div>
-              </div>
+              </div> */}
             </>
           )}
         </div>

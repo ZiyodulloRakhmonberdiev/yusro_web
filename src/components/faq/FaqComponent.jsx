@@ -18,10 +18,10 @@ function FaqComponent() {
         <div className='faq'>
             <div className='faq-title'>Tez-tez so'raladigan savollar:</div>
             <div className="faq-items">
-                {loading ? <Loader /> : error ? <NotAvailable name={error.message}/> : faqs.map((faq, index) => (
+                {loading ? <Loader /> : error ? <NotAvailable name={error.message}/> : faqs.results?.map((faq, index) => (
                     <div key={index} className="faq-item">
                         <h3 onClick={() => handleToggle(index)}>
-                            <span>{faq.text}</span>
+                            <span>{faq.question}</span>
                             <i className='fa-solid fa-chevron-bottom'></i>
                         </h3>
                         {openIndex === index && <p>{faq.answer}</p>}

@@ -11,23 +11,28 @@ import Travel from "./../../service/travel";
 import Loader from "./../../ui/Loader";
 import NotAvailable from "./../../helpers/NotAvailable";
 
-import kabah from '../../icons/kabah_outline.png'
+import kabah from "../../icons/kabah_outline.png";
 
 function TourPackages() {
   const { data, loading, error } = useFetch(Travel.getPlaces);
-  const [selectedPackage, setSelectedPackage] = useState(null);
+  let { data: tour_packs } = useFetch(Travel.getTourPacks);
+
+  const [selectedPackage, setSelectedPackage] = useState({id: 1});
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (data.length > 0) {
-      setSelectedPackage(data[0]);
+    if (data.results?.length > 0) {
+      setSelectedPackage(data.results[0]);
     }
-  }, [data]);
+  }, []);
+  
 
   const handlePackageSelect = (pkg) => {
     setSelectedPackage(pkg);
   };
-
+  
+  const filteredTours = tour_packs.results?.filter((tour) => tour.category?.id === selectedPackage.id);
+  
   const handleOrderClick = (pkg) => {
     navigate(`/tour-package/${pkg.id}`);
   };
@@ -46,10 +51,10 @@ function TourPackages() {
       ) : (
         <>
           <div className="package-buttons">
-            {data.length === 0 ? (
+            {data.results?.length === 0 ? (
               <p>Ma'lumot topilmadi</p>
             ) : (
-              data.map((item) => (
+              data.results?.map((item) => (
                 <button
                   key={item.id}
                   className={`package-btn ${
@@ -64,14 +69,14 @@ function TourPackages() {
               ))
             )}
           </div>
-          {selectedPackage?.tour_packs?.length > 0 ? (
+          {selectedPackage ? (
             <Swiper
               slidesPerView="1"
               pagination={{
                 dynamicBullets: true,
               }}
               modules={[Pagination]}
-              className="mySwiper"
+              className="mySwiper tour-swiper"
               breakpoints={{
                 400: {
                   slidesPerView: "1",
@@ -87,26 +92,18 @@ function TourPackages() {
                 },
               }}
             >
-              {selectedPackage ? (
-                selectedPackage.tour_packs?.map((pack) => (
+              {filteredTours ? (
+                filteredTours.map((pack) => (
                   <SwiperSlide key={pack.id}>
                     <div className="package">
                       <div className="package-image">
-                        <img
-                          src={
-                            "https://yusro.pythonanywhere.com" +
-                            pack.background_image_path
-                          }
-                          alt={pack.name}
-                        />
+                        <img src={pack.image} alt={pack.name} />
                       </div>
                       <div className="package-content">
                         <h3>{pack.name}</h3>
                         <ul>
-                              <p>
-                                O'z ichiga oladi:
-                              </p>
-                          {pack.pack_includes &&
+                          <p>O'z ichiga oladi:</p>
+                          {/* {pack.pack_includes &&
                           pack.pack_includes.length > 0 ? (
                             pack.pack_includes.map((include) => (
                               <li key={include.id}>
@@ -116,7 +113,7 @@ function TourPackages() {
                             ))
                           ) : (
                             <li>Ma'lumot mavjud emas</li>
-                          )}
+                          )} */}
                           <button
                             className="order-btn"
                             onClick={() => handleOrderClick(pack)}

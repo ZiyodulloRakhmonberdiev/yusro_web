@@ -6,6 +6,7 @@ import { formatDate } from "../../utils/formatDate";
 import NotAvailable from "../../helpers/NotAvailable";
 import ReactPlayer from "react-player";
 import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const truncateDescription = (description, limit) => {
   const words = description.split(" ");
@@ -24,15 +25,13 @@ const VideoList = ({ videos }) => {
       
     })
   }, [])
-  console.log(videoUrl);
-  
   return (
     <div className="article-lists">
       <div className="items">
         {videos?.length > 0 ? (
           videos?.map((video) => {
             return (
-              <div className="item" key={video.id}>
+              <div className="item" key={uuidv4()}>
                 <div className="header-image">
                   {video.video_url && (
                     // <video src={videoUrl} alt="" controls />
@@ -54,7 +53,7 @@ const VideoList = ({ videos }) => {
                     <i className="fa-solid fa-tag"></i>
                     {video.video_tag &&
                       video.video_tag.map((tag) => (
-                        <span key={tag.id}>{tag.name}</span>
+                        <span key={uuidv4()}>{tag.name}</span>
                       ))}
                   </div>
                 </div>

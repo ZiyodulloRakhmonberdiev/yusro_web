@@ -203,6 +203,10 @@ ul li i {
 	background-color: var(--primary-main-color);
 }
 
+.package{
+	width: 100%;
+}
+
 /* Responsive styles */
 @media (max-width: 1120px) {
 	ul li {

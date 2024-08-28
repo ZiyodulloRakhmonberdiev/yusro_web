@@ -25,7 +25,8 @@
     "react-router-dom": "^6.25.0",
     "react-youtube": "^10.1.0",
     "redux": "^5.0.1",
-    "swiper": "^11.1.5"
+    "swiper": "^11.1.5",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

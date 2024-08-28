@@ -6,6 +6,7 @@ import { fetchArticles } from '../../features/alice/articlesSlice';
 import BlogArticle from '../../service/blog';
 import useFetch from '../../hooks/useFetch';
 import useQueryParams from './../../hooks/useQueryParams';
+import { v4 as uuidv4 } from 'uuid';
 
 function PostTags() {
   const { data, loading, error } = useFetch(BlogArticle.fetchArticleTag);
@@ -32,7 +33,7 @@ function PostTags() {
           <span>{error.message}</span>
         ) : data.results ? (
           data.results?.map(item => (
-            <button className="item" key={item.id} onClick={() => handleTagClick(item.id)}>
+            <button className="item" key={uuidv4()} onClick={() => handleTagClick(item.id)}>
               {item.name}
             </button>
           ))

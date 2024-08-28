@@ -9,7 +9,7 @@ function PackagePage() {
         <ExtraPagesHeader title='Bizning tur paketlarimiz'/>
         <div className="container">
             <TourPackages/>
-            <FaqComponent/>
+            <FaqComponent/> 
         </div>
     </div>
   )

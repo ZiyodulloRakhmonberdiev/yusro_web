@@ -32,7 +32,7 @@ function ContactAboutSection() {
             <div className="we-result">
               <img src={kabahlocation} alt="icon" />
               <div className="we-result-about">
-                <p>{info.travelers ? info.travelers : "ko'p"}</p>
+                <p>{info.travelers ? info.travelers : "Ko'plab"}</p>
                 <span>Umra sayohatchilari</span>
               </div>
             </div>
