@@ -6,18 +6,22 @@ import hotel from "../../icons/hotel_outline.png"
 import kabah from "../../icons/kabah_outline.png"
 import hour from "../../icons/24_7_outline.png"
 import passport from "../../icons/passport_outline.png"
+import Info from "../../service/info";
+import useFetch from "../../hooks/useFetch";
 
 
 function ExperienceAbout() {
+  const { data: info } = useFetch(Info.getInfo);
+
   return (
     <div className="container">
       <div className="about">
         <img src={bismillah} alt="bismillah-image" />
         <h1 className="title">
-          Biz 7 yillik tajribaga ega sayyohlik agentligimiz
+          Biz {info.experience ? info.experience : "ko'p"} yillik tajribaga ega sayyohlik agentligimiz
         </h1>
         <p>
-          Biz haj va umra sayohati sohasida 7 yildan ortiq vaqt davomida
+          Biz haj va umra sayohati sohasida biz {info.experience ? info.experience : "ko'p"} yildan ortiq vaqt davomida
           ishladik va biz o'zimizni hech ikkilanmay professional, qobiliyatli va
           mehmondo'st deb aytishga ishonchimiz komil.
         </p>
@@ -44,7 +48,7 @@ function ExperienceAbout() {
             <div className="item-image-wrapper">
               <img src={hour} alt="hour-day" />
             </div>
-            <span>24 / 7 Hojiboshilar xizmati</span>
+            <span>24/7 Hojiboshilar xizmati</span>
           </div>
         </div>
       </div>

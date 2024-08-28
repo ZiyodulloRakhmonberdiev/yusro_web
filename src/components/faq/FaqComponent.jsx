@@ -16,7 +16,7 @@ function FaqComponent() {
 
     return (
         <div className='faq'>
-            <div className='faq-title'>Tez-tez So‘raladigan Savollar:</div>
+            <div className='faq-title'>Tez-tez so'raladigan savollar:</div>
             <div className="faq-items">
                 {loading ? <Loader /> : error ? <NotAvailable name={error.message}/> : faqs.map((faq, index) => (
                     <div key={index} className="faq-item">

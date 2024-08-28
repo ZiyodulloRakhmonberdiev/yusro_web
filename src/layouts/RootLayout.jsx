@@ -1,6 +1,6 @@
 import "./rootLayout.css";
 import { Link, Outlet } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import UiInput from "./../ui/UiInput";
 import { useDispatch, useSelector } from "react-redux";
 import AuthService from "./../service/auth";
@@ -40,6 +40,9 @@ import telegram_icon from "../icons/telegram_icon.png";
 import facebook_icon from "../icons/facebook_icon.png";
 import instagram_icon from "../icons/instagram_icon.png";
 import youtube_icon from "../icons/youtube_icon.png";
+import axios from "axios";
+import useFetch from "../hooks/useFetch";
+import Info from "../service/info";
 
 function RootLayout() {
   const [active, setActive] = useState(false);
@@ -83,6 +86,8 @@ function RootLayout() {
     }
   };
 
+  const { data: info } = useFetch(Info.getInfo);  
+
   return (
     <div className="root">
       <Sidebar active={active} setActive={setActive} />
@@ -91,19 +96,19 @@ function RootLayout() {
           <div className="social-media">
             <p>Ijtimoiy tarmoqlarimiz</p>
             <span></span>
-            <a href="#">
+            <a href={info.instagram ? info.instagram : "/"} target="_blank">
               <img src={instagram_icon} alt="" />
             </a>
             <span></span>
-            <a href="#">
+            <a href={info.telegram ? info.telegram : "/"} target="_blank">
               <img src={telegram_icon} alt="" />
             </a>
             <span></span>
-            <a href="#">
+            <a href={info.facebook ? info.facebook : "/"} target="_blank">
               <img src={facebook_icon} alt="" />
             </a>
             <span></span>
-            <a href="#">
+            <a href={info.youtube ? info.youtube : "/"} target="_blank">
               <img src={youtube_icon} alt="" />
             </a>
           </div>
@@ -130,14 +135,14 @@ function RootLayout() {
                 <img src={phone_icon} alt="" />
                 <div className="about">
                   <span>Hoziroq bizga qo'ng'iroq qiling</span>
-                  <a href="tel:+998555002228">+998 55 500 22 28</a>
+                  <a href={info.telephone ? `tel:${info.telephone}` : ""}>{info.telephone ? info.telephone : ""}</a>
                 </div>
               </div>
               <div className="by-contact">
                 <img src={mail_icon} alt="" />
                 <div className="about">
                   <span>Email manzilimiz</span>
-                  <a href="mailto:admin@yusro.uz">admin@yusro.uz</a>
+                  <a href={info.email ? `mailto:${info.email}` : ""}>{info.email ? info.email : ""}</a>
                 </div>
               </div>
               <div className="search-wrapper">
@@ -217,23 +222,23 @@ function RootLayout() {
                 <div className="info">
                   <p>
                     Yusro turizm agentligi O‘zbekistondagi eng ishonchli, tezkor
-                    va 7 yillik tajribaga ega kompaniyalardan biri hisoblanadi.
+                    va {info.expeirence ? info.expeirence : "ko'p"} yillik tajribaga ega kompaniyalardan biri hisoblanadi.
                     Biz sizga qulay va oson sayohat qilishni kafolat beramiz.
                   </p>
                   <div className="social-networks">
-                    <a href="#">
+                    <a href={info.instagram ? info.instagram : "/"} target="_blank">
                       <img src={instagram_icon} alt="" />
                     </a>
                     <span></span>
-                    <a href="#">
+                    <a href={info.telegram ? info.telegram : "/"} target="_blank">
                       <img src={telegram_icon} alt="" />
                     </a>
                     <span></span>
-                    <a href="#">
+                    <a href={info.facebook ? info.facebook : "/"} target="_blank">
                       <img src={facebook_icon} alt="" />
                     </a>
                     <span></span>
-                    <a href="#">
+                    <a href={info.youtube ? info.youtube : ""} target="_blank">
                       <img src={youtube_icon} alt="" />
                     </a>
                   </div>
@@ -272,19 +277,19 @@ function RootLayout() {
                 <div className="details">
                   <div className="detail">
                     <img src={phone} alt="" />
-                    <a href="tel:+998555002228">+998 55 500 22 28</a>
+                    <a href={info.telephone ? `tel:${info.telephone}` : ""}>{info.telephone ? info.telephone : ""}</a>
                   </div>
                   <div className="detail">
                     <img src={telegram} alt="" />
-                    <a href="">yusro_admin</a>
+                    <a href={info.telegram_admin ? info.telegram_admin : ""}>Yusro Admin</a>
                   </div>
                   <div className="detail">
                     <img src={message} alt="" />
-                    <a href="mailto:admin@yusro.uz">admin@yusro.uz</a>
+                    <a href={info.email ? `mailto:${info.email}` : ""}>{info.email ? info.email : ""}</a>
                   </div>
                   <div className="detail">
                     <img src={location} alt="" />
-                    <span>Toshkent shahar, Ko'kcha masjidi ro'parasi</span>
+                    <span>{info.location ? info.location : "Uzbekistan"}</span>
                   </div>
                 </div>
               </div>
@@ -292,7 +297,7 @@ function RootLayout() {
             <div className="footer-bottom">
               <div className="copyright">
                 <i className="fa-regular fa-copyright"></i>
-                <p>Copyrights 2024 Yusro.</p>
+                <p>Copyrights {new Date().getFullYear()} Yusro.</p>
                 <span>Barcha huquqlar himoyalangan</span>
               </div>
               <div className="payment">

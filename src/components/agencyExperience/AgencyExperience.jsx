@@ -4,8 +4,11 @@ import "./agencyExperience.css";
 import nabawi from "../../images/nabawi_9.jpg";
 import nabawi_3 from "../../images/nabawi_3.jpg";
 import security from "../../icons/sec_tall_wrap.png";
+import Info from "../../service/info";
+import useFetch from "../../hooks/useFetch";
 
 function AgencyExperience() {
+  const { data: info } = useFetch(Info.getInfo);
   return (
     <div className="agency-experience container">
       <div className="images">
@@ -30,20 +33,20 @@ function AgencyExperience() {
       <div className="about">
         <div className="main-title">
           <h1>
-            Agentligimiz 100.000 dan ortiq Haj va Umra ziyoratchilariga xizmat
+            Agentligimiz {info.travelers ? info.travelers : "ko'p"} dan ortiq Haj va Umra ziyoratchilariga xizmat
             ko'rsatgan!
           </h1>
           <p>
-            Yusro O‘zbekistondagi Umra va Haj hamda boshqa turdagi xalqaro
-            sayohatlarni arzon, sifatli, tezkor va xavfsizligini ta’minlagan
-            holda mijozlarga xizmat ko‘rsatib kelmoqda
+            Yusro O'zbekistondagi Umra va Haj hamda boshqa turdagi xalqaro
+            sayohatlarni arzon, sifatli, tezkor va xavfsizligini ta'minlagan
+            holda mijozlarga xizmat ko'rsatib kelmoqda
           </p>
 
           <div className="experience-section">
             <div className="experience">
               <img src={security} alt="" />
               <div className="about">
-                <h1>7</h1>
+                <h1>{info.experience ? info.experience : "ko'p"}</h1>
                 <span>Yillik tajriba</span>
               </div>
             </div>
@@ -58,7 +61,7 @@ function AgencyExperience() {
               </li>
               <li>
                 <i className="fa-solid fa-check"></i>
-                <span>7+ yil, ko'plab yutuqlar mukofotlari</span>
+                <span>{info.experience ? info.experience : "Bir necha"} yil, ko'plab yutuqlar mukofotlari</span>
               </li>
             </div>
           </div>

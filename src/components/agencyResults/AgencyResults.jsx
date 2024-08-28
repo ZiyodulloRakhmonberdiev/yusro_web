@@ -4,28 +4,18 @@ import mosque_2 from '../../images/mosque_2.jpg';
 import message_fill from "../../icons/message_fill.png";
 import location_fill from "../../icons/location_fill.png";
 import muslim from "../../icons/muslim_icon.png";
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import Info from '../../service/info';
+import useFetch from '../../hooks/useFetch';
 
 
-function AgencyResults() {
-	const [info, setInfo] = useState([]);
-  const main_url = "http://95.46.96.78:7777/api/v1";
-
-  useEffect(() => {
-    axios
-      .get(`${main_url}/main/team/`)
-      .then((response) => setInfo(response.data))
-      .catch(() => {
-        throw new Error("Xatolik yuz berdi!");
-      });
-  }, []);
+function AgencyResults() {	
+	const { data: info } = useFetch(Info.getInfo);
 	
 	return (
 		<div className='agency-results'>
 			<div className="container">
 				<div className="about">
-					<div className="title">Agentligimiz 1000 dan ortiq haj va umra sayohatchilariga yordam bergan</div>
+					<div className="title">Agentligimiz {info.travelers ?  info.travelers : ""} dan ortiq haj va umra sayohatchilariga yordam bergan</div>
 					<div className="image">
 						<img src={mosque_2} alt="" />
 						<div className="play-icon-div">
