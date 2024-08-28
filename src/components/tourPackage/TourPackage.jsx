@@ -35,7 +35,7 @@ function TourPackage() {
   return (
     <div className="tour-package">
       <ExtraPagesHeader
-        title={tourPackage.name + " PAKETI" || "Paket tafsilotlari"}
+        title={tourPackage.name + " paketi" || "Paket tafsilotlari"}
       />
       <div className="container">
         <div className="tour-package-about">

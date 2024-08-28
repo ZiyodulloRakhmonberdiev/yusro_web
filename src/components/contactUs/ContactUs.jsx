@@ -88,7 +88,7 @@ function ContactUs() {
 								state={message}
 								setState={setMessage}
 							/>
-							<button type='submit' disabled={isLoading}>{isLoading ? 'YUBORILMOQDA...' : 'YUBORISH'}</button>
+							<button type='submit' disabled={isLoading}>{isLoading ? 'Yuborilmoqda...' : 'Yuborish'}</button>
 							{formErrors.global && <p className="error">{formErrors.global}</p>}
 							{error && <p className="error">{error.message}</p>}
 						</form>
