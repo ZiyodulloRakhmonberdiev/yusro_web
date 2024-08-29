@@ -35,7 +35,7 @@ function Routes() {
 					<Route path='/tour-package' element={<PackagePage />} />
 					<Route path='/main/post/' element={<Blog />} />
 					<Route path='/main/post/:id' element={<ReadArticle />} />
-					<Route path='/tour-package/:id' element={<TourPackage />} />
+					<Route path='/packages/:id' element={<TourPackage />} />
 					<Route path='/video-content' element={<VideoContent />} />
 					<Route path='/video-content/:id' element={<ReadVideo />} />
 					<Route path='*' element={<PageNotFound />} />

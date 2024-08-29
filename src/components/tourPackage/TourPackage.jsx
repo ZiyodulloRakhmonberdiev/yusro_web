@@ -49,23 +49,23 @@ function TourPackage() {
                 <div className="main-image">
                   <img
                     src={tourPackage.image || ""}
-                    alt={tourPackage.name || "Tour Package"}
+                    alt={tourPackage.name || ""}
                   />
                 </div>
                 <div className="title">
                   <h1>{tourPackage.name || "Noma'lum paket"}</h1>
                 </div>
-                <div className="description">
+                {/* <div className="description">
                   <p>{tourPackage.description || "Ma'lumot mavjud emas"}</p>
-                </div>
+                </div> */}
                 <ul className="tour-package-ul">
                   <span>O'z ichiga oladi:</span>
-                  {tourPackage.pack_includes &&
-                  tourPackage.pack_includes.length > 0 ? (
-                    tourPackage.pack_includes.map((include) => (
+                  {tourPackage.includes &&
+                  tourPackage.includes.length > 0 ? (
+                    tourPackage.includes.map((include) => (
                       <li key={include.id}>
                         <i className="fa-solid fa-check"></i>
-                        {include.text}
+                        {include.name}
                       </li>
                     ))
                   ) : (

@@ -12,31 +12,35 @@ import Loader from "./../../ui/Loader";
 import NotAvailable from "./../../helpers/NotAvailable";
 
 import kabah from "../../icons/kabah_outline.png";
+import axios from "axios";
 
 function TourPackages() {
   const { data, loading, error } = useFetch(Travel.getPlaces);
-  let { data: tour_packs } = useFetch(Travel.getTourPacks);
-
   const [selectedPackage, setSelectedPackage] = useState({id: 1});
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (data.results?.length > 0) {
-      setSelectedPackage(data.results[0]);
-    }
-  }, []);
   
-
   const handlePackageSelect = (pkg) => {
     setSelectedPackage(pkg);
   };
   
-  const filteredTours = tour_packs.results?.filter((tour) => tour.category?.id === selectedPackage.id);
-  
   const handleOrderClick = (pkg) => {
-    navigate(`/tour-package/${pkg.id}`);
+    navigate(`/packages/${pkg.id}`);
   };
 
+  const [tours, setTours] = useState([]);
+  const main_url = "http://95.46.96.78:7777/api/v1";
+
+  useEffect(() => {
+    axios
+      .get(`${main_url}/tours/by-category/${selectedPackage.id}/`)
+      .then((response) => setTours(response.data))
+      .catch(() => {
+        throw new Error("Xatolik yuz berdi!");
+      });
+  }, [selectedPackage]);
+
+  // console.log(tours);
+  
   return (
     <div className="tour-packages container">
       <Title
@@ -92,8 +96,8 @@ function TourPackages() {
                 },
               }}
             >
-              {filteredTours ? (
-                filteredTours.map((pack) => (
+              {tours?.results?.length > 0 ? (
+                tours.results?.map((pack) => (
                   <SwiperSlide key={pack.id}>
                     <div className="package">
                       <div className="package-image">
@@ -103,17 +107,17 @@ function TourPackages() {
                         <h3>{pack.name}</h3>
                         <ul>
                           <p>O'z ichiga oladi:</p>
-                          {/* {pack.pack_includes &&
-                          pack.pack_includes.length > 0 ? (
-                            pack.pack_includes.map((include) => (
+                          {pack.includes &&
+                          pack.includes.length > 0 ? (
+                            pack.includes.map((include) => (
                               <li key={include.id}>
                                 <i className="fa-solid fa-check"></i>
-                                {include.text}
+                                {include.name}
                               </li>
                             ))
                           ) : (
                             <li>Ma'lumot mavjud emas</li>
-                          )} */}
+                          )}
                           <button
                             className="order-btn"
                             onClick={() => handleOrderClick(pack)}
