@@ -48,8 +48,8 @@ function Home() {
 			{/* contact */}
 			<div className="contact-us">
 				<div className="container">
-					<ContactAboutSection />
-					<ContactUs />
+					<ContactAboutSection className="about-section" />
+					<ContactUs className="contact-section" />
 				</div>
 			</div>
 
