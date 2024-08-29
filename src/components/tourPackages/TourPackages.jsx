@@ -11,27 +11,36 @@ import Travel from "./../../service/travel";
 import Loader from "./../../ui/Loader";
 import NotAvailable from "./../../helpers/NotAvailable";
 
-import kabah from '../../icons/kabah_outline.png'
+import kabah from "../../icons/kabah_outline.png";
+import axios from "axios";
 
 function TourPackages() {
   const { data, loading, error } = useFetch(Travel.getPlaces);
-  const [selectedPackage, setSelectedPackage] = useState(null);
+  const [selectedPackage, setSelectedPackage] = useState({id: 1});
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (data.length > 0) {
-      setSelectedPackage(data[0]);
-    }
-  }, [data]);
-
+  
   const handlePackageSelect = (pkg) => {
     setSelectedPackage(pkg);
   };
-
+  
   const handleOrderClick = (pkg) => {
-    navigate(`/tour-package/${pkg.id}`);
+    navigate(`/packages/${pkg.id}`);
   };
 
+  const [tours, setTours] = useState([]);
+  const main_url = "http://95.46.96.78:7777/api/v1";
+
+  useEffect(() => {
+    axios
+      .get(`${main_url}/tours/by-category/${selectedPackage.id}/`)
+      .then((response) => setTours(response.data))
+      .catch(() => {
+        throw new Error("Xatolik yuz berdi!");
+      });
+  }, [selectedPackage]);
+
+  // console.log(tours);
+  
   return (
     <div className="tour-packages container">
       <Title
@@ -46,10 +55,10 @@ function TourPackages() {
       ) : (
         <>
           <div className="package-buttons">
-            {data.length === 0 ? (
+            {data.results?.length === 0 ? (
               <p>Ma'lumot topilmadi</p>
             ) : (
-              data.map((item) => (
+              data.results?.map((item) => (
                 <button
                   key={item.id}
                   className={`package-btn ${
@@ -64,14 +73,14 @@ function TourPackages() {
               ))
             )}
           </div>
-          {selectedPackage?.tour_packs?.length > 0 ? (
+          {selectedPackage ? (
             <Swiper
               slidesPerView="1"
               pagination={{
                 dynamicBullets: true,
               }}
               modules={[Pagination]}
-              className="mySwiper"
+              className="mySwiper tour-swiper"
               breakpoints={{
                 400: {
                   slidesPerView: "1",
@@ -87,31 +96,23 @@ function TourPackages() {
                 },
               }}
             >
-              {selectedPackage ? (
-                selectedPackage.tour_packs?.map((pack) => (
+              {tours?.results?.length > 0 ? (
+                tours.results?.map((pack) => (
                   <SwiperSlide key={pack.id}>
                     <div className="package">
                       <div className="package-image">
-                        <img
-                          src={
-                            "https://yusro.pythonanywhere.com" +
-                            pack.background_image_path
-                          }
-                          alt={pack.name}
-                        />
+                        <img src={pack.image} alt={pack.name} />
                       </div>
                       <div className="package-content">
                         <h3>{pack.name}</h3>
                         <ul>
-                              <p>
-                                O'z ichiga oladi:
-                              </p>
-                          {pack.pack_includes &&
-                          pack.pack_includes.length > 0 ? (
-                            pack.pack_includes.map((include) => (
+                          <p>O'z ichiga oladi:</p>
+                          {pack.includes &&
+                          pack.includes.length > 0 ? (
+                            pack.includes.map((include) => (
                               <li key={include.id}>
                                 <i className="fa-solid fa-check"></i>
-                                {include.text}
+                                {include.name}
                               </li>
                             ))
                           ) : (

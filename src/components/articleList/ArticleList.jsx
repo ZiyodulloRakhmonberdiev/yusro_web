@@ -4,6 +4,7 @@ import "./articleList.css";
 import { Link } from "react-router-dom";
 import { formatDate } from "./../../utils/formatDate";
 import NotAvailable from "../../helpers/NotAvailable";
+import {v4 as uuidv4} from "uuid";
 
 const truncateDescription = (description, limit) => {
   const words = description.split(" ");
@@ -20,14 +21,14 @@ const ArticleList = ({ articles }) => {
         {articles?.length > 0 ? (
           articles?.map((article) => {
             return (
-              <div className="item" key={article.id}>
+              <div className="item" key={uuidv4()}>
                 <div className="header-image"> 
                   <img src={article.image} alt="" />
                 </div>
                 <div className="header-title">
                   <div className="tags">
                     <i className="fa-solid fa-tag"></i>
-                    {article.post_tag && article.post_tag?.map(tag => <span key={tag.id}>{tag.name}</span>)}
+                    {article.post_tag && article.post_tag?.map(tag => <span key={uuidv4()}>{tag.name}</span>)}
                   </div>
                 </div>
                 <div className="info">

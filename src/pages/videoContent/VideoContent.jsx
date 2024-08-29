@@ -33,13 +33,6 @@ function VideoContent({ videos }) {
   };
 
   const { data, status, error } = useSelector(state => state.videos)
-  console.log(data);
-  
-
-//   const videosList = data.filter(article => article.video !== null && article.video !== undefined);
-// console.log(videosList);
-
-
   const pageCount = data.length > 0 ? Math.ceil((data.length / pageSize)) : 1; 
 
   return (

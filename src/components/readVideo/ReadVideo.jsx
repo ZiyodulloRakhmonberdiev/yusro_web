@@ -10,6 +10,7 @@ import Comments from "../comments/Comments";
 import CommentPost from "../commentPost/CommentPost";
 import VideoArticle from "../../service/video";
 import defaultVideo from "../../video/defaultVideo.mp4"
+import {v4 as uuidv4} from "uuid"
 
 function ReadVideo() {
   const { id } = useParams();
@@ -62,7 +63,7 @@ function ReadVideo() {
                 <i className="fa-solid fa-tag"></i>
                 {video.video_tag &&
                   video.video_tag.map((tag) => (
-                    <span key={tag.id}>{tag.name}</span>
+                    <span key={uuidv4()}>{tag.name}</span>
                   ))}
               </div>
               {/* <div className="author">
