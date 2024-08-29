@@ -1,0 +1,19 @@
+.offers-ul{
+  list-style: none;
+}
+
+.offers-p{
+  font-size: 22px;
+}
+
+.offers-ul li{
+  display: flex;
+  gap: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.offers-ul li i{
+  color: var(--primary-main-color);
+}
