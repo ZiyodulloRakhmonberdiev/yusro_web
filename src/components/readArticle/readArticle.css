@@ -221,15 +221,12 @@
     margin-right: 5px;
 }
 
-/* .read-article .container .item .extra-info .tags_wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-} */
+.comments-main{
+    font-size: 34px;
+}
 
 .read-article .blog-post {
     display: flex;
-    /* flex-direction: column; */
 }
 
 @media(max-width:750px){
@@ -246,5 +243,8 @@
     }
     .read-article .blog-tags{
         width: 100%;
+    }
+    .comments-main{
+        font-size: 24px;
     }
 }

@@ -599,9 +599,10 @@ p {
 	}
 
 	.footer-bottom {
-		flex-direction: column;
+		flex-direction: column-reverse;
 		gap: 20px;
 		align-items: start;
+		margin-top: 1.5rem;
 	}
 }
 
@@ -694,10 +695,6 @@ p {
 	.main-footer-details {
 		grid-template-columns: auto;
 		row-gap: 30px;
-	}
-	.footer-bottom{
-		flex-direction: column-reverse;
-		margin-top: 1.5rem;
 	}
 	.footer-bottom .copyright span{
 		display: none !important;

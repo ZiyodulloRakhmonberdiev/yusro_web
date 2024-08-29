@@ -16,7 +16,9 @@ import axios from "axios";
 
 function TourPackages() {
   const { data, loading, error } = useFetch(Travel.getPlaces);
-  const [selectedPackage, setSelectedPackage] = useState({id: 1});
+  const [selectedPackage, setSelectedPackage] = useState({id: 8});
+  console.log();
+  
   const navigate = useNavigate();
   
   const handlePackageSelect = (pkg) => {
@@ -39,7 +41,6 @@ function TourPackages() {
       });
   }, [selectedPackage]);
 
-  // console.log(tours);
   
   return (
     <div className="tour-packages container">
