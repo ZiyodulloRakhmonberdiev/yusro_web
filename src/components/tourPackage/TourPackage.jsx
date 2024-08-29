@@ -119,7 +119,7 @@ function TourPackage() {
           )}
         </div>
         <div className="items">
-          <ContactUs />
+          <ContactUs className="contact-us" />
           <AnswerToQuestions />
         </div>
       </div>
