@@ -127,6 +127,11 @@ function ReadArticle() {
             {/* <Comments articleComments={article.comments && article.comments} loading={loading} error={error} /> */}
             {/* <Comments postId={id} comments={comments} /> */}
             {
+              comments.results?.length > 0 && (
+                <div className="comments-main">Izohlar: ({comments.results?.length})</div>
+              )
+            }
+            {
               comments.results?.map((comment) => (
                 <Comments comment={comment} key={uuidv4()} />
               ))
