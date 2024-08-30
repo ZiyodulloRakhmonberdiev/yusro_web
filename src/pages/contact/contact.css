@@ -98,6 +98,13 @@
 
 .contact-page .contact-form .form-group input {
   padding: 20px;
+  width: 100%;
+  font-size: 14px;
+  padding: 20px 15px;
+  border: none;
+  border-radius: 5px;
+  color: var(--secondary-color);
+  font-family: 'Montserrat', 'sans-serif';
 }
 .contact-page .contact-form .form-group textarea {
   padding: 20px;
@@ -128,6 +135,19 @@
   height: 350px !important;
 }
 
+.success-message{
+  text-align: center;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--primary-main-color);
+}
+.error-message{
+  position: relative !important;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--secondary-color);
+}
 @media (max-width: 1120px) {
   .contact-wrapper .map-container .map {
     width: 400px !important;
@@ -188,6 +208,9 @@
   .contact-page .contact-form .form-group input {
     padding: 10px;
   }
+  .contact-page .contact-form .form-group textarea {
+    padding: 10px;
+  }
   .contact-page .container {
     padding-top: 20px;
   }
@@ -214,5 +237,9 @@
   }
   .contact-page .contact-form h2 {
     margin-bottom: 0;
+  }
+
+  .success-message, .error-message{
+    font-size: 24px;
   }
 }

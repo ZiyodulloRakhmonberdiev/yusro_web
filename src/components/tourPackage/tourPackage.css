@@ -3,6 +3,11 @@
 	display: flex;
 	align-items: start;
 	gap: 50px;
+	justify-content: space-between;
+}
+
+.tour-package .container .contact-us{
+	display: none;
 }
 
 .tour-package .tour-package-about {
@@ -78,6 +83,21 @@
 .package-items {
 	display: grid;
 	/* grid-template-columns: repeat(2, 1fr); */
+}
+
+.tour-package .items{
+	margin-bottom: 0 !important;
+}
+
+
+@media (min-width: 1120px) {
+	.tour-package .container{
+		padding-bottom: 340px;
+	}
+	.tour-package .container .answer-to-questions{
+		position: absolute;
+		top: 580px;
+	}
 }
 
 @media (max-width: 1120px) {

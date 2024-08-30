@@ -9,14 +9,18 @@ const ValidateForm = ({name, phoneNumber, username, password}) => {
         errors.phoneNumber = "Telefon raqami maydoni talab qilinadi.";
         placeholders.phoneNumber = "Telefon raqami maydoni talab qilinadi.";
     }
-    if (!username) {
-        errors.username = "Kiritilishi shart";
-        placeholders.username = "Kiritilishi shart";
+    if (!message) {
+        errors.message = "Xabar maydoni talab qilinadi.";
+        placeholders.message = "Xabar maydoni talab qilinadi.";
     }
-    if (!password) {
-        errors.password = "Kiritilishi shart";
-        placeholders.password = "Kiritilishi shart";
-    }
+    // if (!username) {
+    //     errors.username = "Kiritilishi shart";
+    //     placeholders.username = "Kiritilishi shart";
+    // }
+    // if (!password) {
+    //     errors.password = "Kiritilishi shart";
+    //     placeholders.password = "Kiritilishi shart";
+    // }
     return { errors, placeholders };
 };
 

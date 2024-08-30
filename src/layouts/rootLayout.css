@@ -258,6 +258,7 @@ footer {
 	align-items: center;
 	justify-content: space-between;
 	overflow: hidden;
+
 }
 
 .footer-top-section .send-phoneNumber .success-message h2 {
@@ -503,6 +504,13 @@ p {
 
 .footer-contact-us a{
 	color: var(--primary-lighter-color);
+}
+
+.input-error::placeholder {
+	color: red;
+}
+.input-success::placeholder {
+	color: var(--primary-main-color);
 }
 
 @media (max-width: 1120px) {
