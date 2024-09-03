@@ -1,16 +1,7 @@
 import "./rootLayout.css";
 import { Link, Outlet } from "react-router-dom";
-import { useEffect, useState } from "react";
-import UiInput from "./../ui/UiInput";
-import { useDispatch, useSelector } from "react-redux";
-import AuthService from "./../service/auth";
-import {
-  signInUserFailure,
-  signInUserStart,
-  signInUserSuccess,
-} from "../features/auth/authSlice";
+import { useState } from "react";
 import Sidebar from "./../components/sidebar/Sidebar";
-import ValidateForm from "../helpers/ValidateForm";
 
 // import images
 import logo from "../icons/logo_tour.png";

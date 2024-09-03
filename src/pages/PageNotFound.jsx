@@ -6,6 +6,7 @@ function PageNotFound() {
 		<div className='page-not-found'>
 			<ExtraPagesHeader title="Sahifa topilmadi" />
 		</div>
+		
 	);
 }
 

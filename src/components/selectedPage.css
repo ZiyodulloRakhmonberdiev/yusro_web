@@ -1,19 +1,34 @@
-.offers-ul{
-  list-style: none;
-}
-
-.offers-p{
-  font-size: 22px;
-}
-
-.offers-ul li{
+.tour-package {
   display: flex;
-  gap: 4px;
-  font-size: 16px;
-  margin-bottom: 10px;
-  align-items: center;
+  flex-direction: column;
 }
 
-.offers-ul li i{
-  color: var(--primary-main-color);
+.first-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.tour-package-about {
+  width: 70%;
+}
+
+.items {
+  width: 28%;
+}
+
+/* For screens smaller than 1200px */
+@media screen and (max-width: 1200px) {
+  .first-container {
+      flex-direction: column;
+  }
+
+  .tour-package-about, .items {
+      width: 100%;
+  }
+
+  .items {
+      margin-top: 20px;
+  }
 }
