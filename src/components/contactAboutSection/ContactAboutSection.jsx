@@ -17,7 +17,7 @@ function ContactAboutSection() {
             Arzon paketlarni qidiryapsizmi? Siz to'g'ri joydasiz
           </h1>
           <p className="main-subtitle">
-            Biz haj va umra sayohati sohasida {info.experience ? info.experience : "ko'p"} yildan ortiq vaqt davomida
+            Biz haj va umra sayohati sohasida {info.experience ? info.experience + " yildan ortiq vaqt" : "uzoq yillar"} davomida
             ishladik va biz o'zimizni hech ikkilanmay professional, qobiliyatli
             va mehmondo'st deb aytishga ishonchimiz komil.
           </p>
@@ -25,14 +25,14 @@ function ContactAboutSection() {
             <div className="we-result">
               <img src={sign} alt="icon" />
               <div className="we-result-about">
-                <p>{info.successful_visas ? info.successful_visas : "Ko'plab"}</p>
+                <p>{info.successful_visas ? info.successful_visas : "Yuzlab"}</p>
                 <span>Muvaffaqiyatli viza</span>
               </div>
             </div>
             <div className="we-result">
               <img src={kabahlocation} alt="icon" />
               <div className="we-result-about">
-                <p>{info.travelers ? info.travelers : "Ko'plab"}</p>
+                <p>{info.travelers ? info.travelers : "Yuzlab"}</p>
                 <span>Umra sayohatchilari</span>
               </div>
             </div>
@@ -41,7 +41,7 @@ function ContactAboutSection() {
             <img src={phone} alt="phone-icon" />
             <div className="wrapper">
               <p>Savollaringiz bormi? Biz bilan bog'laning</p>
-              <a href={info.telephone ? `tel:${info.telephone}` : ""}>{info.telephone ? info.telephone : ""}</a>
+              <a href={info.telephone ? `tel:${info.telephone}` : "tel:+998 55 500 22 28"}>{info.telephone ? info.telephone : "+998 55 500 22 28"}</a>
             </div>
           </div>
         </div>

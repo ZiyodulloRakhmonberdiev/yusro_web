@@ -54,7 +54,6 @@
 
 import SelectedPage from './../../components/SelectedPage';
 import useFetch from '../../hooks/useFetch';
-import Travel from '../../service/travel';
 import Info from '../../service/info';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -80,6 +79,7 @@ function Haj() {
             <SelectedPage 
                 packages={info?.results?.filter(place => place.id === info.haj) || []} 
                 tours={tours} 
+                info={info}
             />
         </div>
     );

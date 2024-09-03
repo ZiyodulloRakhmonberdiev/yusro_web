@@ -76,6 +76,8 @@ function Umra() {
     const [tours, setTours] = useState([]);
     const main_url = "http://95.46.96.78:7777/api/v1";
 
+    // console.log(info.res);
+    
     useEffect(() => {
         if (info?.umra) {
             axios
@@ -92,6 +94,7 @@ function Umra() {
             <SelectedPage 
                 packages={info?.results?.filter(place => place.id === info.umra) || []} 
                 tours={tours} 
+                info={info}
             />
         </div>
     );

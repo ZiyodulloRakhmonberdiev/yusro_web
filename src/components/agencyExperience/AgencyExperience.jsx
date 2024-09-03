@@ -33,7 +33,7 @@ function AgencyExperience() {
       <div className="about">
         <div className="main-title">
           <h1>
-            Agentligimiz {info.travelers ? info.travelers : "ko'p"} dan ortiq Haj va Umra ziyoratchilariga xizmat
+            Agentligimiz {info.travelers ? info.travelers + " dan ortiq" : "yuzlab"}  Haj va Umra ziyoratchilariga xizmat
             ko'rsatgan!
           </h1>
           <p>
@@ -46,7 +46,7 @@ function AgencyExperience() {
             <div className="experience">
               <img src={security} alt="" />
               <div className="about">
-                <h1>{info.experience ? info.experience : "ko'p"}</h1>
+                <h1>{info.experience ? info.experience : "7"}</h1>
                 <span>Yillik tajriba</span>
               </div>
             </div>

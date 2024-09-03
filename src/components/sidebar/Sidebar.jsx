@@ -32,7 +32,7 @@ function Sidebar({ active, setActive }) {
             Biz haqimizda
           </Link>
           <Link to="" onClick={handleLinkClick}>
-            Hamkorkik
+            Hamkorlik
           </Link>
           <Link to="" onClick={handleLinkClick}>
             Fikrlar

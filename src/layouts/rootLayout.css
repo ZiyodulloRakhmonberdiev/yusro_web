@@ -386,10 +386,12 @@ footer {
 	cursor: pointer;
 }
 
-.main-footer-details .we-offer .lists .list i,
-span {
+.main-footer-details .we-offer .lists .list i {
 	color: var(--primary-lighter-color);
 	font-size: 10px;
+}
+.main-footer-details .we-offer .lists .list .link {
+	color: var(--primary-lighter-color);
 }
 
 .main-footer-details .we-offer .lists .list:hover * {

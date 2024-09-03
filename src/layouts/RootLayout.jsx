@@ -87,19 +87,19 @@ function RootLayout() {
           <div className="social-media">
             <p>Ijtimoiy tarmoqlarimiz</p>
             <span></span>
-            <a href={info.instagram ? info.instagram : "/"} target="_blank">
+            <a href={info.instagram ? info.instagram : "/"}>
               <img src={instagram_icon} alt="" />
             </a>
             <span></span>
-            <a href={info.telegram ? info.telegram : "/"} target="_blank">
+            <a href={info.telegram ? info.telegram : "/"}>
               <img src={telegram_icon} alt="" />
             </a>
             <span></span>
-            <a href={info.facebook ? info.facebook : "/"} target="_blank">
+            <a href={info.facebook ? info.facebook : "/"}>
               <img src={facebook_icon} alt="" />
             </a>
             <span></span>
-            <a href={info.youtube ? info.youtube : "/"} target="_blank">
+            <a href={info.youtube ? info.youtube : "/"}>
               <img src={youtube_icon} alt="" />
             </a>
           </div>
@@ -126,8 +126,8 @@ function RootLayout() {
                 <img src={phone_icon} alt="" />
                 <div className="about">
                   <span>Hoziroq bizga qo'ng'iroq qiling</span>
-                  <a href={info.telephone ? `tel:${info.telephone}` : ""}>
-                    {info.telephone ? info.telephone : ""}
+                  <a href={info.telephone ? `tel:${info.telephone}` : "tel:+998 55 500 22 28"}>
+                    {info.telephone ? info.telephone : "+998 55 500 22 28"}
                   </a>
                 </div>
               </div>
@@ -135,8 +135,8 @@ function RootLayout() {
                 <img src={mail_icon} alt="" />
                 <div className="about">
                   <span>Email manzilimiz</span>
-                  <a href={info.email ? `mailto:${info.email}` : ""}>
-                    {info.email ? info.email : ""}
+                  <a href={info.email ? `mailto:${info.email}` : "mailto:admin@yusro.uz"}>
+                    {info.email ? info.email : "admin@yusro.uz"}
                   </a>
                 </div>
               </div>
@@ -272,15 +272,15 @@ function RootLayout() {
                 <div className="lists">
                   <div className="list">
                     <i className="fa-solid fa-chevron-right"></i>
-                    <span>Umra ziyorati</span>
+                    <Link className="link" to={"/umra"}>Umra ziyorati</Link>
                   </div>
                   <div className="list">
                     <i className="fa-solid fa-chevron-right"></i>
-                    <span>Ichki turizm</span>
+                    <Link className="link" to={"/packages"}>Ichki turizm</Link>
                   </div>
                   <div className="list">
                     <i className="fa-solid fa-chevron-right"></i>
-                    <span>Tashqi turizm</span>
+                    <Link className="link" to={"/packages"}>Tashqi turizm</Link>
                   </div>
                 </div>
               </div>
@@ -289,8 +289,8 @@ function RootLayout() {
                 <div className="details">
                   <div className="detail">
                     <img src={phone} alt="" />
-                    <a href={info.telephone ? `tel:${info.telephone}` : ""}>
-                      {info.telephone ? info.telephone : ""}
+                    <a href={info.telephone ? `tel:${info.telephone}` : "tel:+998 55 500 22 28"}>
+                      {info.telephone ? info.telephone : "+998 55 500 22 28"}
                     </a>
                   </div>
                   <div className="detail">
@@ -301,8 +301,8 @@ function RootLayout() {
                   </div>
                   <div className="detail">
                     <img src={message} alt="" />
-                    <a href={info.email ? `mailto:${info.email}` : ""}>
-                      {info.email ? info.email : ""}
+                    <a href={info.email ? `mailto:${info.email}` : "mailto:admin@yusro.uz"}>
+                      {info.email ? info.email : "admin@yusro.uz"}
                     </a>
                   </div>
                   <div className="detail">
