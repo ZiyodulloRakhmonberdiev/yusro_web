@@ -10,7 +10,7 @@ function AnswerToQuestions() {
 				<h1>savollaringiz bormi?</h1>
 				<p>Hoziroq biz bilan bog'laning</p>
 			</div>
-			<a href={info.telephone ? `tel:${info.telephone}` : ""} className="phone-number">{info.telephone ? info.telephone : ""}</a>
+			<a href={info.telephone ? `tel:${info.telephone}` : "tel:+998555002228"} className="phone-number">{info.telephone ? info.telephone : "+998 55 500 22 28"}</a>
 		</div>
 	)
 }
