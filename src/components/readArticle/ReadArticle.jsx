@@ -1,159 +1,5 @@
-// import "./readArticle.css";
-// import { Link, useLocation, useParams } from "react-router-dom";
-// import AnswerToQuestions from "./../answerToQuestions/AnswerToQuestions";
-// import BlogArticle from "./../../service/blog";
-// import ExtraPagesHeader from "./../extraPagesHeader/ExtraPagesHeader";
-// import useFetch from "./../../hooks/useFetch";
-// import { formatDate } from "../../utils/formatDate";
-// import PopularPosts from "../popularPosts/PopularPosts";
-// import { useEffect, useState } from "react";
-// import Comments from "../comments/Comments";
-// import CommentPost from "../commentPost/CommentPost";
-// import axios from "axios"
-// import PostTags from "../postTags/PostTags";
-// import { v4 as uuidv4 } from "uuid";
-// // import axios from "axios";
-
-// function ReadArticle() {
-//   const { id } = useParams();
-//   const [copied, setCopied] = useState(false);
-//   const [subComments, setSubComments] = useState([]);
-
-//   const {
-//     data: article,
-//     loading,
-//     error,
-//   } = useFetch(() => BlogArticle.readArticle(id));
-
-//   const handleCopyLink = () => {
-//     navigator.clipboard
-//       .writeText(window.location.href)
-//       .then(() => {
-//         setCopied(true);
-//         setTimeout(() => setCopied(false), 2000);
-//       })
-//       .catch((err) => console.error("Nusxalashda muammo yuz berdi", err));
-//   };
-
-//   const { pathname } = useLocation();
-//   useEffect(() => {
-//     window.scrollTo(0, 0);
-//   }, [pathname]);
-
-
-//   const main_url = "http://95.46.96.78:7777/api/v1"
-//   const [comments, setComments] = useState([]);
-  
-
-//   useEffect(() => {
-//     axios
-//       .get(`${main_url}/main/comments/by-post/${id}/`)
-//       .then((response) => {
-//         setComments(response.data)
-//       })
-//       .catch(() => {
-//         throw new Error('Xatolik yuz berdi!');
-//       });
-//   }, []);
-
-
-
-  // const getSubComments = (id) => {
-  //   setCommentId(id);
-  //   axios
-  //       .get(`${main_url}/main/comments/by-comment/2/`)
-  //       .then((response) => {
-  //         setSubComments(response.data);
-  //         console.log(response);
-          
-  //       })
-  //       .catch(() => {
-  //         throw new Error("Xatolik yuz berdi!");
-  //       });
-  // };
-
-//   return (
-//     <div className="read-article blog">
-//       <ExtraPagesHeader title={article.name} />
-//       <div className="container">
-//         <div className="article-info">
-//           <div className="item" key={article.id}>
-//             <div className="header-image">
-//               <img src={article.image} alt="" />
-//               <span className="created-date">
-//                 {formatDate(article.created_at)}
-//               </span>
-//             </div>
-//             <div className="header-title">
-//               <div className="tags">
-//                 <i className="fa-solid fa-tag"></i>
-//                 {article.post_tag &&
-//                   article.post_tag?.map((tag) => (
-//                     <span className="tag" key={uuidv4()}>
-//                       {tag.name}
-//                     </span>
-//                   ))}
-//               </div>
-//               <div className="comments">
-//                 <i className="fa-regular fa-comment"></i>
-//                 <span>{comments && comments.results?.length}</span>
-//               </div>
-//             </div>
-//             <div className="info">
-//               <div className="title">{article.name}</div>
-//               <div className="intro-text">
-//                 <i className="fa-solid fa-quote-right"></i>
-//                 <p>{article.post_slogan}</p>
-//                 <span>Yusro Tour</span>
-//               </div>
-//               <div className="description">{article.post_content}</div>
-//             </div>
-//             <div className="extra-info">
-//               <div>
-//                 <span>Teglar:</span>{" "}
-//                 {article.post_tag &&
-//                   article.post_tag.map((tag) => (
-//                       <span className="tag" key={uuidv4()}>
-//                       {tag.name}
-//                     </span>
-//                   ))}
-//               </div>
-//               <p onClick={handleCopyLink}>
-//                 <span>Bu postni ulashish</span>
-//                 <i className="fa-solid fa-link"></i>
-//                 {copied && <p className="copied">Nusxalandi</p>}
-//               </p>
-//             </div>
-//             {/* <Comments articleComments={article.comments && article.comments} loading={loading} error={error} /> */}
-//             {/* <Comments postId={id} comments={comments} /> */}
-//             {
-//               comments.results?.length > 0 && (
-//                 <div className="comments-main">Izohlar: ({comments.results?.length})</div>
-//               )
-//             }
-//             {
-//               comments.results?.map((comment) => (
-//                 <Comments comment={comment} key={uuidv4()} />
-//               ))
-//             }
-//             {/* <CommentPost id={id}/> */}
-//           </div>
-//         </div>
-//         <div className="blog-tags">
-//           <PopularPosts />
-//           <AnswerToQuestions />
-//           {/* <PostTags /> */}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default ReadArticle;
-
 import "./readArticle.css";
-import { Link, useLocation, useParams } from "react-router-dom";
-import AnswerToQuestions from "./../answerToQuestions/AnswerToQuestions";
+import { useParams } from "react-router-dom";
 import BlogArticle from "./../../service/blog";
 import ExtraPagesHeader from "./../extraPagesHeader/ExtraPagesHeader";
 import useFetch from "./../../hooks/useFetch";
@@ -167,13 +13,16 @@ function ReadArticle() {
   const { id } = useParams();
   const [copied, setCopied] = useState(false);
   const [comments, setComments] = useState([]);
-  const [visibleComments, setVisibleComments] = useState(5);
-  const [replyingTo, setReplyingTo] = useState(null);
-  const [newReply, setNewReply] = useState("");
+  const [page, setPage] = useState(1);
+  const [totalComments, setTotalComments] = useState(0);
+  const [subComments, setSubComments] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [replyForm, setReplyForm] = useState({ visible: false, parentId: null });
+  const [formData, setFormData] = useState({ name: "", text: "" });
 
   const {
     data: article,
-    loading,
+    loading: articleLoading,
     error,
   } = useFetch(() => BlogArticle.readArticle(id));
 
@@ -187,107 +36,195 @@ function ReadArticle() {
       .catch((err) => console.error("Nusxalashda muammo yuz berdi", err));
   };
 
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+  const fetchComments = async (pageNum) => {
+    setLoading(true);
+    try {
+      const response = await axios.get(
+        `http://95.46.96.78:7777/api/v1/main/comments/by-post/${id}/`,
+        {
+          params: { page: pageNum, limit: 5 },
+        }
+      );
+      setComments((prevComments) =>
+        pageNum === 1
+          ? response.data.results
+          : [...prevComments, ...response.data.results]
+      );
+      setTotalComments(response.data.total);
+    } catch (error) {
+      console.error("Izohlarni olishda xato yuz berdi!");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  const main_url = "http://95.46.96.78:7777/api/v1";
-
   useEffect(() => {
-    axios
-      .get(`${main_url}/main/comments/by-post/${id}/`)
-      .then((response) => {
-        setComments(response.data.results);
-      })
-      .catch(() => {
-        throw new Error("Xatolik yuz berdi!");
+    fetchComments(page);
+  }, [id, page]);
+
+  const handleShowReplies = async (commentId) => {
+    if (subComments[commentId]) {
+      setSubComments((prev) => {
+        const updated = { ...prev };
+        delete updated[commentId];
+        return updated;
       });
-  }, [id]);
+      return;
+    }
 
-  const loadMoreComments = () => {
-    setVisibleComments((prev) => prev + 5);
+    try {
+      const response = await axios.get(
+        `http://95.46.96.78:7777/api/v1/main/comments/by-comment/${commentId}/`
+      );
+      setSubComments((prev) => ({
+        ...prev,
+        [commentId]: response.data.results || [],
+      }));
+    } catch (error) {
+      console.error("Javob izohlarni olishda xato yuz berdi!");
+    }
   };
 
-  const loadMoreReplies = (commentId) => {
-    setComments((prevComments) =>
-      prevComments.map((comment) =>
-        comment.id === commentId
-          ? { ...comment, visibleReplies: comment.visibleReplies + 5 }
-          : comment
-      )
-    );
+  const handleLoadMore = () => {
+    if (comments.length < totalComments) {
+      setPage((prevPage) => prevPage + 1);
+    }
   };
 
-  const handleReply = (commentId) => {
-    setReplyingTo(commentId);
+  const handleReplyClick = (parentId) => {
+    setReplyForm((prev) => ({
+      visible: prev.parentId !== parentId ? true : !prev.visible,
+      parentId: parentId,
+    }));
   };
 
-  const submitReply = (commentId) => {
-    const reply = {
-      id: uuidv4(),
-      content: newReply,
-      parent: commentId,
-      created_at: new Date().toISOString(),
-    };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
-    setComments((prevComments) =>
-      prevComments.map((comment) =>
-        comment.id === commentId
-          ? { ...comment, replies: [reply, ...comment.replies || []] }
-          : comment
-      )
-    );
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { name, text } = formData;
 
-    setNewReply("");
-    setReplyingTo(null);
+    if (!name || !text) return;
+
+    try {
+      await axios.post(
+        `http://95.46.96.78:7777/api/v1/main/comment-create/`,
+        {
+          post: id,
+          parent: replyForm.parentId,
+          full_name: name,
+          text: text,
+        }
+      );
+
+      // Clear form data
+      setFormData({ name: "", text: "" });
+      setReplyForm({ visible: false, parentId: null });
+
+      // Refresh comments
+      fetchComments(page);
+    } catch (error) {
+      console.error("Izoh yuborishda xato yuz berdi!");
+    }
+  };
+
+  const renderComments = (comments) => {
+    return comments.map((comment) => (
+      <div className="comment" key={uuidv4()}>
+        <div className="comment-author">
+          <strong>{comment.full_name}</strong>
+        </div>
+        <div className="comment-content">
+          <p>{comment.text}</p>
+          <span className="comment-date">{formatDate(comment.created_at)}</span>
+          <button onClick={() => handleShowReplies(comment.id)}>
+            {subComments[comment.id] ? "Yashirish" : "Javoblarni ko'rsatish"}
+          </button>
+          <button onClick={() => handleReplyClick(comment.id)}>
+            {replyForm.visible && replyForm.parentId === comment.id ? "Bekor qilish" : "Javob berish"}
+          </button>
+          {replyForm.visible && replyForm.parentId === comment.id && (
+            <form className="reply-form" onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="name"
+                placeholder="Foydalanuvchi ismi"
+                value={formData.name}
+                onChange={handleChange}
+              />
+              <textarea
+                name="text"
+                placeholder="Izoh matni"
+                value={formData.text}
+                onChange={handleChange}
+              />
+              <button type="submit">Yuborish</button>
+            </form>
+          )}
+          {subComments[comment.id] && subComments[comment.id].length > 0 && (
+            <div className="sub-comments">
+              {subComments[comment.id].map((subComment) => (
+                <div className="sub-comment" key={uuidv4()}>
+                  <div className="comment-author">
+                    <strong>{subComment.full_name}</strong>
+                  </div>
+                  <div className="comment-content">
+                    <p>{subComment.text}</p>
+                    <span className="comment-date">
+                      {formatDate(subComment.created_at)}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    ));
   };
 
   return (
     <div className="read-article blog">
-      <ExtraPagesHeader title={article.name} />
+      <ExtraPagesHeader title={article?.name} />
       <div className="container">
         <div className="article-info">
-          <div className="item" key={article.id}>
+          <div className="item" key={article?.id}>
             <div className="header-image">
-              <img src={article.image} alt="" />
+              <img src={article?.image} alt="" />
               <span className="created-date">
-                {formatDate(article.created_at)}
+                {formatDate(article?.created_at)}
               </span>
             </div>
             <div className="header-title">
               <div className="tags">
                 <i className="fa-solid fa-tag"></i>
-                {article.post_tag &&
-                  article.post_tag?.map((tag) => (
-                    <span className="tag" key={uuidv4()}>
-                      {tag.name}
-                    </span>
-                  ))}
-              </div>
-              <div className="comments">
-                <i className="fa-regular fa-comment"></i>
-                <span>{comments?.length}</span>
+                {article?.post_tag?.map((tag) => (
+                  <span className="tag" key={uuidv4()}>
+                    {tag.name}
+                  </span>
+                ))}
               </div>
             </div>
             <div className="info">
-              <div className="title">{article.name}</div>
+              <div className="title">{article?.name}</div>
               <div className="intro-text">
                 <i className="fa-solid fa-quote-right"></i>
-                <p>{article.post_slogan}</p>
+                <p>{article?.post_slogan}</p>
                 <span>Yusro Tour</span>
               </div>
-              <div className="description">{article.post_content}</div>
+              <div className="description">{article?.post_content}</div>
             </div>
             <div className="extra-info">
               <div>
                 <span>Teglar:</span>{" "}
-                {article.post_tag &&
-                  article.post_tag.map((tag) => (
-                    <span className="tag" key={uuidv4()}>
-                      {tag.name}
-                    </span>
-                  ))}
+                {article?.post_tag?.map((tag) => (
+                  <span className="tag" key={uuidv4()}>
+                    {tag.name}
+                  </span>
+                ))}
               </div>
               <p onClick={handleCopyLink}>
                 <span>Bu postni ulashish</span>
@@ -295,46 +232,21 @@ function ReadArticle() {
                 {copied && <p className="copied">Nusxalandi</p>}
               </p>
             </div>
-
-            {comments.slice(0, visibleComments).map((comment) => (
-              <div key={comment.id} className="comment">
-                <div>{comment.content}</div>
-                <div>
-                  <button onClick={() => handleReply(comment.id)}>Javob berish</button>
-                  <button onClick={() => loadMoreReplies(comment.id)}>Javoblarni ko'rish</button>
-                </div>
-                {comment.id === replyingTo && (
-                  <div className="reply-form">
-                    <input
-                      type="text"
-                      value={newReply}
-                      onChange={(e) => setNewReply(e.target.value)}
-                      placeholder="Javob yozish..."
-                    />
-                    <button onClick={() => submitReply(comment.id)}>
-                      Yuborish
-                    </button>
-                  </div>
-                )}
-                {comment.replies?.slice(0, comment.visibleReplies || 5).map((reply) => (
-                  <div key={reply.id} className="reply">
-                    <Link to={`#comment-${comment.id}`}>Izohga javob</Link>: {reply.content}
-                  </div>
-                ))}
-                {comment.replies?.length > (comment.visibleReplies || 5) && (
-                  <button onClick={() => loadMoreReplies(comment.id)}>Yana ko'rsatish</button>
+            {comments.length > 0 && (
+              <div className="comments-section">
+                <h2 className="comments-main">Izohlar: ({comments.length})</h2>
+                {renderComments(comments)}
+                {comments.length < totalComments && (
+                  <button onClick={handleLoadMore} disabled={loading}>
+                    {loading ? "Yuklanmoqda..." : "Yana izohlar yuklash"}
+                  </button>
                 )}
               </div>
-            ))}
-
-            {comments.length > visibleComments && (
-              <button onClick={loadMoreComments}>Yana ko'rsatish</button>
             )}
           </div>
         </div>
         <div className="blog-tags">
           <PopularPosts />
-          <AnswerToQuestions />
         </div>
       </div>
     </div>
@@ -342,4 +254,3 @@ function ReadArticle() {
 }
 
 export default ReadArticle;
-

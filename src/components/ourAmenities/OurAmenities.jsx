@@ -51,7 +51,7 @@ function OurAmenities() {
           {loading ? (
             <Loader />
           ) : data && data.results?.length > 0 ? (
-            data.results.slice(0, 4).map((data) => (
+            data.results.slice(0, 8).map((data) => (
               <div key={data.id} className="amenity-card">
                 <img src={data.image} alt="empty" className="amenity-image" />
                 <p>{data.title}</p>

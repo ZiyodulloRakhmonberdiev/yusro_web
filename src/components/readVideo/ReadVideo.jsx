@@ -6,8 +6,8 @@ import useFetch from "../../hooks/useFetch";
 import { formatDate } from "../../utils/formatDate";
 import PopularPosts from '../popularPosts/PopularPosts';
 import { useEffect, useState } from "react";
-import Comments from "../comments/Comments";
-import CommentPost from "../commentPost/CommentPost";
+// import Comments from "../comments/Comments";
+// import CommentPost from "../commentPost/CommentPost";
 import VideoArticle from "../../service/video";
 import defaultVideo from "../../video/defaultVideo.mp4"
 import {v4 as uuidv4} from "uuid"
