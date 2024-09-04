@@ -88,39 +88,12 @@ function Opinion() {
                         <span className="point">{renderStars(5)}</span>
                         <p className="theme">Umra sayohati</p>
                         <p className="description">
-                          This is a static opinion text 1.
+                          Men Yusro agentligi bilan hamkorlikda Umra safarini
+                          amalga oshirdim. Sayohat juda yaxshi va xavfsiz
+                          bo'ldi. Umra safarini niyat qilib yurganlar uchun
+                          Yusro agentligini tavsiya qilaman
                         </p>
-                        <h3 className="name">Full Name 1</h3>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="opinion-slide">
-                      <div className="opinion-image">
-                        <img src={muslim} alt="" />
-                      </div>
-                      <div className="opinion-about">
-                        <span className="point">{renderStars(4)}</span>
-                        <p className="theme">Theme 2</p>
-                        <p className="description">
-                          This is a static opinion text 2.
-                        </p>
-                        <h3 className="name">Full Name 2</h3>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="opinion-slide">
-                      <div className="opinion-image">
-                        <img src={muslim} alt="" />
-                      </div>
-                      <div className="opinion-about">
-                        <span className="point">{renderStars(3)}</span>
-                        <p className="theme">Theme 3</p>
-                        <p className="description">
-                          This is a static opinion text 3.
-                        </p>
-                        <h3 className="name">Full Name 3</h3>
+                        <h3 className="name">Noma'lum</h3>
                       </div>
                     </div>
                   </SwiperSlide>

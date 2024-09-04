@@ -8,6 +8,7 @@ const CommentsSection = ({ postId }) => {
   const [comments, setComments] = useState([]);
   const [pagination, setPagination] = useState({ next: null, previous: null });
   const [loadingComments, setLoadingComments] = useState(false);
+  const [commentCount, setCommentCount] = useState("")
 
   const fetchComments = async (url) => {
     setLoadingComments(true);
@@ -18,6 +19,7 @@ const CommentsSection = ({ postId }) => {
         next: response.data.next,
         previous: response.data.previous,
       });
+      setCommentCount(response.data.count)
     } catch (error) {
       console.error("Failed to load comments", error);
     } finally {
@@ -31,10 +33,11 @@ const CommentsSection = ({ postId }) => {
 
   return (
     <div className="comments-section">
+      <h2>Izohlar: ({commentCount})</h2>
       {comments.map((comment) => (
         <Comment key={comment.id} comment={comment} postId={postId} />
       ))}
-      {loadingComments && <p>Loading comments...</p>}
+      {loadingComments && <p>Izohlar yuklanmoqda...</p>}
       <Pagination
         previous={pagination.previous}
         next={pagination.next}

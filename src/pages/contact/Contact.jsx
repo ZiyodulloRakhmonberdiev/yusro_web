@@ -80,7 +80,7 @@ function Contact() {
         setSuccessMessage("");
       }, 3000);
     } catch (error) {
-      error.response.data.email ? setError(`Noto'g'ri email kiritildi`) : setError(`Xabar yuborishda xatolik!`);
+      error.response.data.email ? setError(`Email xato kiritildi`) : setError(`Xabar yuborishda xatolik!`);
       setTimeout(() => {
         setError("");
       }, 3000);

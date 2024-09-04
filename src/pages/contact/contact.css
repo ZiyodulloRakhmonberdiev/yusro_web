@@ -72,7 +72,7 @@
   padding: 20px;
   padding-top: 70px;
   padding-bottom: 100px;
-  background-color: aliceblue;
+  background-color: #ECF7EF;
   border-radius: 8px;
   margin-bottom: 50px;
 }
@@ -101,8 +101,7 @@
   width: 100%;
   font-size: 14px;
   padding: 20px 15px;
-  border: none;
-  border-radius: 5px;
+  border: 1px solid #c6c6c6;
   color: var(--secondary-color);
   font-family: 'Montserrat', 'sans-serif';
 }
@@ -113,6 +112,14 @@
   background-color: #fff;
   min-height: 200px;
   font-family: "Montserrat", "sans-serif";
+  border: 1px solid #c6c6c6;
+}
+
+.contact-page .contact-form .form-group input:focus{
+  border: 1px solid var(--primary-main-color);
+}
+.contact-page .contact-form .form-group textarea:focus{
+  border: 1px solid var(--primary-main-color);
 }
 
 .contact-page .contact-form form button {
@@ -128,6 +135,10 @@
   padding: 10px 35px;
   max-width: 200px;
   margin-top: 1rem;
+}
+.contact-page .contact-form button:disabled {
+  background-color: #c6c6c6;
+  cursor: not-allowed;
 }
 
 .contact-wrapper .map-container .map {

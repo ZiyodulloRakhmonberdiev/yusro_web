@@ -62,7 +62,7 @@ function ContactUs() {
       }
     } catch (error) {
       const errorMessage =
-        error?.response?.data?.errors || "Xatolik yuz berdi.";
+        error?.response?.data?.errors || "Xatolik yuz berdi!";
       setFormErrors({ global: errorMessage });
       setError(errorMessage);
     } finally {
@@ -87,7 +87,7 @@ function ContactUs() {
             <>
               <h2 className="title">Hoziroq ro'yxatdan o'ting</h2>
               <p>va chegirmaga ega bo'ling</p>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} className="form">
                 <div className="form-group">
                   <input
                     type="text"
@@ -115,7 +115,7 @@ function ContactUs() {
                     placeholder={placeholder.message || "Xabarni kiriting"}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className={`input ${
+                    className={`textarea ${
                       formErrors.message ? "error-input" : ""
                     }`}
                   />

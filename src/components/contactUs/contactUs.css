@@ -39,17 +39,17 @@
 	padding-bottom: 20px;
 }
 
-.form-wrapper form {
+.form-wrapper .form {
 	display: flex;
 	align-self: center;
 	width: 100%;
 	flex-direction: column;
-	gap: 20px;
+	gap: 12px;
 	font-size: 14px;
 }
 
-.form-wrapper input,
-.form-wrapper textarea {
+.form-wrapper .input,
+.form-wrapper .textarea {
 	padding: 15px 10px;
 	border-radius: 3px;
 	overflow: hidden;
@@ -68,9 +68,10 @@
 .error-input::placeholder {
 	color: red;
 }
-.form-wrapper textarea {
-	height: 80px;
+.form-wrapper .textarea {
+	height: 80px !important;
 	resize: none;
+	min-height: inherit !important;
 }
 
 .form-wrapper button {

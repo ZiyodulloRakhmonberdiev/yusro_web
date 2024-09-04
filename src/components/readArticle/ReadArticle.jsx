@@ -8,6 +8,8 @@ import PopularPosts from "../popularPosts/PopularPosts";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import CommentsSection from "../commentsSection/CommentsSection";
+import AnswerToQuestions from "../answerToQuestions/AnswerToQuestions"
+import CommentForm from "../commentPost/CommentForm";
 
 function ReadArticle() {
   const { id } = useParams();
@@ -76,10 +78,12 @@ function ReadArticle() {
               </p>
             </div>
           </div>
-        </div>
         <CommentsSection postId={id} />
+      <CommentForm postId={id} />
+        </div>
         <div className="blog-tags">
           <PopularPosts />
+          <AnswerToQuestions />
         </div>
       </div>
     </div>

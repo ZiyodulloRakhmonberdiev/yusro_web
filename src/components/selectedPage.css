@@ -21,7 +21,6 @@
 .tour-package-items{
   max-width: 700px;
 }
-
 /* For screens smaller than 1200px */
 @media screen and (max-width: 1200px) {
   .content{
@@ -29,6 +28,9 @@
   }
   .items{
     align-items: center !important;
+  }
+  .packages{
+    flex-wrap: wrap;
   }
 }
 

@@ -250,7 +250,9 @@ function SelectedPage({ packages, loading, error, tours, info }) {
             <div className="description">
               <p>
                 O'zbekistondagi eng tajribali tur agentligi, oxirgi{" "}
-                {info.experience ? info.experience + " yil" : "uzoq yillar"} davomida {info.travelers ? info.travelers + " dan ortiq" : "yuzlab"} Haj
+                {info.experience ? info.experience + " yil" : "uzoq yillar"}{" "}
+                davomida{" "}
+                {info.travelers ? info.travelers + " dan ortiq" : "yuzlab"} Haj
                 va Umra sayohatchilariga yordam bergan va Saudiya hukumatining
                 ko'plab yutuqlari uchun mukofotlarni qo'lga kiritgan agentlik
                 bilan birga ekaningizga 100% ishonch hosil qiling
@@ -287,9 +289,45 @@ function SelectedPage({ packages, loading, error, tours, info }) {
                 Sovg'alar (nimcha, sumka, zam-zam suvi)
               </li>
             </ul>
-            <div className="packages">
+            {/* <div className="packages">
               {tours?.length > 0 ? (
                 tours.map((pack) => (
+                  <div className="package" key={pack.id}>
+                    <div className="package-image">
+                      <img src={pack.image || ""} alt={pack.name || ""} />
+                    </div>
+                    <div className="package-content">
+                      <h3>{pack.name}</h3>
+                      <ul>
+                        <p>O'z ichiga oladi:</p>
+                        {pack.includes?.length > 0 ? (
+                          pack.includes.map((include) => (
+                            <li key={include.id}>
+                              <i className="fa-solid fa-check"></i>
+                              {include.name}
+                            </li>
+                          ))
+                        ) : (
+                          <li>Ma'lumot mavjud emas</li>
+                        )}
+                      </ul>
+                      <span className="price">${pack.price}</span>
+                      <button
+                        className="order-btn"
+                        onClick={() => handleOrderClick(pack)}
+                      >
+                        Batafsil
+                      </button>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p>Ayni vaqtda paketlar mavjud emas</p>
+              )}
+            </div> */}
+            <div className="packages">
+              {tours?.length > 0 ? (
+                tours.slice(-2).map((pack) => (
                   <div className="package" key={pack.id}>
                     <div className="package-image">
                       <img src={pack.image || ""} alt={pack.name || ""} />

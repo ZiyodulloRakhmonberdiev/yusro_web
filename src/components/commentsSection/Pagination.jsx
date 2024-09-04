@@ -6,12 +6,12 @@ const Pagination = ({ previous, next, onPrevious, onNext }) => {
     <div className="pagination-controls">
       {previous && (
         <button onClick={onPrevious} className="pagination-button">
-          Previous
+          Avvalgi
         </button>
       )}
       {next && (
         <button onClick={onNext} className="pagination-button">
-          Next
+          Keyingi
         </button>
       )}
     </div>
