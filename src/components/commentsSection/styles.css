@@ -1,0 +1,131 @@
+/* commentsSection.css */
+
+.comments-section {
+  margin-top: 20px;
+}
+
+.comments-section .comment {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.comments-section .comment-author {
+  font-weight: bold;
+}
+
+.comments-section .comment-content {
+  margin-top: 5px;
+}
+
+.comments-section .replies {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.pagination-controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.pagination-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.pagination-button + .pagination-button {
+  margin-left: 10px;
+}
+
+.loading-message {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* comment.css */
+
+.comment {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.comment-author {
+  font-weight: bold;
+}
+
+.comment-content {
+  margin-top: 5px;
+}
+
+.replies {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.reply-form {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.reply-form input,
+.reply-form textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.reply-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.reply-form button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* pagination.css */
+
+.pagination-controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.pagination-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.pagination-button + .pagination-button {
+  margin-left: 10px;
+}

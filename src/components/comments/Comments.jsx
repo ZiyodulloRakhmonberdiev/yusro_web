@@ -175,3 +175,77 @@
 // export default Comments;
 
 
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
+import "./comments.css";
+
+const Comments = ({ postId }) => {
+  const [comments, setComments] = useState([]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(
+          `http://95.46.96.78:7777/api/v1/main/comments/by-post/${postId}/`
+        );
+        setComments((prevComments) => [...prevComments, ...response.data]);
+        setLoading(false);
+      } catch (err) {
+        setError("Failed to load comments");
+        setLoading(false);
+      }
+    };
+
+    fetchComments();
+  }, [page, postId]);
+
+  const loadMoreComments = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
+
+  return (
+    <div className="comments-section">
+      <h3>Comments</h3>
+      {comments.map((comment) => (
+        <div className="comment" key={uuidv4()}>
+          <div className="comment-author">{comment.author}</div>
+          <div className="comment-content">{comment.content}</div>
+          <button
+            onClick={() => handleReply(comment.id)}
+            className="reply-button"
+          >
+            Reply
+          </button>
+          <button
+            onClick={() => loadReplies(comment.id)}
+            className="show-replies-button"
+          >
+            Show Replies
+          </button>
+          {comment.replies && (
+            <div className="replies">
+              {comment.replies.map((reply) => (
+                <div className="reply" key={uuidv4()}>
+                  <div className="reply-author">{reply.author}</div>
+                  <div className="reply-content">{reply.content}</div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+      {loading && <p>Loading comments...</p>}
+      {error && <p>{error}</p>}
+      <button onClick={loadMoreComments} className="load-more-button">
+        Load More Comments
+      </button>
+    </div>
+  );
+};
+
+export default Comments;
