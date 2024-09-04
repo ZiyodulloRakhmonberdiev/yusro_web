@@ -29,6 +29,7 @@
   color: var(--primary-main-color);
   overflow: hidden;
   outline: none;
+  border-radius: 0;
 }
 .package-btn:first-child {
   border-top-left-radius: 40px;

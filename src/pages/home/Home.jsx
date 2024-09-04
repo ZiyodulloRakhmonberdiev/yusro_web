@@ -54,13 +54,13 @@ function Home() {
 			</div>
 
 			{/* TourPackages */}
-			{/* <TourPackages /> */}
+			<TourPackages />
 
 			{/* opinon */}
 				<Opinion />
 
 			{/* partners */}
-			{/* <Partners /> */}
+			<Partners />
 
 			{/* news */}
 			<News />

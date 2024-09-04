@@ -14,7 +14,6 @@ import Loader from "./../../ui/Loader";
 // custom hooks
 import useFetch from "./../../hooks/useFetch";
 import UserOpinion from "./../../service/opinion";
-import NotAvailable from "./../../helpers/NotAvailable";
 
 // import images
 import kabah from "../../icons/kabah_outline.png";

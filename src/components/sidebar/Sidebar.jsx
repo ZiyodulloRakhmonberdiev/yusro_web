@@ -31,10 +31,7 @@ function Sidebar({ active, setActive }) {
           <Link to="/about-us" onClick={handleLinkClick}>
             Biz haqimizda
           </Link>
-          <Link to="" onClick={handleLinkClick}>
-            Hamkorlik
-          </Link>
-          <Link to="" onClick={handleLinkClick}>
+          <Link to="/opinion" onClick={handleLinkClick}>
             Fikrlar
           </Link>
           <Link to="/umra" onClick={handleLinkClick}>
