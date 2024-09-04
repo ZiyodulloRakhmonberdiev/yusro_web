@@ -1,62 +1,83 @@
-import { useEffect, useState } from 'react';
-import './partners.css'
-import Loader from './../../ui/Loader';
-import Title from './../../ui/Title';
+// import { useEffect, useState } from "react";
+// import "./partners.css";
+// import Loader from "./../../ui/Loader";
+// import Title from "./../../ui/Title";
+// import Partner from "../../service/partner";
+// import kabah from "../../icons/kabah_outline.png";
+// import useFetch from "../../hooks/useFetch";
+// import {v4 as uuidv4} from 'uuid'
 
-import kabah from "../../icons/kabah_outline.png"
+// function Partners() {
+//   const { data } = useFetch(Partner.getPartner);
+//   return (
+//     <div className="partners">
+//       {data.count === 0 ? (
+//         ""
+//       ) : (
+//         <div className="container">
+//           <Title
+//             img={kabah}
+//             title="Bizning aloqalarimiz"
+//             description="Bizning ko'rsatmalarimiz din ishlari bo'yicha ko'rsatmalarga muvofiq ishlab chiqilgan"
+//           />
+//           <div className="partners">
+// 					{data.results?.length > 0 &&
+//             data.results?.map((partner) => {
+//               return (
+//                 <div className="partner-contents">
+//                   <div key={uuidv4()} className="partner-content">
+//                     <img src={partner.company_logo} alt="" />
+//                   </div>
+//                 </div>
+//               );
+//             })}
+// 					</div>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default Partners;
+
+
+import { useEffect, useState } from "react";
+import "./partners.css";
+import Loader from "./../../ui/Loader";
+import Title from "./../../ui/Title";
+import Partner from "../../service/partner";
+import kabah from "../../icons/kabah_outline.png";
+import useFetch from "../../hooks/useFetch";
+import { v4 as uuidv4 } from "uuid";
 
 function Partners() {
+  const { data } = useFetch(Partner.getPartner);
 
-	const [partnersData, setPartnersData] = useState([]);
-	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState(null);
+  // Duplicating the list to create a seamless loop
+  const partnersList = data.results?.length > 0 ? [...data.results, ...data.results] : [];
 
-	// useEffect(() => {
-	// 	async function fetchPartners() {
-	// 		try {
-	// 			const data = await TotalCommand?.getPartners();
-	// 			setPartnersData(data);
-	// 			setLoading(false);
-	// 		} catch (error) {
-	// 			setError(error);
-	// 			setLoading(false);
-	// 		}
-	// 	}
-
-	// 	fetchPartners();
-	// }, []);
-
-
-	return (
-		<div className='partners'>
-			{loading ? (
-				<Loader />
-			) : error ? (
-				<div className="error">{error}</div>
-			) : <div className='container'>
-				<Title img={kabah} title="Bizning aloqalarimiz" description="Bizning ko'rsatmalarimiz din ishlari bo'yicha ko'rsatmalarga muvofiq ishlab chiqilgan"/>
-				{/* {partnersData?.length > 0 && partnersData?.map(partner => {
-					return (
-						<div className='partner-contents'>
-							<div key={partner.id} className="partner-content">
-								<img src={partner.company_logo} alt="" />
-								<div className="name">{partner.company_name}</div>
-							</div><div key={partner.id} className="partner-content">
-								<img src={partner.company_logo} alt="" />
-								<div className="name">{partner.company_name}</div>
-							</div><div key={partner.id} className="partner-content">
-								<img src={partner.company_logo} alt="" />
-								<div className="name">{partner.company_name}</div>
-							</div><div key={partner.id} className="partner-content">
-								<img src={partner.company_logo} alt="" />
-								<div className="name">{partner.company_name}</div>
-							</div>
-						</div>
-					)
-				})} */}
-			</div>}
-		</div>
-	)
+  return (
+    <div className="partners">
+      {data.count === 0 ? (
+        ""
+      ) : (
+        <div className="container">
+          {/* <Title
+            img={kabah}
+            title="Bizning aloqalarimiz"
+            description="Bizning ko'rsatmalarimiz din ishlari bo'yicha ko'rsatmalarga muvofiq ishlab chiqilgan"
+          /> */}
+          <div className="partner-contents">
+            {partnersList.map((partner) => (
+              <div className="partner-content" key={uuidv4()}>
+                <img src={partner.company_logo} alt="" />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default Partners
+export default Partners;

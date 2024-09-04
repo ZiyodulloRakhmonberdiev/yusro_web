@@ -1,0 +1,87 @@
+.comment-form {
+  width: 100%;
+  margin-top: 2rem;
+  border-radius: 8px;
+}
+.comment-form h2 {
+  margin-bottom: 1rem;
+}
+.comment-form p {
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1em;
+  display: flex;
+  gap: 1rem;
+}
+
+.form-group input {
+  padding: 20px;
+  width: 100%;
+  font-size: 14px;
+  padding: 20px 15px;
+  border: none;
+  color: var(--secondary-color);
+  font-family: "Montserrat", "sans-serif";
+  background: #f6f7f9;
+}
+.form-group input:focus {
+  border: 1px solid var(--primary-main-color);
+}
+.form-group textarea {
+  padding: 20px;
+  resize: vertical;
+  padding-bottom: 20px;
+  background-color: #fff;
+  min-height: 200px;
+  font-family: "Montserrat", "sans-serif";
+  background: #f6f7f9;
+  border-radius: 0;
+}
+
+.form-group textarea:focus {
+  border: 1px solid var(--primary-main-color);
+}
+.error-input {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875em;
+  margin-top: 0.5em;
+}
+
+.success-message {
+  color: var(--primary-main-color);
+  font-size: 0.875em;
+  margin-top: 0.5em;
+}
+
+button {
+  background-color: var(--primary-main-color);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  font-size: 1em;
+  border-radius: 4px;
+  cursor: pointer;
+  width: auto;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+button:disabled {
+  background-color: #c6c6c6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px){
+  .form-group{
+    flex-direction: column;
+  }
+}

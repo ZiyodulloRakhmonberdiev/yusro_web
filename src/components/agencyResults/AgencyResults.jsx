@@ -15,7 +15,7 @@ function AgencyResults() {
 		<div className='agency-results'>
 			<div className="container">
 				<div className="about">
-					<div className="title">Agentligimiz {info.travelers ?  info.travelers : ""} dan ortiq haj va umra sayohatchilariga yordam bergan</div>
+					<div className="title">Agentligimiz {info.travelers ?  info.travelers + " dan ortiq" : "yuzlab"}  haj va umra sayohatchilariga yordam bergan</div>
 					<div className="image">
 						<img src={mosque_2} alt="" />
 						<div className="play-icon-div">

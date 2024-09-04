@@ -1,34 +1,42 @@
-.tour-package {
+.content{
+  display: grid !important; 
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+.offers-p{
+  font-size: 24px;
+  color: #000;
+}
+.offers-ul{
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
-.first-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.tour-package-items .main-image img{
+  border-radius: 10px;
   width: 100%;
+  margin-bottom: 1rem;
 }
-
-.tour-package-about {
-  width: 70%;
+.tour-package-items{
+  max-width: 700px;
 }
-
-.items {
-  width: 28%;
-}
-
 /* For screens smaller than 1200px */
 @media screen and (max-width: 1200px) {
-  .first-container {
-      flex-direction: column;
+  .content{
+    grid-template-columns: 1fr 1fr;
   }
-
-  .tour-package-about, .items {
-      width: 100%;
+  .items{
+    align-items: center !important;
   }
+  .packages{
+    flex-wrap: wrap;
+  }
+}
 
-  .items {
-      margin-top: 20px;
+/* For screens smaller than 800px */
+@media screen and (max-width: 800px) {
+  .content{
+    grid-template-columns: 1fr;
   }
 }

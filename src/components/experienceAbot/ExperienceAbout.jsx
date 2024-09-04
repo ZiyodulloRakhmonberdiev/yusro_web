@@ -18,10 +18,10 @@ function ExperienceAbout() {
       <div className="about">
         <img src={bismillah} alt="bismillah-image" />
         <h1 className="title">
-          Biz {info.experience ? info.experience : "ko'p"} yillik tajribaga ega sayyohlik agentligimiz
+          Biz {info.experience ? info.experience : "uzoq"} yillik tajribaga ega sayyohlik agentligimiz
         </h1>
         <p>
-          Biz haj va umra sayohati sohasida biz {info.experience ? info.experience : "ko'p"} yildan ortiq vaqt davomida
+          Biz haj va umra sayohati sohasida biz {info.experience ? info.experience + " yildan ortiq vaqt" : "yillar"}  davomida
           ishladik va biz o'zimizni hech ikkilanmay professional, qobiliyatli va
           mehmondo'st deb aytishga ishonchimiz komil.
         </p>

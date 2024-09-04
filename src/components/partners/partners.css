@@ -1,4 +1,4 @@
-.partners {
+/* .partners {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -26,15 +26,79 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 20px;
-	border: 1px solid var(--primary-lighter-color);
 }
 
 .partner-content img {
-	width: 200px;
+	width: 150px;
 }
 
 .partner-content .name {
 	font-size: 28px;
 	font-weight: 500;
 	color: var(--secondary-color);
+} */
+ 
+.partners {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  overflow: hidden; /* Hide overflow to create the scroll effect */
+  position: relative;
+}
+
+.partners .container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+	overflow: hidden;
+}
+
+.partner-contents {
+	/* margin-top: 2rem; */
+  display: flex;
+  align-items: center;
+  gap: 50px; /* Space between logos */
+  white-space: nowrap; /* Prevent line breaks */
+  animation: scroll 60s linear infinite; /* Infinite scroll animation */
+}
+
+.partner-content {
+  flex-shrink: 0; /* Prevent items from shrinking */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.partner-content img {
+  width: 150px;
+}
+
+.partner-content .name {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+
+/* Scroll animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Move by half the width of all items */
+  }
+}
+
+/* Cloned items to create seamless scroll */
+.partner-contents::after {
+  content: '';
+  display: inline-block;
+  flex-shrink: 0;
+  width: 100%; /* Same width as the container */
 }

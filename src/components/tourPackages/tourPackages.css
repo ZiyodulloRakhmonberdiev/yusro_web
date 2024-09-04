@@ -29,6 +29,7 @@
   color: var(--primary-main-color);
   overflow: hidden;
   outline: none;
+  border-radius: 0;
 }
 .package-btn:first-child {
   border-top-left-radius: 40px;
@@ -66,6 +67,7 @@
   position: relative;
   border-radius: 4px;
   margin-bottom: 270px;
+  max-width: 460px;
 }
 
 .package-image {

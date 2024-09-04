@@ -31,10 +31,7 @@ function Sidebar({ active, setActive }) {
           <Link to="/about-us" onClick={handleLinkClick}>
             Biz haqimizda
           </Link>
-          <Link to="" onClick={handleLinkClick}>
-            Hamkorkik
-          </Link>
-          <Link to="" onClick={handleLinkClick}>
+          <Link to="/opinion" onClick={handleLinkClick}>
             Fikrlar
           </Link>
           <Link to="/umra" onClick={handleLinkClick}>
@@ -72,8 +69,8 @@ function Sidebar({ active, setActive }) {
           <img src={phone_outline} alt="" />
           <div className="about">
             <span>Hoziroq bizga qo'ng'iroq qiling</span>
-            <a href={info.telephone ? `tel:${info.telephone}` : ""}>
-              {info.telephone ? info.telephone : ""}
+            <a href={info.telephone ? `tel:${info.telephone}` : "tel:+998 55 500 22 28"}>
+              {info.telephone ? info.telephone : "+998 55 500 22 28"}
             </a>
           </div>
         </div>
@@ -81,8 +78,8 @@ function Sidebar({ active, setActive }) {
           <img src={message_outline} alt="" />
           <div className="about">
             <span>Email manzilimiz</span>
-            <a href={info.email ? `mailto:${info.email}` : ""}>
-              {info.email ? info.email : ""}
+            <a href={info.email ? `mailto:${info.email}` : "mailto:admin@yusro.uz"}>
+              {info.email ? info.email : "admin@yusro.uz"}
             </a>
           </div>
         </div>

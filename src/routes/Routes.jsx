@@ -13,12 +13,13 @@ import TourPackage from '../components/tourPackage/TourPackage';
 import ReadArticle from '../components/readArticle/ReadArticle';
 import PackagePage from '../pages/packagePage/PackagePage';
 import VideoContent from '../pages/videoContent/VideoContent';
-import AdminLayout from '../layouts/AdminLayout';
 import Login from '../components/admin/login/Login';
 import PrivateRoute from './../components/admin/privateRoute/PrivateRoute';
 import AdminRoutes from './AdminRoutes';
 import ScrollToTop from '../helpers/ScrollToTop';
 import ReadVideo from '../components/readVideo/ReadVideo';
+import OpinionPage from '../pages/opinion/OpinionPage';
+// import AdminLayout from '../layouts/AdminLayout';
 
 function Routes() {
 	return createBrowserRouter(
@@ -31,6 +32,7 @@ function Routes() {
 					<Route path='/umra' element={<Umra />} />
 					<Route path='/contact' element={<Contact />} />
 					<Route path='/blog' element={<Blog />} />
+					<Route path='/opinion' element={<OpinionPage />} />
 					<Route path='/packages' element={<PackagePage />} />
 					<Route path='/tour-package' element={<PackagePage />} />
 					<Route path='/main/post/' element={<Blog />} />
@@ -40,9 +42,8 @@ function Routes() {
 					<Route path='/video-content/:id' element={<ReadVideo />} />
 					<Route path='*' element={<PageNotFound />} />
 				</Route>
-				{/* <ScrollToTop /> */}
-				<Route path='/login' element={<Login />} />
-				{AdminRoutes}
+				{/* <Route path='/login' element={<Login />} /> */}
+				{/* {AdminRoutes} */}
 			</>
 		)
 	);

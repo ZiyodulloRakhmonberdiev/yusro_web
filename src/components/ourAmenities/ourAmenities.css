@@ -112,6 +112,10 @@
   color: var(--third-color);
   font-size: 24px;
 }
+.our-amenities .amenities-title .cards .card .link{
+  color: var(--third-color);
+  font-size: 24px;
+}
 
 .our-amenities .amenities-title .cards .card i {
   color: var(--primary-color);
@@ -218,6 +222,9 @@
   .our-amenities .amenities-title .cards .card p span{
     font-size: 16px;
     line-height: 20px;
+  }
+  .our-amenities .amenities-title .cards .card .link{
+    font-size: 16px;
   }
 }
 @media (max-width: 420px) {
