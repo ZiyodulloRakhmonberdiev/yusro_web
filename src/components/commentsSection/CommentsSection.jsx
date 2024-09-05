@@ -32,7 +32,7 @@ const CommentsSection = ({ postId }) => {
   }, [postId]);
 
   return (
-    <div className="comments-section">
+    <div className="comments-section"> 
       <h2>Izohlar: ({commentCount})</h2>
       {comments.map((comment) => (
         <Comment key={comment.id} comment={comment} postId={postId} />

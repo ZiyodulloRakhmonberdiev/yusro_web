@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import './postTags.css';
 import Loader from './../../ui/Loader';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchArticles } from '../../features/alice/articlesSlice';
+import { useDispatch } from 'react-redux';
+import { fetchArticlesByCategory } from '../../features/alice/articlesSlice';
 import BlogArticle from '../../service/blog';
 import useFetch from '../../hooks/useFetch';
 import useQueryParams from './../../hooks/useQueryParams';
@@ -19,7 +19,7 @@ function PostTags() {
 
   useEffect(() => {
     if (params.tag_id) {
-      dispatch(fetchArticles({ tag_id: params.tag_id }));
+      dispatch(fetchArticlesByCategory({ tag_id: params.tag_id }));
     }
   }, [dispatch, params.tag_id]);
 

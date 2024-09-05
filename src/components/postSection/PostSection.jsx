@@ -1,31 +1,26 @@
 import './postSection.css';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchArticles } from '../../features/alice/articlesSlice';
+import { fetchArticlesByCategory } from '../../features/alice/articlesSlice';
 import useFetch from './../../hooks/useFetch';
 import BlogArticle from '../../service/blog';
 import Loader from '../../ui/Loader';
-import useQueryParams from './../../hooks/useQueryParams';
+import NotAvailable from './../../helpers/NotAvailable';
 
 function PostSection() {
     const { data: sections, loading, error } = useFetch(BlogArticle.fetchArticleSection);
     const dispatch = useDispatch();
-    const { params, updateQueryParams } = useQueryParams();
 
     const handleCategorySelect = (categoryId) => {
-        updateQueryParams({ category_id: categoryId, page: 1 });
+        dispatch(fetchArticlesByCategory({ page: 1, pageSize: 10, categoryId }));
     };
-
-    useEffect(() => {
-        dispatch(fetchArticles({ page: params.page, pageSize: params.pageSize, categoryId: params.categoryId }));
-    }, [dispatch, params]);
 
     return (
         <div className='post-section'>
             <div className="title">Bo'limlar</div>
             <div className="items">
                 {loading ? (
-                    <Loader /> 
+                    <Loader />
                 ) : error ? (
                     <span>{error.message}</span>
                 ) : sections ? (
@@ -35,7 +30,6 @@ function PostSection() {
                                 <i className="fa-solid fa-arrow-right"></i>
                                 <span>{item.name}</span>
                             </div>
-                            {/* <span className="count">{item.articles_amount}</span> */}
                         </div>
                     ))
                 ) : (

@@ -14,16 +14,16 @@ const BlogArticle = {
     const response = await axios.get('/main/post-category/');
     return response.data;
   },
-  // async fetchArticlePopular(params) {
-  //   const response = await axios.get('/main/post/tags/', { params });
-  //   return response.data;
-  // },
 
-  async fetchArticleTag(params) {
-    const response = await axios.get('/main/tag/', { params });
-    return response.data;
+  async fetchArticlesByCategory(categoryId, page, pageSize) {
+    try {
+      const response = await axios.get(`/main/post/by-category/${categoryId}/`, { params: { page, page_size: pageSize } });
+      return response.data;
+    } catch (error) {
+      throw error.response || new Error('Xatolik yuz berdi!');
+    }
   },
-
+  
   async readArticle(id) {
     try{
       const response = await axios.get(`/main/post/${id}/`);
@@ -32,19 +32,6 @@ const BlogArticle = {
       throw error.response || new Error('Xatolik yuz berdi!');
     }
   },
-
-  // post comment
-  async postComment(id) {
-    const response = await axios.post(`/main/comments/by-post/${id}/`);
-    return response.data;
-  },
-
-  // post comment
-  async fetchComments(id) {
-    const response = await axios.get(`/main/comments/by-post/${id}/`);
-    return response.data;
-  },
-  
 };
 
 export default BlogArticle;
