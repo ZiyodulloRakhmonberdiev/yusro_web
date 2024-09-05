@@ -29,7 +29,7 @@ function VideoContent({ videos }) {
   }, [dispatch, page, pageSize, categoryId])
 
   const handlePageChange = (newPage) => {
-    updateQueryParams({ page: newPage, page_size: pageSize, category_id: categoryId });
+    updateQueryParams({ page: newPage, page_size: pageSize });
   };
 
   const { data, status, error } = useSelector(state => state.videos)
@@ -48,7 +48,7 @@ function VideoContent({ videos }) {
                 pageCount={pageCount}
                 onPageChange={handlePageChange}
               />
-            </div> : <span>mana</span>
+            </div> : <span></span>
             }
           </div>
         )} 
