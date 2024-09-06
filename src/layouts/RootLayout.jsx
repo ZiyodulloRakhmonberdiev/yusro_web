@@ -1,7 +1,11 @@
 import "./rootLayout.css";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Sidebar from "./../components/sidebar/Sidebar";
+import SearchModal from "../components/searchModal/SearchModal";
+import axios from "axios";
+import useFetch from "../hooks/useFetch";
+import Info from "../service/info";
 
 // import images
 import logo from "../icons/logo_tour.png";
@@ -31,9 +35,6 @@ import telegram_icon from "../icons/telegram_icon.png";
 import facebook_icon from "../icons/facebook_icon.png";
 import instagram_icon from "../icons/instagram_icon.png";
 import youtube_icon from "../icons/youtube_icon.png";
-import axios from "axios";
-import useFetch from "../hooks/useFetch";
-import Info from "../service/info";
 
 function RootLayout() {
   const [active, setActive] = useState(false);
@@ -63,11 +64,11 @@ function RootLayout() {
       }, 3000);
     } catch (error) {
       error.response.data.email
-      ? setFormErrors({ email: "Email xato kiritildi!" })
-      : setFormErrors({ email: "Xatolik yuz berdi!" });
-      
+        ? setFormErrors({ email: "Email xato kiritildi!" })
+        : setFormErrors({ email: "Xatolik yuz berdi!" });
+
       setEmail("");
-      
+
       setTimeout(() => {
         setFormErrors({});
       }, 3000);
@@ -79,6 +80,34 @@ function RootLayout() {
 
   const { data: info } = useFetch(Info.getInfo);
 
+  const navigate = useNavigate();
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleSearchSubmit = async (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      try {
+        const response = await axios.get(`http://95.46.96.78:7777/api/v1/main/post/`, {
+          params: { search: searchTerm },
+        });
+        setSearchResults(response.data.results); // Assuming the API returns a 'results' array
+        setIsModalOpen(true); // Open the modal
+      } catch (error) {
+        console.error('Error fetching search results:', error);
+      }
+    }
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <div className="root">
       <Sidebar active={active} setActive={setActive} />
@@ -125,7 +154,13 @@ function RootLayout() {
                 <img src={phone_icon} alt="" />
                 <div className="about">
                   <span>Hoziroq bizga qo'ng'iroq qiling</span>
-                  <a href={info.telephone ? `tel:${info.telephone}` : "tel:+998 55 500 22 28"}>
+                  <a
+                    href={
+                      info.telephone
+                        ? `tel:${info.telephone}`
+                        : "tel:+998 55 500 22 28"
+                    }
+                  >
                     {info.telephone ? info.telephone : "+998 55 500 22 28"}
                   </a>
                 </div>
@@ -134,16 +169,36 @@ function RootLayout() {
                 <img src={mail_icon} alt="" />
                 <div className="about">
                   <span>Email manzilimiz</span>
-                  <a href={info.email ? `mailto:${info.email}` : "mailto:admin@yusro.uz"}>
+                  <a
+                    href={
+                      info.email
+                        ? `mailto:${info.email}`
+                        : "mailto:admin@yusro.uz"
+                    }
+                  >
                     {info.email ? info.email : "admin@yusro.uz"}
                   </a>
                 </div>
               </div>
               <div className="search-wrapper">
-                <div className="search">
-                  <input type="text" placeholder="Qidirish" name="search" />
-                  <i className="fa-solid fa-magnifying-glass"></i>
-                </div>
+                <form className="search" onSubmit={handleSearchSubmit}>
+                  <input
+                    type="text"
+                    placeholder="Qidirish"
+                    value={searchTerm}
+                    onChange={handleSearchChange}
+                    name="search"
+                  />
+                  <button type="submit">
+                    <i className="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </form>
+                {isModalOpen && (
+                  <SearchModal
+                    posts={searchResults}
+                    onClose={handleCloseModal}
+                  />
+                )}
                 <div
                   className="hamburger-menu"
                   onClick={() => setActive(!active)}
@@ -203,7 +258,11 @@ function RootLayout() {
                         : ""
                     }
                   />
-                  <button type="submit" disabled={loading} className="newslettersendButton">
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="newslettersendButton"
+                  >
                     {loading ? (
                       <i className="fa-solid fa-spinner"></i>
                     ) : (
@@ -271,15 +330,21 @@ function RootLayout() {
                 <div className="lists">
                   <div className="list">
                     <i className="fa-solid fa-chevron-right"></i>
-                    <Link className="link" to={"/umra"}>Umra ziyorati</Link>
+                    <Link className="link" to={"/umra"}>
+                      Umra ziyorati
+                    </Link>
                   </div>
                   <div className="list">
                     <i className="fa-solid fa-chevron-right"></i>
-                    <Link className="link" to={"/packages"}>Ichki turizm</Link>
+                    <Link className="link" to={"/packages"}>
+                      Ichki turizm
+                    </Link>
                   </div>
                   <div className="list">
                     <i className="fa-solid fa-chevron-right"></i>
-                    <Link className="link" to={"/packages"}>Tashqi turizm</Link>
+                    <Link className="link" to={"/packages"}>
+                      Tashqi turizm
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -288,7 +353,13 @@ function RootLayout() {
                 <div className="details">
                   <div className="detail">
                     <img src={phone} alt="" />
-                    <a href={info.telephone ? `tel:${info.telephone}` : "tel:+998 55 500 22 28"}>
+                    <a
+                      href={
+                        info.telephone
+                          ? `tel:${info.telephone}`
+                          : "tel:+998 55 500 22 28"
+                      }
+                    >
                       {info.telephone ? info.telephone : "+998 55 500 22 28"}
                     </a>
                   </div>
@@ -300,7 +371,13 @@ function RootLayout() {
                   </div>
                   <div className="detail">
                     <img src={message} alt="" />
-                    <a href={info.email ? `mailto:${info.email}` : "mailto:admin@yusro.uz"}>
+                    <a
+                      href={
+                        info.email
+                          ? `mailto:${info.email}`
+                          : "mailto:admin@yusro.uz"
+                      }
+                    >
                       {info.email ? info.email : "admin@yusro.uz"}
                     </a>
                   </div>
