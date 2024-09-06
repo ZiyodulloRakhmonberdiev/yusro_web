@@ -6,7 +6,7 @@ export const fetchArticlesByCategory = createAsyncThunk(
     async ({ page, pageSize, categoryId }) => {
         const response = categoryId
             ? await BlogArticle.fetchArticlesByCategory(categoryId, page, pageSize)
-            : await BlogArticle.fetchArticles({ page, page_size: pageSize, order_by: '-created_at' });
+            : await BlogArticle.fetchArticles({ page, page_size: pageSize });
         return response;
     }
 );

@@ -13,16 +13,16 @@ function PostTags() {
   const dispatch = useDispatch();
   const { params, updateQueryParams } = useQueryParams();
 
-  const handleTagClick = (tagId) => {
-    updateQueryParams({ tag_id: tagId});
-  };
+  // const handleTagClick = (tagId) => {
+  //   updateQueryParams({ tag_id: tagId});
+  // };
 
-  useEffect(() => {
-    if (params.tag_id) {
-      dispatch(fetchArticlesByCategory({ tag_id: params.tag_id }));
-    }
-  }, [dispatch, params.tag_id]);
-
+  // useEffect(() => {
+  //   if (params.tag_id) {
+  //     dispatch(fetchArticlesByCategory({ tag_id: params.tag_id }));
+  //   }
+  // }, [dispatch, params.tag_id]);
+ 
   return (
     <div className='post-tags'>
       <div className="title">Teglar</div>
@@ -33,9 +33,9 @@ function PostTags() {
           <span>{error.message}</span>
         ) : data.results ? (
           data.results?.map(item => (
-            <button className="item" key={uuidv4()} onClick={() => handleTagClick(item.id)}>
+            <span className="item" key={uuidv4()}>
               {item.name}
-            </button>
+            </span>
           ))
         ) : (
           <span>Ma'lumot mavjud emas</span>

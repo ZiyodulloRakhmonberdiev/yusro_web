@@ -1,6 +1,6 @@
 import './blog.css';
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import Loader from './../../ui/Loader';
 import ArticleList from './../../components/articleList/ArticleList';
 import PopularPosts from './../../components/popularPosts/PopularPosts';
@@ -9,40 +9,72 @@ import PostSection from './../../components/postSection/PostSection';
 import PostTags from './../../components/postTags/PostTags';
 import ExtraPagesHeader from './../../components/extraPagesHeader/ExtraPagesHeader';
 import Pagination from './../../helpers/Pagination';
-import { fetchArticlesByCategory } from './../../features/alice/articlesSlice';
 import NotAvailable from './../../helpers/NotAvailable';
-import useQueryParams from '../../hooks/useQueryParams';
 
 const Blog = () => {
-  const dispatch = useDispatch();
-  const { data, status, error, pagination } = useSelector(state => state.articles);
-  const { params } = useQueryParams();
-  const { page } = params;
+  const [posts, setPosts] = useState([]);
+  const [nextPage, setNextPage] = useState(null);
+  const [prevPage, setPrevPage] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [categoryId, setCategoryId] = useState(null);
 
-  // Fetch latest posts on mount or page change
-  useEffect(() => {
-    dispatch(fetchArticlesByCategory({ page, pageSize: 10, categoryId: null }));
-  }, [dispatch, page]);
-
-  const handlePageChange = (newPage) => {
-    dispatch(fetchArticlesByCategory({ page: newPage, pageSize: 10, categoryId: null }));
+  const fetchPosts = async (url) => {
+    setLoading(true);
+    try {
+      const response = await axios.get(url);
+      const data = response.data;
+      setPosts(data.results);
+      setNextPage(data.next);
+      setPrevPage(data.previous);
+    } catch (err) {
+      setError("Failed to load articles");
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const pageCount = Math.ceil(pagination?.total / 10) || 1;
+  useEffect(() => {
+    const url = categoryId
+      ? `http://95.46.96.78:7777/api/v1/main/post/by-category/${categoryId}/?page=1&page_size=10`
+      : 'http://95.46.96.78:7777/api/v1/main/post/?page=1&page_size=10';
+    fetchPosts(url);
+  }, [categoryId]);
+
+  const handleNextPage = () => {
+    if (nextPage) {
+      fetchPosts(nextPage);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (prevPage) {
+      fetchPosts(prevPage);
+    }
+  };
+
+  const handleCategorySelect = (selectedCategoryId) => {
+    setCategoryId(selectedCategoryId);
+  };
 
   return (
     <div className='blog'>
       <ExtraPagesHeader title="Maqolalar" />
       <div className="container">
-        {status === 'loading' ? <Loader /> : status === 'failed' ? <NotAvailable name={error} /> : (
+        {loading ? (
+          <Loader />
+        ) : error ? (
+          <NotAvailable name={error} />
+        ) : (
           <div className='posts'>
-            {data.length > 0 ? (
+            {posts.length > 0 ? (
               <div className="blog-pagination">
-                <ArticleList articles={data} />
+                <ArticleList articles={posts} />
                 <Pagination
-                  currentPage={page}
-                  pageCount={pageCount}
-                  onPageChange={handlePageChange}
+                  previous={prevPage}
+                  next={nextPage}
+                  onPrevious={handlePrevPage}
+                  onNext={handleNextPage}
                 />
               </div>
             ) : (
@@ -53,7 +85,7 @@ const Blog = () => {
         <div className="blog-tags">
           <PopularPosts />
           <AnswerToQuestions />
-          <PostSection />
+          <PostSection onCategorySelect={handleCategorySelect} />
           <PostTags />
         </div>
       </div>

@@ -1,26 +1,26 @@
 import React, { useState, useCallback, useEffect } from "react";
-import "./PopularPosts.css";
+import "./PopularVideos.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import Loader from "./../../ui/Loader";
+import Loader from "../../ui/Loader";
 import { formatDate } from "../../utils/formatDate";
 
-const PopularPosts = () => {
+const PopularVideos = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [popularArticles, setPopularArticles] = useState([]);
+  const [popularVideos, setPopularVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchInitiated, setSearchInitiated] = useState(false);
   const navigate = useNavigate();
 
-  // Fetch all articles to sort by views
-  const fetchPopularArticles = useCallback(async () => {
+  // Fetch all Videos to sort by views
+  const fetchPopularVideos = useCallback(async () => {
     try {
       setLoading(true);
-      const response = await axios.get("/main/post/?page_size=10000");
-      const allArticles = response.data.results;
-      setPopularArticles(allArticles);
+      const response = await axios.get("/main/video/?page_size=10000");
+      const allVideos = response.data.results;
+      setPopularVideos(allVideos);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -38,7 +38,7 @@ const PopularPosts = () => {
     try {
       setLoading(true);
       setSearchInitiated(true); // Mark that a search has been initiated
-      const response = await axios.get(`/main/post/?search=${searchQuery}`);
+      const response = await axios.get(`/main/video/?search=${searchQuery}`);
       setSearchResults(response.data.results);
     } catch (error) {
       setError("Search error: " + error.message);
@@ -54,8 +54,8 @@ const PopularPosts = () => {
   };
 
   useEffect(() => {
-    fetchPopularArticles();
-  }, [fetchPopularArticles]);
+    fetchPopularVideos();
+  }, [fetchPopularVideos]);
 
   useEffect(() => {
     if (searchQuery.trim() === "") {
@@ -64,7 +64,7 @@ const PopularPosts = () => {
   }, [searchQuery]);
 
   const handleArticleClick = (id) => {
-    navigate(`/main/post/${id}/`);
+    navigate(`/main/video/${id}/`);
     window.location.reload();
   };
 
@@ -94,12 +94,12 @@ const PopularPosts = () => {
         <Loader />
       ) : (
         <div className="items">
-          <div className="tile">Ommabop postlar</div>
+          <div className="tile">Ommabop videolar</div>
           {error && <div className="error">{error}</div>}
           {searchInitiated && searchResults.length === 0 ? (
             <div className="no-results">Ma'lumot topilmadi</div>
           ) : (
-            (searchResults.length > 0 ? searchResults : popularArticles).map(
+            (searchResults.length > 0 ? searchResults : popularVideos).map(
               (article) => (
                 <div
                   className="article-item item"
@@ -132,4 +132,4 @@ const PopularPosts = () => {
   );
 };
 
-export default PopularPosts;
+export default PopularVideos;

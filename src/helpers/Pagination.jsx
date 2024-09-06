@@ -70,41 +70,83 @@
 
 // export default Pagination;
 
-import React from 'react';
-import './styles/Pagination.css';
+// import React from 'react';
+// import './styles/Pagination.css';
 
-const Pagination = ({ currentPage, pageCount, onPageChange }) => {
-  if (pageCount <= 1) return null; // No pagination needed
+// const Pagination = ({ currentPage, hasPreviousPage, hasNextPage, onPageChange }) => {
+//   return (
+//     <div className="pagination">
+//       <button
+//         className="pagination-button"
+//         disabled={!hasPreviousPage}
+//         onClick={() => onPageChange(currentPage - 1)}
+//       >
+//         &laquo; Oldingi
+//       </button>
+//       <span className="pagination-info">Sahifa {currentPage}</span>
+//       <button
+//         className="pagination-button"
+//         disabled={!hasNextPage}
+//         onClick={() => onPageChange(currentPage + 1)}
+//       >
+//         Keyingi &raquo;
+//       </button>
+//     </div>
+//   );
+// };
 
-  const handlePageClick = (page) => {
-    if (page > 0 && page <= pageCount) {
-      onPageChange(page);
-    }
-  };
+// export default Pagination;
 
+
+// import React from 'react';
+// import './styles/Pagination.css';
+
+// const Pagination = ({ currentPage, hasPreviousPage, hasNextPage, onPageChange }) => {
+//   return (
+//     <div className="pagination">
+//       <button
+//         className="pagination-button"
+//         disabled={!hasPreviousPage}
+//         onClick={() => onPageChange(currentPage - 1)}
+//       >
+//         &laquo; Oldingi
+//       </button>
+//       <span className="pagination-info">Sahifa {currentPage}</span>
+//       <button
+//         className="pagination-button"
+//         disabled={!hasNextPage}
+//         onClick={() => onPageChange(currentPage + 1)}
+//       >
+//         Keyingi &raquo;
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default Pagination;
+
+
+// Pagination.js
+import React from "react";
+import "./styles/Pagination.css";
+
+const Pagination = ({ previous, next, onPrevious, onNext }) => {
   return (
     <div className="pagination">
-      {/* <button
-        onClick={() => handlePageClick(currentPage - 1)}
-        disabled={currentPage === 1}
+      <button 
+        className="pagination-button" 
+        onClick={onPrevious} 
+        disabled={!previous}
       >
-        Prev
-      </button> */}
-      {[...Array(pageCount).keys()].map(number => (
-        <button
-          key={number + 1}
-          onClick={() => handlePageClick(number + 1)}
-          className={currentPage === number + 1 ? 'active' : ''}
-        >
-          {number + 1}
-        </button>
-      ))}
-      {/* <button
-        onClick={() => handlePageClick(currentPage + 1)}
-        disabled={currentPage === pageCount}
+        &laquo; Oldingi
+      </button>
+      <button 
+        className="pagination-button" 
+        onClick={onNext} 
+        disabled={!next}
       >
-        Next
-      </button> */}
+        Keyingi &raquo;
+      </button>
     </div>
   );
 };

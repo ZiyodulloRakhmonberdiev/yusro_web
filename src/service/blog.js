@@ -32,6 +32,16 @@ const BlogArticle = {
       throw error.response || new Error('Xatolik yuz berdi!');
     }
   },
+  
+  async fetchArticleTag() {
+    try{
+      const response = await axios.get(`/main/tag/`);
+      return response.data;
+    }catch(error){
+      throw error.response || new Error('Xatolik yuz berdi!');
+    }
+  },
+
 };
 
 export default BlogArticle;

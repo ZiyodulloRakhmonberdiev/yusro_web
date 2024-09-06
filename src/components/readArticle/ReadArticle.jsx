@@ -8,7 +8,7 @@ import PopularPosts from "../popularPosts/PopularPosts";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import CommentsSection from "../commentsSection/CommentsSection";
-import AnswerToQuestions from "../answerToQuestions/AnswerToQuestions"
+import AnswerToQuestions from "../answerToQuestions/AnswerToQuestions";
 import CommentForm from "../commentPost/CommentForm";
 
 function ReadArticle() {
@@ -55,11 +55,13 @@ function ReadArticle() {
             </div>
             <div className="info">
               <div className="title">{article?.name}</div>
-              <div className="intro-text">
-                <i className="fa-solid fa-quote-right"></i>
-                <p>{article?.post_slogan}</p>
-                <span>Yusro Tour</span>
-              </div>
+              {article?.post_slogan && (
+                <div className="intro-text">
+                  <i className="fa-solid fa-quote-right"></i>
+                  <p>{article?.post_slogan}</p>
+                  <span>Yusro Tour</span>
+                </div>
+              )}
               <div className="description">{article?.post_content}</div>
             </div>
             <div className="extra-info">
@@ -78,8 +80,8 @@ function ReadArticle() {
               </p>
             </div>
           </div>
-        <CommentsSection postId={id} />
-      <CommentForm postId={id} />
+          <CommentsSection postId={id} />
+          <CommentForm postId={id} />
         </div>
         <div className="blog-tags">
           <PopularPosts />

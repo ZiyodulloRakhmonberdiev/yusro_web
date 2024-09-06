@@ -82,7 +82,7 @@ const Comment = ({ comment, postId }) => {
             <div>
               {loadingReplies ? (
                 <p>Javoblar yuklanmoqda...</p>
-              ) : (
+              ) : ( 
                 <p>Javoblar yo'q</p>
               )}
             </div>
