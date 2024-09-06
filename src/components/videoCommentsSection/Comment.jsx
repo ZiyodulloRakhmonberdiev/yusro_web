@@ -31,7 +31,7 @@ const Comment = ({ comment, postId }) => {
   const handleShowReplies = () => {
     if (!showReplies && !replies.length) {
       fetchReplies(
-        `http://95.46.96.78:7777/api/v1/main/comments/by-comment/${comment.id}/`
+        `http://95.46.96.78:7777/api/v1/main/video-comment/by-comment/${comment.id}/`
       );
     }
     setShowReplies(!showReplies);

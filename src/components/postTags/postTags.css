@@ -21,8 +21,8 @@
 
 .post-tags .item {
     padding: 5px;
-    border-radius: 5px;
-    color: var(--secondary-color);
+    border-radius: 3px;
+    color: var(--primary-lighter-color);
     background-color: var(--third-color);
     cursor: pointer;
     font-size: 16px;

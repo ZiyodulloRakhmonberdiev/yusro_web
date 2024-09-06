@@ -1,41 +1,76 @@
+// import './postSection.css';
+// import { useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { fetchArticlesByCategory } from '../../features/alice/articlesSlice';
+// import useFetch from './../../hooks/useFetch';
+// import BlogArticle from '../../service/blog';
+// import Loader from '../../ui/Loader';
+// import NotAvailable from './../../helpers/NotAvailable';
+
+// function PostSection() {
+//     const { data: sections, loading, error } = useFetch(BlogArticle.fetchArticleSection);
+//     const dispatch = useDispatch();
+
+//     const handleCategorySelect = (categoryId) => {
+//         dispatch(fetchArticlesByCategory({ page: 1, pageSize: 10, categoryId }));
+//     };
+
+//     return (
+//         <div className='post-section'>
+//             <div className="title">Bo'limlar</div>
+//             <div className="items">
+//                 {loading ? (
+//                     <Loader />
+//                 ) : error ? (
+//                     <span>{error.message}</span>
+//                 ) : sections ? (
+//                     sections?.results?.map(item => (
+//                         <div key={item.id} className="item" onClick={() => handleCategorySelect(item.id)}>
+//                             <div className="name">
+//                                 <i className="fa-solid fa-arrow-right"></i>
+//                                 <span>{item.name}</span>
+//                             </div>
+//                         </div>
+//                     ))
+//                 ) : (
+//                     <p>Ma'lumot mavjud emas</p>
+//                 )}
+//             </div>
+//         </div>
+//     );
+// }
+
+// export default PostSection;
+
 import './postSection.css';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchArticles } from '../../features/alice/articlesSlice';
 import useFetch from './../../hooks/useFetch';
 import BlogArticle from '../../service/blog';
 import Loader from '../../ui/Loader';
-import useQueryParams from './../../hooks/useQueryParams';
+// import NotAvailable from './../../helpers/NotAvailable';
 
-function PostSection() {
+function PostSection({ onCategorySelect }) {
     const { data: sections, loading, error } = useFetch(BlogArticle.fetchArticleSection);
-    const dispatch = useDispatch();
-    const { params, updateQueryParams } = useQueryParams();
-
     const handleCategorySelect = (categoryId) => {
-        updateQueryParams({ category_id: categoryId, page: 1 });
+        if (onCategorySelect) {
+            onCategorySelect(categoryId);
+        }
     };
-
-    useEffect(() => {
-        dispatch(fetchArticles({ page: params.page, pageSize: params.pageSize, categoryId: params.categoryId }));
-    }, [dispatch, params]);
 
     return (
         <div className='post-section'>
             <div className="title">Bo'limlar</div>
             <div className="items">
                 {loading ? (
-                    <Loader /> 
+                    <Loader />
                 ) : error ? (
                     <span>{error.message}</span>
                 ) : sections ? (
-                    sections?.results?.map(item => (
+                    sections.results.map(item => (
                         <div key={item.id} className="item" onClick={() => handleCategorySelect(item.id)}>
                             <div className="name">
                                 <i className="fa-solid fa-arrow-right"></i>
                                 <span>{item.name}</span>
                             </div>
-                            {/* <span className="count">{item.articles_amount}</span> */}
                         </div>
                     ))
                 ) : (

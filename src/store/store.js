@@ -4,7 +4,7 @@ import AuthReducer from '../features/auth/authSlice';
 import ArticlesReducer from '../features/alice/articlesSlice'; // Correct path
 import VideosReducer from '../features/alice/videosSlice'; // Correct path
 import commentReducer from '../features/alice/commentSlice'
-import fetchCommentReducer from '../features/alice/fetchCommentSlice'
+// import fetchCommentReducer from '../features/alice/fetchCommentSlice'
 
 const store = configureStore({
   reducer: {
@@ -12,7 +12,7 @@ const store = configureStore({
     auth: AuthReducer,
     articles: ArticlesReducer,
     comments: commentReducer,
-    fetchComments: fetchCommentReducer,
+    // fetchComments: fetchCommentReducer,
     videos: VideosReducer,
   },
   devTools: process.env.NODE_ENV !== "production"

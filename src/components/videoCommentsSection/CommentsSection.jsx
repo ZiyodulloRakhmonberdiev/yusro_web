@@ -28,7 +28,7 @@ const CommentsSection = ({ postId }) => {
   };
 
   useEffect(() => {
-    fetchComments(`http://95.46.96.78:7777/api/v1/main/comments/by-post/${postId}/`);
+    fetchComments(`http://95.46.96.78:7777/api/v1/main/video-comments/by-video/${postId}/`);
   }, [postId]);
 
   return (

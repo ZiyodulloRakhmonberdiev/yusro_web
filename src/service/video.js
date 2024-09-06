@@ -18,32 +18,33 @@ const VideoArticle = {
       throw error.response || new Error('Xatolik yuz berdi!');
     }
   },
-  // async fetchVideoArticlePopular(params) {
-  //   const response = await axios.get('/main/post/tags/', { params });
-  //   return response.data;
-  // },
-
-  // async fetchArticleTag(params) {
-  //   const response = await axios.get('/post/tags/', { params });
-  //   return response.data;
-  // },
-
-  async readVideo(id) {
+  async fetchVideosByCategory(categoryId, page, pageSize) {
     try {
-      const response = await axios.get(`/main/video/${id}/`);
+      const response = await axios.get(`/main/video/by-category/${categoryId}/`, { params: { page, page_size: pageSize } });
       return response.data;
     } catch (error) {
       throw error.response || new Error('Xatolik yuz berdi!');
     }
   },
-
-  // post comment
-  // async postComment(user) {
-  //   console.log(user);
-  //   const response = await axios.post(`/post/comments/`, user);
-  //   return response.data;
-  // },
   
+  async readVideo(id) {
+    try{
+      const response = await axios.get(`/main/video/${id}/`);
+      return response.data;
+    }catch(error){
+      throw error.response || new Error('Xatolik yuz berdi!');
+    }
+  },
+  
+  // async fetchArticleTag() {
+  //   try{
+  //     const response = await axios.get(`/main/tag/`);
+  //     return response.data;
+  //   }catch(error){
+  //     throw error.response || new Error('Xatolik yuz berdi!');
+  //   }
+  // },
+
 };
 
 export default VideoArticle;

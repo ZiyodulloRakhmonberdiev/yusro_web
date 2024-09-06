@@ -10,6 +10,8 @@ import defaultVideo from "../../video/defaultVideo.mp4";
 import { v4 as uuidv4 } from "uuid";
 import VideoPlayer from "../videoPlayer/VideoPlayer"; // Import the VideoPlayer component
 import { useEffect, useState } from "react";
+import CommentsSection from "../videoCommentsSection/CommentsSection";
+import CommentForm from "../commentVideo/CommentForm";
 
 function ReadVideo() {
   const { id } = useParams();
@@ -69,6 +71,8 @@ function ReadVideo() {
               </p>
             </div>
           </div>
+          <CommentsSection postId={id} />
+          <CommentForm postId={id} />
         </div>
         <div className="blog-tags">
           <PopularPosts />

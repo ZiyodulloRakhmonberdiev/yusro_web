@@ -1,65 +1,99 @@
-import { useDispatch, useSelector } from 'react-redux'
-import ExtraPagesHeader from '../../components/extraPagesHeader/ExtraPagesHeader'
-import './videoContent.css'
-import { useLocation } from 'react-router-dom'
-
-// import { fetchArticles } from '../../features/alice/articlesSlice'
-import { fetchVideos } from '../../features/alice/videosSlice'
-import { useEffect } from 'react'
-import useQueryParams from '../../hooks/useQueryParams'
-import NotAvailable from '../../helpers/NotAvailable'
-import Loader from '../../ui/Loader'
-// import ArticleList from '../../components/articleList/ArticleList'
-import PopularPosts from '../../components/popularPosts/PopularPosts'
-import AnswerToQuestions from '../../components/answerToQuestions/AnswerToQuestions'
-import PostSection from '../../components/postSection/PostSection'
-// import PostTags from '../../components/postTags/PostTags'
+import './videoContent.css';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import Loader from './../../ui/Loader';
+import VideoList from './../../components/videoList/VideoList';
+import PopularPosts from './../../components/popularPosts/PopularPosts';
+import AnswerToQuestions from './../../components/answerToQuestions/AnswerToQuestions';
+import VideoSection from './../../components/videoSection/VideoSection';
+import ExtraPagesHeader from './../../components/extraPagesHeader/ExtraPagesHeader';
 import Pagination from './../../helpers/Pagination';
-import VideoList from '../../components/videoList/VideoList'
+import NotAvailable from './../../helpers/NotAvailable';
+import useQueryParams from '../../hooks/useQueryParams';
 
-function VideoContent({ videos }) {
-  const dispatch = useDispatch()
-  const location = useLocation()
-
+const VideoContent = () => {
   const { params, updateQueryParams } = useQueryParams();
-  const { page, pageSize, categoryId } = params;
+  const { page = 1, pageSize = 10, categoryId } = params;
+  
+  const [videos, setVideos] = useState([]);
+  const [nextPage, setNextPage] = useState(null);
+  const [prevPage, setPrevPage] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    dispatch(fetchVideos({ page, pageSize, categoryId }))
-  }, [dispatch, page, pageSize, categoryId])
-
-  const handlePageChange = (newPage) => {
-    updateQueryParams({ page: newPage, page_size: pageSize });
+  const fetchVideos = async (url) => {
+    setLoading(true);
+    try {
+      const response = await axios.get(url);
+      const data = response.data;
+      setVideos(data.results);
+      setNextPage(data.next);
+      setPrevPage(data.previous);
+    } catch (err) {
+      setError("Failed to load videos");
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const { data, status, error } = useSelector(state => state.videos)
-  const pageCount = data.length > 0 ? Math.ceil((data.length / pageSize)) : 1; 
+  useEffect(() => {
+    const url = categoryId
+      ? `http://95.46.96.78:7777/api/v1/main/video/by-category/${categoryId}/?page=${page}&page_size=${pageSize}`
+      : `http://95.46.96.78:7777/api/v1/main/video/?page=${page}&page_size=${pageSize}`;
+    fetchVideos(url);
+  }, [page, pageSize, categoryId]);
 
+  const handleNextPage = () => {
+    if (nextPage) {
+      const nextPageNumber = new URL(nextPage).searchParams.get('page');
+      updateQueryParams({ page: nextPageNumber });
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (prevPage) {
+      const prevPageNumber = new URL(prevPage).searchParams.get('page');
+      updateQueryParams({ page: prevPageNumber });
+    }
+  };
+
+  const handleCategorySelect = (selectedCategoryId) => {
+    updateQueryParams({ page: 1, page_size: pageSize, categoryId: selectedCategoryId });
+  };
   return (
     <div className='video-content blog'>
       <ExtraPagesHeader title="Media" />
       <div className="container">
-        {status === 'loading' ? <Loader /> : status === 'failed' ? <NotAvailable name={error} /> : (
-          <div className='articles'>
-            {data ? <div className="blog-pagination">
-              <VideoList videos={data} className="article-list" />
-              <Pagination
-                currentPage={page}
-                pageCount={pageCount}
-                onPageChange={handlePageChange}
-              />
-            </div> : <span></span>
-            }
+        {loading ? (
+          <Loader />
+        ) : error ? (
+          <NotAvailable name={error} />
+        ) : (
+          <div className='videos'>
+            {videos.length > 0 ? (
+              <div className="blog-pagination">
+                <VideoList videos={videos} className="video-list" />
+                <Pagination
+                  previous={prevPage}
+                  next={nextPage}
+                  onPrevious={handlePrevPage}
+                  onNext={handleNextPage}
+                />
+              </div>
+            ) : (
+              <NotAvailable name="No videos available" />
+            )}
           </div>
-        )} 
+        )}
         <div className="blog-tags">
           <PopularPosts />
           <AnswerToQuestions />
-          <PostSection />
+          {/* <VideoSection /> */}
+          <VideoSection onCategorySelect={handleCategorySelect} />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default VideoContent
+export default VideoContent;

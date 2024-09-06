@@ -1,7 +1,6 @@
 import './blog.css';
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import useQueryParams from './../../hooks/useQueryParams';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import Loader from './../../ui/Loader';
 import ArticleList from './../../components/articleList/ArticleList';
 import PopularPosts from './../../components/popularPosts/PopularPosts';
@@ -10,47 +9,83 @@ import PostSection from './../../components/postSection/PostSection';
 import PostTags from './../../components/postTags/PostTags';
 import ExtraPagesHeader from './../../components/extraPagesHeader/ExtraPagesHeader';
 import Pagination from './../../helpers/Pagination';
-import { fetchArticles } from './../../features/alice/articlesSlice';
 import NotAvailable from './../../helpers/NotAvailable';
 
 const Blog = () => {
-  const { params, updateQueryParams } = useQueryParams();
-  const { page, pageSize, categoryId } = params;
+  const [posts, setPosts] = useState([]);
+  const [nextPage, setNextPage] = useState(null);
+  const [prevPage, setPrevPage] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [categoryId, setCategoryId] = useState(null);
 
-  const dispatch = useDispatch();
-  const { data, status, error } = useSelector(state => state.articles);
-
-  useEffect(() => {
-    dispatch(fetchArticles({ page, pageSize, categoryId }));
-  }, [dispatch, page, pageSize, categoryId]);
-
-  const handlePageChange = (newPage) => {
-    updateQueryParams({ page: newPage, page_size: pageSize, category_id: categoryId });
+  const fetchPosts = async (url) => {
+    setLoading(true);
+    try {
+      const response = await axios.get(url);
+      const data = response.data;
+      setPosts(data.results);
+      setNextPage(data.next);
+      setPrevPage(data.previous);
+    } catch (err) {
+      setError("Failed to load articles");
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const pageCount = data?.length > 0 ? Math.ceil((data?.length / pageSize) + 1) : 1;
+  useEffect(() => {
+    const url = categoryId
+      ? `http://95.46.96.78:7777/api/v1/main/post/by-category/${categoryId}/?page=1&page_size=10`
+      : 'http://95.46.96.78:7777/api/v1/main/post/?page=1&page_size=10';
+    fetchPosts(url);
+  }, [categoryId]);
 
+  const handleNextPage = () => {
+    if (nextPage) {
+      fetchPosts(nextPage);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (prevPage) {
+      fetchPosts(prevPage);
+    }
+  };
+
+  const handleCategorySelect = (selectedCategoryId) => {
+    setCategoryId(selectedCategoryId);
+  };
 
   return (
     <div className='blog'>
       <ExtraPagesHeader title="Maqolalar" />
       <div className="container">
-        {status === 'loading' ? <Loader /> : status === 'failed' ? <NotAvailable name={error} /> : (
+        {loading ? (
+          <Loader />
+        ) : error ? (
+          <NotAvailable name={error} />
+        ) : (
           <div className='posts'>
-            {!data ? <NotAvailable name="Ma'lumot mavjud emas" /> : <div className="blog-pagination">
-              <ArticleList articles={data} />
-              <Pagination
-                currentPage={page}
-                pageCount={pageCount}
-                onPageChange={handlePageChange}
-              />
-            </div>}
+            {posts.length > 0 ? (
+              <div className="blog-pagination">
+                <ArticleList articles={posts} />
+                <Pagination
+                  previous={prevPage}
+                  next={nextPage}
+                  onPrevious={handlePrevPage}
+                  onNext={handleNextPage}
+                />
+              </div>
+            ) : (
+              <NotAvailable name="Ma'lumot mavjud emas" />
+            )}
           </div>
         )}
         <div className="blog-tags">
           <PopularPosts />
           <AnswerToQuestions />
-          <PostSection />
+          <PostSection onCategorySelect={handleCategorySelect} />
           <PostTags />
         </div>
       </div>

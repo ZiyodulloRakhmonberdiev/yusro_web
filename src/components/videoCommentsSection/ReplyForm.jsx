@@ -1,49 +1,3 @@
-// import React, { useState } from "react";
-// import axios from "axios";
-// import "./styles.css";
-
-// const ReplyForm = ({ parentId, postId }) => {
-//   const [name, setName] = useState("");
-//   const [text, setText] = useState("");
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       await axios.post("http://95.46.96.78:7777/api/v1/main/comment-create/", {
-//         full_name: name,
-//         text,
-//         post: postId,
-//         parent: parentId,
-//       });
-//       setName("");
-//       setText("");
-//     } catch (error) {
-//       console.error("Failed to submit reply", error);
-//     }
-//   };
-
-//   return (
-//     <form className="reply-form" onSubmit={handleSubmit}>
-//       <input
-//         type="text"
-//         placeholder="Ism"
-//         value={name}
-//         onChange={(e) => setName(e.target.value)}
-//         required
-//       />
-//       <textarea
-//         placeholder="Izoh"
-//         value={text}
-//         onChange={(e) => setText(e.target.value)}
-//         required
-//       />
-//       <button type="submit">Yuborish</button>
-//     </form>
-//   );
-// };
-
-// export default ReplyForm;
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./styles.css";
@@ -70,7 +24,6 @@ const ReplyForm = ({ parentId, postId }) => {
     }
     return { errors, placeholders };
   };
-
   useEffect(() => {
     const savedName = localStorage.getItem("name");
     if (savedName) {
@@ -97,15 +50,10 @@ const ReplyForm = ({ parentId, postId }) => {
     };
 
     try {
-      await axios.post(
-        "http://95.46.96.78:7777/api/v1/main/comment-create/",
-        data
-      );
-
-      // Save the user's name to localStorage
-      localStorage.setItem("name", name);
-
+      await axios.post("http://95.46.96.78:7777/api/v1/main/video-comment-create/", data);
       // setName("");
+
+      localStorage.setItem("name", name);
       setText("");
       setFormErrors({});
       setPlaceholder({});
@@ -139,15 +87,7 @@ const ReplyForm = ({ parentId, postId }) => {
         className={formErrors.text ? "error-input" : ""}
       />
       <button type="submit" disabled={isLoading}>
-        {isLoading ? (
-          <i className="fa-solid fa-spinner"></i>
-        ) : error ? (
-          error
-        ) : successMessage ? (
-          <i className="fa-solid fa-check"></i>
-        ) : (
-          "Yuborish"
-        )}
+        {isLoading ? (<i className="fa-solid fa-spinner"></i>) : error ? error : successMessage ? (<i className="fa-solid fa-check"></i>) : "Yuborish"}
       </button>
       {successMessage && <p className="success-message">{successMessage}</p>}
       {error && <p className="error-message">{error}</p>}

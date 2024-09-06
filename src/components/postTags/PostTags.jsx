@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import './postTags.css';
 import Loader from './../../ui/Loader';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchArticles } from '../../features/alice/articlesSlice';
+import { useDispatch } from 'react-redux';
+import { fetchArticlesByCategory } from '../../features/alice/articlesSlice';
 import BlogArticle from '../../service/blog';
 import useFetch from '../../hooks/useFetch';
 import useQueryParams from './../../hooks/useQueryParams';
@@ -13,16 +13,16 @@ function PostTags() {
   const dispatch = useDispatch();
   const { params, updateQueryParams } = useQueryParams();
 
-  const handleTagClick = (tagId) => {
-    updateQueryParams({ tag_id: tagId});
-  };
+  // const handleTagClick = (tagId) => {
+  //   updateQueryParams({ tag_id: tagId});
+  // };
 
-  useEffect(() => {
-    if (params.tag_id) {
-      dispatch(fetchArticles({ tag_id: params.tag_id }));
-    }
-  }, [dispatch, params.tag_id]);
-
+  // useEffect(() => {
+  //   if (params.tag_id) {
+  //     dispatch(fetchArticlesByCategory({ tag_id: params.tag_id }));
+  //   }
+  // }, [dispatch, params.tag_id]);
+ 
   return (
     <div className='post-tags'>
       <div className="title">Teglar</div>
@@ -33,9 +33,9 @@ function PostTags() {
           <span>{error.message}</span>
         ) : data.results ? (
           data.results?.map(item => (
-            <button className="item" key={uuidv4()} onClick={() => handleTagClick(item.id)}>
+            <span className="item" key={uuidv4()}>
               {item.name}
-            </button>
+            </span>
           ))
         ) : (
           <span>Ma'lumot mavjud emas</span>
