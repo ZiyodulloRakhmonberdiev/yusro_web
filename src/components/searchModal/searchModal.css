@@ -18,16 +18,19 @@
   border-radius: 10px;
   max-width: 500px;
   width: 100%;
+  position: relative;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .close-button {
-  background: transparent;
   border: none;
   font-size: 1.5rem;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: -70px;
+  right: -70px;
   cursor: pointer;
+  background: var(--primary-main-color);
 }
 
 .search-result{
@@ -38,10 +41,11 @@
 .search-li {
   cursor: pointer;
   padding: 10px;
-  /* border-bottom: 1px so.search-lid #ddd; */
   display: flex;
   align-items: center;
   gap: 10px;
+  border: 1px solid var(--secondary-lighter-color);
+  border-radius: 3px;
 }
 
 .search-li:hover {
@@ -68,3 +72,16 @@
   font-weight: normal;
   color: var(--primary-main-color);
 }
+
+
+@media(max-width: 768px){
+  .modal-content{
+    border-radius: 2px;
+  }
+  .close-button {
+    top: 10px;
+    right: 10px;
+    font-size: 1rem;
+  }
+}
+

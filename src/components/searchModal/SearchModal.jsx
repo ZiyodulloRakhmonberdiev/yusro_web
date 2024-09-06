@@ -12,17 +12,27 @@ const SearchModal = ({ posts, onClose }) => {
     navigate(`/main/post/${postId}`);
   };
 
+  const handleOverlayClick = (e) => {
+    // Check if the click happened outside the modal content
+    if (e.target.classList.contains('modal-overlay')) {
+      onClose();
+    }
+  };
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay" onClick={handleOverlayClick}>
       <div className="modal-content">
         <button onClick={onClose} className="close-button">
-          X
+          <i class="fa-solid fa-xmark"></i>
         </button>
         <h2 className="search-result">Qidiruv natijalari</h2>
         <ul>
           {posts.length > 0 ? (
             posts.map((post) => (
-              <li key={post.id} onClick={() => handlePostClick(post.id)} className="search-li">
+              <li
+                key={post.id}
+                onClick={() => handlePostClick(post.id)}
+                className="search-li"
+              >
                 <img src={post.image} alt="" />
                 <div>
                   <h3>{post.name}</h3>

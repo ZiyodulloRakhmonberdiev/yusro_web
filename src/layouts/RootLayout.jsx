@@ -189,7 +189,7 @@ function RootLayout() {
                     onChange={handleSearchChange}
                     name="search"
                   />
-                  <button type="submit">
+                  <button type="submit" className="submit-button">
                     <i className="fa-solid fa-magnifying-glass"></i>
                   </button>
                 </form>
