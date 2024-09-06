@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./commentForm.css"; // Import the CSS file
 
@@ -11,6 +11,18 @@ const CommentForm = ({ postId }) => {
   const [successMessage, setSuccessMessage] = useState("");
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Load the name from localStorage when the component mounts
+  useEffect(() => {
+    const savedName = localStorage.getItem("fullName");
+    const savedEmail = localStorage.getItem("email");
+    if (savedName) {
+      setFullName(savedName);
+    }
+    if (savedEmail) {
+      setEmail(savedEmail);
+    }
+  }, []);
 
   const validate = () => {
     const errors = {};
@@ -25,7 +37,6 @@ const CommentForm = ({ postId }) => {
     }
     return { errors, placeholders };
   };
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,7 +50,7 @@ const CommentForm = ({ postId }) => {
 
     setIsSubmitting(true);
     const data = {
-      video: postId,
+      video: postId, // Assuming this is a video comment
       full_name: fullName,
       text,
       email,
@@ -50,9 +61,15 @@ const CommentForm = ({ postId }) => {
         "http://95.46.96.78:7777/api/v1/main/video-comment-create/",
         data
       );
-      setFullName("");
+
+      // Save the user's name to localStorage
+      localStorage.setItem("fullName", fullName);
+      localStorage.setItem("email", email);
+
+      // Reset the form after successful submission
+      // setFullName("");
       setText("");
-      setEmail("");
+      // setEmail("");
       setFormErrors({});
       setPlaceholders({});
       setSuccessMessage("Xabar yuborildi!");

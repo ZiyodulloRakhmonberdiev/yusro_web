@@ -111,3 +111,8 @@
         align-items: center;
     }
 }
+
+
+.read-video .article-item{
+    display: flex !important; 
+}

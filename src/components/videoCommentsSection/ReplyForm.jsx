@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./styles.css";
 
@@ -24,6 +24,12 @@ const ReplyForm = ({ parentId, postId }) => {
     }
     return { errors, placeholders };
   };
+  useEffect(() => {
+    const savedName = localStorage.getItem("name");
+    if (savedName) {
+      setName(savedName);
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,7 +51,9 @@ const ReplyForm = ({ parentId, postId }) => {
 
     try {
       await axios.post("http://95.46.96.78:7777/api/v1/main/video-comment-create/", data);
-      setName("");
+      // setName("");
+
+      localStorage.setItem("name", name);
       setText("");
       setFormErrors({});
       setPlaceholder({});

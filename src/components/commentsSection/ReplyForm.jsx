@@ -44,7 +44,7 @@
 
 // export default ReplyForm;
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./styles.css";
 
@@ -71,6 +71,13 @@ const ReplyForm = ({ parentId, postId }) => {
     return { errors, placeholders };
   };
 
+  useEffect(() => {
+    const savedName = localStorage.getItem("name");
+    if (savedName) {
+      setName(savedName);
+    }
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { errors, placeholders } = validateForm();
@@ -90,8 +97,15 @@ const ReplyForm = ({ parentId, postId }) => {
     };
 
     try {
-      await axios.post("http://95.46.96.78:7777/api/v1/main/comment-create/", data);
-      setName("");
+      await axios.post(
+        "http://95.46.96.78:7777/api/v1/main/comment-create/",
+        data
+      );
+
+      // Save the user's name to localStorage
+      localStorage.setItem("name", name);
+
+      // setName("");
       setText("");
       setFormErrors({});
       setPlaceholder({});
@@ -125,7 +139,15 @@ const ReplyForm = ({ parentId, postId }) => {
         className={formErrors.text ? "error-input" : ""}
       />
       <button type="submit" disabled={isLoading}>
-        {isLoading ? (<i className="fa-solid fa-spinner"></i>) : error ? error : successMessage ? (<i className="fa-solid fa-check"></i>) : "Yuborish"}
+        {isLoading ? (
+          <i className="fa-solid fa-spinner"></i>
+        ) : error ? (
+          error
+        ) : successMessage ? (
+          <i className="fa-solid fa-check"></i>
+        ) : (
+          "Yuborish"
+        )}
       </button>
       {successMessage && <p className="success-message">{successMessage}</p>}
       {error && <p className="error-message">{error}</p>}
