@@ -32,7 +32,8 @@
 .popular-posts .items {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: start !important;
+    justify-content: start;
     gap: 20px;
     height: 325px;
     overflow-y: auto;
@@ -64,10 +65,11 @@
     display: flex;
     gap: 10px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: start;
     padding: 10px 0;
     border-bottom: 1px solid var(--primary-lighter-color);
     cursor: pointer;
+    width: 100%;
 }
 
 

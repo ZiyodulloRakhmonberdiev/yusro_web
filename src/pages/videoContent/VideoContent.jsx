@@ -5,7 +5,7 @@ import Loader from './../../ui/Loader';
 import VideoList from './../../components/videoList/VideoList';
 import PopularPosts from './../../components/popularPosts/PopularPosts';
 import AnswerToQuestions from './../../components/answerToQuestions/AnswerToQuestions';
-import VideoSection from './../../components/videoSection/VideoSection';
+// import VideoSection from './../../components/videoSection/VideoSection';
 import ExtraPagesHeader from './../../components/extraPagesHeader/ExtraPagesHeader';
 import Pagination from './../../helpers/Pagination';
 import NotAvailable from './../../helpers/NotAvailable';
@@ -30,7 +30,7 @@ const VideoContent = () => {
       setNextPage(data.next);
       setPrevPage(data.previous);
     } catch (err) {
-      setError("Failed to load videos");
+      setError("Xatolik yuz berdi! Iltimos, keyinroq tashrif buyuring");
     } finally {
       setLoading(false);
     }
@@ -81,15 +81,14 @@ const VideoContent = () => {
                 />
               </div>
             ) : (
-              <NotAvailable name="No videos available" />
+              <NotAvailable name="Videolar topilmadi!" />
             )}
           </div>
         )}
         <div className="blog-tags">
           <PopularPosts />
           <AnswerToQuestions />
-          {/* <VideoSection /> */}
-          <VideoSection onCategorySelect={handleCategorySelect} />
+          {/* <VideoSection onCategorySelect={handleCategorySelect} /> */}
         </div>
       </div>
     </div>

@@ -4,6 +4,8 @@ import { formatDate } from "../../utils/formatDate";
 import NotAvailable from "../../helpers/NotAvailable";
 import { v4 as uuidv4 } from "uuid";
 import VideoPlayer from "../videoPlayer/VideoPlayer";
+import { useRef } from "react";
+import defaultVideo from"../../video/defaultVideo.mp4"
 
 const truncateDescription = (description, limit) => {
   const words = description.split(" ");
@@ -14,19 +16,38 @@ const truncateDescription = (description, limit) => {
 };
 
 const VideoList = ({ videos, defaultVideo }) => {
+  const videoRef = useRef(null);
   return (
-    <div className="article-lists">
+    <div className="video-lists">
       <div className="items">
         {videos?.length > 0 ? (
           videos.map((video) => (
             <div className="item" key={uuidv4()}>
-              <div className="header-image">
+              {video.video_url ? (
+                <iframe
+                  ref={videoRef}
+                  className="video-frame"
+                  src={video.video_url}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title="Video Player"
+                ></iframe>
+              ) : (
+                <video
+                  ref={videoRef}
+                  className="video-frame"
+                  src={video.video || defaultVideo}
+                  controls
+                />
+              )}
+              {/* <div className="header-image">
                 <VideoPlayer
                   videoUrl={video.video_url}
                   localVideo={video.video}
                   defaultVideo={defaultVideo}
                 />
-              </div>
+              </div> */}
               <div className="header-title">
                 <div className="tags">
                   <i className="fa-solid fa-tag"></i>
