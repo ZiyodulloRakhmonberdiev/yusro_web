@@ -6,8 +6,8 @@
   padding-top: 50px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  gap: 10rem;
+  justify-content: space-between !important;
+  gap: 4rem;
 }
 
 .blog .blog-pagination {
@@ -20,8 +20,9 @@
 
 @media(max-width: 1200px){
   .blog .container{
-    gap: 4rem;
+    gap: 2rem;
     flex-wrap: wrap;
+    justify-content: start;
   }
 }
 
@@ -47,5 +48,11 @@
     flex-direction: column;
     justify-content: center;
     gap: 10px;
+  }
+}
+
+@media(max-width: 400px){
+  .blog .blog-tags{
+    min-width: 200px;
   }
 }

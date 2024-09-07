@@ -9,14 +9,14 @@ import VideoArticle from "../../service/video";
 import defaultVideo from "../../video/defaultVideo.mp4";
 import { v4 as uuidv4 } from "uuid";
 import VideoPlayer from "../videoPlayer/VideoPlayer"; // Import the VideoPlayer component
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CommentsSection from "../videoCommentsSection/CommentsSection";
 import CommentForm from "../commentVideo/CommentForm";
 
 function ReadVideo() {
   const { id } = useParams();
   const { data: video } = useFetch(() => VideoArticle.readVideo(id));
-
+  const videoRef = useRef(null);
   const [copied, setCopied] = useState(false);
   const { pathname } = useLocation();
 
@@ -33,6 +33,7 @@ function ReadVideo() {
       })
       .catch((err) => console.error("Nusxalashda muammo yuz berdi: ", err));
   };
+  
 
   return (
     <div className="read-video blog">
@@ -41,11 +42,29 @@ function ReadVideo() {
         <div className="video-info">
           <div className="item">
             <div className="header-image">
-              <VideoPlayer
+              {/* <VideoPlayer
                 videoUrl={video.video_url ? video.video_url : null}
                 localVideo={video.video}
                 defaultVideo={defaultVideo}
-              />
+              /> */}
+              {video.video_url ? (
+                <iframe
+                  ref={videoRef}
+                  className="video-frame"
+                  src={video.video_url}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title="Video Player"
+                ></iframe>
+              ) : (
+                <video
+                  ref={videoRef}
+                  className="video-frame"
+                  src={video.video || defaultVideo}
+                  controls
+                />
+              )}
               <span className="created-date">
                 {formatDate(video.created_at)}
               </span>

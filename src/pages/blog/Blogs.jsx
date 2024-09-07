@@ -28,7 +28,7 @@ const Blog = () => {
       setNextPage(data.next);
       setPrevPage(data.previous);
     } catch (err) {
-      setError("Failed to load articles");
+      setError("Xatolik yuz berdi! Iltimos, keyinroq tashrif buyuring");
     } finally {
       setLoading(false);
     }
