@@ -31,7 +31,7 @@ const Comment = ({ comment, postId }) => {
   const handleShowReplies = () => {
     if (!showReplies && !replies.length) {
       fetchReplies(
-        `https://api.yusro-tour.uz/main/comments/by-comment/${comment.id}/`
+        `https://api.yusro-tour.uz/api/v1/main/comments/by-comment/${comment.id}/`
       );
     }
     setShowReplies(!showReplies);

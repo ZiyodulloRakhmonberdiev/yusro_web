@@ -58,7 +58,7 @@ const CommentForm = ({ postId }) => {
 
     try {
       await axios.post(
-        "https://api.yusro-tour.uz/main/comment-create/",
+        "https://api.yusro-tour.uz/api/v1/main/comment-create/",
         data
       );
       // Save the user's name to localStorage

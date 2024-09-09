@@ -74,7 +74,7 @@ function Contact() {
 
     try {
       await axios.post(
-        "https://api.yusro-tour.uz/main/application-create/",
+        "https://api.yusro-tour.uz/api/v1/main/application-create/",
         data
       );
       setName("");

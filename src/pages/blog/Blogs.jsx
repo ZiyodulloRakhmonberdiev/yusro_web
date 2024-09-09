@@ -43,8 +43,8 @@ const Blog = () => {
 
   useEffect(() => {
     const url = categoryId
-      ? `https://api.yusro-tour.uz/main/post/by-category/${categoryId}/?page=1&page_size=10`
-      : 'https://api.yusro-tour.uz/main/post/?page=1&page_size=10';
+      ? `https://api.yusro-tour.uz/api/v1/main/post/by-category/${categoryId}/?page=1&page_size=10`
+      : 'https://api.yusro-tour.uz/api/v1/main/post/?page=1&page_size=10';
     fetchPosts(url);
   }, [categoryId]);
 
@@ -74,7 +74,7 @@ const Blog = () => {
           <NotAvailable name={error} />
         ) : (
           <div className='posts'>
-            {posts.length > 0 ? (
+            {posts?.length > 0 ? (
               <div className="blog-pagination">
                 <ArticleList articles={posts} />
                 <Pagination

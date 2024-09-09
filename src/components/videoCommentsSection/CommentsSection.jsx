@@ -29,7 +29,7 @@ const CommentsSection = ({ postId }) => {
   };
 
   useEffect(() => {
-    fetchComments(`https://api.yusro-tour.uz/main/video-comments/by-video/${postId}/`);
+    fetchComments(`https://api.yusro-tour.uz/api/v1/main/video-comments/by-video/${postId}/`);
   }, [postId]);
 
   return (

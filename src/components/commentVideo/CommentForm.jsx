@@ -58,7 +58,7 @@ const CommentForm = ({ postId }) => {
 
     try {
       await axios.post(
-        "https://api.yusro-tour.uz/main/video-comment-create/",
+        "https://api.yusro-tour.uz/api/v1/main/video-comment-create/",
         data
       );
 

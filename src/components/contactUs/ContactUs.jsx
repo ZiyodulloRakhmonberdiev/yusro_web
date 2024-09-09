@@ -44,7 +44,7 @@ function ContactUs() {
 
     try {
       const response = await axios.post(
-        "https://api.yusro-tour.uz/main/application-create/",
+        "https://api.yusro-tour.uz/api/v1/main/application-create/",
         data
       );
       if (response.status === 201) {

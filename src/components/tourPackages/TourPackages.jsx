@@ -24,7 +24,7 @@ function TourPackages() {
 
   const navigate = useNavigate();
 
-  const main_url = "https://api.yusro-tour.uz/";
+  const main_url = "https://api.yusro-tour.uz/api/v1";
 
   useEffect(() => {
     axios

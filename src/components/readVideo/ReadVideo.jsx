@@ -14,6 +14,8 @@ import defaultVideo from "../../video/defaultVideo.mp4";
 import CommentsSection from "../videoCommentsSection/CommentsSection";
 import CommentForm from "../commentVideo/CommentForm";
 
+import defaultImage from "../../images/image-default-post.jpg";
+
 function ReadVideo() {
   const { id } = useParams();
   const { data: video } = useFetch(() => VideoArticle.readVideo(id));
@@ -61,7 +63,7 @@ function ReadVideo() {
                 >
                   <img
                     className="video-thumbnail"
-                    src={video.video_poster}
+                    src={video.video_poster || defaultImage}
                     alt=""
                   />
                   <div className="play-icon-div">
