@@ -115,7 +115,7 @@
 	display: flex;
 	gap: 20px;
 	flex-direction: column;
-	margin-top: 150px;
+	margin-top: 30px;
 }
 
 .sidebar-footer .social-media {
@@ -155,10 +155,10 @@
 	gap: 20px;
 }
 
-.by-contact .about a{
+.by-contact .about .link{
 	color: var(--primary-color);
 	font-size: 14px;
-	cursor: pointer;
+	cursor: pointer !important;
 }
 .sidebar-footer .by-contact .about span {
 	color: var(--primary-color);
@@ -169,4 +169,14 @@
 .sidebar-footer .by-contact img {
 	width: 30px;
 	height: 30px;
+}
+
+.show-only-mobile{
+	display: none;
+}
+
+@media(max-width: 850px){
+	.show-only-mobile{
+		display: block;
+	}
 }

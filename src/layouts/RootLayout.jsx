@@ -86,28 +86,43 @@ function RootLayout() {
     setSearchTerm(event.target.value);
   };
 
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [searchLoading, setSearchLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleSearchSubmit = async (e) => {
     e.preventDefault();
+    setSearchLoading(true);
     if (searchTerm.trim()) {
       try {
-        const response = await axios.get(`http://95.46.96.78:7777/api/v1/main/post/`, {
-          params: { search: searchTerm },
-        });
+        const response = await axios.get(
+          `http://95.46.96.78:7777/api/v1/main/post/`,
+          {
+            params: { search: searchTerm },
+          }
+        );
         setSearchResults(response.data.results); // Assuming the API returns a 'results' array
         setIsModalOpen(true); // Open the modal
       } catch (error) {
-        console.error('Error fetching search results:', error);
+        console.error("Error fetching search results:", error);
       }
     }
+    setSearchLoading(false);
+    setSuccess(true);
+    setTimeout(() => {
+      setSuccess(false);
+    }, 3000);
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+  const handleModalSearch = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="root">
       <Sidebar active={active} setActive={setActive} />
@@ -190,13 +205,28 @@ function RootLayout() {
                     name="search"
                   />
                   <button type="submit" className="submit-button">
-                    <i className="fa-solid fa-magnifying-glass"></i>
+                    {searchLoading ? (
+                      <i className="fa-solid fa-spinner fa-spin"></i> // Yuklanayotgan paytda spinner
+                    ) : success ? (
+                      <i className="fa-solid fa-check"></i> // Qidiruv tugagandan keyin check
+                    ) : (
+                      <i className="fa-solid fa-magnifying-glass"></i> // Standart holat
+                    )}
                   </button>
                 </form>
+                <button
+                  className="handle-submit-button"
+                  onClick={handleModalSearch}
+                >
+                  <i className="fa-solid fa-magnifying-glass"></i>
+                </button>
                 {isModalOpen && (
                   <SearchModal
                     posts={searchResults}
                     onClose={handleCloseModal}
+                    searchTerm={searchTerm}
+                    handleSearchSubmit={handleSearchSubmit}
+                    handleSearchChange={handleSearchChange}
                   />
                 )}
                 <div

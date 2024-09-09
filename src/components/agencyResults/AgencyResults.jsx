@@ -15,7 +15,7 @@ function AgencyResults() {
 		<div className='agency-results'>
 			<div className="container">
 				<div className="about">
-					<div className="title">Agentligimiz {info.travelers ?  info.travelers + " dan ortiq" : "yuzlab"}  haj va umra sayohatchilariga yordam bergan</div>
+					<div className="title">Agentligimiz {info.travelers ?  info.travelers + " dan ortiq" : "yuzlab"}  Umra-Haj sayohatchilariga yordam bergan</div>
 					<div className="image">
 						<img src={mosque_2} alt="" />
 						<div className="play-icon-div">
@@ -31,7 +31,7 @@ function AgencyResults() {
 							<img src={message_fill} alt="" />
 						</div>
 						<div className="about">
-							<div className="title">Haj va Umra tur operatori</div>
+							<div className="title">Umra-Haj tur operatori</div>
 							<p>Tashkilot joylarni qidirish va buyurtma berish, shartnomalar tuzish va muzokaralar olib borishda ko'maklashadi. </p>
 						</div>
 					</div>
@@ -49,7 +49,7 @@ function AgencyResults() {
 							<img src={muslim} alt="" />
 						</div>
 						<div className="about">
-							<div className="title">Haj va Umra uchun sifatli xizmat ko'rsatish</div>
+							<div className="title">Umra-Haj uchun sifatli xizmat ko'rsatish</div>
 							<p>Mijozlarga ularning muammolarini yechishda doim yaqindan yordam beradi</p>
 						</div>
 					</div>

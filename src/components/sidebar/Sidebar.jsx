@@ -28,8 +28,40 @@ function Sidebar({ active, setActive }) {
       </div>
       <div className="sidebar-navbar-wrapper">
         <div className="sidebar-navbar">
-          <Link to="/about-us" onClick={handleLinkClick}>
+          <Link
+            to="/about-us"
+            onClick={handleLinkClick}
+            className="show-only-mobile"
+          >
             Biz haqimizda
+          </Link>
+          <Link
+            to="/opinion"
+            onClick={handleLinkClick}
+            className="show-only-mobile"
+          >
+            Fikrlar
+          </Link>
+          <Link
+            to="/umra"
+            onClick={handleLinkClick}
+            className="show-only-mobile"
+          >
+            Umra
+          </Link>
+          <Link
+            to="/haj"
+            onClick={handleLinkClick}
+            className="show-only-mobile"
+          >
+            Haj
+          </Link>
+          <Link
+            to="/contact"
+            onClick={handleLinkClick}
+            className="show-only-mobile"
+          >
+            Aloqa
           </Link>
           <Link to="/opinion" onClick={handleLinkClick}>
             Fikrlar
@@ -69,7 +101,14 @@ function Sidebar({ active, setActive }) {
           <img src={phone_outline} alt="" />
           <div className="about">
             <span>Hoziroq bizga qo'ng'iroq qiling</span>
-            <a href={info.telephone ? `tel:${info.telephone}` : "tel:+998 55 500 22 28"}>
+            <a
+              className="link"
+              href={
+                info.telephone
+                  ? `tel:${info.telephone}`
+                  : "tel:+998 55 500 22 28"
+              }
+            >
               {info.telephone ? info.telephone : "+998 55 500 22 28"}
             </a>
           </div>
@@ -78,7 +117,12 @@ function Sidebar({ active, setActive }) {
           <img src={message_outline} alt="" />
           <div className="about">
             <span>Email manzilimiz</span>
-            <a href={info.email ? `mailto:${info.email}` : "mailto:admin@yusro.uz"}>
+            <a
+              className="link"
+              href={
+                info.email ? `mailto:${info.email}` : "mailto:admin@yusro.uz"
+              }
+            >
               {info.email ? info.email : "admin@yusro.uz"}
             </a>
           </div>

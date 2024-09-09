@@ -17,7 +17,7 @@ function SelectedPage({ packages, tours, info, pageType }) {
   const title = 
   pageType === "umra" ? "Umra ziyorati" :
   pageType === "haj" ? "Haj ziyorati" :
-  "Haj va Umra ziyorati"
+  "Umra-Haj ziyorati"
 
   return (
     <div className="tour-package">

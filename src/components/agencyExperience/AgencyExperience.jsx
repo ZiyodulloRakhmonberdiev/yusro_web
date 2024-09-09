@@ -17,8 +17,7 @@ function AgencyExperience() {
         </div>
         <div className="grid-image-wrapper">
           <div className="sign1-wrapper">
-            {/* <img src={images.sign1} alt="" className="sign1" /> */}
-            <h1>Haj va umrani mukammal bajarishni bilib oling</h1>
+            <h1>Umra-Hajni mukammal bajarishni bilib oling</h1>
           </div>
           <div className="nabwi2-wrapper">
             <img src={nabawi_3} alt="" className="nabwi2" />
@@ -33,7 +32,7 @@ function AgencyExperience() {
       <div className="about">
         <div className="main-title">
           <h1>
-            Agentligimiz {info.travelers ? info.travelers + " dan ortiq" : "yuzlab"}  Haj va Umra ziyoratchilariga xizmat
+            Agentligimiz {info.travelers ? info.travelers + " dan ortiq" : "yuzlab"} Umra-Haj ziyoratchilariga xizmat
             ko'rsatgan!
           </h1>
           <p>

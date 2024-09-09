@@ -21,7 +21,7 @@ function ExperienceAbout() {
           Biz {info.experience ? info.experience : "uzoq"} yillik tajribaga ega sayyohlik agentligimiz
         </h1>
         <p>
-          Biz haj va umra sayohati sohasida biz {info.experience ? info.experience + " yildan ortiq vaqt" : "yillar"}  davomida
+          Biz Umra-Haj sayohati sohasida biz {info.experience ? info.experience + " yildan ortiq vaqt" : "yillar"}  davomida
           ishladik va biz o'zimizni hech ikkilanmay professional, qobiliyatli va
           mehmondo'st deb aytishga ishonchimiz komil.
         </p>

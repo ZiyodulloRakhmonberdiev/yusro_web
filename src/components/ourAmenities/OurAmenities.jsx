@@ -44,7 +44,7 @@ function OurAmenities() {
           <Title
             img={kabah}
             title="Qulayliklarimiz"
-            description="Haj va Umra ziyoratlarini birlashtirishda yuqori tajribaga ega"
+            description="Umra-Haj ziyoratlarini birlashtirishda yuqori tajribaga ega"
           />
         </div>
         <div className="amenities-grid">

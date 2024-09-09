@@ -17,7 +17,7 @@ function ContactAboutSection() {
             Arzon paketlarni qidiryapsizmi? Siz to'g'ri joydasiz
           </h1>
           <p className="main-subtitle">
-            Biz haj va umra sayohati sohasida {info.experience ? info.experience + " yildan ortiq vaqt" : "uzoq yillar"} davomida
+            Biz Umra-Haj sayohati sohasida {info.experience ? info.experience + " yildan ortiq vaqt" : "uzoq yillar"} davomida
             ishladik va biz o'zimizni hech ikkilanmay professional, qobiliyatli
             va mehmondo'st deb aytishga ishonchimiz komil.
           </p>
