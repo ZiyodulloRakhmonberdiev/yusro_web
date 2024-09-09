@@ -1,15 +1,16 @@
 import "./readVideo.css";
+import { useEffect, useRef, useState } from "react";
+import { Fancybox } from "@fancyapps/ui";
 import { useLocation, useParams } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
+
 import AnswerToQuestions from "../answerToQuestions/AnswerToQuestions";
 import ExtraPagesHeader from "../extraPagesHeader/ExtraPagesHeader";
 import useFetch from "../../hooks/useFetch";
 import { formatDate } from "../../utils/formatDate";
-import PopularPosts from '../popularPosts/PopularPosts';
+import PopularPosts from "../popularPosts/PopularPosts";
 import VideoArticle from "../../service/video";
 import defaultVideo from "../../video/defaultVideo.mp4";
-import { v4 as uuidv4 } from "uuid";
-import VideoPlayer from "../videoPlayer/VideoPlayer"; // Import the VideoPlayer component
-import { useEffect, useRef, useState } from "react";
 import CommentsSection from "../videoCommentsSection/CommentsSection";
 import CommentForm from "../commentVideo/CommentForm";
 
@@ -33,7 +34,17 @@ function ReadVideo() {
       })
       .catch((err) => console.error("Nusxalashda muammo yuz berdi: ", err));
   };
-  
+
+  useEffect(() => {
+    // Initialize Fancybox
+    Fancybox.bind("[data-fancybox='video-gallery']", {
+      buttons: ["zoom", "close", "fullscreen", "thumbs"],
+    });
+
+    return () => {
+      Fancybox.destroy();
+    };
+  }, []);
 
   return (
     <div className="read-video blog">
@@ -42,28 +53,42 @@ function ReadVideo() {
         <div className="video-info">
           <div className="item">
             <div className="header-image">
-              {/* <VideoPlayer
-                videoUrl={video.video_url ? video.video_url : null}
-                localVideo={video.video}
-                defaultVideo={defaultVideo}
-              /> */}
               {video.video_url ? (
-                <iframe
-                  ref={videoRef}
-                  className="video-frame"
-                  src={video.video_url}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="Video Player"
-                ></iframe>
+                // YouTube or external video
+                <a
+                  data-fancybox="video-gallery"
+                  href={video.video_url}
+                  data-caption={video.name}
+                >
+                  <img
+                    className="video-thumbnail"
+                    src={video.video_poster}
+                    alt=""
+                  />
+                  <div className="play-icon-div">
+                    <button className="play-icon-wrapper">
+                      <div className="triangle"></div>
+                    </button>
+                  </div>{" "}
+                </a>
               ) : (
-                <video
-                  ref={videoRef}
-                  className="video-frame"
-                  src={video.video || defaultVideo}
-                  controls
-                />
+                // Local or default video
+                <a
+                  data-fancybox="video-gallery"
+                  href={video.video || defaultVideo}
+                  data-caption={video.name}
+                >
+                  <img
+                    className="video-thumbnail"
+                    src={video.video_poster}
+                    alt=""
+                  />
+                  <div className="play-icon-div">
+                    <button className="play-icon-wrapper">
+                      <div className="triangle"></div>
+                    </button>
+                  </div>
+                </a>
               )}
               <span className="created-date">
                 {formatDate(video.created_at)}
