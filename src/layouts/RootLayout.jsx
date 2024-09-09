@@ -55,7 +55,7 @@ function RootLayout() {
     try {
       setLoading(true);
       await axios.post(
-        "http://95.46.96.78:7777/api/v1/main/subscriber-create/",
+        "https://api.yusro-tour.uz/main/subscriber-create/",
         { email }
       );
       setSuccessMessage("Muvaffaqiyatli yuborildi!");
@@ -98,7 +98,7 @@ function RootLayout() {
     if (searchTerm.trim()) {
       try {
         const response = await axios.get(
-          `http://95.46.96.78:7777/api/v1/main/post/`,
+          `https://api.yusro-tour.uz/main/post/`,
           {
             params: { search: searchTerm },
           }

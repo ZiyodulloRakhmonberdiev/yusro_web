@@ -28,7 +28,7 @@ const CommentsSection = ({ postId }) => {
   };
 
   useEffect(() => {
-    fetchComments(`http://95.46.96.78:7777/api/v1/main/comments/by-post/${postId}/`);
+    fetchComments(`https://api.yusro-tour.uz/main/comments/by-post/${postId}/`);
   }, [postId]);
 
   return (

@@ -43,8 +43,8 @@ const Blog = () => {
 
   useEffect(() => {
     const url = categoryId
-      ? `http://95.46.96.78:7777/api/v1/main/post/by-category/${categoryId}/?page=1&page_size=10`
-      : 'http://95.46.96.78:7777/api/v1/main/post/?page=1&page_size=10';
+      ? `https://api.yusro-tour.uz/main/post/by-category/${categoryId}/?page=1&page_size=10`
+      : 'https://api.yusro-tour.uz/main/post/?page=1&page_size=10';
     fetchPosts(url);
   }, [categoryId]);
 
