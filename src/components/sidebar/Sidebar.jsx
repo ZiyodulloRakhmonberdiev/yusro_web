@@ -28,40 +28,20 @@ function Sidebar({ active, setActive }) {
       </div>
       <div className="sidebar-navbar-wrapper">
         <div className="sidebar-navbar">
-          <Link
-            to="/about-us"
-            onClick={handleLinkClick}
-            className="show-only-mobile"
-          >
+          <Link to="/" onClick={handleLinkClick}>
+            Bosh sahifa
+          </Link>
+          <Link to="/about-us" onClick={handleLinkClick}>
             Biz haqimizda
           </Link>
-          <Link
-            to="/opinion"
-            onClick={handleLinkClick}
-            className="show-only-mobile"
-          >
-            Fikrlar
+          <Link to="/packages" onClick={handleLinkClick}>
+            Paketlar
           </Link>
-          <Link
-            to="/umra"
-            onClick={handleLinkClick}
-            className="show-only-mobile"
-          >
-            Umra
+          <Link to="/blog" onClick={handleLinkClick}>
+            Blog
           </Link>
-          <Link
-            to="/haj"
-            onClick={handleLinkClick}
-            className="show-only-mobile"
-          >
-            Haj
-          </Link>
-          <Link
-            to="/contact"
-            onClick={handleLinkClick}
-            className="show-only-mobile"
-          >
-            Aloqa
+          <Link to="/video-content" onClick={handleLinkClick}>
+            Media
           </Link>
           <Link to="/opinion" onClick={handleLinkClick}>
             Fikrlar

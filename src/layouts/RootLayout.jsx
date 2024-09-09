@@ -1,6 +1,7 @@
 import "./rootLayout.css";
+import { Fancybox } from "@fancyapps/ui";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Sidebar from "./../components/sidebar/Sidebar";
 import SearchModal from "../components/searchModal/SearchModal";
 import axios from "axios";
@@ -10,27 +11,26 @@ import Info from "../service/info";
 // import images
 import logo from "../icons/logo_tour.png";
 import logo2 from "../icons/logo_tour.png";
-import phone_icon from "./images/phone_icon.png";
-import mail_icon from "./images/mail_icon.png";
-import mail_send from "./images/mail_send.png";
+import phone_icon from "../icons/phone_outline.png";
+import mail_icon from "../icons/message_outline.png";
+import mail_send from "../icons/mail_send.png";
 
-import layer1 from "./images/layer1.jpg";
-import layer2 from "./images/layer2.jpg";
-import layer3 from "./images/layer3.jpg";
-import layer4 from "./images/layer4.jpg";
-import layer5 from "./images/layer5.jpg";
-import layer6 from "./images/layer6.jpg";
+import layer1 from "../images/kabah_3.jpg";
+import layer2 from "../images/nabawi_3.jpg";
+import layer3 from "../images/nabawi_8.jpg";
+import layer4 from "../images/nabawi_5.jpg";
+import layer5 from "../images/nabawi_2.jpg";
+import layer6 from "../images/kabah_5.jpg";
 
-import humo from "./icons/humo.png";
-import uzcard from "./icons/uzcard.png";
-import mastercard from "./icons/mastercard.png";
-import visa from "./icons/visa.png";
+import humo from "../images/card_humo.png";
+import uzcard from "../images/card_uz.png";
+import mastercard from "../images/card_master.png";
+import visa from "../images/card_visa.png";
 
-import phone from "./icons/phone.png";
-import telegram from "./icons/telegram.png";
-import message from "./icons/message.png";
-import location from "./icons/location.png";
-
+import phone from "../icons/phone_outline.png";
+import telegram from "../icons/telegram_outline.png";
+import message from "../icons/message_outline.png";
+import location from "../icons/location_outline.png";
 import telegram_icon from "../icons/telegram_icon.png";
 import facebook_icon from "../icons/facebook_icon.png";
 import instagram_icon from "../icons/instagram_icon.png";
@@ -117,6 +117,18 @@ function RootLayout() {
   const handleModalSearch = () => {
     setIsModalOpen(true);
   };
+
+  useEffect(() => {
+    // Bind fancybox for the gallery
+    Fancybox.bind("[data-fancybox='gallery']", {
+      loop: true, // Allows cycling through images
+      buttons: ["zoom", "close", "thumbs"], // Fancybox control buttons
+    });
+
+    return () => {
+      Fancybox.destroy();
+    };
+  }, []);
 
   return (
     <div className="root">
@@ -341,12 +353,24 @@ function RootLayout() {
               <div className="clip">
                 <div className="title">Lavhalar</div>
                 <div className="images">
-                  <img src={layer1} alt="" />
-                  <img src={layer2} alt="" />
-                  <img src={layer3} alt="" />
-                  <img src={layer4} alt="" />
-                  <img src={layer5} alt="" />
-                  <img src={layer6} alt="" />
+                  <a data-fancybox="gallery" href={layer1}>
+                    <img src={layer1} alt="" />
+                  </a>
+                  <a data-fancybox="gallery" href={layer2}>
+                    <img src={layer2} alt="" />
+                  </a>
+                  <a data-fancybox="gallery" href={layer3}>
+                    <img src={layer3} alt="" />
+                  </a>
+                  <a data-fancybox="gallery" href={layer4}>
+                    <img src={layer4} alt="" />
+                  </a>
+                  <a data-fancybox="gallery" href={layer5}>
+                    <img src={layer5} alt="" />
+                  </a>
+                  <a data-fancybox="gallery" href={layer6}>
+                    <img src={layer6} alt="" />
+                  </a>
                 </div>
               </div>
               <div className="we-offer">
