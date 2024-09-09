@@ -11,6 +11,8 @@ import CommentsSection from "../commentsSection/CommentsSection";
 import AnswerToQuestions from "../answerToQuestions/AnswerToQuestions";
 import CommentForm from "../commentPost/CommentForm";
 
+import defaultImage from "../../images/image-default-post.jpg";
+
 function ReadArticle() {
   const { id } = useParams();
   const [copied, setCopied] = useState(false);
@@ -18,7 +20,6 @@ function ReadArticle() {
   const {
     data: article,
     loading: articleLoading,
-    error,
   } = useFetch(() => BlogArticle.readArticle(id));
 
   const handleCopyLink = () => {
@@ -44,7 +45,7 @@ function ReadArticle() {
         <div className="article-info">
           <div className="item" key={article?.id}>
             <div className="header-image">
-              <img src={article?.image} alt="" />
+              <img src={article?.image || defaultImage} alt="" />
               <span className="created-date">
                 {formatDate(article?.created_at)}
               </span>

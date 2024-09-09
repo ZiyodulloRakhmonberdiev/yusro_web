@@ -52,7 +52,7 @@ const ReplyForm = ({ parentId, postId }) => {
 
     try {
       await axios.post(
-        "http://95.46.96.78:7777/api/v1/main/comment-create/",
+        "https://api.yusro-tour.uz/api/v1/main/comment-create/",
         data
       );
 

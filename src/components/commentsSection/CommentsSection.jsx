@@ -28,13 +28,13 @@ const CommentsSection = ({ postId }) => {
   };
 
   useEffect(() => {
-    fetchComments(`http://95.46.96.78:7777/api/v1/main/comments/by-post/${postId}/`);
+    fetchComments(`https://api.yusro-tour.uz/api/v1/main/comments/by-post/${postId}/`);
   }, [postId]);
 
   return (
     <div className="comments-section"> 
       <h2>Izohlar: ({commentCount})</h2>
-      {comments.map((comment) => (
+      {comments?.map((comment) => (
         <Comment key={comment.id} comment={comment} postId={postId} />
       ))}
       {loadingComments && <p>Izohlar yuklanmoqda...</p>}

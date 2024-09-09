@@ -50,7 +50,7 @@ const ReplyForm = ({ parentId, postId }) => {
     };
 
     try {
-      await axios.post("http://95.46.96.78:7777/api/v1/main/video-comment-create/", data);
+      await axios.post("https://api.yusro-tour.uz/api/v1/main/video-comment-create/", data);
       // setName("");
 
       localStorage.setItem("name", name);

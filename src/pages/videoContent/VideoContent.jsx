@@ -39,8 +39,8 @@ const VideoContent = () => {
 
   useEffect(() => {
     const url = categoryId
-      ? `http://95.46.96.78:7777/api/v1/main/video/by-category/${categoryId}/?page=${page}&page_size=${pageSize}`
-      : `http://95.46.96.78:7777/api/v1/main/video/?page=${page}&page_size=${pageSize}`;
+      ? `https://api.yusro-tour.uz/api/v1/main/video/by-category/${categoryId}/?page=${page}&page_size=${pageSize}`
+      : `https://api.yusro-tour.uz/api/v1/main/video/?page=${page}&page_size=${pageSize}`;
     fetchVideos(url);
   }, [page, pageSize, categoryId]);
 

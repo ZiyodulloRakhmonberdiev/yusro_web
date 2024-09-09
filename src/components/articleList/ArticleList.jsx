@@ -4,6 +4,8 @@ import { formatDate } from "../../utils/formatDate";
 import NotAvailable from "../../helpers/NotAvailable";
 import { v4 as uuidv4 } from "uuid";
 
+import defaultImage from "../../images/image-default-post.jpg";
+
 // Function to truncate the description of the article
 const truncateDescription = (description, limit) => {
   const words = description.split(" ");
@@ -21,7 +23,7 @@ const ArticleList = ({ articles }) => {
           articles.map((article) => (
             <div className="item" key={uuidv4()}>
               <div className="header-image">
-                <img src={article.image} alt={article.name || "Article"} />
+                <img src={article.image || defaultImage} alt={article.name || "Article"} />
               </div>
               <div className="header-title">
                 <div className="tags">
