@@ -121,7 +121,7 @@ function RootLayout() {
 
   useEffect(() => {
     // Bind fancybox for the gallery
-    Fancybox.bind("[data-fancybox='gallery']", {
+    Fancybox.bind("[data-fancybox='galleries']", {
       loop: true, // Allows cycling through images
       buttons: ["zoom", "close", "thumbs"], // Fancybox control buttons
     });
@@ -355,22 +355,22 @@ function RootLayout() {
               <div className="clip">
                 <div className="title">Lavhalar</div>
                 <div className="images">
-                  <a data-fancybox="gallery" href={layer1}>
+                  <a data-fancybox="galleries" href={layer1}>
                     <img src={layer1} alt="" />
                   </a>
-                  <a data-fancybox="gallery" href={layer2}>
+                  <a data-fancybox="galleries" href={layer2}>
                     <img src={layer2} alt="" />
                   </a>
-                  <a data-fancybox="gallery" href={layer3}>
+                  <a data-fancybox="galleries" href={layer3}>
                     <img src={layer3} alt="" />
                   </a>
-                  <a data-fancybox="gallery" href={layer4}>
+                  <a data-fancybox="galleries" href={layer4}>
                     <img src={layer4} alt="" />
                   </a>
-                  <a data-fancybox="gallery" href={layer5}>
+                  <a data-fancybox="galleries" href={layer5}>
                     <img src={layer5} alt="" />
                   </a>
-                  <a data-fancybox="gallery" href={layer6}>
+                  <a data-fancybox="galleries" href={layer6}>
                     <img src={layer6} alt="" />
                   </a>
                 </div>
