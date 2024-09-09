@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./contact.css";
 import ExtraPagesHeader from "./../../components/extraPagesHeader/ExtraPagesHeader";
@@ -9,6 +9,7 @@ import location_outline from "../../icons/location_outline.png";
 import Info from "../../service/info";
 import useFetch from "../../hooks/useFetch";
 import defaultMap from "../../images/defaultMap.png"
+import { useLocation } from "react-router-dom";
 
 function Contact() {
   const [name, setName] = useState("");
@@ -45,6 +46,13 @@ function Contact() {
     }
     return { errors, placeholders };
   };
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();

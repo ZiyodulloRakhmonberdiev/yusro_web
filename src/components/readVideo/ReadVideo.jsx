@@ -17,7 +17,6 @@ import CommentForm from "../commentVideo/CommentForm";
 function ReadVideo() {
   const { id } = useParams();
   const { data: video } = useFetch(() => VideoArticle.readVideo(id));
-  const videoRef = useRef(null);
   const [copied, setCopied] = useState(false);
   const { pathname } = useLocation();
 

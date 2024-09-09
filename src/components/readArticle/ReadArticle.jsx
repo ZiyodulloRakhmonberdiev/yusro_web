@@ -1,11 +1,11 @@
 import "./readArticle.css";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import BlogArticle from "./../../service/blog";
 import ExtraPagesHeader from "./../extraPagesHeader/ExtraPagesHeader";
 import useFetch from "./../../hooks/useFetch";
 import { formatDate } from "../../utils/formatDate";
 import PopularPosts from "../popularPosts/PopularPosts";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import CommentsSection from "../commentsSection/CommentsSection";
 import AnswerToQuestions from "../answerToQuestions/AnswerToQuestions";
@@ -30,6 +30,12 @@ function ReadArticle() {
       })
       .catch((err) => console.error("Nusxalashda muammo yuz berdi", err));
   };
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <div className="read-article blog">

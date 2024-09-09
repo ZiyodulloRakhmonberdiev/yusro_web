@@ -1,5 +1,5 @@
 import "./tourPackage.css";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 import ContactUs from "./../contactUs/ContactUs";
 import AnswerToQuestions from "./../answerToQuestions/AnswerToQuestions";
@@ -8,6 +8,7 @@ import useFetch from "./../../hooks/useFetch";
 import Travel from "./../../service/travel";
 import Loader from "./../../ui/Loader";
 import NotAvailable from "./../../helpers/NotAvailable";
+import { useEffect } from "react";
 
 function TourPackage() {
   const { id } = useParams();
@@ -16,6 +17,12 @@ function TourPackage() {
     loading,
     error,
   } = useFetch(() => Travel.getTourPacksById(id));
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <div className="tour-package">
