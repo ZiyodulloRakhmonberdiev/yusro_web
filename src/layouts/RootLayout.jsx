@@ -80,8 +80,6 @@ function RootLayout() {
 
   const { data: info } = useFetch(Info.getInfo);
 
-  const navigate = useNavigate();
-
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
@@ -90,10 +88,11 @@ function RootLayout() {
   const [searchResults, setSearchResults] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchLoading, setSearchLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
 
   const handleSearchSubmit = async (e) => {
     e.preventDefault();
+    setIsSearching(true);
     setSearchLoading(true);
     if (searchTerm.trim()) {
       try {
@@ -110,10 +109,6 @@ function RootLayout() {
       }
     }
     setSearchLoading(false);
-    setSuccess(true);
-    setTimeout(() => {
-      setSuccess(false);
-    }, 3000);
   };
 
   const handleCloseModal = () => {
@@ -207,8 +202,6 @@ function RootLayout() {
                   <button type="submit" className="submit-button">
                     {searchLoading ? (
                       <i className="fa-solid fa-spinner fa-spin"></i> // Yuklanayotgan paytda spinner
-                    ) : success ? (
-                      <i className="fa-solid fa-check"></i> // Qidiruv tugagandan keyin check
                     ) : (
                       <i className="fa-solid fa-magnifying-glass"></i> // Standart holat
                     )}
@@ -227,6 +220,7 @@ function RootLayout() {
                     searchTerm={searchTerm}
                     handleSearchSubmit={handleSearchSubmit}
                     handleSearchChange={handleSearchChange}
+                    isSearching={isSearching}
                   />
                 )}
                 <div

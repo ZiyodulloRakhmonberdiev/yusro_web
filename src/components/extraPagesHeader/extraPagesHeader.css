@@ -49,10 +49,15 @@
 		margin-top: 100px;
 	}
 }
+@media (max-width: 850px) {
+	.extra-pages-header {
+		margin-top: 25px;
+		min-height: 250px;
+	}
+}
 @media (max-width: 650px) {
 	.extra-pages-header {
-		margin-top: 50px;
-		min-height: 250px;
+		margin-top: 5px;
 	}
 	.extra-pages-header .about .title {
 		font-size: 28px;

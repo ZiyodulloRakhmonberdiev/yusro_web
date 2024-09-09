@@ -24,7 +24,7 @@
 //           <i className="fa-solid fa-xmark"></i>
 //         </button>
 //         <h2 className="search-result">Qidiruv natijalari</h2>
-        
+
 //         {/* Qidiruv formasi */}
 //         <form className="search-modal-form" onSubmit={handleSearchSubmit}>
 //           <input
@@ -149,19 +149,26 @@ import { formatDate } from "../../utils/formatDate";
 import { useNavigate } from "react-router-dom";
 import "./searchModal.css";
 
-const SearchModal = ({ posts, onClose, handleSearchSubmit, handleSearchChange, searchTerm }) => {
-  const [isSearching, setIsSearching] = useState(false);  // Qidiruv jarayoni
-  const [loading, setLoading] = useState(false);          // Yuklanish holati
-  const [success, setSuccess] = useState(false);          // Qidiruv muvaffaqiyatli tugagan holat
+const SearchModal = ({
+  posts,
+  onClose,
+  handleSearchSubmit,
+  handleSearchChange,
+  searchTerm,
+  isSearching
+}) => {
+  // const [isSearching, setIsSearching] = useState(false); // Qidiruv jarayoni
+  const [loading, setLoading] = useState(false); // Yuklanish holati
+  const [success, setSuccess] = useState(false); // Qidiruv muvaffaqiyatli tugagan holat
   const navigate = useNavigate();
 
   const handlePostClick = (postId) => {
-    onClose();  // Modalni yopish
+    onClose(); // Modalni yopish
     navigate(`/main/post/${postId}`);
   };
 
   const handleOverlayClick = (e) => {
-    if (e.target.classList.contains('modal-overlay')) {
+    if (e.target.classList.contains("modal-overlay")) {
       onClose();
     }
   };
@@ -169,14 +176,14 @@ const SearchModal = ({ posts, onClose, handleSearchSubmit, handleSearchChange, s
   // Qidiruv yuborilganda
   const handleSearch = async (e) => {
     e.preventDefault();
-    setLoading(true);        // Yuklanishni boshlash
-    setIsSearching(true);    // Qidiruvni boshlash
+    setLoading(true); // Yuklanishni boshlash
+    // setIsSearching(true); // Qidiruvni boshlash
 
-    await handleSearchSubmit(e);  // Qidiruvni yuborish
+    await handleSearchSubmit(e); // Qidiruvni yuborish
 
-    setLoading(false);       // Yuklanishni to'xtatish
-    setSuccess(true);        // Qidiruv muvaffaqiyatli tugadi
-    
+    setLoading(false); // Yuklanishni to'xtatish
+    setSuccess(true); // Qidiruv muvaffaqiyatli tugadi
+
     // 3 soniyadan so'ng qayta yuklash holatiga qaytarish
     setTimeout(() => {
       setSuccess(false);
@@ -203,16 +210,15 @@ const SearchModal = ({ posts, onClose, handleSearchSubmit, handleSearchChange, s
           <button type="submit" className="submit-button">
             {/* Dinamik icon almashtirish */}
             {loading ? (
-              <i className="fa-solid fa-spinner fa-spin"></i>  // Yuklanayotgan paytda spinner
-            ) : success ? (
-              <i className="fa-solid fa-check"></i>  // Qidiruv tugagandan keyin check
+              <i className="fa-solid fa-spinner fa-spin"></i> // Yuklanayotgan paytda spinner
             ) : (
-              <i className="fa-solid fa-magnifying-glass"></i>  // Standart holat
+              <i className="fa-solid fa-magnifying-glass"></i> // Standart holat
             )}
           </button>
         </form>
 
         {/* Natijalar yoki 'Hech narsa topilmadi' */}
+        {isSearching && (
           <ul className="results">
             {posts.length > 0 ? (
               posts.map((post) => (
@@ -232,10 +238,10 @@ const SearchModal = ({ posts, onClose, handleSearchSubmit, handleSearchChange, s
               <p>Hech narsa topilmadi!</p>
             )}
           </ul>
+        )}
       </div>
     </div>
   );
 };
 
 export default SearchModal;
-
