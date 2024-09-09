@@ -1,7 +1,6 @@
 import "./opinion.css";
-// hook
-import React, { useState, useEffect } from "react";
-// swiper
+import React, { useEffect } from "react";
+
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
@@ -18,6 +17,7 @@ import UserOpinion from "./../../service/opinion";
 // import images
 import kabah from "../../icons/kabah_outline.png";
 import muslim from "../../icons/muslim_icon.png";
+import { useLocation } from "react-router-dom";
 
 function Opinion() {
   const { data, loading, error } = useFetch(UserOpinion.getAgencyComfort);
@@ -28,6 +28,13 @@ function Opinion() {
     }
     return stars.join(" ");
   };
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
 
   return (
     <div className="opinion-section">

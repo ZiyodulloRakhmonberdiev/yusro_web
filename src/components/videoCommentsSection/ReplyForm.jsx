@@ -1,6 +1,6 @@
+import "./styles.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./styles.css";
 
 const ReplyForm = ({ parentId, postId }) => {
   const [name, setName] = useState("");

@@ -237,7 +237,6 @@ ul li i {
     flex-direction: column;
     align-items: start;
     position: absolute;
-    /* top: 40%; */
     text-align: start;
     z-index: 100;
     padding: 20px;

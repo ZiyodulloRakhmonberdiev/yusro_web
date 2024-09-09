@@ -167,7 +167,14 @@
 
 @media (max-width: 700px) {
   .amenities-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: auto auto !important;
+  }
+  .aminity-desc{
+    font-size: 14px !important;
+  }
+  .amenity-card{
+    max-width: 100% !important;
+    overflow: hidden;
   }
 }
 

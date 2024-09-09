@@ -1,11 +1,13 @@
 import "./videoList.css";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import { formatDate } from "../../utils/formatDate";
 import NotAvailable from "../../helpers/NotAvailable";
 import { v4 as uuidv4 } from "uuid";
-import VideoPlayer from "../videoPlayer/VideoPlayer";
-import { useRef } from "react";
-import defaultVideo from"../../video/defaultVideo.mp4"
+import { Fancybox } from "@fancyapps/ui";
+import defaultVideo from "../../video/defaultVideo.mp4";
+import defaultImage from "../../images/nabawi_8.jpg";
 
 const truncateDescription = (description, limit) => {
   const words = description.split(" ");
@@ -15,8 +17,18 @@ const truncateDescription = (description, limit) => {
   return description;
 };
 
-const VideoList = ({ videos, defaultVideo }) => {
-  const videoRef = useRef(null);
+const VideoList = ({ videos }) => {
+  useEffect(() => {
+    // Initialize Fancybox
+    Fancybox.bind("[data-fancybox='video-gallery']", {
+      buttons: ["zoom", "close", "fullscreen", "thumbs"],
+    });
+
+    return () => {
+      Fancybox.destroy();
+    };
+  }, []);
+
   return (
     <div className="video-lists">
       <div className="items">
@@ -24,30 +36,44 @@ const VideoList = ({ videos, defaultVideo }) => {
           videos.map((video) => (
             <div className="item" key={uuidv4()}>
               {video.video_url ? (
-                <iframe
-                  ref={videoRef}
-                  className="video-frame"
-                  src={video.video_url}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="Video Player"
-                ></iframe>
+                // YouTube or external video
+                <a
+                  data-fancybox="video-gallery"
+                  href={video.video_url}
+                  data-caption={video.name}
+                  className="video-gallery"
+                >
+                  <img
+                    className="video-thumbnail"
+                    src={video.video_poster || defaultImage}
+                    alt=""
+                  />
+                  <div className="play-icon-div">
+                    <button className="play-icon-wrapper">
+                      <div className="triangle"></div>
+                    </button>
+                  </div>
+                </a>
               ) : (
-                <video
-                  ref={videoRef}
-                  className="video-frame"
-                  src={video.video || defaultVideo}
-                  controls
-                />
+                // Local or default video
+                <a
+                  data-fancybox="video-gallery"
+                  href={video.video || defaultVideo}
+                  data-caption={video.name}
+                  className="video-gallery"
+                >
+                  <img
+                    className="video-thumbnail"
+                    src={video.video_poster || defaultImage}
+                    alt=""
+                  />
+                  <div className="play-icon-div">
+                    <button className="play-icon-wrapper">
+                      <div className="triangle"></div>
+                    </button>
+                  </div>
+                </a>
               )}
-              {/* <div className="header-image">
-                <VideoPlayer
-                  videoUrl={video.video_url}
-                  localVideo={video.video}
-                  defaultVideo={defaultVideo}
-                />
-              </div> */}
               <div className="header-title">
                 <div className="tags">
                   <i className="fa-solid fa-tag"></i>

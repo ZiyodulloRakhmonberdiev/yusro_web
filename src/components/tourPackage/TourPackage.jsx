@@ -1,5 +1,6 @@
-import { useLocation, useNavigate, useParams } from "react-router-dom";
 import "./tourPackage.css";
+import { useLocation, useParams } from "react-router-dom";
+
 import ContactUs from "./../contactUs/ContactUs";
 import AnswerToQuestions from "./../answerToQuestions/AnswerToQuestions";
 import ExtraPagesHeader from "./../extraPagesHeader/ExtraPagesHeader";
@@ -16,18 +17,9 @@ function TourPackage() {
     loading,
     error,
   } = useFetch(() => Travel.getTourPacksById(id));
-  const {
-    data: tourPackagePlace,
-    loading: placeLoading,
-    error: placeError,
-  } = useFetch(() => Travel.getTourPacksPlaceById(id));
-  const navigate = useNavigate();
-  const handleOrderClick = (pkg) => {
-    navigate(`/tour-package/${pkg.id}`);
-  };
 
-  // scroll to top
   const { pathname } = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
@@ -55,13 +47,9 @@ function TourPackage() {
                 <div className="title">
                   <h1>{tourPackage.name || "Noma'lum paket"}</h1>
                 </div>
-                {/* <div className="description">
-                  <p>{tourPackage.description || "Ma'lumot mavjud emas"}</p>
-                </div> */}
                 <ul className="tour-package-ul">
                   <span>O'z ichiga oladi:</span>
-                  {tourPackage.includes &&
-                  tourPackage.includes.length > 0 ? (
+                  {tourPackage.includes && tourPackage.includes.length > 0 ? (
                     tourPackage.includes.map((include) => (
                       <li key={include.id}>
                         <i className="fa-solid fa-check"></i>

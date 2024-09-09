@@ -1,6 +1,8 @@
 import "./rootLayout.css";
+import { Fancybox } from "@fancyapps/ui";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import ScrollToTop from "../helpers/ScrollToTop";
 import Sidebar from "./../components/sidebar/Sidebar";
 import SearchModal from "../components/searchModal/SearchModal";
 import axios from "axios";
@@ -10,27 +12,26 @@ import Info from "../service/info";
 // import images
 import logo from "../icons/logo_tour.png";
 import logo2 from "../icons/logo_tour.png";
-import phone_icon from "./images/phone_icon.png";
-import mail_icon from "./images/mail_icon.png";
-import mail_send from "./images/mail_send.png";
+import phone_icon from "../icons/phone_outline.png";
+import mail_icon from "../icons/message_outline.png";
+import mail_send from "../icons/mail_send.png";
 
-import layer1 from "./images/layer1.jpg";
-import layer2 from "./images/layer2.jpg";
-import layer3 from "./images/layer3.jpg";
-import layer4 from "./images/layer4.jpg";
-import layer5 from "./images/layer5.jpg";
-import layer6 from "./images/layer6.jpg";
+import layer1 from "../images/kabah_3.jpg";
+import layer2 from "../images/nabawi_3.jpg";
+import layer3 from "../images/nabawi_8.jpg";
+import layer4 from "../images/nabawi_5.jpg";
+import layer5 from "../images/nabawi_2.jpg";
+import layer6 from "../images/kabah_5.jpg";
 
-import humo from "./icons/humo.png";
-import uzcard from "./icons/uzcard.png";
-import mastercard from "./icons/mastercard.png";
-import visa from "./icons/visa.png";
+import humo from "../images/card_humo.png";
+import uzcard from "../images/card_uz.png";
+import mastercard from "../images/card_master.png";
+import visa from "../images/card_visa.png";
 
-import phone from "./icons/phone.png";
-import telegram from "./icons/telegram.png";
-import message from "./icons/message.png";
-import location from "./icons/location.png";
-
+import phone from "../icons/phone_outline.png";
+import telegram from "../icons/telegram_outline.png";
+import message from "../icons/message_outline.png";
+import location from "../icons/location_outline.png";
 import telegram_icon from "../icons/telegram_icon.png";
 import facebook_icon from "../icons/facebook_icon.png";
 import instagram_icon from "../icons/instagram_icon.png";
@@ -80,36 +81,59 @@ function RootLayout() {
 
   const { data: info } = useFetch(Info.getInfo);
 
-  const navigate = useNavigate();
-
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [searchLoading, setSearchLoading] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
 
   const handleSearchSubmit = async (e) => {
     e.preventDefault();
+    setIsSearching(true);
+    setSearchLoading(true);
     if (searchTerm.trim()) {
       try {
-        const response = await axios.get(`http://95.46.96.78:7777/api/v1/main/post/`, {
-          params: { search: searchTerm },
-        });
+        const response = await axios.get(
+          `http://95.46.96.78:7777/api/v1/main/post/`,
+          {
+            params: { search: searchTerm },
+          }
+        );
         setSearchResults(response.data.results); // Assuming the API returns a 'results' array
         setIsModalOpen(true); // Open the modal
       } catch (error) {
-        console.error('Error fetching search results:', error);
+        console.error("Error fetching search results:", error);
       }
     }
+    setSearchLoading(false);
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+  const handleModalSearch = () => {
+    setIsModalOpen(true);
+  };
+
+  useEffect(() => {
+    // Bind fancybox for the gallery
+    Fancybox.bind("[data-fancybox='galleries']", {
+      loop: true, // Allows cycling through images
+      buttons: ["zoom", "close", "thumbs"], // Fancybox control buttons
+    });
+
+    return () => {
+      Fancybox.destroy();
+    };
+  }, []);
+
   return (
     <div className="root">
+      <ScrollToTop />
       <Sidebar active={active} setActive={setActive} />
       <header>
         <section className="main-head container">
@@ -190,13 +214,27 @@ function RootLayout() {
                     name="search"
                   />
                   <button type="submit" className="submit-button">
-                    <i className="fa-solid fa-magnifying-glass"></i>
+                    {searchLoading ? (
+                      <i className="fa-solid fa-spinner fa-spin"></i> // Yuklanayotgan paytda spinner
+                    ) : (
+                      <i className="fa-solid fa-magnifying-glass"></i> // Standart holat
+                    )}
                   </button>
                 </form>
+                <button
+                  className="handle-submit-button"
+                  onClick={handleModalSearch}
+                >
+                  <i className="fa-solid fa-magnifying-glass"></i>
+                </button>
                 {isModalOpen && (
                   <SearchModal
                     posts={searchResults}
                     onClose={handleCloseModal}
+                    searchTerm={searchTerm}
+                    handleSearchSubmit={handleSearchSubmit}
+                    handleSearchChange={handleSearchChange}
+                    isSearching={isSearching}
                   />
                 )}
                 <div
@@ -317,12 +355,24 @@ function RootLayout() {
               <div className="clip">
                 <div className="title">Lavhalar</div>
                 <div className="images">
-                  <img src={layer1} alt="" />
-                  <img src={layer2} alt="" />
-                  <img src={layer3} alt="" />
-                  <img src={layer4} alt="" />
-                  <img src={layer5} alt="" />
-                  <img src={layer6} alt="" />
+                  <a data-fancybox="galleries" href={layer1}>
+                    <img src={layer1} alt="" />
+                  </a>
+                  <a data-fancybox="galleries" href={layer2}>
+                    <img src={layer2} alt="" />
+                  </a>
+                  <a data-fancybox="galleries" href={layer3}>
+                    <img src={layer3} alt="" />
+                  </a>
+                  <a data-fancybox="galleries" href={layer4}>
+                    <img src={layer4} alt="" />
+                  </a>
+                  <a data-fancybox="galleries" href={layer5}>
+                    <img src={layer5} alt="" />
+                  </a>
+                  <a data-fancybox="galleries" href={layer6}>
+                    <img src={layer6} alt="" />
+                  </a>
                 </div>
               </div>
               <div className="we-offer">

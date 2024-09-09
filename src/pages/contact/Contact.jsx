@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./contact.css";
 import ExtraPagesHeader from "./../../components/extraPagesHeader/ExtraPagesHeader";
@@ -8,6 +8,8 @@ import message_outline from "../../icons/message_outline.png";
 import location_outline from "../../icons/location_outline.png";
 import Info from "../../service/info";
 import useFetch from "../../hooks/useFetch";
+import defaultMap from "../../images/defaultMap.png"
+import { useLocation } from "react-router-dom";
 
 function Contact() {
   const [name, setName] = useState("");
@@ -45,6 +47,13 @@ function Contact() {
     return { errors, placeholders };
   };
 
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { errors, placeholders } = validateForm();
@@ -80,7 +89,9 @@ function Contact() {
         setSuccessMessage("");
       }, 3000);
     } catch (error) {
-      error.response.data.email ? setError(`Email xato kiritildi`) : setError(`Xabar yuborishda xatolik!`);
+      error.response.data.email
+        ? setError(`Email xato kiritildi`)
+        : setError(`Xabar yuborishda xatolik!`);
       setTimeout(() => {
         setError("");
       }, 3000);
@@ -128,14 +139,7 @@ function Contact() {
             </div>
           </div>
           <div className="map-container">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d307.7693158839932!2d71.78828317867537!3d40.387142565784345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1suz!2s!4v1724150196766!5m2!1suz!2s"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              title="Google Map"
-              className="map"
-            ></iframe>
+            <img className="map" src={info.map_image ? info.map_image : defaultMap} alt="" />
           </div>
         </div>
         <div className="contact-form">
@@ -184,7 +188,15 @@ function Contact() {
               ></textarea>
             </div>
             <button type="submit" disabled={isLoading}>
-              {isLoading ? (<i class="fa-solid fa-spinner"></i>) : error ? error : successMessage ? (<i class="fa-solid fa-check"></i>) : "Yuborish"}
+              {isLoading ? (
+                <i class="fa-solid fa-spinner"></i>
+              ) : error ? (
+                error
+              ) : successMessage ? (
+                <i class="fa-solid fa-check"></i>
+              ) : (
+                "Yuborish"
+              )}
             </button>
             {successMessage && (
               <p className="success-message">{successMessage}</p>

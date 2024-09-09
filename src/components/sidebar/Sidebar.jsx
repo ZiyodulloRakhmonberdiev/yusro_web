@@ -28,8 +28,20 @@ function Sidebar({ active, setActive }) {
       </div>
       <div className="sidebar-navbar-wrapper">
         <div className="sidebar-navbar">
+          <Link to="/" onClick={handleLinkClick}>
+            Bosh sahifa
+          </Link>
           <Link to="/about-us" onClick={handleLinkClick}>
             Biz haqimizda
+          </Link>
+          <Link to="/packages" onClick={handleLinkClick}>
+            Paketlar
+          </Link>
+          <Link to="/blog" onClick={handleLinkClick}>
+            Blog
+          </Link>
+          <Link to="/video-content" onClick={handleLinkClick}>
+            Media
           </Link>
           <Link to="/opinion" onClick={handleLinkClick}>
             Fikrlar
@@ -69,7 +81,14 @@ function Sidebar({ active, setActive }) {
           <img src={phone_outline} alt="" />
           <div className="about">
             <span>Hoziroq bizga qo'ng'iroq qiling</span>
-            <a href={info.telephone ? `tel:${info.telephone}` : "tel:+998 55 500 22 28"}>
+            <a
+              className="link"
+              href={
+                info.telephone
+                  ? `tel:${info.telephone}`
+                  : "tel:+998 55 500 22 28"
+              }
+            >
               {info.telephone ? info.telephone : "+998 55 500 22 28"}
             </a>
           </div>
@@ -78,7 +97,12 @@ function Sidebar({ active, setActive }) {
           <img src={message_outline} alt="" />
           <div className="about">
             <span>Email manzilimiz</span>
-            <a href={info.email ? `mailto:${info.email}` : "mailto:admin@yusro.uz"}>
+            <a
+              className="link"
+              href={
+                info.email ? `mailto:${info.email}` : "mailto:admin@yusro.uz"
+              }
+            >
               {info.email ? info.email : "admin@yusro.uz"}
             </a>
           </div>

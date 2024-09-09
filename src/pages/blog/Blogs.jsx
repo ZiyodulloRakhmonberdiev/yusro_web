@@ -10,6 +10,7 @@ import PostTags from './../../components/postTags/PostTags';
 import ExtraPagesHeader from './../../components/extraPagesHeader/ExtraPagesHeader';
 import Pagination from './../../helpers/Pagination';
 import NotAvailable from './../../helpers/NotAvailable';
+import { useLocation } from 'react-router-dom';
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -18,6 +19,12 @@ const Blog = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [categoryId, setCategoryId] = useState(null);
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const fetchPosts = async (url) => {
     setLoading(true);
