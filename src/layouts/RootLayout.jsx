@@ -2,6 +2,7 @@ import "./rootLayout.css";
 import { Fancybox } from "@fancyapps/ui";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import ScrollToTop from "../helpers/ScrollToTop";
 import Sidebar from "./../components/sidebar/Sidebar";
 import SearchModal from "../components/searchModal/SearchModal";
 import axios from "axios";
@@ -132,6 +133,7 @@ function RootLayout() {
 
   return (
     <div className="root">
+      <ScrollToTop />
       <Sidebar active={active} setActive={setActive} />
       <header>
         <section className="main-head container">

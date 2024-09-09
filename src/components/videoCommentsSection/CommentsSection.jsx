@@ -1,8 +1,9 @@
+import "./styles.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 import Comment from "./Comment";
 import Pagination from "./Pagination";
-import "./styles.css";
 
 const CommentsSection = ({ postId }) => {
   const [comments, setComments] = useState([]);

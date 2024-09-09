@@ -1,8 +1,9 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
 import SelectedPage from './../../components/SelectedPage';
 import useFetch from '../../hooks/useFetch';
 import Info from '../../service/info';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 function Umra() {
     const { data: info } = useFetch(Info.getInfo);  // Fetch Umra-specific info

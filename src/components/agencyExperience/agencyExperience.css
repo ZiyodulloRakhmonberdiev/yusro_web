@@ -102,7 +102,7 @@
 	height: 0;
 	border-left: 7px solid transparent;
 	border-right: 7px solid transparent;
-	border-bottom: 12px solid var(--primary-color);
+	border-bottom: 12px solid var(--primary-main-color);
 	transform: rotate(90deg);
 	position: relative;
 	left: 2px;

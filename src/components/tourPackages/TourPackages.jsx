@@ -1,10 +1,13 @@
+import "./tourPackages.css";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./tourPackages.css";
+
+import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+
 import Title from "./../../ui/Title";
 import useFetch from "./../../hooks/useFetch";
 import Travel from "./../../service/travel";
@@ -12,7 +15,6 @@ import Loader from "./../../ui/Loader";
 import NotAvailable from "./../../helpers/NotAvailable";
 
 import kabah from "../../icons/kabah_outline.png";
-import axios from "axios";
 
 function TourPackages() {
   const { data, loading, error } = useFetch(Travel.getPlaces);

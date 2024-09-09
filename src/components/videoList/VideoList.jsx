@@ -6,7 +6,6 @@ import { formatDate } from "../../utils/formatDate";
 import NotAvailable from "../../helpers/NotAvailable";
 import { v4 as uuidv4 } from "uuid";
 import { Fancybox } from "@fancyapps/ui";
-// import "@fancyapps/ui/dist/fancybox.css";
 import defaultVideo from "../../video/defaultVideo.mp4";
 import defaultImage from "../../images/nabawi_8.jpg";
 

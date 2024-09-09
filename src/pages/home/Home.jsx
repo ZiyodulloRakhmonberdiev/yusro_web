@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom'
 import './home.css'
+import { Link } from 'react-router-dom'
+
 import Category from './../../components/category/Category';
 import OurAmenities from './../../components/ourAmenities/OurAmenities';
 import AgencyExperience from './../../components/agencyExperience/AgencyExperience';
