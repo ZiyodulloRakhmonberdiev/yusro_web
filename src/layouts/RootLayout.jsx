@@ -8,6 +8,7 @@ import SearchModal from "../components/searchModal/SearchModal";
 import axios from "axios";
 import useFetch from "../hooks/useFetch";
 import Info from "../service/info";
+import Loader from "../ui/Loader";
 
 // import images
 import logo from "../icons/logo_tour.png";
@@ -79,7 +80,7 @@ function RootLayout() {
     }
   };
 
-  const { data: info } = useFetch(Info.getInfo);
+  const { data: info, loading: loader } = useFetch(Info.getInfo);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -134,7 +135,15 @@ function RootLayout() {
   return (
     <div className="root">
       <ScrollToTop />
-      <Sidebar active={active} setActive={setActive} />
+      <div className="marquee">
+        <div className="marquee-text">Sayt test rejimida ishlayapti</div>
+        <div className="marquee-text">Sayt test rejimida ishlayapti</div>
+        <div className="marquee-text">Sayt test rejimida ishlayapti</div>
+        <div className="marquee-text">Sayt test rejimida ishlayapti</div>
+        <div className="marquee-text">Sayt test rejimida ishlayapti</div>
+        <div className="marquee-text">Sayt test rejimida ishlayapti</div>
+        <div className="marquee-text">Sayt test rejimida ishlayapti</div>
+      </div>
       <header>
         <section className="main-head container">
           <div className="social-media">
@@ -258,205 +267,222 @@ function RootLayout() {
           </div>
         </section>
       </header>
+      {loader ? (
+        <Loader className="loader" />
+      ) : (
+        <>
+          <Sidebar active={active} setActive={setActive} />
 
-      <main>
-        <Outlet />
-      </main>
-      <footer>
-        <div className="container footer-top">
-          <div className="footer-top-section container">
-            {successMessage ? (
-              <h1>{successMessage}</h1>
-            ) : formErrors.email ? (
-              <h1>{formErrors.email}</h1>
-            ) : (
-              <>
-                <div className="about">
-                  <img src={mail_send} alt="mail-send" />
-                  <div className="info">
-                    <p>Yangi maqolalarga obuna bo'ling</p>
-                    <span>Eng so'ngi yangiliklar faqat bizda!</span>
-                  </div>
-                </div>
-                <form className="send-phoneNumber" onSubmit={handleSubmit}>
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder={
-                      formErrors.email ||
-                      successMessage ||
-                      "Email manzilingizni kiriting"
-                    }
-                    className={
-                      formErrors.email
-                        ? "input-error"
-                        : successMessage
-                        ? "input-success"
-                        : ""
-                    }
-                  />
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="newslettersendButton"
-                  >
-                    {loading ? (
-                      <i className="fa-solid fa-spinner"></i>
-                    ) : (
-                      <i className="fa-regular fa-paper-plane"></i>
-                    )}
-                  </button>
-                </form>
-              </>
-            )}
-          </div>
-        </div>
-        <div className="main-footer">
-          <div className="container">
-            <div className="main-footer-details">
-              <div className="logo">
-                <img src={logo} alt="" />
-                <div className="info">
-                  <p>
-                    Yusro turizm agentligi O‘zbekistondagi eng ishonchli, tezkor
-                    va {info.expeirence ? info.expeirence : "uzoq"} yillik
-                    tajribaga ega kompaniyalardan biri hisoblanadi. Biz sizga
-                    qulay va oson sayohat qilishni kafolat beramiz.
-                  </p>
-                  <div className="social-networks">
-                    <a
-                      href={info.instagram ? info.instagram : "/"}
-                      target="_blank"
-                    >
-                      <img src={instagram_icon} alt="" />
-                    </a>
-                    <span></span>
-                    <a
-                      href={info.telegram ? info.telegram : "/"}
-                      target="_blank"
-                    >
-                      <img src={telegram_icon} alt="" />
-                    </a>
-                    <span></span>
-                    <a
-                      href={info.facebook ? info.facebook : "/"}
-                      target="_blank"
-                    >
-                      <img src={facebook_icon} alt="" />
-                    </a>
-                    <span></span>
-                    <a href={info.youtube ? info.youtube : ""} target="_blank">
-                      <img src={youtube_icon} alt="" />
-                    </a>
-                  </div>
-                </div>
+          <main>
+            <Outlet />
+          </main>
+          <footer>
+            <div className="container footer-top">
+              <div className="footer-top-section container">
+                {successMessage ? (
+                  <h1>{successMessage}</h1>
+                ) : formErrors.email ? (
+                  <h1>{formErrors.email}</h1>
+                ) : (
+                  <>
+                    <div className="about">
+                      <img src={mail_send} alt="mail-send" />
+                      <div className="info">
+                        <p>Yangi maqolalarga obuna bo'ling</p>
+                        <span>Eng so'ngi yangiliklar faqat bizda!</span>
+                      </div>
+                    </div>
+                    <form className="send-phoneNumber" onSubmit={handleSubmit}>
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder={
+                          formErrors.email ||
+                          successMessage ||
+                          "Email manzilingizni kiriting"
+                        }
+                        className={
+                          formErrors.email
+                            ? "input-error"
+                            : successMessage
+                            ? "input-success"
+                            : ""
+                        }
+                      />
+                      <button
+                        type="submit"
+                        disabled={loading}
+                        className="newslettersendButton"
+                      >
+                        {loading ? (
+                          <i className="fa-solid fa-spinner"></i>
+                        ) : (
+                          <i className="fa-regular fa-paper-plane"></i>
+                        )}
+                      </button>
+                    </form>
+                  </>
+                )}
               </div>
-              <div className="clip">
-                <div className="title">Lavhalar</div>
-                <div className="images">
-                  <a data-fancybox="galleries" href={layer1}>
-                    <img src={layer1} alt="" />
-                  </a>
-                  <a data-fancybox="galleries" href={layer2}>
-                    <img src={layer2} alt="" />
-                  </a>
-                  <a data-fancybox="galleries" href={layer3}>
-                    <img src={layer3} alt="" />
-                  </a>
-                  <a data-fancybox="galleries" href={layer4}>
-                    <img src={layer4} alt="" />
-                  </a>
-                  <a data-fancybox="galleries" href={layer5}>
-                    <img src={layer5} alt="" />
-                  </a>
-                  <a data-fancybox="galleries" href={layer6}>
-                    <img src={layer6} alt="" />
-                  </a>
+            </div>
+            <div className="main-footer">
+              <div className="container">
+                <div className="main-footer-details">
+                  <div className="logo">
+                    <img src={logo} alt="" />
+                    <div className="info">
+                      <p>
+                        Yusro turizm agentligi O‘zbekistondagi eng ishonchli,
+                        tezkor va {info.expeirence ? info.expeirence : "uzoq"}{" "}
+                        yillik tajribaga ega kompaniyalardan biri hisoblanadi.
+                        Biz sizga qulay va oson sayohat qilishni kafolat
+                        beramiz.
+                      </p>
+                      <div className="social-networks">
+                        <a
+                          href={info.instagram ? info.instagram : "/"}
+                          target="_blank"
+                        >
+                          <img src={instagram_icon} alt="" />
+                        </a>
+                        <span></span>
+                        <a
+                          href={info.telegram ? info.telegram : "/"}
+                          target="_blank"
+                        >
+                          <img src={telegram_icon} alt="" />
+                        </a>
+                        <span></span>
+                        <a
+                          href={info.facebook ? info.facebook : "/"}
+                          target="_blank"
+                        >
+                          <img src={facebook_icon} alt="" />
+                        </a>
+                        <span></span>
+                        <a
+                          href={info.youtube ? info.youtube : ""}
+                          target="_blank"
+                        >
+                          <img src={youtube_icon} alt="" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="clip">
+                    <div className="title">Lavhalar</div>
+                    <div className="images">
+                      <a data-fancybox="galleries" href={layer1}>
+                        <img src={layer1} alt="" />
+                      </a>
+                      <a data-fancybox="galleries" href={layer2}>
+                        <img src={layer2} alt="" />
+                      </a>
+                      <a data-fancybox="galleries" href={layer3}>
+                        <img src={layer3} alt="" />
+                      </a>
+                      <a data-fancybox="galleries" href={layer4}>
+                        <img src={layer4} alt="" />
+                      </a>
+                      <a data-fancybox="galleries" href={layer5}>
+                        <img src={layer5} alt="" />
+                      </a>
+                      <a data-fancybox="galleries" href={layer6}>
+                        <img src={layer6} alt="" />
+                      </a>
+                    </div>
+                  </div>
+                  <div className="we-offer">
+                    <div className="title">Biz taklif qilamiz</div>
+                    <div className="lists">
+                      <div className="list">
+                        <i className="fa-solid fa-chevron-right"></i>
+                        <Link className="link" to={"/umra"}>
+                          Umra ziyorati
+                        </Link>
+                      </div>
+                      <div className="list">
+                        <i className="fa-solid fa-chevron-right"></i>
+                        <Link className="link" to={"/packages"}>
+                          Ichki turizm
+                        </Link>
+                      </div>
+                      <div className="list">
+                        <i className="fa-solid fa-chevron-right"></i>
+                        <Link className="link" to={"/packages"}>
+                          Tashqi turizm
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="footer-contact-us">
+                    <div className="title">Biz bilan bog'laning</div>
+                    <div className="details">
+                      <div className="detail">
+                        <img src={phone} alt="" />
+                        <a
+                          href={
+                            info.telephone
+                              ? `tel:${info.telephone}`
+                              : "tel:+998 55 500 22 28"
+                          }
+                        >
+                          {info.telephone
+                            ? info.telephone
+                            : "+998 55 500 22 28"}
+                        </a>
+                      </div>
+                      <div className="detail">
+                        <img src={telegram} alt="" />
+                        <a
+                          href={info.telegram_admin ? info.telegram_admin : ""}
+                        >
+                          Yusro Admin
+                        </a>
+                      </div>
+                      <div className="detail">
+                        <img src={message} alt="" />
+                        <a
+                          href={
+                            info.email
+                              ? `mailto:${info.email}`
+                              : "mailto:admin@yusro.uz"
+                          }
+                        >
+                          {info.email ? info.email : "admin@yusro.uz"}
+                        </a>
+                      </div>
+                      <div className="detail">
+                        <img src={location} alt="" />
+                        <span>
+                          {info.location ? info.location : "O'zbekiston"}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="we-offer">
-                <div className="title">Biz taklif qilamiz</div>
-                <div className="lists">
-                  <div className="list">
-                    <i className="fa-solid fa-chevron-right"></i>
-                    <Link className="link" to={"/umra"}>
-                      Umra ziyorati
-                    </Link>
+                <div className="footer-bottom">
+                  <div className="copyright">
+                    <i className="fa-regular fa-copyright"></i>
+                    <p>Copyrights {new Date().getFullYear()} Yusro.</p>
+                    <span>Barcha huquqlar himoyalangan</span>
                   </div>
-                  <div className="list">
-                    <i className="fa-solid fa-chevron-right"></i>
-                    <Link className="link" to={"/packages"}>
-                      Ichki turizm
-                    </Link>
-                  </div>
-                  <div className="list">
-                    <i className="fa-solid fa-chevron-right"></i>
-                    <Link className="link" to={"/packages"}>
-                      Tashqi turizm
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="footer-contact-us">
-                <div className="title">Biz bilan bog'laning</div>
-                <div className="details">
-                  <div className="detail">
-                    <img src={phone} alt="" />
-                    <a
-                      href={
-                        info.telephone
-                          ? `tel:${info.telephone}`
-                          : "tel:+998 55 500 22 28"
-                      }
-                    >
-                      {info.telephone ? info.telephone : "+998 55 500 22 28"}
-                    </a>
-                  </div>
-                  <div className="detail">
-                    <img src={telegram} alt="" />
-                    <a href={info.telegram_admin ? info.telegram_admin : ""}>
-                      Yusro Admin
-                    </a>
-                  </div>
-                  <div className="detail">
-                    <img src={message} alt="" />
-                    <a
-                      href={
-                        info.email
-                          ? `mailto:${info.email}`
-                          : "mailto:admin@yusro.uz"
-                      }
-                    >
-                      {info.email ? info.email : "admin@yusro.uz"}
-                    </a>
-                  </div>
-                  <div className="detail">
-                    <img src={location} alt="" />
-                    <span>{info.location ? info.location : "O'zbekiston"}</span>
+                  <div className="payment">
+                    <span>Quyidagi to'lov usullari mavjud</span>
+                    <div className="methods">
+                      <img src={humo} alt="" />
+                      <img src={uzcard} alt="" />
+                      <img src={visa} alt="" />
+                      <img src={mastercard} alt="" />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="footer-bottom">
-              <div className="copyright">
-                <i className="fa-regular fa-copyright"></i>
-                <p>Copyrights {new Date().getFullYear()} Yusro.</p>
-                <span>Barcha huquqlar himoyalangan</span>
-              </div>
-              <div className="payment">
-                <span>Quyidagi to'lov usullari mavjud</span>
-                <div className="methods">
-                  <img src={humo} alt="" />
-                  <img src={uzcard} alt="" />
-                  <img src={visa} alt="" />
-                  <img src={mastercard} alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+          </footer>
+        </>
+      )}
     </div>
   );
 }
