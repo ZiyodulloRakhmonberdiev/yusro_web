@@ -1,5 +1,5 @@
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const useQueryParams = () => {
   const navigate = useNavigate();
@@ -7,9 +7,9 @@ const useQueryParams = () => {
 
   const getParams = () => {
     const queryParams = new URLSearchParams(location.search);
-    const page = parseInt(queryParams.get('page'), 10);
-    const pageSize = parseInt(queryParams.get('page_size'), 10);
-    const categoryId = parseInt(queryParams.get('category_id'), 10);
+    const page = parseInt(queryParams.get("page"), 10);
+    const pageSize = parseInt(queryParams.get("page_size"), 10);
+    const categoryId = parseInt(queryParams.get("category_id"), 10);
 
     return {
       page: isNaN(page) ? 1 : page,

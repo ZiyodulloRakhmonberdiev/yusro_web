@@ -54,20 +54,20 @@
 
 .reply-form input,
 .reply-form textarea {
-  width: 100%;
+  width: 100% !important;
   margin-bottom: 10px;
   padding: 8px;
   border: 1px solid #ddd;
   resize: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 .reply-form input:focus,
-.reply-form textarea:focus{
+.reply-form textarea:focus {
   border: 1px solid var(--primary-main-color);
 }
 
-.reply-form input::placeholder{
-  font-family: 'Montserrat', sans-serif;
+.reply-form input::placeholder {
+  font-family: "Montserrat", sans-serif;
 }
 .reply-form textarea {
   resize: none;

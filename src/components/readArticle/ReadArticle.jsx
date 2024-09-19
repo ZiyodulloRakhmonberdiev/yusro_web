@@ -17,10 +17,9 @@ function ReadArticle() {
   const { id } = useParams();
   const [copied, setCopied] = useState(false);
 
-  const {
-    data: article,
-    loading: articleLoading,
-  } = useFetch(() => BlogArticle.readArticle(id));
+  const { data: article, loading: articleLoading } = useFetch(() =>
+    BlogArticle.readArticle(id)
+  );
 
   const handleCopyLink = () => {
     navigator.clipboard

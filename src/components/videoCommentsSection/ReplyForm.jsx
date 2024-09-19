@@ -1,5 +1,5 @@
 import "./styles.css";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 const ReplyForm = ({ parentId, postId }) => {
@@ -50,7 +50,10 @@ const ReplyForm = ({ parentId, postId }) => {
     };
 
     try {
-      await axios.post("https://api.yusro-tour.uz/api/v1/main/video-comment-create/", data);
+      await axios.post(
+        "https://api.yusro-tour.uz/api/v1/main/video-comment-create/",
+        data
+      );
       // setName("");
 
       localStorage.setItem("name", name);
@@ -87,7 +90,15 @@ const ReplyForm = ({ parentId, postId }) => {
         className={formErrors.text ? "error-input" : ""}
       />
       <button type="submit" disabled={isLoading}>
-        {isLoading ? (<i className="fa-solid fa-spinner"></i>) : error ? error : successMessage ? (<i className="fa-solid fa-check"></i>) : "Yuborish"}
+        {isLoading ? (
+          <i className="fa-solid fa-spinner"></i>
+        ) : error ? (
+          error
+        ) : successMessage ? (
+          <i className="fa-solid fa-check"></i>
+        ) : (
+          "Yuborish"
+        )}
       </button>
       {successMessage && <p className="success-message">{successMessage}</p>}
       {error && <p className="error-message">{error}</p>}

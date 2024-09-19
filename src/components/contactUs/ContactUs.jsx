@@ -1,7 +1,7 @@
+import "./contactUs.css"; // Ensure you have appropriate styling
 import React, { useState } from "react";
 import axios from "axios";
 import sec_pattern from "../../icons/sec_pattern.png";
-import "./contactUs.css"; // Ensure you have appropriate styling
 
 function ContactUs() {
   const [name, setName] = useState("");

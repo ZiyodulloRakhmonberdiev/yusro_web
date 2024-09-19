@@ -1,8 +1,10 @@
 import "./articleList.css";
+
 import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
+
 import { formatDate } from "../../utils/formatDate";
 import NotAvailable from "../../helpers/NotAvailable";
-import { v4 as uuidv4 } from "uuid";
 
 import defaultImage from "../../images/image-default-post.jpg";
 
@@ -22,9 +24,12 @@ const ArticleList = ({ articles }) => {
         {articles?.length > 0 ? (
           articles.map((article) => (
             <div className="item" key={uuidv4()}>
-              <div className="header-image">
-                <img src={article.image || defaultImage} alt={article.name || "Article"} />
-              </div>
+              <Link to={`/main/post/${article.id}`} className="header-image">
+                <img
+                  src={article.image || defaultImage}
+                  alt={article.name || "Article"}
+                />
+              </Link>
               <div className="header-title">
                 <div className="tags">
                   <i className="fa-solid fa-tag"></i>

@@ -1,14 +1,15 @@
+import "./styles.css";
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Comment from "./Comment";
 import Pagination from "./Pagination";
-import "./styles.css";
 
 const CommentsSection = ({ postId }) => {
   const [comments, setComments] = useState([]);
   const [pagination, setPagination] = useState({ next: null, previous: null });
   const [loadingComments, setLoadingComments] = useState(false);
-  const [commentCount, setCommentCount] = useState("")
+  const [commentCount, setCommentCount] = useState("");
 
   const fetchComments = async (url) => {
     setLoadingComments(true);
@@ -19,7 +20,7 @@ const CommentsSection = ({ postId }) => {
         next: response.data.next,
         previous: response.data.previous,
       });
-      setCommentCount(response.data.count)
+      setCommentCount(response.data.count);
     } catch (error) {
       console.error("Failed to load comments", error);
     } finally {
@@ -28,11 +29,13 @@ const CommentsSection = ({ postId }) => {
   };
 
   useEffect(() => {
-    fetchComments(`https://api.yusro-tour.uz/api/v1/main/comments/by-post/${postId}/`);
+    fetchComments(
+      `https://api.yusro-tour.uz/api/v1/main/comments/by-post/${postId}/`
+    );
   }, [postId]);
 
   return (
-    <div className="comments-section"> 
+    <div className="comments-section">
       <h2>Izohlar: ({commentCount})</h2>
       {comments?.map((comment) => (
         <Comment key={comment.id} comment={comment} postId={postId} />

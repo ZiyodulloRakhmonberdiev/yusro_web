@@ -1,67 +1,66 @@
 .agency-experience2 .about {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-	width: 100%;
-	margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin-top: 1rem;
 }
 
 .agency-experience2 .about img {
-	width: 200px;
-	margin-top: 1rem;
+  width: 200px;
+  margin-top: 1rem;
 }
 
 .agency-experience2 .about h1 {
-	font-weight: 600;
-	font-size: 48px;
-	margin-bottom: 15px;
+  font-weight: 600;
+  font-size: 48px;
+  margin-bottom: 15px;
 }
 
 .agency-experience2 .about .items {
-	display: grid;
-	grid-template-columns: auto auto;
-	gap: 20px;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
 }
 
 .about p {
-	color: var(--primary-lighter-color);
-	max-width: 520px;
-	line-height: 30px;
+  color: var(--primary-lighter-color);
+  max-width: 520px;
+  line-height: 30px;
 }
 
 .about .items .item {
-	display: flex;
-	gap: 14px;
-	align-items: center;
+  display: flex;
+  gap: 14px;
+  align-items: center;
 }
-.about .items .item span{
-	color: var(--secondary-color);
-	font-weight: 600;
-	
+.about .items .item span {
+  color: var(--secondary-color);
+  font-weight: 600;
 }
 
 .about .items .item .item-image-wrapper {
-	width: 50px;
+  width: 50px;
 }
 
 .about .items .item .item-image-wrapper img {
-	width: 100%;
-	object-fit: cover;
+  width: 100%;
+  object-fit: cover;
 }
 
 @media (max-width: 640px) {
-	.agency-experience2 .about{
-		margin-top: 15px;
-	}
-	.agency-experience2 .about h1 {
-		font-size: 32px;
-	}
-	.agency-experience2 .about .items {
-		grid-template-columns: auto;
-	}
+  .agency-experience2 .about {
+    margin-top: 15px;
+  }
+  .agency-experience2 .about h1 {
+    font-size: 32px;
+  }
+  .agency-experience2 .about .items {
+    grid-template-columns: auto;
+  }
 }
 @media (max-width: 450px) {
-	.agency-experience2 .about h1 {
-		font-size: 24px;
-	}
+  .agency-experience2 .about h1 {
+    font-size: 24px;
+  }
 }

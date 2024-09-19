@@ -18,11 +18,12 @@ function Category() {
               <img src={kabah_4} alt="" />
             </div>
             <img src={sec_fill_kabah} alt="" className="header-image-icon" />
-            <div className="title">Haj takliflari</div>
+            <div className="title">Umra-Haj takliflari</div>
             <div className="description">
-              "Yusro" jamoasi barcha musulmonlar uchun muqaddas sayohatning
-              ahamiyatini tushunadi va biz ular uchun barcha qulayliklarni
-              yaratib berishga bor kuchimiz bilan harakat qilamiz.
+              «Yusro Tour» agentligi jamoasi sayohat va ziyoratning musulmon
+              ahli uchun yuksak ahamiyatini tushungan holda ularga safarlar
+              davomida barcha qulaylik va shart-sharoitlarni taqdim etishda bor
+              kuch va imkoniyatlarini ishga solishga doim sha'ylar.
             </div>
           </div>
           {/* Umra */}
@@ -33,9 +34,9 @@ function Category() {
             <img src={sec_fill_nabawi} alt="" className="header-image-icon" />
             <div className="title">Umra takliflari</div>
             <div className="description">
-              "Yusro Tour" turizm agentligi oltin 5 yulduzli umra paketini
-              taqdim etadi. Ayni damda kumush 4 yulduzli paketlarni ham taqdim
-              etamiz.
+              «Yusro Tour» turizm agentligi qadrli ziyoratchilar uchun «oltin 5
+              yulduzli» Umra paketini taqdim etadi. Shu bilan birga, «kumush 4
+              yulduzli» paketimiz ham sizlar uchun manzur kelishi aniq.
             </div>
           </div>
 
@@ -46,32 +47,13 @@ function Category() {
             </div>
             <img src={sec_fill_mosque} alt="" className="header-image-icon" />
             <div className="title">Sayohat takliflari</div>
-            <div className="description">
-              Biz sizga vizalarni rasmiylashtirish, aviachiptalar va arzon
-              mehmonxonalarni bron qilish bo'yicha to'liq yordam beramiz.
+            <div className="description third">
+              Biz sizga: <br /> – vizalarni rasmiylashtirish <br /> – aviachiptalar <br /> – arzon va
+              shinam mehmonxonalarni band qilish bo'yicha barcha yuqori servis
+              xizmatlarimizni taklif qilamiz.
             </div>
           </div>
         </div>
-        {/* <div className="cards">
-                    {
-                        loading ? <Loader /> : error ? <NotAvailable name={error.message}/> : <>
-                            {data && data.length > 0 ? data.map((category, index) => {
-                                return (
-                                    <div key={category.id} className="card">
-                                        <div className="header-image">
-                                            <img src={category.background_path} alt="" />
-                                        </div>
-                                        <img src={category.logo_path} alt="" className='header-image-icon' />
-                                        <div className="title">{category.name}</div>
-                                        <div className="description">
-                                            {category.description}
-                                        </div>
-                                    </div>
-                                )
-                            }) : <NotAvailable name="Ma'lumot mavjud emas"/>}
-                        </>
-                    }
-                </div> */}
       </div>
     </div>
   );

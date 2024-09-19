@@ -1,8 +1,9 @@
+import "./styles.css";
+
 import React, { useState } from "react";
 import ReplyForm from "./ReplyForm";
 import axios from "axios";
 import Pagination from "./Pagination";
-import "./styles.css";
 
 const Comment = ({ comment, postId }) => {
   const [showReplies, setShowReplies] = useState(false);
@@ -58,7 +59,7 @@ const Comment = ({ comment, postId }) => {
             )}
           </>
         )}
-        </div>
+      </div>
       <div className="buttons">
         <button
           onClick={() => setShowReplyForm(!showReplyForm)}
@@ -82,7 +83,7 @@ const Comment = ({ comment, postId }) => {
             <div>
               {loadingReplies ? (
                 <p>Javoblar yuklanmoqda...</p>
-              ) : ( 
+              ) : (
                 <p>Javoblar yo'q</p>
               )}
             </div>

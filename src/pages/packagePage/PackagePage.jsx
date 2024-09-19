@@ -1,9 +1,9 @@
-import "./packagePage.css";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 import TourPackages from "./../../components/tourPackages/TourPackages";
 import ExtraPagesHeader from "./../../components/extraPagesHeader/ExtraPagesHeader";
 import FaqComponent from "../../components/faq/FaqComponent";
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
 
 function PackagePage() {
   const { pathname } = useLocation();

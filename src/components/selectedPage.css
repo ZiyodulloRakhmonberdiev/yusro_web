@@ -1,42 +1,42 @@
-.content{
-  display: grid !important; 
+.content {
+  display: grid !important;
   grid-template-columns: 2fr 1fr;
   gap: 2rem;
 }
-.offers-p{
+.offers-p {
   font-size: 24px;
   color: #000;
 }
-.offers-ul{
+.offers-ul {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.tour-package-items .main-image img{
+.tour-package-items .main-image img {
   border-radius: 10px;
   width: 100%;
   margin-bottom: 1rem;
 }
-.tour-package-items{
+.tour-package-items {
   max-width: 700px;
 }
 /* For screens smaller than 1200px */
 @media screen and (max-width: 1200px) {
-  .content{
+  .content {
     grid-template-columns: 1fr 1fr;
   }
-  .items{
+  .items {
     align-items: center !important;
   }
-  .packages{
+  .packages {
     flex-wrap: wrap;
   }
 }
 
 /* For screens smaller than 800px */
 @media screen and (max-width: 800px) {
-  .content{
+  .content {
     grid-template-columns: 1fr;
   }
 }

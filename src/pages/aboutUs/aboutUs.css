@@ -1,41 +1,41 @@
 .about-us-experience {
-	display: flex;
-	gap: 50px;
-	align-items: center;
-	padding-top: -250px;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  padding-top: -250px;
 }
 
 .about-us-experience .images {
-	display: flex;
-	gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 .about-us-experience .images img {
-	width: 250px;
-	height: 400px;
-	object-fit: cover;
+  width: 250px;
+  height: 400px;
+  object-fit: cover;
 }
 
 .about-us-experience .images img:nth-child(2) {
-	margin-top: 40px;
+  margin-top: 40px;
 }
 
 @media (max-width: 1120px) {
-	.about-us-experience {
-		flex-direction: column;
-	}
+  .about-us-experience {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 650px) {
-	.about-us-experience .images {
-		margin-top: 50px;
-		width: 100%;
-		flex-direction: column;
-		gap: 0;
-	}
+  .about-us-experience .images {
+    margin-top: 50px;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+  }
 
-	.about-us-experience .images img {
-		height: 250px;
-		width: 100%;
-	}
+  .about-us-experience .images img {
+    height: 250px;
+    width: 100%;
+  }
 }

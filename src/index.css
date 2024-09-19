@@ -3,12 +3,12 @@
 :root {
   --primary-color: #fff;
   --secondary-color: #000;
-  --third-color: #D4D4D4;
-  --primary-main-color: #149C54;
+  --third-color: #d4d4d4;
+  --primary-main-color: #149c54;
   --primary-lighter-color: #616161;
   --secondary-lighter-color: #e0dfdf;
-  --primary-border-color: #FAFAFA;
-  --secondary-border-color: #FFF9A3;
+  --primary-border-color: #fafafa;
+  --secondary-border-color: #fff9a3;
 }
 
 * {
@@ -18,7 +18,7 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
 }
 
@@ -100,7 +100,6 @@ textarea:focus {
 }
 @media (max-width: 340px) {
   .container {
-    /* max-width: 220px; */
     width: 100%;
     padding: 0 10px;
     margin: 0 auto;

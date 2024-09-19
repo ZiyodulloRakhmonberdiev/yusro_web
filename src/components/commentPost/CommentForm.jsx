@@ -1,6 +1,7 @@
+import "./commentForm.css"; // Import the CSS file
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./commentForm.css"; // Import the CSS file
 
 const CommentForm = ({ postId }) => {
   const [fullName, setFullName] = useState("");

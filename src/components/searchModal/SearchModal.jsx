@@ -9,16 +9,20 @@ const SearchModal = ({
   handleSearchSubmit,
   handleSearchChange,
   searchTerm,
-  isSearching
+  isSearching,
 }) => {
-  // const [isSearching, setIsSearching] = useState(false); // Qidiruv jarayoni
   const [loading, setLoading] = useState(false); // Yuklanish holati
   const [success, setSuccess] = useState(false); // Qidiruv muvaffaqiyatli tugagan holat
   const navigate = useNavigate();
 
   const handlePostClick = (postId) => {
-    onClose(); // Modalni yopish
-    navigate(`/main/post/${postId}`);
+    if (window.location.pathname.includes("/main/post/")) {
+      navigate(`/main/post/${postId}`);
+      window.location.reload(); // Agar hozirgi sahifa /main/post/ sahifasi bo'lsa, sahifani qayta yuklang
+    } else {
+      onClose(); // Modalni yopish
+      navigate(`/main/post/${postId}`); // Yangi postga o'tish
+    }
   };
 
   const handleOverlayClick = (e) => {
@@ -31,7 +35,6 @@ const SearchModal = ({
   const handleSearch = async (e) => {
     e.preventDefault();
     setLoading(true); // Yuklanishni boshlash
-    // setIsSearching(true); // Qidiruvni boshlash
 
     await handleSearchSubmit(e); // Qidiruvni yuborish
 

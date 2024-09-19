@@ -7,7 +7,8 @@ function Partners() {
   const { data } = useFetch(Partner.getPartner);
 
   // Duplicating the list to create a seamless loop
-  const partnersList = data.results?.length > 0 ? [...data.results, ...data.results] : [];
+  const partnersList =
+    data.results?.length > 0 ? [...data.results, ...data.results] : [];
 
   return (
     <div className="partners">

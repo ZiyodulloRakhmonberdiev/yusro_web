@@ -18,7 +18,7 @@ import axios from "axios";
 
 function Teams() {
   const [teams, setTeams] = useState([]);
-  const main_url = "http://95.46.96.78:7777/api/v1";
+  const main_url = "https://api.yusro-tour.uz/api/v1";
 
   useEffect(() => {
     axios
@@ -69,9 +69,7 @@ function Teams() {
                   </div>
                   <div className="about">
                     <div className="name">{team.full_name}</div>
-                    <div className="description">
-                      {team.position}
-                    </div>
+                    <div className="description">{team.position}</div>
                   </div>
                 </SwiperSlide>
               ))}

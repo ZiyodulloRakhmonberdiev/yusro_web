@@ -1,14 +1,12 @@
-.video-content .article-list{
+.video-content .article-list {
   width: 100%;
 }
 
-
-
-@media(max-width: 750px){
-  .video-content .container{
+@media (max-width: 750px) {
+  .video-content .container {
     max-width: inherit !important;
   }
-  .video-content .articles{
+  .video-content .articles {
     display: flex;
     justify-content: center;
     padding: 0;

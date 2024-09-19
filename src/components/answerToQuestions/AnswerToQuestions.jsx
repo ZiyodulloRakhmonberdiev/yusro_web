@@ -1,18 +1,21 @@
-import useFetch from '../../hooks/useFetch';
-import Info from '../../service/info';
-import './answerToQuestions.css'
+import "./answerToQuestions.css";
+
+import useFetch from "../../hooks/useFetch";
+import Info from "../../service/info";
 
 function AnswerToQuestions() {
-	const { data: info } = useFetch(Info.getInfo);
-	return (
-		<div className="answer-to-questions">
-			<div className="title">
-				<h1>savollaringiz bormi?</h1>
-				<p>Hoziroq biz bilan bog'laning</p>
-			</div>
-			<a href={info.telephone ? `tel:${info.telephone}` : "tel:+998555002228"} className="phone-number">{info.telephone ? info.telephone : "+998 55 500 22 28"}</a>
-		</div>
-	)
+  const { data: info } = useFetch(Info.getInfo);
+  return (
+    <div className="answer-to-questions">
+      <div className="title">
+        <h1>Savollaringiz bormi?</h1>
+        <p>Hoziroq biz bilan bog'laning</p>
+      </div>
+      <a href={`tel:${info.telephone || ""}`} className="phone-number">
+        {info.telephone || ""}
+      </a>
+    </div>
+  );
 }
 
-export default AnswerToQuestions
+export default AnswerToQuestions;

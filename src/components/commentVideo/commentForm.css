@@ -80,8 +80,8 @@ button:disabled {
   cursor: not-allowed;
 }
 
-@media (max-width: 768px){
-  .form-group{
+@media (max-width: 768px) {
+  .form-group {
     flex-direction: column;
   }
 }

@@ -1,14 +1,13 @@
 import "./experienceAbout.css";
 
 // Import images
-import bismillah from "../../images/bismillah.png"
-import hotel from "../../icons/hotel_outline.png"
-import kabah from "../../icons/kabah_outline.png"
-import hour from "../../icons/24_7_outline.png"
-import passport from "../../icons/passport_outline.png"
+import bismillah from "../../images/bismillah.png";
+import hotel from "../../icons/hotel_outline.png";
+import kabah from "../../icons/kabah_outline.png";
+import hour from "../../icons/24_7_outline.png";
+import passport from "../../icons/passport_outline.png";
 import Info from "../../service/info";
 import useFetch from "../../hooks/useFetch";
-
 
 function ExperienceAbout() {
   const { data: info } = useFetch(Info.getInfo);
@@ -18,12 +17,16 @@ function ExperienceAbout() {
       <div className="about">
         <img src={bismillah} alt="bismillah-image" />
         <h1 className="title">
-          Biz {info.experience ? info.experience : "uzoq"} yillik tajribaga ega sayyohlik agentligimiz
+          Yusro Tour {info.experience || " uzoq "} yillik tajribaga ega
+          sayyohlik agentligidir
         </h1>
         <p>
-          Biz Umra-Haj sayohati sohasida {info.experience ? info.experience + " yildan ortiq vaqt" : "yillar"}  davomida
-          ishladik va biz o'zimizni hech ikkilanmay professional, qobiliyatli va
-          mehmondo'st deb aytishga ishonchimiz komil.
+          Biz Umra va Haj ziyorati turizm yo'nalishida{" "}
+          {info.experience
+            ? info.experience + " yildan ziyod vaqt "
+            : " yillar "}{" "}
+          davomida faoliyat yuritib kelamiz. Ziyoratchilarimiz uchun esa
+          professional xizmat ko'rsatib, ishonchlarini doimo oqlaymiz.
         </p>
         <div className="items">
           <div className="item">

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from "react";
 
 const useBlogFetch = (fetchFunction, deps) => {
   const [data, setData] = useState(null);
@@ -10,7 +10,7 @@ const useBlogFetch = (fetchFunction, deps) => {
     if (hasFetched.current) {
       setLoading(true);
     }
-    
+
     const loadData = async () => {
       try {
         const result = await fetchFunction();

@@ -1,12 +1,12 @@
-import React from "react";
 import "./styles.css";
+import React from "react";
 
 const Pagination = ({ previous, next, onPrevious, onNext }) => {
   return (
     <div className="pagination-controls">
       {previous && (
         <button onClick={onPrevious} className="pagination-button">
-         &laquo; Oldingi
+          &laquo; Oldingi
         </button>
       )}
       {next && (

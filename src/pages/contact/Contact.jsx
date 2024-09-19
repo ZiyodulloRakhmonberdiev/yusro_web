@@ -1,6 +1,6 @@
+import "./contact.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./contact.css";
 import ExtraPagesHeader from "./../../components/extraPagesHeader/ExtraPagesHeader";
 
 import phone_outline from "../../icons/phone_outline.png";
@@ -8,13 +8,13 @@ import message_outline from "../../icons/message_outline.png";
 import location_outline from "../../icons/location_outline.png";
 import Info from "../../service/info";
 import useFetch from "../../hooks/useFetch";
-import defaultMap from "../../images/defaultMap.png"
+import defaultMap from "../../images/image-default-post.jpg";
 import { useLocation } from "react-router-dom";
 
 function Contact() {
-  const [name, setName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState(localStorage.getItem("name") || "");
+  const [phoneNumber, setPhoneNumber] = useState(localStorage.getItem("phoneNumber") || "");
+  const [email, setEmail] = useState(localStorage.getItem("email") || "");
   const [message, setMessage] = useState("");
   const [messageGoal, setMessageGoal] = useState("");
   const [formErrors, setFormErrors] = useState({});
@@ -53,6 +53,12 @@ function Contact() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  // Formdagi ma'lumotlarni saqlash
+  useEffect(() => {
+    localStorage.setItem("name", name);
+    localStorage.setItem("phoneNumber", phoneNumber);
+    localStorage.setItem("email", email);
+  }, [name, phoneNumber, email]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -77,21 +83,23 @@ function Contact() {
         "https://api.yusro-tour.uz/api/v1/main/application-create/",
         data
       );
-      setName("");
-      setPhoneNumber("");
-      setEmail("");
+      // Faqat kerakli ma'lumotlarni saqlash
+      localStorage.removeItem("messageGoal");
+      localStorage.removeItem("message");
+
+      setSuccessMessage("Xabar yuborildi!");
       setMessage("");
       setMessageGoal("");
       setFormErrors({});
       setPlaceholder({});
-      setSuccessMessage("Xabar yuborildi!");
       setTimeout(() => {
         setSuccessMessage("");
       }, 3000);
     } catch (error) {
-      error.response.data.email
-        ? setError(`Email xato kiritildi`)
-        : setError(`Xabar yuborishda xatolik!`);
+      setError(error.response?.data?.email ? "Email xato kiritildi" : "Xabar yuborishda xatolik!");
+      // Xato holatida barcha ma'lumotlarni inputlarga qaytarish
+      setMessage(localStorage.getItem("message") || "");
+      setMessageGoal(localStorage.getItem("messageGoal") || "");
       setTimeout(() => {
         setError("");
       }, 3000);
@@ -115,7 +123,7 @@ function Contact() {
                 <img src={location_outline} alt="" />
                 <div className="about">
                   <span>Bizning manzil</span>
-                  <p>{info.location ? info.location : "O'zbekiston"}</p>
+                  <p>{info.location || "O'zbekiston"}</p>
                 </div>
               </div>
               <div className="detail">
@@ -139,7 +147,11 @@ function Contact() {
             </div>
           </div>
           <div className="map-container">
-            <img className="map" src={info.map_image ? info.map_image : defaultMap} alt="" />
+            <img
+              className="map"
+              src={info.map_image || defaultMap}
+              alt=""
+            />
           </div>
         </div>
         <div className="contact-form">
@@ -164,9 +176,7 @@ function Contact() {
             <div className="form-group">
               <input
                 type="text"
-                placeholder={
-                  placeholder.phoneNumber || "Telefon raqamingizni kiriting"
-                }
+                placeholder={placeholder.phoneNumber || "Telefon raqamingizni kiriting"}
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 className={formErrors.phoneNumber ? "error-input" : ""}
@@ -189,11 +199,11 @@ function Contact() {
             </div>
             <button type="submit" disabled={isLoading}>
               {isLoading ? (
-                <i class="fa-solid fa-spinner"></i>
+                <i className="fa-solid fa-spinner"></i>
               ) : error ? (
                 error
               ) : successMessage ? (
-                <i class="fa-solid fa-check"></i>
+                <i className="fa-solid fa-check"></i>
               ) : (
                 "Yuborish"
               )}

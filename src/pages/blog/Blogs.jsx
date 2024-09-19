@@ -1,16 +1,16 @@
-import './blog.css';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import Loader from './../../ui/Loader';
-import ArticleList from './../../components/articleList/ArticleList';
-import PopularPosts from './../../components/popularPosts/PopularPosts';
-import AnswerToQuestions from './../../components/answerToQuestions/AnswerToQuestions';
-import PostSection from './../../components/postSection/PostSection';
-import PostTags from './../../components/postTags/PostTags';
-import ExtraPagesHeader from './../../components/extraPagesHeader/ExtraPagesHeader';
-import Pagination from './../../helpers/Pagination';
-import NotAvailable from './../../helpers/NotAvailable';
-import { useLocation } from 'react-router-dom';
+import "./blog.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Loader from "./../../ui/Loader";
+import ArticleList from "./../../components/articleList/ArticleList";
+import PopularPosts from "./../../components/popularPosts/PopularPosts";
+import AnswerToQuestions from "./../../components/answerToQuestions/AnswerToQuestions";
+import PostSection from "./../../components/postSection/PostSection";
+import PostTags from "./../../components/postTags/PostTags";
+import ExtraPagesHeader from "./../../components/extraPagesHeader/ExtraPagesHeader";
+import Pagination from "./../../helpers/Pagination";
+import NotAvailable from "./../../helpers/NotAvailable";
+import { useLocation } from "react-router-dom";
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -44,7 +44,7 @@ const Blog = () => {
   useEffect(() => {
     const url = categoryId
       ? `https://api.yusro-tour.uz/api/v1/main/post/by-category/${categoryId}/?page=1&page_size=10`
-      : 'https://api.yusro-tour.uz/api/v1/main/post/?page=1&page_size=10';
+      : "https://api.yusro-tour.uz/api/v1/main/post/?page=1&page_size=10";
     fetchPosts(url);
   }, [categoryId]);
 
@@ -65,7 +65,7 @@ const Blog = () => {
   };
 
   return (
-    <div className='blog'>
+    <div className="blog">
       <ExtraPagesHeader title="Maqolalar" />
       <div className="container">
         {loading ? (
@@ -73,7 +73,7 @@ const Blog = () => {
         ) : error ? (
           <NotAvailable name={error} />
         ) : (
-          <div className='posts'>
+          <div className="posts">
             {posts?.length > 0 ? (
               <div className="blog-pagination">
                 <ArticleList articles={posts} />

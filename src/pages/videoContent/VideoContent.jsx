@@ -1,21 +1,20 @@
-import './videoContent.css';
-import { useEffect, useState } from 'react';
+import "./videoContent.css";
+import { useEffect, useState } from "react";
 
-import axios from 'axios';
-import Loader from './../../ui/Loader';
-import VideoList from './../../components/videoList/VideoList';
-import PopularPosts from './../../components/popularPosts/PopularPosts';
-import AnswerToQuestions from './../../components/answerToQuestions/AnswerToQuestions';
-// import VideoSection from './../../components/videoSection/VideoSection';
-import ExtraPagesHeader from './../../components/extraPagesHeader/ExtraPagesHeader';
-import Pagination from './../../helpers/Pagination';
-import NotAvailable from './../../helpers/NotAvailable';
-import useQueryParams from '../../hooks/useQueryParams';
+import axios from "axios";
+import Loader from "./../../ui/Loader";
+import VideoList from "./../../components/videoList/VideoList";
+import PopularPosts from "./../../components/popularPosts/PopularPosts";
+import AnswerToQuestions from "./../../components/answerToQuestions/AnswerToQuestions";
+import ExtraPagesHeader from "./../../components/extraPagesHeader/ExtraPagesHeader";
+import Pagination from "./../../helpers/Pagination";
+import NotAvailable from "./../../helpers/NotAvailable";
+import useQueryParams from "../../hooks/useQueryParams";
 
 const VideoContent = () => {
   const { params, updateQueryParams } = useQueryParams();
   const { page = 1, pageSize = 10, categoryId } = params;
-  
+
   const [videos, setVideos] = useState([]);
   const [nextPage, setNextPage] = useState(null);
   const [prevPage, setPrevPage] = useState(null);
@@ -46,23 +45,27 @@ const VideoContent = () => {
 
   const handleNextPage = () => {
     if (nextPage) {
-      const nextPageNumber = new URL(nextPage).searchParams.get('page');
+      const nextPageNumber = new URL(nextPage).searchParams.get("page");
       updateQueryParams({ page: nextPageNumber });
     }
   };
 
   const handlePrevPage = () => {
     if (prevPage) {
-      const prevPageNumber = new URL(prevPage).searchParams.get('page');
+      const prevPageNumber = new URL(prevPage).searchParams.get("page");
       updateQueryParams({ page: prevPageNumber });
     }
   };
 
   const handleCategorySelect = (selectedCategoryId) => {
-    updateQueryParams({ page: 1, page_size: pageSize, categoryId: selectedCategoryId });
+    updateQueryParams({
+      page: 1,
+      page_size: pageSize,
+      categoryId: selectedCategoryId,
+    });
   };
   return (
-    <div className='video-content blog'>
+    <div className="video-content blog">
       <ExtraPagesHeader title="Media" />
       <div className="container">
         {loading ? (
@@ -70,7 +73,7 @@ const VideoContent = () => {
         ) : error ? (
           <NotAvailable name={error} />
         ) : (
-          <div className='videos'>
+          <div className="videos">
             {videos.length > 0 ? (
               <div className="blog-pagination">
                 <VideoList videos={videos} className="video-list" />

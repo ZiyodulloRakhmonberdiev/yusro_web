@@ -1,99 +1,103 @@
 .category .container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .category .cards {
-	width: 100%;
-	display: grid;
-	grid-template-columns: auto auto auto;
-	gap: 30px;
-	background-color: var(--primary-color);
-	padding: 30px;
-	border-radius: 16px;
-	margin-top: -120px;
-	z-index: 2;
-	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 30px;
+  background-color: var(--primary-color);
+  padding: 30px;
+  border-radius: 16px;
+  margin-top: -120px;
+  z-index: 2;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .category .cards .card {
-	position: relative;
-	display: flex;
-	justify-content: start;
-	flex-direction: column;
-	text-align: center;
-	gap: 20px;
-	flex: 1;
-	overflow: hidden;
-	background-color: var(--primary-color);
+  position: relative;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+  flex: 1;
+  overflow: hidden;
+  background-color: var(--primary-color);
 }
 
 .category .cards .card .header-image {
-	height: 240px;
-	width: auto;
+  height: 240px;
+  width: auto;
 }
 
 .category .cards .card .header-image img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
 }
 
 .category .cards .card .header-image-icon {
-	width: 80px;
-	position: absolute;
-	left: 50%;
-	top: 175px;
-	transform: translateX(-50%);
+  width: 80px;
+  position: absolute;
+  left: 50%;
+  top: 175px;
+  transform: translateX(-50%);
 }
 
 .category .cards .card .title {
-	font-size: 24px;
-	font-weight: 500;
-	margin: 20px 15px 5px;
-	text-align: center;
-	margin-top: 1.5rem;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 20px 15px 5px;
+  text-align: center;
+  margin-top: 1.5rem;
 }
 
 .category .cards .card .description {
-	text-align: center;
-	font-size: 16px;
-	color: var(--primary-lighter-color);
-	margin: 0 15px 20px;
+  text-align: center;
+  font-size: 16px;
+  color: var(--primary-lighter-color);
+  margin: 0 15px 20px;
+}
+
+.category .cards .card .description.third {
+  text-align: left;
 }
 
 @media (max-width: 960px) {
-	.category .cards {
-		grid-template-columns: auto auto;
-		margin-top: 10px;
-	}
+  .category .cards {
+    grid-template-columns: auto auto;
+    margin-top: 10px;
+  }
 }
 
 @media (max-width: 640px) {
-	.category .cards {
-		grid-template-columns: auto;
-		gap: 20px;
-		padding: 10px;
-	}
-	.category .cards .card {
-		gap: 5px;
-	}
-	.category .cards .card .title {
-		font-size: 18px;
-		padding-top: 20px;
-		font-weight: 600;
-	}
+  .category .cards {
+    grid-template-columns: auto;
+    gap: 20px;
+    padding: 10px;
+  }
+  .category .cards .card {
+    gap: 5px;
+  }
+  .category .cards .card .title {
+    font-size: 18px;
+    padding-top: 20px;
+    font-weight: 600;
+  }
 
-	.category .cards .card .description {
-		font-size: 14px;
-		color: var(--primary-lighter-color);
-		margin: 0px 15px 20px;
-	}
-	.category .cards .card .header-image-icon {
-		width: 60px;
-		top: 195px;
-	}
+  .category .cards .card .description {
+    font-size: 14px;
+    color: var(--primary-lighter-color);
+    margin: 0px 15px 20px;
+  }
+  .category .cards .card .header-image-icon {
+    width: 60px;
+    top: 195px;
+  }
 }
