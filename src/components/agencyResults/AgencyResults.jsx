@@ -33,15 +33,19 @@ function AgencyResults() {
         <div className="about">
           <div className="title">
             Agentligimiz{" "}
-            {info.travelers ? info.travelers + " dan ortiq" : "yuzlab"} Umra-Haj
-            sayohatchilariga yordam bergan
+            {info.travelers
+              ? info.travelers?.toLocaleString() + " dan ortiq "
+              : " minglab "}{" "}
+            Umra-Haj ziyoratchilar uchun xizmat qilgan
           </div>
           <div className="image">
-            <a data-fancybox="gallery" href={info.about_us_video_url || info.about_us_video ||  defaultVideo}>
-              <img
-                src={info.about_us_poster || mosque_2}
-                alt=""
-              />
+            <a
+              data-fancybox="gallery"
+              href={
+                info.about_us_video_url || info.about_us_video || defaultVideo
+              }
+            >
+              <img src={info.about_us_poster || mosque_2} alt="" />
               <div className="play-icon-div">
                 <button className="play-icon-wrapper">
                   <div className="triangle"></div>
@@ -58,8 +62,9 @@ function AgencyResults() {
             <div className="about">
               <div className="title">Umra-Haj tur operatori</div>
               <p>
-                Tashkilot joylarni qidirish va buyurtma berish, shartnomalar
-                tuzish va muzokaralar olib borishda ko'maklashadi.{" "}
+                Tashkilot manzillarini qidirishda, buyurtma berishda,
+                shartnomalarni tuzib, muzokaralarni olib borishda
+                ko'maklashishadi.
               </p>
             </div>
           </div>

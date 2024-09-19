@@ -1,14 +1,15 @@
+import "./contact.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./contact.css";
 import ExtraPagesHeader from "./../../components/extraPagesHeader/ExtraPagesHeader";
 
+// import images
 import phone_outline from "../../icons/phone_outline.png";
 import message_outline from "../../icons/message_outline.png";
 import location_outline from "../../icons/location_outline.png";
 import Info from "../../service/info";
 import useFetch from "../../hooks/useFetch";
-import defaultMap from "../../images/defaultMap.png"
+import defaultMap from "../../images/defaultMap.png";
 import { useLocation } from "react-router-dom";
 
 function Contact() {
@@ -52,7 +53,6 @@ function Contact() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -139,7 +139,11 @@ function Contact() {
             </div>
           </div>
           <div className="map-container">
-            <img className="map" src={info.map_image ? info.map_image : defaultMap} alt="" />
+            <img
+              className="map"
+              src={info.map_image ? info.map_image : defaultMap}
+              alt=""
+            />
           </div>
         </div>
         <div className="contact-form">

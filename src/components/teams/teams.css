@@ -1,47 +1,47 @@
 .carousel {
-	width: 100%;
-	min-height: 300px;
-	margin-top: 50px;
+  width: 100%;
+  min-height: 300px;
+  margin-top: 50px;
 }
 
 .carousel .mySwiper .swiper-wrapper {
-	width: 100%;
-	height: inherit;
+  width: 100%;
+  height: inherit;
 }
 
 .carousel .mySwiper .swiper-slide {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 20px;
-	text-align: center;
-	padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  padding-bottom: 50px;
 }
 
 .carousel .mySwiper .swiper-slide .image {
-	height: 300px;
-	width: 300px;
-	background-image: url("../../icons/sec_help_fill.png");
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center center;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
+  height: 300px;
+  width: 300px;
+  background-image: url("../../icons/sec_help_fill.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .carousel .mySwiper .swiper-slide .image img {
-	width: 150px;
+  width: 150px;
 }
 
 .carousel .mySwiper .swiper-slide .about .name {
-	font-size: 20px;
-	font-weight: 600;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .carousel .mySwiper .swiper-slide .about .description {
-	font-size: 16px;
-	color: var(--primary-lighter-color);
-	margin-top: 5px;
+  font-size: 16px;
+  color: var(--primary-lighter-color);
+  margin-top: 5px;
 }

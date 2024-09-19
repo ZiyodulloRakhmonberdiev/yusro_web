@@ -59,7 +59,7 @@ const Comment = ({ comment, postId }) => {
             )}
           </>
         )}
-        </div>
+      </div>
       <div className="buttons">
         <button
           onClick={() => setShowReplyForm(!showReplyForm)}
@@ -83,7 +83,7 @@ const Comment = ({ comment, postId }) => {
             <div>
               {loadingReplies ? (
                 <p>Javoblar yuklanmoqda...</p>
-              ) : ( 
+              ) : (
                 <p>Javoblar yo'q</p>
               )}
             </div>

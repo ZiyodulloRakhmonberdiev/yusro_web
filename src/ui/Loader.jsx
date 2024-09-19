@@ -1,9 +1,7 @@
-import './loader.css'
+import "./loader.css";
 
 function Loader() {
-	return (
-		<div className='loader'></div>
-	)
+  return <div className="loader"></div>;
 }
 
-export default Loader
+export default Loader;

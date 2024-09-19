@@ -1,9 +1,9 @@
 import "./postSection.css";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import useFetch from "./../../hooks/useFetch";
 import BlogArticle from "../../service/blog";
 import Loader from "../../ui/Loader";
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
 
 function PostSection({ onCategorySelect }) {
   const {
@@ -22,7 +22,6 @@ function PostSection({ onCategorySelect }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname, handleCategorySelect]);
-
 
   return (
     <div className="post-section">

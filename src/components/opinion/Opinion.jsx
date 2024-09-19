@@ -35,7 +35,6 @@ function Opinion() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-
   return (
     <div className="opinion-section">
       <div className="container">
@@ -43,7 +42,7 @@ function Opinion() {
           <Title
             img={kabah}
             title="Fikrlar"
-            whiteDescription="Har yili yuzlab mijozlar biz orqali safarga chiqishmoqda."
+            whiteDescription="Har yili yuzlab mijozlar agentligimiz orqali sayohatlarga chiqishadi"
           />
         </div>
         <div className="opinion-carousel">

@@ -45,22 +45,24 @@ function SelectedPage({ packages, tours, info, pageType }) {
             </div>
             <div className="description">
               <p>
-                O'zbekistondagi eng tajribali tur agentligi, oxirgi{" "}
-                {info.experience ? info.experience + " yil" : "uzoq yillar"}{" "}
+                O'zbekistonning eng tajribali va ishonchli tur agentligimiz
+                oxirgi{" "}
+                {info.experience ? info.experience + " yil " : " uzoq yillar "}{" "}
                 davomida{" "}
-                {info.travelers ? info.travelers + " dan ortiq" : "yuzlab"} Haj
-                va Umra sayohatchilariga yordam bergan va Saudiya hukumatining
-                ko'plab yutuqlari uchun mukofotlarni qo'lga kiritgan agentlik
-                bilan birga ekaningizga 100% ishonch hosil qiling
+                {info.travelers ? info.travelers?.toLocaleString() + " dan ortiq " : " minglab "}{" "}
+                Umra-Haj ziyoratchilariga xizmat qilib kelmoqda. Hamda ushbu
+                xizmatlarimiz davomida Saudiya hukumatining ko'plab yutuq va
+                mukofotlarini qo'lga kiritganmiz. Biz bilan ziyoratga yo'l olish
+                qaroringizni 100% oqlaymiz.
               </p>
             </div>
             <div className="description">
               <p>
-                Har bir inson Haj yoki Umra ziyoratini ado etish yo'lida to'siq
-                bo'lib qolishi mumkin bo'lgan ba'zi muammolarga duch keladi.
-                Aksariyat fuqarolar vizalar va pasportlarni rasmiylashtirish
-                uchun to'g'ri vaqtda to'g'ri joyga murojaat qilmaydi va ko'p
-                vaqt yo'qotadi. Siz ham vaqtingizni bekorga sarflamang!
+                Har bir mo'min Haj va Umra ziyoratini ado etish jarayonida
+                muammo va to'siqlarga duch kelishi tabiiy. Aksariyat hollarda
+                fuqarolar viza va passportlarini rasmiylashtirish uchun kerakli
+                manzilga murojaat qilishmaydi va oqibatda ko'p vaqt
+                yo'qotishadi. Biz bilan esa vaqtingizni yo'qotmaysiz!
               </p>
             </div>
             <p className="offers-p">Sizga taklif etamiz:</p>

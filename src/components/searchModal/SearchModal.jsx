@@ -9,9 +9,8 @@ const SearchModal = ({
   handleSearchSubmit,
   handleSearchChange,
   searchTerm,
-  isSearching
+  isSearching,
 }) => {
-  // const [isSearching, setIsSearching] = useState(false); // Qidiruv jarayoni
   const [loading, setLoading] = useState(false); // Yuklanish holati
   const [success, setSuccess] = useState(false); // Qidiruv muvaffaqiyatli tugagan holat
   const navigate = useNavigate();
@@ -31,7 +30,6 @@ const SearchModal = ({
   const handleSearch = async (e) => {
     e.preventDefault();
     setLoading(true); // Yuklanishni boshlash
-    // setIsSearching(true); // Qidiruvni boshlash
 
     await handleSearchSubmit(e); // Qidiruvni yuborish
 

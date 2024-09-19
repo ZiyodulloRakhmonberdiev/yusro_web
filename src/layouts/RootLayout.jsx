@@ -1,11 +1,13 @@
 import "./rootLayout.css";
-import { Fancybox } from "@fancyapps/ui";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+
 import { useEffect, useState } from "react";
+import { Link, Outlet } from "react-router-dom";
+import axios from "axios";
+import { Fancybox } from "@fancyapps/ui";
+
 import ScrollToTop from "../helpers/ScrollToTop";
 import Sidebar from "./../components/sidebar/Sidebar";
 import SearchModal from "../components/searchModal/SearchModal";
-import axios from "axios";
 import useFetch from "../hooks/useFetch";
 import Info from "../service/info";
 import Loader from "../ui/Loader";
@@ -186,14 +188,8 @@ function RootLayout() {
                 <img src={phone_icon} alt="" />
                 <div className="about">
                   <span>Hoziroq bizga qo'ng'iroq qiling</span>
-                  <a
-                    href={
-                      info.telephone
-                        ? `tel:${info.telephone}`
-                        : "tel:+998 55 500 22 28"
-                    }
-                  >
-                    {info.telephone ? info.telephone : "+998 55 500 22 28"}
+                  <a href={`tel:${info.telephone || ""}`}>
+                    {info.telephone || ""}
                   </a>
                 </div>
               </div>
@@ -201,15 +197,7 @@ function RootLayout() {
                 <img src={mail_icon} alt="" />
                 <div className="about">
                   <span>Email manzilimiz</span>
-                  <a
-                    href={
-                      info.email
-                        ? `mailto:${info.email}`
-                        : "mailto:admin@yusro.uz"
-                    }
-                  >
-                    {info.email ? info.email : "admin@yusro.uz"}
-                  </a>
+                  <a href={`mailto:${info.email || ""}`}>{info.email || ""}</a>
                 </div>
               </div>
               <div className="search-wrapper">
@@ -332,11 +320,11 @@ function RootLayout() {
                     <img src={logo} alt="" />
                     <div className="info">
                       <p>
-                        Yusro turizm agentligi O‘zbekistondagi eng ishonchli,
-                        tezkor va {info.expeirence ? info.expeirence : "uzoq"}{" "}
-                        yillik tajribaga ega kompaniyalardan biri hisoblanadi.
-                        Biz sizga qulay va oson sayohat qilishni kafolat
-                        beramiz.
+                        «Yusro Tour» turizm agentligi O'zbekistondagi eng
+                        ishonchli, tezkor va{" "}
+                        {info.expeirence ? info.expeirence : "uzoq"} yillik
+                        tajribaga ega kompaniyalardan biridir. Biz bilan qulay
+                        va oson sayohat qilishingizga kafolat beramiz!
                       </p>
                       <div className="social-networks">
                         <a
@@ -420,43 +408,23 @@ function RootLayout() {
                     <div className="details">
                       <div className="detail">
                         <img src={phone} alt="" />
-                        <a
-                          href={
-                            info.telephone
-                              ? `tel:${info.telephone}`
-                              : "tel:+998 55 500 22 28"
-                          }
-                        >
-                          {info.telephone
-                            ? info.telephone
-                            : "+998 55 500 22 28"}
+                        <a href={`tel:${info.telephone || ""}`}>
+                          {info.telephone || ""}
                         </a>
                       </div>
                       <div className="detail">
                         <img src={telegram} alt="" />
-                        <a
-                          href={info.telegram_admin ? info.telegram_admin : ""}
-                        >
-                          Yusro Admin
-                        </a>
+                        <a href={info.telegram_admin || ""}>Yusro Admin</a>
                       </div>
                       <div className="detail">
                         <img src={message} alt="" />
-                        <a
-                          href={
-                            info.email
-                              ? `mailto:${info.email}`
-                              : "mailto:admin@yusro.uz"
-                          }
-                        >
-                          {info.email ? info.email : "admin@yusro.uz"}
+                        <a href={`mailto:${info.email || ""}`}>
+                          {info.email || ""}
                         </a>
                       </div>
                       <div className="detail">
                         <img src={location} alt="" />
-                        <span>
-                          {info.location ? info.location : "O'zbekiston"}
-                        </span>
+                        <span>{info.location || "O'zbekiston"}</span>
                       </div>
                     </div>
                   </div>

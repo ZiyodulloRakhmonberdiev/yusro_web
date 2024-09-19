@@ -1,35 +1,46 @@
-import './faq.css'
-import { useState } from 'react';
-import useFetch from '../../hooks/useFetch';
-import QuestionsByUser from '../../service/faq';
-import Loader from '../../ui/Loader';
-import NotAvailable from '../../helpers/NotAvailable';
+import "./faq.css";
+import { useState } from "react";
+
+import useFetch from "../../hooks/useFetch";
+import QuestionsByUser from "../../service/faq";
+import Loader from "../../ui/Loader";
+import NotAvailable from "../../helpers/NotAvailable";
 
 function FaqComponent() {
-    const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(null);
 
-    const { data: faqs, loading, error } = useFetch(QuestionsByUser.getQuestionsByUser)
+  const {
+    data: faqs,
+    loading,
+    error,
+  } = useFetch(QuestionsByUser.getQuestionsByUser);
 
-    const handleToggle = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
+  const handleToggle = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
-    return (
-        <div className='faq'>
-            <div className='faq-title'>Tez-tez so'raladigan savollar:</div>
-            <div className="faq-items">
-                {loading ? <Loader /> : error ? <NotAvailable name={error.message}/> : faqs.results?.map((faq, index) => (
-                    <div key={index} className="faq-item">
-                        <h3 onClick={() => handleToggle(index)}>
-                            <span>{faq.question}</span>
-                            <i className='fa-solid fa-chevron-bottom'></i>
-                        </h3>
-                        {openIndex === index && <p>{faq.answer}</p>}
-                    </div>
-                ))}
+  return (
+    <div className="faq">
+      <div className="faq-title">Ko'p so'raladigan savollar:</div>
+      <div className="faq-items">
+        {loading ? (
+          <Loader />
+        ) : error ? (
+          <NotAvailable name={error.message} />
+        ) : (
+          faqs.results?.map((faq, index) => (
+            <div key={index} className="faq-item">
+              <h3 onClick={() => handleToggle(index)}>
+                <span>{faq.question}</span>
+                <i className="fa-solid fa-chevron-bottom"></i>
+              </h3>
+              {openIndex === index && <p>{faq.answer}</p>}
             </div>
-        </div>
-    )
+          ))
+        )}
+      </div>
+    </div>
+  );
 }
 
-export default FaqComponent
+export default FaqComponent;

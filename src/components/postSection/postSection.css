@@ -1,55 +1,55 @@
 .post-section {
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .post-section .title {
-    font-size: 24px;
-    font-weight: 500;
+  font-size: 24px;
+  font-weight: 500;
 }
 
 .post-section .items {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 
 .post-section .items .item {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--primary-lighter-color);
-    cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--primary-lighter-color);
+  cursor: pointer;
 }
 
 .post-section .items .item .name {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .post-section .items .item .name i {
-    color: var(--primary-main-color);
+  color: var(--primary-main-color);
 }
 
 .post-section .items .item .count {
-    width: 10px;
-    height: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    color: var(--secondary-color);
-    background-color: var(--primary-lighter-color);
-    border: none;
-    border-radius: 50%;
-    color: var(--primary-color);
+  width: 10px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  color: var(--secondary-color);
+  background-color: var(--primary-lighter-color);
+  border: none;
+  border-radius: 50%;
+  color: var(--primary-color);
 }

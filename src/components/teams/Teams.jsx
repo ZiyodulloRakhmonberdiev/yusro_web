@@ -69,9 +69,7 @@ function Teams() {
                   </div>
                   <div className="about">
                     <div className="name">{team.full_name}</div>
-                    <div className="description">
-                      {team.position}
-                    </div>
+                    <div className="description">{team.position}</div>
                   </div>
                 </SwiperSlide>
               ))}

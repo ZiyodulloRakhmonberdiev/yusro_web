@@ -1,72 +1,75 @@
-import './home.css'
-import { Link } from 'react-router-dom'
+import "./home.css";
+import { Link } from "react-router-dom";
 
-import Category from './../../components/category/Category';
-import OurAmenities from './../../components/ourAmenities/OurAmenities';
-import AgencyExperience from './../../components/agencyExperience/AgencyExperience';
-import ContactUs from './../../components/contactUs/ContactUs';
-import TourPackages from './../../components/tourPackages/TourPackages';
-import Opinion from './../../components/opinion/Opinion';
-import ContactAboutSection from './../../components/contactAboutSection/ContactAboutSection';
-import Partners from './../../components/partners/Partners';
-import News from './../../components/news/News';
-import ExperienceAbout from './../../components/experienceAbot/ExperienceAbout';
+import Category from "./../../components/category/Category";
+import OurAmenities from "./../../components/ourAmenities/OurAmenities";
+import AgencyExperience from "./../../components/agencyExperience/AgencyExperience";
+import ContactUs from "./../../components/contactUs/ContactUs";
+import TourPackages from "./../../components/tourPackages/TourPackages";
+import Opinion from "./../../components/opinion/Opinion";
+import ContactAboutSection from "./../../components/contactAboutSection/ContactAboutSection";
+import Partners from "./../../components/partners/Partners";
+import News from "./../../components/news/News";
+import ExperienceAbout from "./../../components/experienceAbot/ExperienceAbout";
 
 // import images
-import nabawi from "./images/nabawi.png"
-import wrap from "./images/wrap.png"
+import nabawi from "./images/nabawi.png";
+import wrap from "./images/wrap.png";
 
 function Home() {
-	return (
-		<div className='home'>
-			<div className="agency-about">
-				<div className="container">
-					<span>UMRA-HAJ TURIZM AGENTLIGI</span>
-					<h1>yusro agentligining <br />rasmiy sahifasiga <br /> xush kelibsiz!</h1>
-					<Link to='/packages'>Bizning paketlarimiz</Link>
-				</div>
-			</div>
-			{/* category */}
-			<Category />
- 
-			{/* experience */}
-			<div className="agency-experience2 container">
-				<div className="image">
-					<div className="image-wrapper">
-						<img src={wrap} alt="" />
-					</div>
-					<img src={nabawi} alt="" className='for-wrapper' />
-				</div>
-				<ExperienceAbout />
-			</div>
+  return (
+    <div className="home">
+      <div className="agency-about">
+        <div className="container">
+          <span>UMRA-HAJ TURIZM AGENTLIGI</span>
+          <h1>
+            yusro agentligining <br />
+            rasmiy sahifasiga <br /> xush kelibsiz!
+          </h1>
+          <Link to="/packages">Bizning paketlarimiz</Link>
+        </div>
+      </div>
+      {/* category */}
+      <Category />
 
-			{/* amenities */}
-			<OurAmenities />
+      {/* experience */}
+      <div className="agency-experience2 container">
+        <div className="image">
+          <div className="image-wrapper">
+            <img src={wrap} alt="" />
+          </div>
+          <img src={nabawi} alt="" className="for-wrapper" />
+        </div>
+        <ExperienceAbout />
+      </div>
 
-			{/* agency ecperience */}
-			<AgencyExperience />
+      {/* amenities */}
+      <OurAmenities />
 
-			{/* contact */}
-			<div className="contact-us">
-				<div className="container">
-					<ContactAboutSection className="about-section" />
-					<ContactUs className="contact-section" />
-				</div>
-			</div>
+      {/* agency ecperience */}
+      <AgencyExperience />
 
-			{/* TourPackages */}
-			<TourPackages />
+      {/* contact */}
+      <div className="contact-us">
+        <div className="container">
+          <ContactAboutSection className="about-section" />
+          <ContactUs className="contact-section" />
+        </div>
+      </div>
 
-			{/* opinon */}
-				<Opinion />
+      {/* TourPackages */}
+      <TourPackages />
 
-			{/* partners */}
-			<Partners />
+      {/* opinon */}
+      <Opinion />
 
-			{/* news */}
-			<News />
-		</div>
-	)
+      {/* partners */}
+      <Partners />
+
+      {/* news */}
+      <News />
+    </div>
+  );
 }
 
-export default Home
+export default Home;

@@ -1,10 +1,12 @@
 import "./ourAmenities.css";
+
 import { Link } from "react-router-dom";
+
+// import components
 import Title from "./../../ui/Title";
 import Loader from "./../../ui/Loader";
 import useFetch from "./../../hooks/useFetch";
 import ComfortItem from "./../../service/comfort";
-import NotAvailable from "../../helpers/NotAvailable";
 
 // import images
 import kabah from "../../icons/kabah_outline.png";
@@ -44,7 +46,7 @@ function OurAmenities() {
           <Title
             img={kabah}
             title="Qulayliklarimiz"
-            description="Umra-Haj ziyoratlarini birlashtirishda yuqori tajribaga ega"
+            description="«Yusro Tour» Umra-Haj ziyoratlarini tashkil etishda yuqori tajribaga ega agentlik bo'lib, sizga sayohat uchun ushbu xizmatlarni taklif etadi:"
           />
         </div>
         <div className="amenities-grid">

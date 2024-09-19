@@ -1,5 +1,5 @@
 // useFetch.js
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from "react";
 
 const useFetch = (fetchData) => {
   const [data, setData] = useState([]);
