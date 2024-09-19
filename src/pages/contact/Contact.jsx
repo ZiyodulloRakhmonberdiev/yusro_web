@@ -8,7 +8,7 @@ import message_outline from "../../icons/message_outline.png";
 import location_outline from "../../icons/location_outline.png";
 import Info from "../../service/info";
 import useFetch from "../../hooks/useFetch";
-import defaultMap from "../../images/defaultMap.png";
+import defaultMap from "../../images/image-default-post.jpg";
 import { useLocation } from "react-router-dom";
 
 function Contact() {
@@ -123,7 +123,7 @@ function Contact() {
                 <img src={location_outline} alt="" />
                 <div className="about">
                   <span>Bizning manzil</span>
-                  <p>{info.location ? info.location : "O'zbekiston"}</p>
+                  <p>{info.location || "O'zbekiston"}</p>
                 </div>
               </div>
               <div className="detail">
@@ -149,7 +149,7 @@ function Contact() {
           <div className="map-container">
             <img
               className="map"
-              src={info.map_image ? info.map_image : defaultMap}
+              src={info.map_image || defaultMap}
               alt=""
             />
           </div>

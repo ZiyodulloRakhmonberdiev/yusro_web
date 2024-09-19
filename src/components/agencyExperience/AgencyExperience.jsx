@@ -5,7 +5,7 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 // import images
 import nabawi from "../../images/nabawi_9.jpg";
-import nabawi_3 from "../../images/nabawi_3.jpg";
+import nabawi_4 from "../../images/nabawi_4.jpg";
 import security from "../../icons/sec_tall_wrap.png";
 import Info from "../../service/info";
 import useFetch from "../../hooks/useFetch";
@@ -49,7 +49,7 @@ function AgencyExperience() {
               }
             >
               <img
-                src={info.haj_instruction_poster || nabawi_3}
+                src={info.haj_instruction_poster || nabawi_4}
                 className="poster-img"
                 alt=""
               />
