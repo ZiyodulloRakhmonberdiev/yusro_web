@@ -18,12 +18,6 @@ function ContactAboutSection() {
             to'g'ri manzildasiz!
           </h1>
           <p className="main-subtitle">
-            Biz Umra-Haj sayohati sohasida{" "}
-            {info.experience
-              ? info.experience + " yildan ortiq vaqt"
-              : "uzoq yillar"}{" "}
-            davomida ishladik va biz o'zimizni hech ikkilanmay professional,
-            qobiliyatli va mehmondo'st deb aytishga ishonchimiz komil.
             Agentligimiz Umra-Haj ziyoratlarini tashkil etish yo'nalishida{" "}
             {info.experience ? info.experience + " yillik" : "uzoq yillik"}{" "}
             tajribaga ega bo'lgani bois, biz o'zimiz va xizmatlarimizni hech
@@ -34,9 +28,7 @@ function ContactAboutSection() {
             <div className="we-result">
               <img src={sign} alt="icon" />
               <div className="we-result-about">
-                <p>
-                  {info.successful_visas ? info.successful_visas?.toLocaleString() : "Yuzlab"}
-                </p>
+                <p>{info.successful_visas?.toLocaleString() || "Yuzlab"}</p>
                 <span>muvaffaqiyatli vizalar</span>
               </div>
             </div>
@@ -44,7 +36,7 @@ function ContactAboutSection() {
               <img src={kabahlocation} alt="icon" />
               <div className="we-result-about">
                 <p>
-                  {info.travelers ? info.travelers?.toLocaleString() : "Yuzlab"}
+                  {info.travelers?.toLocaleString() || "Yuzlab"}
                 </p>
                 <span>Umra sayohatchilari</span>
               </div>
