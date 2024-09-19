@@ -35,7 +35,7 @@ function ContactAboutSection() {
               <img src={sign} alt="icon" />
               <div className="we-result-about">
                 <p>
-                  {info.successful_visas ? info.successful_visas : "Yuzlab"}
+                  {info.successful_visas ? info.successful_visas?.toLocaleString() : "Yuzlab"}
                 </p>
                 <span>muvaffaqiyatli vizalar</span>
               </div>

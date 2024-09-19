@@ -66,7 +66,7 @@ function AgencyExperience() {
         <div className="main-title">
           <h1>
             Turizm agentligimiz{" "}
-            {info.travelers ? info.travelers + " dan ortiq" : "yuzlab"} Umra-Haj
+            {info.travelers ? info.travelers?.toLocaleString() + " dan ortiq" : "yuzlab"} Umra-Haj
             ziyoratchilariga o'z xizmatlarini ko'rsatib kelmoqda!
           </h1>
           <p>

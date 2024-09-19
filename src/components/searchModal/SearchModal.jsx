@@ -16,8 +16,13 @@ const SearchModal = ({
   const navigate = useNavigate();
 
   const handlePostClick = (postId) => {
-    onClose(); // Modalni yopish
-    navigate(`/main/post/${postId}`);
+    if (window.location.pathname.includes("/main/post/")) {
+      navigate(`/main/post/${postId}`);
+      window.location.reload(); // Agar hozirgi sahifa /main/post/ sahifasi bo'lsa, sahifani qayta yuklang
+    } else {
+      onClose(); // Modalni yopish
+      navigate(`/main/post/${postId}`); // Yangi postga o'tish
+    }
   };
 
   const handleOverlayClick = (e) => {

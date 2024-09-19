@@ -1,5 +1,6 @@
 .agency-experience {
-  padding: 100px 0;
+  padding-top: 90px;
+  padding-bottom: 90px;
   display: flex;
   column-gap: 120px;
 }
@@ -243,7 +244,7 @@
 
 @media (max-width: 920px) {
   .agency-experience {
-    padding-top: 50;
+    padding-top: 50px;
     padding-bottom: 50px;
   }
   .grid-image-wrapper {
@@ -276,6 +277,10 @@
   }
 }
 @media (max-width: 550px) {
+  .agency-experience {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
   .agency-experience .images .sign1-wrapper h1 {
     font-size: 24px;
   }
