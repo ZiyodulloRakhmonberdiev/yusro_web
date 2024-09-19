@@ -47,6 +47,9 @@ function TourPackage() {
                 <div className="title">
                   <h1>{tourPackage.name || "Noma'lum paket"}</h1>
                 </div>
+                <div>
+                  <span className="prices">{tourPackage.price} $</span>
+                </div>
                 <ul className="tour-package-ul">
                   <span>O'z ichiga oladi:</span>
                   {tourPackage.includes && tourPackage.includes.length > 0 ? (

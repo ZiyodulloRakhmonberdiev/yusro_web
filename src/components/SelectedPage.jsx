@@ -3,22 +3,30 @@ import "./selectedPage.css";
 import ExtraPagesHeader from "./extraPagesHeader/ExtraPagesHeader";
 import ContactUs from "./contactUs/ContactUs";
 import AnswerToQuestions from "./answerToQuestions/AnswerToQuestions";
+
+// import images
 import kabah_1 from "../images/kabah_3.jpg";
 import umraImage from "../images/nabawi_7.jpg";
 import hajImage from "../images/kabah_4.jpg";
+import { useNavigate } from "react-router-dom";
 
 function SelectedPage({ packages, tours, info, pageType }) {
+  const navigate = useNavigate();
   const tourPackage = packages?.[0] || {};
 
-  const mainImage = 
-  pageType === "umra" ? umraImage :
-  pageType === "haj" ? hajImage :
-  kabah_1; // Default image if neither Umra nor Haj
+  const mainImage =
+    pageType === "umra" ? umraImage : pageType === "haj" ? hajImage : kabah_1; // Default image if neither Umra nor Haj
 
-  const title = 
-  pageType === "umra" ? "Umra ziyorati" :
-  pageType === "haj" ? "Haj ziyorati" :
-  "Umra-Haj ziyorati"
+  const title =
+    pageType === "umra"
+      ? "Umra ziyorati"
+      : pageType === "haj"
+      ? "Haj ziyorati"
+      : "Umra-Haj ziyorati";
+
+  const handleOrderClick = (pack) => {
+    navigate(`/packages/${pack.id}`); // Navigate to the package detail page
+  };
 
   return (
     <div className="tour-package">
@@ -27,7 +35,10 @@ function SelectedPage({ packages, tours, info, pageType }) {
         <div className="first-container">
           <div className="tour-package-items">
             <div className="main-image">
-              <img src={tourPackage.image || mainImage} alt={tourPackage.name} />
+              <img
+                src={tourPackage.image || mainImage}
+                alt={tourPackage.name}
+              />
             </div>
             <div className="title">
               <h1>{title}</h1>
@@ -74,42 +85,6 @@ function SelectedPage({ packages, tours, info, pageType }) {
                 Sovg'alar (nimcha, sumka, zam-zam suvi)
               </li>
             </ul>
-            {/* <div className="packages">
-              {tours?.length > 0 ? (
-                tours.map((pack) => (
-                  <div className="package" key={pack.id}>
-                    <div className="package-image">
-                      <img src={pack.image || ""} alt={pack.name || ""} />
-                    </div>
-                    <div className="package-content">
-                      <h3>{pack.name}</h3>
-                      <ul>
-                        <p>O'z ichiga oladi:</p>
-                        {pack.includes?.length > 0 ? (
-                          pack.includes.map((include) => (
-                            <li key={include.id}>
-                              <i className="fa-solid fa-check"></i>
-                              {include.name}
-                            </li>
-                          ))
-                        ) : (
-                          <li>Ma'lumot mavjud emas</li>
-                        )}
-                      </ul>
-                      <span className="price">${pack.price}</span>
-                      <button
-                        className="order-btn"
-                        onClick={() => handleOrderClick(pack)}
-                      >
-                        Batafsil
-                      </button>
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <p>Ayni vaqtda paketlar mavjud emas</p>
-              )}
-            </div> */}
             <div className="packages">
               {tours?.length > 0 ? (
                 tours.slice(-2).map((pack) => (

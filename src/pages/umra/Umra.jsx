@@ -8,7 +8,7 @@ import Info from '../../service/info';
 function Umra() {
     const { data: info } = useFetch(Info.getInfo);  // Fetch Umra-specific info
     const [tours, setTours] = useState([]);
-    const main_url = "http://95.46.96.78:7777/api/v1";
+    const main_url = "https://api.yusro-tour.uz/api/v1";
 
     useEffect(() => {
         if (info?.umra) {

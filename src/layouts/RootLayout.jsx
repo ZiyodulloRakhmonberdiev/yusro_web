@@ -135,7 +135,7 @@ function RootLayout() {
   return (
     <div className="root">
       <ScrollToTop />
-      <div className="marquee">
+      {/* <div className="marquee">
         <div className="marquee-text">Sayt test rejimida ishlayapti</div>
         <div className="marquee-text">Sayt test rejimida ishlayapti</div>
         <div className="marquee-text">Sayt test rejimida ishlayapti</div>
@@ -143,7 +143,7 @@ function RootLayout() {
         <div className="marquee-text">Sayt test rejimida ishlayapti</div>
         <div className="marquee-text">Sayt test rejimida ishlayapti</div>
         <div className="marquee-text">Sayt test rejimida ishlayapti</div>
-      </div>
+      </div> */}
       <header>
         <section className="main-head container">
           <div className="social-media">
@@ -169,7 +169,6 @@ function RootLayout() {
             <Link to="/about-us">Biz haqimizda</Link>
             <Link to="/opinion">Fikrlar</Link>
             <Link to="/umra">Umra</Link>
-            <Link to="/haj">Haj</Link>
             <Link to="/contact">Aloqa</Link>
           </div>
         </section>

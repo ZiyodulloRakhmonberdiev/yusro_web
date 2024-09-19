@@ -49,9 +49,6 @@ function Sidebar({ active, setActive }) {
           <Link to="/umra" onClick={handleLinkClick}>
             Umra
           </Link>
-          <Link to="/haj" onClick={handleLinkClick}>
-            Haj
-          </Link>
           <Link to="/contact" onClick={handleLinkClick}>
             Aloqa
           </Link>

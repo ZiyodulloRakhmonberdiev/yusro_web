@@ -48,6 +48,16 @@
 	line-height: 25px;
 }
 
+.tour-offer .prices{
+		font-size: 16px;
+		color: var(--primary-color);
+		background-color: #f1c30e;
+		padding: 10px 15px;
+		border-radius: 4px;
+		font-weight: 700;
+		width: auto !important;
+}
+
 .tour-package-ul {
 	padding: 0 !important;
 	display: flex;
@@ -82,7 +92,6 @@
 
 .package-items {
 	display: grid;
-	/* grid-template-columns: repeat(2, 1fr); */
 }
 
 .tour-package .items{
